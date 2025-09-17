@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Verbaflow LLC Website
 
 A modern, responsive website built with Next.js, TypeScript, and Tailwind CSS, replicating the Webflow design for Verbaflow LLC - a business growth and AI automation company.
@@ -221,3 +222,7 @@ For questions or support, please contact the development team or create an issue
 ---
 
 Built with ❤️ using Next.js, TypeScript, and Tailwind CSS
+=======
+# vflow
+Verbaflow Website
+>>>>>>> 6b57d2946091b697c1e5edeb195ef1ff8f84d16c
