@@ -8,8 +8,60 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import FAQSection from '../components/FAQSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import { client } from '../sanity/lib/client';
 
-export default function Home() {
+// Fetch testimonials from Sanity
+async function getTestimonials() {
+  try {
+    const testimonials = await client.fetch(`
+      *[_type == "testimonial"] | order(order asc, _createdAt desc) {
+        _id,
+        name,
+        title,
+        company,
+        testimonial,
+        rating,
+        image,
+        featured
+      }
+    `);
+    return testimonials;
+  } catch (error) {
+    console.error('Error fetching testimonials:', error);
+    return [];
+  }
+}
+
+// Fetch services from Sanity
+async function getServices() {
+  try {
+    const services = await client.fetch(`
+      *[_type == "service" && active == true] | order(order asc, _createdAt desc) {
+        _id,
+        title,
+        description,
+        icon,
+        price,
+        features,
+        ctaText,
+        ctaLink,
+        featured,
+        active
+      }
+    `);
+    return services;
+  } catch (error) {
+    console.error('Error fetching services:', error);
+    return [];
+  }
+}
+
+export default async function Home() {
+  const [testimonials, services] = await Promise.all([
+    getTestimonials(),
+    getServices()
+  ]);
+  
   return (
     <div className="min-h-screen">
       {/* Navigation */}
@@ -19,7 +71,7 @@ export default function Home() {
       <HeroSection />
       
       {/* Services Section */}
-      <ServicesSection />
+      <ServicesSection services={services} />
       
       {/* Business Info Section */}
       <BusinessInfoSection />
@@ -31,7 +83,7 @@ export default function Home() {
       <PricingSection />
       
       {/* Testimonials Section */}
-      <TestimonialsSection />
+      <TestimonialsSection testimonials={testimonials} />
       
       {/* FAQ Section */}
       <FAQSection />
