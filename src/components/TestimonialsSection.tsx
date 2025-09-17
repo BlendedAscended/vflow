@@ -1,4 +1,4 @@
-
+import Image from 'next/image'
 import { urlFor } from '../sanity/lib/image'
 
 // TypeScript interface for testimonial data
@@ -9,7 +9,13 @@ interface Testimonial {
   company?: string;
   testimonial: string;
   rating?: number;
-  image?: any; // Sanity image object
+  image?: {
+    asset: {
+      _ref: string;
+      _type: 'reference';
+    };
+    _type: 'image';
+  }; // Sanity image object
   featured?: boolean;
 }
 
@@ -76,11 +82,13 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
                 <div className="flex-shrink-0">
                   <div className="w-20 h-20 bg-gray-200 rounded-full overflow-hidden">
                     {testimonial.image ? (
-                      <img
-                        src={urlFor(testimonial.image).width(80).height(80).fit('crop').crop('center').url()}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                      />
+                      <Image
+                      src={urlFor(testimonial.image).width(80).height(80).fit('crop').crop('center').url()}
+                      alt={testimonial.name}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
                         <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
