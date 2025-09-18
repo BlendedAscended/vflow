@@ -79,6 +79,37 @@ export const serviceType = defineType({
       type: 'boolean',
       description: 'Show this service on the website',
       initialValue: true
+    }),
+    defineField({
+      name: 'slug',
+      title: 'URL Slug', 
+      type: 'slug',
+      options: { source: 'title' },
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'shortDescription', 
+      title: 'Short Description',
+      type: 'text',
+      description: 'For cards and navigation'
+    }),
+    defineField({
+      name: 'fullDescription',
+      title: 'Full Description', 
+      type: 'array',
+      of: [{type: 'block'}]
+    }),
+    defineField({
+      name: 'showInNavigation',
+      title: 'Show in Navigation Dropdown',
+      type: 'boolean',
+      initialValue: true
+    }),
+    defineField({
+      name: 'showInServicesSection', 
+      title: 'Show in Services Section',
+      type: 'boolean',
+      initialValue: true
     })
   ],
   preview: {

@@ -95,7 +95,8 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
     }
   ];
 
-  const displayServices = services && services.length > 0 ? services : defaultServices;
+  // Always show default services, plus any additional services from Sanity
+  const displayServices = [...defaultServices, ...(services || [])];
 
   return (
     <section className="w-full gradient-dark py-24 lg:py-40 relative overflow-hidden">

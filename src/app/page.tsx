@@ -56,10 +56,32 @@ async function getServices() {
   }
 }
 
+// Fetch FAQs from Sanity
+async function getFAQs() {
+  try {
+    const faqs = await client.fetch(`
+      *[_type == "faq" && active == true] | order(order asc, _createdAt desc) {
+        _id,
+        question,
+        answer,
+        category,
+        featured,
+        active,
+        order
+      }
+    `);
+    return faqs;
+  } catch (error) {
+    console.error('Error fetching FAQs:', error);
+    return [];
+  }
+}
+
 export default async function Home() {
-  const [testimonials, services] = await Promise.all([
+  const [testimonials, services, faqs] = await Promise.all([
     getTestimonials(),
-    getServices()
+    getServices(),
+    getFAQs()
   ]);
   
   return (
@@ -86,7 +108,7 @@ export default async function Home() {
       <TestimonialsSection testimonials={testimonials} />
       
       {/* FAQ Section */}
-      <FAQSection />
+      <FAQSection faqs={faqs} />
       
       {/* Contact Section */}
       <ContactSection />
