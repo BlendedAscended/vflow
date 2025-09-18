@@ -16,9 +16,9 @@ interface Service {
   title: string;
   slug: { current: string };
   shortDescription: string;
-  fullDescription: any[];
-  heroImage?: any;
-  gallery?: any[];
+  fullDescription: unknown[]; // Changed from any[]
+  heroImage?: unknown; // Changed from any
+  gallery?: unknown[];
   price?: string;
   pricingTiers?: Array<{
     name: string;
@@ -177,7 +177,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="max-w-8xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-6">
-                What's Included
+                What&apos;s Included
               </h2>
             </div>
             
@@ -331,7 +331,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-gray-300 mb-12 leading-relaxed">
-            Let's discuss how {service.title.toLowerCase()} can help grow your business.
+            Let&apos;s discuss how {service.title.toLowerCase()} can help grow your business.
           </p>
           <a
             href={service.ctaLink || '#contact'}
