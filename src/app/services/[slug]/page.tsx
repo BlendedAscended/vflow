@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { client } from '../../../sanity/lib/client';
@@ -16,9 +17,9 @@ interface Service {
   title: string;
   slug: { current: string };
   shortDescription: string;
-  fullDescription: unknown[]; // Changed from any[]
-  heroImage?: unknown; // Changed from any
-  gallery?: unknown[];
+  fullDescription: any[]; // Changed from any[]
+  heroImage?: any;
+  gallery?: any[];
   price?: string;
   pricingTiers?: Array<{
     name: string;
