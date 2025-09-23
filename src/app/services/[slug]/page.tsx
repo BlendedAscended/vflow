@@ -10,6 +10,9 @@ import { PortableText } from '@portabletext/react';
 type PricingTier = { name: string; price: string; description: string; features?: string[] };
 type Benefit = { title: string; description: string };
 type ProcessStep = { step: number; title: string; description: string };
+type Props = {
+  params: { slug: string };
+};
 
 interface Service {
   _id: string;
@@ -62,7 +65,7 @@ async function getService(slug: string): Promise<Service | null> {
 }
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: Props) {
 
   const service = await getService(params.slug);
   
@@ -81,7 +84,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 // Main component
-export default async function ServicePage({ params }: { params: { slug: string } }) {
+export default async function ServicePage({ params }: Props) {
   
   const service = await getService(params.slug);
 
