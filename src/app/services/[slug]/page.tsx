@@ -1,19 +1,56 @@
 import { notFound } from 'next/navigation';
-import { PortableTextBlock } from '@portabletext/react';
 import Image from 'next/image';
 import { client } from '../../../sanity/lib/client';
 import { urlFor } from '../../../sanity/lib/image';
 import { PortableText } from '@portabletext/react';
-import { Service } from '../../../sanity/lib/types';
+import { PortableTextBlock } from 'sanity';
 
-type Props = {
-  params: { slug: string };
-};
+// TypeScript interfaces
+interface ServicePageProps {
+  params: Promise<{ slug: string; }>
+}
 
-
+interface Service {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  shortDescription: string;
+  fullDescription: unknown[];
+  heroImage?: unknown[];
+  gallery?: unknown[];
+  price?: string;
+  pricingTiers?: Array<{
+    name: string;
+    price: string;
+    description: string;
+    features: string[];
+  }>;
+  features?: string[];
+  benefits?: Array<{
+    title: string;
+    description: string;
+    icon?: string;
+  }>;
+  process?: Array<{
+    step: number;
+    title: string;
+    description: string;
+  }>;
+  faq?: Array<{
+    question: string;
+    answer: string;
+  }>;
+  ctaText?: string;
+  ctaLink?: string;
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    keywords?: string[];
+  };
+}
 
 // Fetch service data
-async function getService(slugParam: string): Promise<Service | null> {
+async function getService(slug: string): Promise<Service | null> {
   try {
     const service = await client.fetch(`
       *[_type == "service" && slug.current == $slug && active == true][0] {
@@ -34,7 +71,7 @@ async function getService(slugParam: string): Promise<Service | null> {
         ctaLink,
         seo
       }
-    `, { slug: slugParam });
+    `, { slug });
     
     return service;
   } catch (error) {
@@ -44,9 +81,9 @@ async function getService(slugParam: string): Promise<Service | null> {
 }
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: Props) {
-
-  const service = await getService(params.slug);
+export async function generateMetadata({ params }: ServicePageProps) {
+  const { slug } = await params;
+  const service = await getService(slug);
   
   if (!service) {
     return {
@@ -63,9 +100,9 @@ export async function generateMetadata({ params }: Props) {
 }
 
 // Main component
-export default async function ServicePage({ params }: Props) {
-  
-  const service = await getService(params.slug);
+export default async function ServicePage({ params }: ServicePageProps) {
+  const { slug } = await params;
+  const service = await getService(slug);
 
   if (!service) {
     notFound();
@@ -83,7 +120,7 @@ export default async function ServicePage({ params }: Props) {
             <div className="space-y-8">
               <div>
                 <h1 className="text-4xl lg:text-6xl font-extrabold text-black mb-6 leading-tight">
-                  {service.title ?? ''}
+                  {service.title}
                 </h1>
                 <p className="text-xl text-gray-700 leading-relaxed mb-8">
                   {service.shortDescription}
@@ -129,7 +166,7 @@ export default async function ServicePage({ params }: Props) {
         <section className="py-24 bg-white">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <div className="prose prose-lg max-w-none">
-             <PortableText value={(service.fullDescription ?? []) as PortableTextBlock[]} />
+            <PortableText value={(service.fullDescription ?? []) as PortableTextBlock[]} />
             </div>
           </div>
         </section>

@@ -39,7 +39,7 @@ async function getServices() {
       *[_type == "service" && active == true] | order(order asc, _createdAt desc) {
         _id,
         title,
-        shortDescription,
+        description,
         icon,
         price,
         features,
@@ -55,6 +55,7 @@ async function getServices() {
     return [];
   }
 }
+
 
 // Fetch FAQs from Sanity
 async function getFAQs() {

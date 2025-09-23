@@ -3,22 +3,26 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image'; 
 import { client } from '../sanity/lib/client';
-import { Service } from '../sanity/lib/types'; 
 
+// TypeScript interface for navigation services
+interface NavigationService {
+  title: string;
+  slug: string;
+  active?: boolean;           // Add this line
+  showInNavigation?: boolean; // Add this line
+}
 
-
-// Fallback navigation services that always sho
-
-const defaultNavigationServices: Service[] = [
-  { _id: 'default-1', title: "Website Development", slug: { current: "website-development" }, description: "Custom website development." },
-  { _id: 'default-2', title: "Digital Marketing", slug: { current: "digital-marketing" }, description: "Full-service digital marketing." },
-  { _id: 'default-3', title: "AI Automation", slug: { current: "ai-automation" }, description: "AI-powered business automation." },
-  { _id: 'default-4', title: "Cloud Solutions", slug: { current: "cloud-solutions" }, description: "Secure and scalable cloud solutions." }
+// Fallback navigation services that always show
+const defaultNavigationServices: NavigationService[] = [
+  { title: "Website Development", slug: "website-development" },
+  { title: "Digital Marketing", slug: "digital-marketing" },
+  { title: "AI Automation", slug: "ai-automation" },
+  { title: "Cloud Solutions", slug: "cloud-solutions" }
 ];
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [services, setServices] = useState<Service[]>([]);
+  const [services, setServices] = useState<NavigationService[]>([]);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   // Fetch services for navigation dropdown
@@ -32,7 +36,7 @@ const Navigation = () => {
         });
         
         // Try a simpler query first
-        const navigationServices: Service[] = await client.fetch(`
+        const navigationServices: NavigationService[] = await client.fetch(`
           *[_type == "service"] {
             title,
             "slug": slug.current,
@@ -42,7 +46,7 @@ const Navigation = () => {
         `);
         
         // Filter on client side for now
-        const filteredServices = navigationServices.filter((service: Service) => 
+        const filteredServices = navigationServices.filter((service: NavigationService) => 
           service.active === true && service.showInNavigation === true
         );
         console.log('All services:', navigationServices);
@@ -109,8 +113,8 @@ const Navigation = () => {
                     }`}>
                       {services.map((service) => (
                         <a
-                        key={service.slug?.current}
-                        href={`/services/${service.slug?.current}`}
+                          key={service.slug}
+                          href={`/services/${service.slug}`}
                           className="block px-4 py-3 text-gray-700 hover:bg-[#9ecd9d] hover:text-white transition-colors duration-200 border-l-4 border-transparent hover:border-[#9ecd9d] rounded-lg"
                         >
                           <span className="font-medium">{service.title}</span>
@@ -180,8 +184,8 @@ const Navigation = () => {
                 <div className="mt-2 ml-4 space-y-2">
                   {services.map((service) => (
                     <a
-                    key={service.slug?.current}
-                    href={`/services/${service.slug?.current}`}
+                      key={service.slug}
+                      href={`/services/${service.slug}`}
                       className="block text-gray-600 hover:text-gray-800 py-1"
                     >
                       {service.title}

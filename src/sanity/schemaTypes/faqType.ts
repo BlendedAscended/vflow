@@ -36,54 +36,30 @@ export const faqType = defineType({
       name: 'featured',
       title: 'Featured FAQ',
       type: 'boolean',
-      description: 'Show this FAQ prominently',
       initialValue: false
     }),
     defineField({
       name: 'active',
       title: 'Active',
       type: 'boolean',
-      description: 'Show this FAQ on the website',
       initialValue: true
     }),
     defineField({
       name: 'order',
       title: 'Display Order',
       type: 'number',
-      description: 'Lower numbers appear first',
       initialValue: 1
     })
   ],
   preview: {
-    select: {
-      title: 'question',
-      subtitle: 'category',
-      active: 'active'
-    },
+    select: { title: 'question', subtitle: 'category', active: 'active' },
     prepare(selection) {
       const {title, subtitle, active} = selection
-      return {
-        title: title,
-        subtitle: `${subtitle} ${active ? '✅' : '❌'}`,
-      }
+      return { title, subtitle: `${subtitle} ${active ? '✅' : '❌'}` }
     }
   },
   orderings: [
-    {
-      title: 'Order',
-      name: 'orderAsc',
-      by: [
-        {field: 'order', direction: 'asc'},
-        {field: 'question', direction: 'asc'}
-      ]
-    },
-    {
-      title: 'Category',
-      name: 'categoryAsc',
-      by: [
-        {field: 'category', direction: 'asc'},
-        {field: 'order', direction: 'asc'}
-      ]
-    }
+    { title: 'Order', name: 'orderAsc', by: [ {field: 'order', direction: 'asc'}, {field: 'question', direction: 'asc'} ] },
+    { title: 'Category', name: 'categoryAsc', by: [ {field: 'category', direction: 'asc'}, {field: 'order', direction: 'asc'} ] }
   ]
 })
