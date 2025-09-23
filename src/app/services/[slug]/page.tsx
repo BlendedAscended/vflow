@@ -5,12 +5,7 @@ import { client } from '../../../sanity/lib/client';
 import { urlFor } from '../../../sanity/lib/image';
 import { PortableText } from '@portabletext/react';
 
-// TypeScript interfaces
-interface ServicePageProps {
-  params: {
-    slug: string;
-  };
-}
+
 
 type PricingTier = { name: string; price: string; description: string; features?: string[] };
 type Benefit = { title: string; description: string };
@@ -68,6 +63,7 @@ async function getService(slug: string): Promise<Service | null> {
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: { params: { slug: string } }) {
+
   const service = await getService(params.slug);
   
   if (!service) {
@@ -86,6 +82,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 // Main component
 export default async function ServicePage({ params }: { params: { slug: string } }) {
+  
   const service = await getService(params.slug);
 
   if (!service) {
