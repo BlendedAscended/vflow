@@ -1,16 +1,4 @@
-// TypeScript interface for service data
-interface Service {
-  _id: string;
-  title: string;
-  description: string;
-  icon?: string;
-  price?: string;
-  features?: string[];
-  ctaText?: string;
-  ctaLink?: string;
-  featured?: boolean;
-  active?: boolean;
-}
+import { Service } from '../sanity/lib/types';
 
 interface ServicesSectionProps {
   services?: Service[];
