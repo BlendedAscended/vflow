@@ -35,7 +35,7 @@ const BusinessInfoSection = () => {
               
               <div className="space-y-8">
                 <div className="flex justify-start">
-                  <div className="text-[var(--text-primary)] font-bold text-base uppercase tracking-wider bg-[var(--accent)] px-12 py-5 rounded-full border-2 border-[var(--accent)] shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="text-[var(--text-primary)] font-bold text-sm uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-full border border-[var(--accent)]">
                     Transformative Solutions for Resilient Brands.
                   </div>
                 </div>

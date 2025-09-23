@@ -110,9 +110,9 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-24 animate-fade-in-up">
           <div className="inline-block mb-6">
-            <p className="text-[var(--text-accent)] text-sm font-bold uppercase tracking-wider bg-[var(--section-bg-3)]/50 px-6 py-3 rounded-full border border-[var(--border)]">
+            <div className="text-[var(--text-accent)] text-sm font-bold uppercase tracking-wider bg-[var(--section-bg-3)]/50 px-8 py-4 rounded-full border border-[var(--border)]">
               Where strategy, technology, and automation converge, predictable growth emerges.
-            </p>
+            </div>
           </div>
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
             Build a Smarter, <span className="gradient-text"> Stronger Brand.</span>
