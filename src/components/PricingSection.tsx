@@ -62,7 +62,7 @@ const PricingSection = () => {
   });
 
   return (
-    <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-24 lg:py-40 relative overflow-hidden">
+    <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden">
       {/* Background decoration */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{
         backgroundImage: 'repeating-linear-gradient(135deg, currentColor 0, currentColor 2px, transparent 2px, transparent 12px)'
@@ -71,7 +71,7 @@ const PricingSection = () => {
       <div className="absolute bottom-20 left-20 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow"></div>
       
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-24 animate-fade-in-up">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
             Seize Your Unfair Advantage. <span className="gradient-text"> Today.</span>
           </h2>

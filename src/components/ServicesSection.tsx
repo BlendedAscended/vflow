@@ -99,7 +99,7 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
   const displayServices = [...defaultServices, ...(services || [])];
 
   return (
-    <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-24 lg:py-40 relative overflow-hidden">
+    <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden">
       {/* Background pattern & soft blobs (match pricing), no shine overlay */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{
         backgroundImage: 'repeating-linear-gradient(135deg, currentColor 0, currentColor 2px, transparent 2px, transparent 12px)'
@@ -108,7 +108,7 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
       <div className="absolute bottom-10 left-16 w-72 h-72 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow"></div>
       
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-24 animate-fade-in-up">
+        <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-block mb-6">
             <div className="text-[var(--text-accent)] text-sm font-bold uppercase tracking-wider bg-[var(--section-bg-3)]/50 px-8 py-4 rounded-full border border-[var(--border)]">
               Where strategy, technology, and automation converge, predictable growth emerges.
@@ -119,7 +119,7 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {displayServices.map((service, index) => (
             <div 
               key={service._id} 

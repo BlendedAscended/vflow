@@ -20,19 +20,19 @@ const HeroSection = () => {
   // Geolocation moved to provider
 
   return (
-    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-2 lg:py-10 relative overflow-hidden">
+    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-8 lg:py-16 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0"></div>
-      <div className="absolute top-10 right-10 w-72 h-72 rounded-full  animate-float"></div>
-      <div className="absolute bottom-10 left-10 w-96 h-96  rounded-full animate-pulse-slow"></div>
+      <div className="absolute top-10 right-10 w-72 h-72 bg-[var(--accent)]/20 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-[var(--accent)]/15 rounded-full blur-3xl animate-pulse-slow"></div>
       
       {/* Theme toggle removed here; sticky desktop toggle is rendered globally */}
 
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Content */}
-          <div className="space-y-2 animate-slide-in-left">
-            <div className="space-y-6">
+          <div className="space-y-4 animate-slide-in-left">
+            <div className="space-y-4">
               <h1 className="text-3xl lg:text-5xl xl:text-6xl font-extrabold text-black leading-tight">
               Connect With More of Your Best Customers{' '}
                 <span className="gradient-text animate-pulse-medium">Automate Your Business Growth</span>
@@ -44,7 +44,7 @@ const HeroSection = () => {
                     We Serve clients in {location}
                   </div>
                 </div>
-                <p className="text-[#2c2c2c] text-xl lg:text-2xl leading-relaxed max-w-3xl font-medium">
+                <p className="text-[var(--muted-foreground)] text-xl lg:text-2xl leading-relaxed max-w-3xl font-medium">
                 We unify your entire customer journey on one intelligent platform. Every stage, from marketing to operations, is engineered to make you the premier choice for customers.              </p>
               </div>
             </div>

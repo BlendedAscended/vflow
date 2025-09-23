@@ -55,13 +55,13 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
   const displayTestimonials = testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials;
 
   return (
-    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-24 lg:py-40 relative overflow-hidden">
+    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-16 lg:py-24 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-br from-green-300/20 to-blue-300/20 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-purple-300/15 to-pink-300/15 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="absolute top-20 right-20 w-72 h-72 bg-[var(--accent)]/20 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-[var(--accent)]/15 rounded-full blur-3xl animate-pulse-slow"></div>
       
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="mb-20 animate-fade-in-up">
+        <div className="mb-16 animate-fade-in-up">
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] mb-8 leading-tight">
             What our <span className="gradient-text">clients</span> are saying
           </h2>
@@ -71,7 +71,7 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {displayTestimonials.map((testimonial, index) => (
             <div 
               key={testimonial._id} 
@@ -80,7 +80,7 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
             >
               <div className="flex items-start space-x-6">
                 <div className="flex-shrink-0">
-                  <div className="w-20 h-20 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="w-20 h-20 bg-[var(--muted-background)] rounded-full overflow-hidden">
                     {testimonial.image ? (
                       <Image
                       src={urlFor(testimonial.image).width(80).height(80).fit('crop').crop('center').url()}
@@ -90,8 +90,8 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
                       className="w-full h-full object-cover"
                     />
                     ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                        <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-full h-full bg-gradient-to-br from-[var(--muted-background)] to-[var(--border)] flex items-center justify-center">
+                        <svg className="w-10 h-10 text-[var(--muted-foreground)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                       </div>

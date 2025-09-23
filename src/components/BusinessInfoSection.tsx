@@ -6,7 +6,7 @@ const BusinessInfoSection = () => {
   const { location } = useLocationValue(); // Consume location from context
 
   return (
-    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-24 lg:py-40">
+    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-16 lg:py-24">
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 items-center">
           {/* Left Column - Image */}

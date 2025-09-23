@@ -3,15 +3,17 @@
 import { useEffect, useState } from 'react';
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     try {
       const stored = localStorage.getItem('theme');
-      let nextIsDark = false;
+      let nextIsDark = true; // Default to dark mode
+      if (stored === 'light') nextIsDark = false;
       if (stored === 'dark') nextIsDark = true;
       if (!stored) {
-        nextIsDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Default to dark mode when no preference is stored
+        nextIsDark = true;
       }
       setIsDark(nextIsDark);
       const root = document.documentElement;
@@ -34,7 +36,7 @@ const ThemeToggle = () => {
       aria-label="Toggle theme"
       aria-pressed={isDark}
       onClick={toggleTheme}
-      className="hidden lg:flex items-center justify-center w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--card-background)] hover:bg-[var(--card-background)] transition-colors shadow fixed right-6 top-20 z-40"
+      className="hidden lg:flex items-center justify-center w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--card-background)] hover:bg-[var(--card-background)] transition-colors shadow fixed right-6 top-4 z-[60]"
     >
       {isDark ? (
         <svg className="h-5 w-5 text-[var(--text-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">

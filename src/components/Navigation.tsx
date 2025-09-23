@@ -108,7 +108,7 @@ const Navigation = () => {
               priority
             />
           </div>
-          <span className="text-[var(--text-primary)] font-bold text-xl tracking-tight">Verbaflow LLC</span>
+          <span className="text-[var(--muted-foreground)] font-bold text-xl tracking-tight">Verbaflow LLC</span>
         </div>
 
         {/* Desktop Navigation */}

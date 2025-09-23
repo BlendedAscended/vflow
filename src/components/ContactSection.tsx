@@ -23,13 +23,13 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-24 lg:py-40 relative overflow-hidden">
+    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-16 lg:py-24 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-br from-green-300/20 to-blue-300/20 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-br from-purple-300/15 to-pink-300/15 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="absolute top-10 left-10 w-64 h-64 bg-[var(--accent)]/20 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-[var(--accent)]/15 rounded-full blur-3xl animate-pulse-slow"></div>
       
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Column - Content */}
           <div className="space-y-8 animate-slide-in-left">
             <div>
@@ -53,7 +53,7 @@ const ContactSection = () => {
                   placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-6 py-4 border-2 border-[var(--border)] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)] transition-all duration-300 text-lg bg-[var(--card-background)] text-[var(--card-foreground)]"
+                  className="w-full px-6 py-4 border-2 border-[var(--border)] rounded-full focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)] transition-all duration-300 text-lg bg-[var(--card-background)] text-[var(--card-foreground)]"
                   required
                 />
               </div>
@@ -68,7 +68,7 @@ const ContactSection = () => {
                   placeholder="email@website.com"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-6 py-4 border-2 border-[var(--border)] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)] transition-all duration-300 text-lg bg-[var(--card-background)] text-[var(--card-foreground)]"
+                  className="w-full px-6 py-4 border-2 border-[var(--border)] rounded-full focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)] transition-all duration-300 text-lg bg-[var(--card-background)] text-[var(--card-foreground)]"
                   required
                 />
               </div>
@@ -90,7 +90,7 @@ const ContactSection = () => {
 
               <button
                 type="submit"
-                className="w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold py-4 px-8 rounded-2xl shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg"
+                className="w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold py-4 px-8 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg"
               >
                 🚀 Submit
               </button>
