@@ -34,7 +34,7 @@ interface Service {
 }
 
 // Fetch service data
-async function getService(slug: string): Promise<Service | null> {
+async function getService(slugParam: string): Promise<Service | null> {
   try {
     const service = await client.fetch(`
       *[_type == "service" && slug.current == $slug && active == true][0] {
@@ -55,7 +55,7 @@ async function getService(slug: string): Promise<Service | null> {
         ctaLink,
         seo
       }
-    `, { slug });
+    `, { slug: slugParam });
     
     return service;
   } catch (error) {
