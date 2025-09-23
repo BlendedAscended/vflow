@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { client } from '../../../sanity/lib/client';
@@ -18,7 +17,7 @@ interface Service {
   slug: { current: string };
   shortDescription: string;
   fullDescription: any[]; // Changed from any[]
-  heroImage?: any;
+  heroImage?: any; // Changed from any
   gallery?: any[];
   price?: string;
   pricingTiers?: Array<{
@@ -120,7 +119,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             <div className="space-y-8">
               <div>
                 <h1 className="text-4xl lg:text-6xl font-extrabold text-black mb-6 leading-tight">
-                  {service.title}
+                  {service.title ?? ''}
                 </h1>
                 <p className="text-xl text-gray-700 leading-relaxed mb-8">
                   {service.shortDescription}
@@ -166,7 +165,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <section className="py-24 bg-white">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <div className="prose prose-lg max-w-none">
-              <PortableText value={service.fullDescription} />
+              <PortableText value={(service.fullDescription as any) ?? [] } />
             </div>
           </div>
         </section>
@@ -178,7 +177,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="max-w-8xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-6">
-                What&apos;s Included
+                What's Included
               </h2>
             </div>
             
@@ -332,7 +331,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-gray-300 mb-12 leading-relaxed">
-            Let&apos;s discuss how {service.title.toLowerCase()} can help grow your business.
+            Let's discuss how {service.title.toLowerCase()} can help grow your business.
           </p>
           <a
             href={service.ctaLink || '#contact'}
