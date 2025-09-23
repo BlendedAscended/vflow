@@ -60,25 +60,30 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
     {
       _id: "fallback-1",
       title: "Website & app development",
+      // Add 'description' to match the type, and keep 'shortDescription' for rendering
       description: "Launch a custom website or app to reach more customers and grow your online presence.",
+      shortDescription: "Launch a custom website or app to reach more customers and grow your online presence.",
       icon: "website"
     },
     {
       _id: "fallback-2",
       title: "Marketing & social campaigns",
       description: "Drive leads with SEO, social media, and targeted campaigns tailored for your business.",
+      shortDescription: "Drive leads with SEO, social media, and targeted campaigns tailored for your business.",
       icon: "marketing"
     },
     {
       _id: "fallback-3",
       title: "AI assistants & automation",
       description: "Automate scheduling and support with AI tools for better efficiency and customer service.",
+      shortDescription: "Automate scheduling and support with AI tools for better efficiency and customer service.",
       icon: "ai"
     },
     {
       _id: "fallback-4",
       title: "Cloud, IT & compliance",
       description: "Secure cloud migration and compliance for HIPAA, SOC, and industry standards.",
+      shortDescription: "Secure cloud migration and compliance for HIPAA, SOC, and industry standards.",
       icon: "cloud"
     }
   ];
@@ -135,7 +140,7 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
                     )}
                   </div>
                   <p className="text-gray-300 text-lg lg:text-xl leading-relaxed">
-                    {service.description}
+                    {service.shortDescription || service.description}
                   </p>
                   
                   {service.features && service.features.length > 0 && (

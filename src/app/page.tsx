@@ -39,7 +39,7 @@ async function getServices() {
       *[_type == "service" && active == true] | order(order asc, _createdAt desc) {
         _id,
         title,
-        description,
+        shortDescription,
         icon,
         price,
         features,
