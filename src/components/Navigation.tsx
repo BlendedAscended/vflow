@@ -93,13 +93,13 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="w-full px-4 lg:px-8 py-3 sticky top-0 z-50 backdrop-blur-md animate-fade-in bg-[var(--section-bg-1)] text-[var(--text-primary)]">
+    <nav className="w-full px-4 lg:px-8 py-2 sticky top-0 z-50 backdrop-blur-md animate-fade-in bg-[var(--section-bg-1)] text-[var(--text-primary)]">
       <div className="max-w-6xl mx-auto">
         {/* Floating pill container */}
-        <div className="flex items-center justify-center bg-[var(--card-background)] border-2 border-[var(--border)] rounded-3xl shadow-elegant px-6 py-3 mx-auto max-w-2xl">
+        <div className="flex items-center justify-center bg-[var(--card-background)] border-2 border-[var(--border)] rounded-full shadow-elegant px-6 py-2 mx-auto max-w-2xl">
         {/* Logo */}
         <div className="flex items-center animate-slide-in-left pl-1">
-          <div className="w-10 h-10 relative mr-2">
+          <div className="w-8 h-8 relative mr-2">
             <Image
               src="/logo.png"
               alt="LOGO"
@@ -108,7 +108,7 @@ const Navigation = () => {
               priority
             />
           </div>
-          <span className="text-black font-bold text-xl tracking-tight">Verbaflow LLC</span>
+          <span className="text-black font-bold text-lg tracking-tight">Verbaflow LLC</span>
         </div>
 
         {/* Desktop Navigation */}
@@ -119,7 +119,7 @@ const Navigation = () => {
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
-            <button className="flex items-center space-x-1 text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 px-3 py-2 rounded-2xl hover:bg-[var(--accent)]">
+            <button className="flex items-center space-x-1 text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
               <span>Services</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -128,7 +128,7 @@ const Navigation = () => {
             
               {/* Dropdown Menu */}
               {isServicesOpen && (
-                <div className={`absolute left-0 top-full bg-white rounded-2xl shadow-xl border border-gray-100 py-4 z-50 ${
+                <div className={`absolute left-0 top-full bg-[var(--card-background)] rounded-3xl shadow-xl border border-[var(--border)] py-4 z-50 ${
                   services.length <= 6 ? 'w-72' : 
                   services.length <= 12 ? 'w-96' : 
                   'w-[48rem]'
@@ -143,14 +143,14 @@ const Navigation = () => {
                         <a
                           key={service.slug}
                           href={`/services/${service.slug}`}
-                          className="block px-4 py-3 text-gray-700 hover:bg-[#A5D6A7] hover:text-black transition-colors duration-200 rounded-lg"
+                          className="block px-4 py-3 text-[var(--card-foreground)] hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] transition-colors duration-200 rounded-2xl"
                         >
                           <span className="font-medium">{service.title}</span>
                         </a>
                       ))}
                     </div>
                   ) : (
-                    <div className="px-4 py-3 text-gray-500 text-sm">
+                    <div className="px-4 py-3 text-[var(--muted-foreground)] text-sm">
                       No services available
                     </div>
                   )}
@@ -158,22 +158,22 @@ const Navigation = () => {
               )}
           </div>
 
-          <a href="#about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-2 rounded-2xl hover:bg-[var(--accent)]">
+          <a href="#about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
             About
           </a>
           
-          <a href="#blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-2 rounded-2xl hover:bg-[var(--accent)]">
+          <a href="#blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
             Blog
           </a>
           
-          <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-2 rounded-2xl hover:bg-[var(--accent)]">
+          <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
             Contact
           </a>
         </div>
 
         {/* CTA Button */}
         <div className="hidden lg:flex items-center animate-slide-in-right">
-          <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-semibold px-4 py-2 rounded-2xl shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105">
+          <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-semibold px-4 py-1.5 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105">
             Get started
           </button>
         </div>
@@ -181,9 +181,9 @@ const Navigation = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden flex items-center justify-center w-9 h-9 rounded-2xl bg-[var(--card-background)] border border-[var(--border)]"
+          className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[var(--card-background)] border border-[var(--border)]"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isMenuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (

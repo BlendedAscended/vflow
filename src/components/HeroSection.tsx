@@ -22,9 +22,9 @@ const HeroSection = () => {
   return (
     <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-2 lg:py-10 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-r from-green-100/20 to-blue-100/20"></div>
-      <div className="absolute top-10 right-10 w-72 h-72 bg-gradient-to-br from-green-200/30 to-blue-200/30 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="absolute inset-0"></div>
+      <div className="absolute top-10 right-10 w-72 h-72 rounded-full  animate-float"></div>
+      <div className="absolute bottom-10 left-10 w-96 h-96  rounded-full animate-pulse-slow"></div>
       
       {/* Theme toggle removed here; sticky desktop toggle is rendered globally */}
 
@@ -38,11 +38,11 @@ const HeroSection = () => {
                 <span className="gradient-text animate-pulse-medium">Automate Your Business Growth</span>
              </h1>
               
-              <div className="space-y-3">
-                <div className="inline-block">
-                  <p className="text-[#2c2c2c] font-bold text-sm uppercase tracking-wider bg-[#BEE3BA] px-3 py-3 rounded-md border border-blue-200">
-                  We Serve clients in {location}
-                  </p>
+              <div className="space-y-4">
+                <div className="flex justify-start">
+                  <div className="text-[var(--text-primary)] font-bold text-base uppercase tracking-wider bg-[var(--accent)] px-12 py-5 rounded-full border-2 border-[var(--accent)] shadow-lg hover:shadow-xl transition-all duration-300">
+                    We Serve clients in {location}
+                  </div>
                 </div>
                 <p className="text-[#2c2c2c] text-xl lg:text-2xl leading-relaxed max-w-3xl font-medium">
                 We unify your entire customer journey on one intelligent platform. Every stage, from marketing to operations, is engineered to make you the premier choice for customers.              </p>
@@ -50,10 +50,10 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-8 pt-1">
-              <button className="gradient-primary text-black font-bold px-10 py-4 rounded-2xl shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg">
+              <button className="gradient-primary text-black font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg">
                 Get my growth plan
               </button>
-              <button className="gradient-dark border border-white/30 hover:border-[#bee3ba] text-[#bee3ba] shadow-hover hover:shadow-glow font-semibold px-10 py-4 rounded-2xl transition-all duration-300 hover:bg-white/20 transform hover:scale-105 backdrop-blur-sm text-lg">
+              <button className="gradient-dark border border-white/30 hover:border-[#bee3ba] text-[#bee3ba] shadow-hover hover:shadow-glow font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-white/20 transform hover:scale-105 backdrop-blur-sm text-lg">
                 See services
               </button>
             </div>
