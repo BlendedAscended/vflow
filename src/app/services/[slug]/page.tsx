@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { PortableTextBlock } from '@portabletext/react';
 import Image from 'next/image';
 import { client } from '../../../sanity/lib/client';
 import { urlFor } from '../../../sanity/lib/image';
@@ -11,43 +12,27 @@ interface ServicePageProps {
   };
 }
 
+type PricingTier = { name: string; price: string; description: string; features?: string[] };
+type Benefit = { title: string; description: string };
+type ProcessStep = { step: number; title: string; description: string };
+
 interface Service {
   _id: string;
   title: string;
-  slug: { current: string };
-  shortDescription: string;
-  fullDescription: any[]; // Changed from any[]
-  heroImage?: any; // Changed from any
-  gallery?: any[];
+  slug?: { current: string };
+  shortDescription?: string;
+  fullDescription?: PortableTextBlock[];
+  heroImage?: unknown[];
+  gallery?: unknown[];
   price?: string;
-  pricingTiers?: Array<{
-    name: string;
-    price: string;
-    description: string;
-    features: string[];
-  }>;
+  pricingTiers?: PricingTier[];
   features?: string[];
-  benefits?: Array<{
-    title: string;
-    description: string;
-    icon?: string;
-  }>;
-  process?: Array<{
-    step: number;
-    title: string;
-    description: string;
-  }>;
-  faq?: Array<{
-    question: string;
-    answer: string;
-  }>;
+  benefits?: Benefit[];
+  process?: ProcessStep[];
+  faq?: { question: string; answer: string }[];
   ctaText?: string;
   ctaLink?: string;
-  seo?: {
-    metaTitle?: string;
-    metaDescription?: string;
-    keywords?: string[];
-  };
+  seo?: { metaTitle?: string; metaDescription?: string; keywords?: string[] };
 }
 
 // Fetch service data
@@ -177,7 +162,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="max-w-8xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-6">
-                What's Included
+              What&rsquo;s Included
               </h2>
             </div>
             
@@ -331,7 +316,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-gray-300 mb-12 leading-relaxed">
-            Let's discuss how {service.title.toLowerCase()} can help grow your business.
+          Let&apos;s discuss how {service.title.toLowerCase()} can help grow your business.
           </p>
           <a
             href={service.ctaLink || '#contact'}
