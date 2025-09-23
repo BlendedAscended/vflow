@@ -46,7 +46,7 @@ const HeroSection = () => {
             <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl overflow-hidden shadow-elegant hover:shadow-glow transition-all duration-500 transform hover:scale-105">
               {/* Replace with actual hero image when available */}
               <Image
-                src="/hero-image.jpg" // Add your actual image here
+                src="/hero-image.png" // Add your actual image here
                 alt="Business Growth"
                 fill
                 className="object-cover"
