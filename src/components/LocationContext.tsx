@@ -7,20 +7,34 @@ type LocationContextValue = {
   setLocation: (value: string) => void;
 };
 
+interface AdminInfo {
+  name?: string;
+  description?: string;
+}
+
+interface LocalityInfo {
+  administrative?: AdminInfo[];
+}
+
+interface BigDataCloudResponse {
+  principalSubdivision?: string;
+  localityInfo?: LocalityInfo;
+}
+
 const LocationContext = createContext<LocationContextValue | undefined>(undefined);
 
 export function LocationProvider({ children }: { children: ReactNode }) {
   const [location, setLocation] = useState<string>('your area');
 
   // Helper to extract state from BigDataCloud response
-  const extractState = (data: any): string | undefined => {
+  const extractState = (data: BigDataCloudResponse): string | undefined => {
     if (typeof data?.principalSubdivision === 'string' && data.principalSubdivision.trim()) {
       return data.principalSubdivision.trim();
     }
     const adminList = Array.isArray(data?.localityInfo?.administrative)
       ? data.localityInfo.administrative
       : [];
-    const region = adminList.find((a: any) => /region|state|province/i.test(String(a?.description) || ''));
+    const region = adminList.find((a: AdminInfo) => /region|state|province/i.test(String(a?.description) || ''));
     if (region?.name && typeof region.name === 'string') return region.name.trim();
     return undefined;
   };
@@ -38,7 +52,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
             );
             if (!res.ok) return;
 
-            const data = await res.json();
+            const data: BigDataCloudResponse = await res.json();
             const currentState = extractState(data);
             if (currentState) setLocation(currentState);
           } catch {
