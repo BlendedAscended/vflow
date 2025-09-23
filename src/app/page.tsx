@@ -1,4 +1,6 @@
 import Navigation from '../components/Navigation';
+import ThemeToggle from '../components/ThemeToggle';
+import { LocationProvider } from '../components/LocationContext';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import BusinessInfoSection from '../components/BusinessInfoSection';
@@ -86,7 +88,10 @@ export default async function Home() {
   ]);
   
   return (
+    <LocationProvider>
     <div className="min-h-screen">
+      {/* Sticky theme toggle on large screens */}
+      <ThemeToggle />
       {/* Navigation */}
       <Navigation />
       
@@ -117,5 +122,6 @@ export default async function Home() {
       {/* Footer */}
       <Footer />
     </div>
+    </LocationProvider>
   );
 }

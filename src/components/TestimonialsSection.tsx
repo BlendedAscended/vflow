@@ -55,17 +55,17 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
   const displayTestimonials = testimonials && testimonials.length > 0 ? testimonials : defaultTestimonials;
 
   return (
-    <section className="w-full gradient-secondary py-24 lg:py-40 relative overflow-hidden">
+    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-24 lg:py-40 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-br from-green-300/20 to-blue-300/20 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-purple-300/15 to-pink-300/15 rounded-full blur-3xl animate-pulse-slow"></div>
       
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="mb-20 animate-fade-in-up">
-          <h2 className="text-4xl lg:text-6xl font-extrabold text-black mb-8 leading-tight">
+          <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] mb-8 leading-tight">
             What our <span className="gradient-text">clients</span> are saying
           </h2>
-          <p className="text-gray-700 text-xl max-w-3xl leading-relaxed">
+          <p className="text-[var(--muted-foreground)] text-xl max-w-3xl leading-relaxed">
             Real feedback from businesses we&apos;ve helped with web, marketing, and automation 
             solutions in Montgomery County, MD.
           </p>
@@ -75,7 +75,7 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
           {displayTestimonials.map((testimonial, index) => (
             <div 
               key={testimonial._id} 
-              className="bg-white/90 backdrop-blur-sm rounded-3xl p-10 lg:p-12 shadow-hover hover:shadow-glow border border-white/50 transition-all duration-500 transform hover:scale-105 animate-fade-in-up"
+              className="bg-[var(--card-background)] rounded-3xl p-10 lg:p-12 shadow-hover hover:shadow-glow border border-[var(--border)] transition-all duration-500 transform hover:scale-105 animate-fade-in-up"
               style={{animationDelay: `${index * 0.1}s`}}
             >
               <div className="flex items-start space-x-6">
@@ -101,14 +101,14 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
                 
                 <div className="flex-1 space-y-6">
                   <div>
-                    <h4 className="font-semibold text-black text-xl mb-2">{testimonial.name}</h4>
-                    <p className="text-gray-600 text-lg">
+                    <h4 className="font-semibold text-[var(--card-foreground)] text-xl mb-2">{testimonial.name}</h4>
+                    <p className="text-[var(--muted-foreground)] text-lg">
                       {testimonial.title}
                       {testimonial.company && ` at ${testimonial.company}`}
                     </p>
                   </div>
                   
-                  <p className="text-gray-700 leading-relaxed text-lg">
+                  <p className="text-[var(--muted-foreground)] leading-relaxed text-lg">
                     {testimonial.testimonial}
                   </p>
                   

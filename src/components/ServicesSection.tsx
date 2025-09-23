@@ -72,25 +72,25 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
     {
       _id: "fallback-1",
       title: "Website & app development",
-      description: "Launch a custom website or app to reach more customers and grow your online presence.",
+      description: "Develop the central hub for your customer universe. A seamless website or app experience that forms the core of your brand's digital anatomy.",
       icon: "website"
     },
     {
       _id: "fallback-2",
       title: "Marketing & social campaigns",
-      description: "Drive leads with SEO, social media, and targeted campaigns tailored for your business.",
+      description: "Execute targeted marketing campaigns designed for maximum impact. We turn digital noise into measurable signals for business growth..",
       icon: "marketing"
     },
     {
       _id: "fallback-3",
       title: "AI assistants & automation",
-      description: "Automate scheduling and support with AI tools for better efficiency and customer service.",
+      description: "Deploy an intelligent, autonomous workforce. AI assistants and automated workflows that handle routine tasks 24/7, freeing you to lead and innovate.",
       icon: "ai"
     },
     {
       _id: "fallback-4",
       title: "Cloud, IT & compliance",
-      description: "Secure cloud migration and compliance for HIPAA, SOC, and industry standards.",
+      description: "Build the unbreachable foundation for your growth. A secure, compliant cloud architecture that ensures your entire digital ecosystem is stable, protected, and poised for scale.",
       icon: "cloud"
     }
   ];
@@ -99,62 +99,61 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
   const displayServices = [...defaultServices, ...(services || [])];
 
   return (
-    <section className="w-full gradient-dark py-24 lg:py-40 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/50 to-black/50"></div>
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
+    <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-24 lg:py-40 relative overflow-hidden">
+      {/* Background pattern & soft blobs (match pricing), no shine overlay */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{
+        backgroundImage: 'repeating-linear-gradient(135deg, currentColor 0, currentColor 2px, transparent 2px, transparent 12px)'
+      }} />
+      <div className="absolute top-10 right-16 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-10 left-16 w-72 h-72 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow"></div>
       
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-24 animate-fade-in-up">
           <div className="inline-block mb-6">
-            <p className="text-green-400 text-sm font-bold uppercase tracking-wider bg-green-900/30 px-6 py-3 rounded-full border border-green-500/30">
-              ⚡ BUSINESS GROWTH MADE SIMPLE
+            <p className="text-[var(--text-accent)] text-sm font-bold uppercase tracking-wider bg-[var(--section-bg-3)]/50 px-6 py-3 rounded-full border border-[var(--border)]">
+              Where strategy, technology, and automation converge, predictable growth emerges.
             </p>
           </div>
-          <h2 className="text-4xl lg:text-6xl font-extrabold text-white mb-8 leading-tight">
-            Smarter solutions for <span className="gradient-text">local success</span>
+          <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
+            Build a Smarter, <span className="gradient-text"> Stronger Brand.</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
           {displayServices.map((service, index) => (
             <div 
               key={service._id} 
-              className={`bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-3xl p-10 lg:p-12 shadow-hover hover:shadow-glow border transition-all duration-500 transform hover:scale-105 animate-fade-in-up ${
-                service.featured 
-                  ? 'border-green-500/50 hover:border-green-400/70' 
-                  : 'border-gray-700/50 hover:border-green-500/30'
-              }`}
+              className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 animate-fade-in-up will-change-transform ${
+                index % 2 === 0
+                  ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
+                  : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
+              } ${service.featured ? 'ring-2 ring-[var(--accent)]/70 shadow-glow scale-[1.02]' : 'hover:scale-[1.02] hover:-rotate-[0.25deg]'}`}
               style={{animationDelay: `${index * 0.1}s`}}
             >
-              <div className="space-y-8">
-                <div className={`w-24 h-24 bg-gradient-to-br rounded-3xl flex items-center justify-center shadow-glow animate-pulse-slow ${
-                  service.featured 
-                    ? 'from-green-400 to-blue-400' 
-                    : 'from-green-500 to-blue-500'
-                }`}>
+              <div className="space-y-8 relative">
+                <div className={`w-20 h-20 lg:w-24 lg:h-24 rounded-3xl flex items-center justify-center shadow-glow animate-pulse-slow bg-[var(--accent)]`}>
                   {getServiceIcon(service.icon)}
                 </div>
                 <div className="space-y-6">
                   <div className="flex items-start justify-between">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight flex-1">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-[var(--text-secondary)] leading-tight flex-1">
                       {service.title}
                     </h3>
                     {service.price && (
-                      <span className="text-green-400 font-semibold text-lg whitespace-nowrap ml-4">
+                      <span className="text-[var(--text-accent)] font-semibold text-lg whitespace-nowrap ml-4">
                         {service.price}
                       </span>
                     )}
                   </div>
-                  <p className="text-gray-300 text-lg lg:text-xl leading-relaxed">
+                  <p className="text-[var(--text-accent)] text-lg lg:text-xl leading-relaxed">
                     {service.description}
                   </p>
                   
                   {service.features && service.features.length > 0 && (
                     <ul className="space-y-2">
-                      {service.features.slice(0, 3).map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-gray-400">
-                          <svg className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      {service.features.slice(0, 4).map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-[var(--text-accent)]">
+                          <svg className="w-4 h-4 text-[var(--accent)] mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
                           {feature}
@@ -167,9 +166,13 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
                     <div className="pt-4">
                       <a
                         href={service.ctaLink || '#contact'}
-                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-xl hover:from-green-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                        className={`inline-flex items-center px-6 py-3 rounded-2xl transition-all duration-300 transform overflow-hidden ${
+                          service.featured
+                            ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow hover:scale-[1.03]'
+                            : 'border-2 border-[var(--accent)] text-[var(--text-accent)] bg-transparent hover:bg-[var(--accent)]/10 hover:scale-[1.03]'
+                        }`}
                       >
-                        {service.ctaText}
+                        <span className="relative z-10">{service.ctaText}</span>
                         <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>

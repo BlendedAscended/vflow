@@ -61,27 +61,33 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
   const displayFaqs: FAQ[] = faqs && faqs.length > 0 ? faqs : defaultFaqs;
 
   return (
-    <section className="w-full bg-gray-900 py-24 lg:py-40">
-      <div className="max-w-8xl mx-auto px-6 lg:px-12">
+    <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-24 lg:py-40 relative overflow-hidden">
+      {/* Background pattern & soft blobs (match pricing), no shine */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{
+        backgroundImage: 'repeating-linear-gradient(135deg, currentColor 0, currentColor 2px, transparent 2px, transparent 12px)'
+      }} />
+      <div className="absolute top-10 right-16 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-10 left-16 w-72 h-72 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-4xl lg:text-6xl font-extrabold text-white mb-8 leading-tight">
+          <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
             Your business questions, <span className="gradient-text">answered fast</span>
           </h2>
-          <p className="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-[var(--text-accent)] text-xl max-w-3xl mx-auto leading-relaxed">
             Get clear info on our web, marketing, and automation services.
           </p>
         </div>
 
         <div className="max-w-xl mx-auto text-center space-y-6">
           {displayFaqs.map((faq, index) => (
-            <div key={faq._id ?? index} className="border-b border-gray-700">
+            <div key={faq._id ?? index} className="border-b border-[var(--border)]">
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full flex items-center justify-between py-8 text-left hover:text-gray-300 transition-colors"
+                className="w-full flex items-center justify-between py-8 text-left hover:opacity-90 transition-colors"
               >
-                <span className="text-white text-xl font-medium pr-8">{faq.question}</span>
+                <span className="text-[var(--text-secondary)] text-xl font-medium pr-8">{faq.question}</span>
                 <svg
-                  className={`w-6 h-6 text-white transform transition-transform flex-shrink-0 ${
+                  className={`w-6 h-6 text-[var(--text-secondary)] transform transition-transform flex-shrink-0 ${
                     openItems.includes(index) ? "rotate-180" : ""
                   }`}
                   fill="none"
@@ -99,7 +105,7 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
 
               {openItems.includes(index) && (
                 <div className="pb-8">
-                  <p className="text-gray-300 leading-relaxed text-lg">{faq.answer}</p>
+                  <p className="text-[var(--text-accent)] leading-relaxed text-lg text-justify">{faq.answer}</p>
                 </div>
               )}
             </div>

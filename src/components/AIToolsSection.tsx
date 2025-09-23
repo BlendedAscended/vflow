@@ -1,26 +1,25 @@
 const AIToolsSection = () => {
   return (
-    <section className="w-full bg-gray-50 py-24 lg:py-40">
+    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-24 lg:py-40">
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 items-center">
           {/* Left Column - Content */}
           <div className="space-y-12">
             <div className="space-y-8">
-              <h2 className="text-4xl lg:text-6xl font-extrabold text-black leading-tight">
-                <span className="gradient-text">AI-powered</span> customer support tools
+              <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] leading-tight">
+                <span className="gradient-text">Intelligent Service. </span>Effortless Operations.
               </h2>
               
-              <p className="text-gray-700 text-xl leading-relaxed">
-                Automate scheduling, lead capture, and support with advanced AI technology 
-                designed for local businesses in Montgomery County.
+              <p className="text-[var(--muted-foreground)] text-xl leading-relaxed">
+              From intelligent scheduling to seamless lead capture and responsive support, deploy AI designed to optimize every customer interaction for local Montgomery County businesses.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-8">
-              <button className="gradient-primary text-black font-bold px-10 py-4 rounded-2xl shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg">
+              <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-2xl shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg">
                 🚀 Get started
               </button>
-              <button className="glass border border-white/30 hover:border-green-300 text-black font-semibold px-10 py-4 rounded-2xl transition-all duration-300 hover:bg-white/20 backdrop-blur-sm text-lg">
+              <button className="border border-[var(--border)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-2xl transition-all duration-300 hover:bg-[var(--muted-background)] text-lg">
                 Learn more
               </button>
             </div>
@@ -28,7 +27,7 @@ const AIToolsSection = () => {
 
           {/* Right Column - Image */}
           <div className="relative">
-            <div className="aspect-[4/3] bg-gray-200 rounded-2xl overflow-hidden">
+            <div className="aspect-[4/3] bg-[var(--muted-background)] rounded-2xl overflow-hidden">
               {/* Placeholder for AI tools interface */}
               <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
                 <div className="text-center text-gray-600">

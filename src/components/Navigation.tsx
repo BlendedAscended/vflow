@@ -22,6 +22,7 @@ const defaultNavigationServices: NavigationService[] = [
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const [services, setServices] = useState<NavigationService[]>([]);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
@@ -66,11 +67,38 @@ const Navigation = () => {
     fetchServices();
   }, []);
 
+  // initialize theme from storage or media query
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('theme');
+      let nextIsDark = false;
+      if (stored === 'dark') nextIsDark = true;
+      if (!stored) {
+        nextIsDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+      setIsDark(nextIsDark);
+      const root = document.documentElement;
+      root.classList.remove('theme-light', 'theme-dark');
+      root.classList.add(`theme-${nextIsDark ? 'dark' : 'light'}`);
+    } catch {}
+  }, []);
+
+  const toggleTheme = () => {
+    const nextIsDark = !isDark;
+    setIsDark(nextIsDark);
+    const root = document.documentElement;
+    root.classList.remove('theme-light', 'theme-dark');
+    root.classList.add(`theme-${nextIsDark ? 'dark' : 'light'}`);
+    try { localStorage.setItem('theme', nextIsDark ? 'dark' : 'light'); } catch {}
+  };
+
   return (
-    <nav className="w-full gradient-secondary px-6 py-6 lg:px-12 shadow-elegant backdrop-blur-sm sticky top-0 z-50 animate-fade-in">
-      <div className="max-w-8xl mx-auto flex items-center justify-between">
+    <nav className="w-full px-4 lg:px-8 py-3 sticky top-0 z-50 backdrop-blur-md animate-fade-in bg-[var(--section-bg-1)] text-[var(--text-primary)]">
+      <div className="max-w-6xl mx-auto">
+        {/* Floating pill container */}
+        <div className="flex items-center justify-center bg-[var(--card-background)] border-2 border-[var(--border)] rounded-3xl shadow-elegant px-6 py-3 mx-auto max-w-2xl">
         {/* Logo */}
-        <div className="flex items-center animate-slide-in-left pl-2">
+        <div className="flex items-center animate-slide-in-left pl-1">
           <div className="w-10 h-10 relative mr-2">
             <Image
               src="/logo.png"
@@ -84,14 +112,14 @@ const Navigation = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-12 ml-auto mr-12">
+        <div className="hidden lg:flex items-center space-x-1">
           {/* Services Dropdown */}
           <div 
             className="relative group"
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
-            <button className="flex items-center space-x-1 text-black hover:text-white font-medium transition-all duration-300 px-4 py-2 rounded-full hover:bg-[#9ecd9d]">
+            <button className="flex items-center space-x-1 text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 px-3 py-2 rounded-2xl hover:bg-[var(--accent)]">
               <span>Services</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -100,7 +128,7 @@ const Navigation = () => {
             
               {/* Dropdown Menu */}
               {isServicesOpen && (
-                <div className={`absolute left-0 top-full bg-white rounded-xl shadow-xl border border-gray-100 py-4 z-50 ${
+                <div className={`absolute left-0 top-full bg-white rounded-2xl shadow-xl border border-gray-100 py-4 z-50 ${
                   services.length <= 6 ? 'w-72' : 
                   services.length <= 12 ? 'w-96' : 
                   'w-[48rem]'
@@ -115,7 +143,7 @@ const Navigation = () => {
                         <a
                           key={service.slug}
                           href={`/services/${service.slug}`}
-                          className="block px-4 py-3 text-gray-700 hover:bg-[#9ecd9d] hover:text-white transition-colors duration-200 border-l-4 border-transparent hover:border-[#9ecd9d] rounded-lg"
+                          className="block px-4 py-3 text-gray-700 hover:bg-[#A5D6A7] hover:text-black transition-colors duration-200 rounded-lg"
                         >
                           <span className="font-medium">{service.title}</span>
                         </a>
@@ -130,22 +158,22 @@ const Navigation = () => {
               )}
           </div>
 
-          <a href="#about" className="text-black hover:text-white font-medium transition-all duration-300 relative px-4 py-2 rounded-full hover:bg-[#9ecd9d]">
+          <a href="#about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-2 rounded-2xl hover:bg-[var(--accent)]">
             About
           </a>
           
-          <a href="#blog" className="text-black hover:text-white font-medium transition-all duration-300 relative px-4 py-2 rounded-full hover:bg-[#9ecd9d]">
+          <a href="#blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-2 rounded-2xl hover:bg-[var(--accent)]">
             Blog
           </a>
           
-          <a href="#contact" className="text-black hover:text-white font-medium transition-all duration-300 relative px-4 py-2 rounded-full hover:bg-[#9ecd9d]">
+          <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-2 rounded-2xl hover:bg-[var(--accent)]">
             Contact
           </a>
         </div>
 
         {/* CTA Button */}
-        <div className="hidden lg:block animate-slide-in-right">
-          <button className="gradient-primary text-black font-semibold px-8 py-3 rounded-xl shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105">
+        <div className="hidden lg:flex items-center animate-slide-in-right">
+          <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-semibold px-4 py-2 rounded-2xl shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105">
             Get started
           </button>
         </div>
@@ -153,7 +181,7 @@ const Navigation = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden flex items-center justify-center w-8 h-8"
+          className="lg:hidden flex items-center justify-center w-9 h-9 rounded-2xl bg-[var(--card-background)] border border-[var(--border)]"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isMenuOpen ? (
@@ -163,12 +191,31 @@ const Navigation = () => {
             )}
           </svg>
         </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden mt-4 pb-4">
           <div className="flex flex-col space-y-4">
+            {/* Mobile theme toggle (visible here only on small screens) */}
+            <button
+              aria-label="Toggle theme"
+              aria-pressed={isDark}
+              onClick={toggleTheme}
+              className="self-start flex items-center justify-center w-10 h-10 rounded-full border border-black/10 bg-white/70 hover:bg-white transition-colors"
+            >
+              {isDark ? (
+                <svg className="h-5 w-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" strokeWidth="1.5"/>
+                </svg>
+              ) : (
+                <svg className="h-5 w-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="12" cy="12" r="4" strokeWidth="1.5"/>
+                  <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M8.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M8.05 7.05L6.636 5.636" strokeWidth="1.5"/>
+                </svg>
+              )}
+            </button>
             {/* Mobile Services */}
             <div>
               <button 
@@ -199,7 +246,7 @@ const Navigation = () => {
             <a href="#blog" className="text-black hover:text-gray-700 font-medium">Blog</a>
             <a href="#contact" className="text-black hover:text-gray-700 font-medium">Contact</a>
             <button className="text-left text-black hover:text-gray-700 font-medium">Support</button>
-            <button className="bg-[#A5D6A7] hover:bg-[#8BC34A] text-black font-medium px-6 py-2 rounded-lg transition-colors w-fit">
+            <button className="gradient-primary text-black font-medium px-6 py-2 rounded-full transition-colors w-fit">
               Get started
             </button>
           </div>

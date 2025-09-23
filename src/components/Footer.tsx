@@ -58,10 +58,13 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full gradient-dark py-20 lg:py-24 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-green-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
+    <footer className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-20 lg:py-24 relative overflow-hidden">
+      {/* Background pattern to match pricing/FAQ */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{
+        backgroundImage: 'repeating-linear-gradient(135deg, currentColor 0, currentColor 2px, transparent 2px, transparent 12px)'
+      }} />
+      <div className="absolute top-6 right-12 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-6 left-12 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl"></div>
       
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-16">
@@ -77,8 +80,8 @@ const Footer = () => {
               />
             </div>
             <div>
-              <h3 className="text-white font-bold text-2xl tracking-tight">VERBAFLOW</h3>
-              <p className="text-green-300 text-lg font-medium">LLC</p>
+              <h3 className="text-[var(--text-secondary)] font-bold text-2xl tracking-tight">VERBAFLOW</h3>
+              <p className="text-[var(--text-accent)] text-lg font-medium">LLC</p>
             </div>
           </div>
 
@@ -88,7 +91,7 @@ const Footer = () => {
               <a
                 key={index}
                 href={link.href}
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+                className="text-[var(--text-accent)] hover:opacity-90 transition-colors text-sm font-medium"
               >
                 {link.name}
               </a>
@@ -101,7 +104,14 @@ const Footer = () => {
               <a
                 key={index}
                 href={social.href}
-                className="text-gray-400 hover:text-white transition-colors"
+                className={`hover:opacity-90 transition-colors ${
+                  social.name === 'LinkedIn' ? 'text-[#0A66C2]' :
+                  social.name === 'Twitter' ? 'text-[#1DA1F2]' :
+                  social.name === 'Facebook' ? 'text-[#1877F2]' :
+                  social.name === 'Instagram' ? 'text-[#E4405F]' :
+                  social.name === 'YouTube' ? 'text-[#FF0000]' :
+                  'text-[var(--text-accent)]'
+                }`}
                 aria-label={social.name}
               >
                 {social.icon}
@@ -111,8 +121,8 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="mt-16 pt-10 border-t border-gray-800 text-center">
-          <p className="text-gray-400 text-lg">
+        <div className="mt-16 pt-10 border-t border-[var(--border)] text-center">
+          <p className="text-[var(--text-accent)] text-lg">
             © 2024 Verbaflow LLC. All rights reserved.
           </p>
         </div>
