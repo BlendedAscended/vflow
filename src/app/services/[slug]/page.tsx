@@ -67,7 +67,7 @@ async function getService(slug: string): Promise<Service | null> {
 }
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: ServicePageProps) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const service = await getService(params.slug);
   
   if (!service) {
@@ -85,7 +85,7 @@ export async function generateMetadata({ params }: ServicePageProps) {
 }
 
 // Main component
-export default async function ServicePage({ params }: ServicePageProps) {
+export default async function ServicePage({ params }: { params: { slug: string } }) {
   const service = await getService(params.slug);
 
   if (!service) {
@@ -150,7 +150,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <section className="py-24 bg-white">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <div className="prose prose-lg max-w-none">
-            <PortableText value={(service.fullDescription ?? []) as PortableTextBlock[]} />
+             <PortableText value={(service.fullDescription ?? []) as PortableTextBlock[]} />
             </div>
           </div>
         </section>
