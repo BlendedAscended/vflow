@@ -150,7 +150,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <section className="py-24 bg-white">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <div className="prose prose-lg max-w-none">
-              <PortableText value={(service.fullDescription as any) ?? [] } />
+            <PortableText value={(service.fullDescription ?? []) as PortableTextBlock[]} />
             </div>
           </div>
         </section>
