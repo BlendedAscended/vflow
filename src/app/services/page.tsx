@@ -16,7 +16,7 @@ async function getAllServices() {
         ctaLink,
         featured,
         active,
-        "slug": slug.current
+        slug
       }
     `);
     return services;
