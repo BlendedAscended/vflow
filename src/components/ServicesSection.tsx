@@ -100,17 +100,23 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
 
   return (
     <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden">
-      {/* Background pattern & soft blobs (match pricing), no shine overlay */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{
-        backgroundImage: 'repeating-linear-gradient(135deg, currentColor 0, currentColor 2px, transparent 2px, transparent 12px)'
-      }} />
+      {/* Gemini background pattern */}
+      <div 
+        className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
+        style={{
+          backgroundImage: 'url(/bg-section-gemini.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
       <div className="absolute top-10 right-16 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-10 left-16 w-72 h-72 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow"></div>
       
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-block mb-6">
-            <div className="text-[var(--text-accent)] text-sm font-bold uppercase tracking-wider bg-[var(--section-bg-3)]/50 px-8 py-4 rounded-full border border-[var(--border)]">
+            <div className="text-[var(--section-bg-1)] text-sm font-bold uppercase tracking-wider bg-[var(--muted-foreground)] px-8 py-4 rounded-full border border-[var(--border)]">
               Where strategy, technology, and automation converge, predictable growth emerges.
             </div>
           </div>
@@ -119,7 +125,7 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 max-w-6xl mx-auto items-start">
           {displayServices.map((service, index) => (
             <div 
               key={service._id} 
@@ -127,50 +133,48 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
                 index % 2 === 0
                   ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
                   : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
-              } ${service.featured ? 'ring-2 ring-[var(--accent)]/70 shadow-glow scale-[1.02]' : 'hover:scale-[1.02] hover:-rotate-[0.25deg]'}`}
+              } hover:scale-[1.01] hover:border-[var(--accent)] hover:shadow-lg`}
               style={{animationDelay: `${index * 0.1}s`}}
             >
-              <div className="space-y-8 relative">
-                <div className={`w-20 h-20 lg:w-24 lg:h-24 rounded-3xl flex items-center justify-center shadow-glow animate-pulse-slow bg-[var(--accent)]`}>
-                  {getServiceIcon(service.icon)}
-                </div>
-                <div className="space-y-6">
-                  <div className="flex items-start justify-between">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-[var(--text-secondary)] leading-tight flex-1">
-                      {service.title}
-                    </h3>
-                    {service.price && (
-                      <span className="text-[var(--text-accent)] font-semibold text-lg whitespace-nowrap ml-4">
-                        {service.price}
-                      </span>
-                    )}
+              <div className="space-y-6 relative">
+                <div className="flex items-start justify-between mb-4">
+                  <div className={`w-16 h-16 lg:w-20 lg:h-20 rounded-2xl flex items-center justify-center bg-[var(--accent)]`}>
+                    {getServiceIcon(service.icon)}
                   </div>
-                  <p className="text-[var(--text-accent)] text-lg lg:text-xl leading-relaxed">
+                  {service.price && (
+                    <span className="text-[var(--text-accent)] font-semibold text-lg whitespace-nowrap ml-4">
+                      {service.price}
+                    </span>
+                  )}
+                </div>
+                
+                <div className="space-y-4">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-[var(--text-secondary)] leading-tight">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-[var(--text-accent)] text-lg leading-relaxed">
                     {service.description}
                   </p>
                   
                   {service.features && service.features.length > 0 && (
-                    <ul className="space-y-2">
-                      {service.features.slice(0, 4).map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-[var(--text-accent)]">
-                          <svg className="w-4 h-4 text-[var(--accent)] mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <div className="space-y-2">
+                      {service.features.slice(0, 3).map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-start space-x-3">
+                          <svg className="w-5 h-5 text-[var(--accent)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
-                          {feature}
-                        </li>
+                          <span className="text-[var(--text-accent)] text-sm">{feature}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   )}
                   
                   {service.ctaText && (
                     <div className="pt-4">
                       <a
                         href={service.ctaLink || '#contact'}
-                        className={`inline-flex items-center px-6 py-3 rounded-2xl transition-all duration-300 transform overflow-hidden ${
-                          service.featured
-                            ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow hover:scale-[1.03]'
-                            : 'border-2 border-[var(--accent)] text-[var(--text-accent)] bg-transparent hover:bg-[var(--accent)]/10 hover:scale-[1.03]'
-                        }`}
+                        className="inline-flex items-center px-6 py-3 rounded-2xl transition-all duration-300 transform bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03] hover:shadow-lg"
                       >
                         <span className="relative z-10">{service.ctaText}</span>
                         <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

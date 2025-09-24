@@ -59,10 +59,16 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-20 lg:py-24 relative overflow-hidden">
-      {/* Background pattern to match pricing/FAQ */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{
-        backgroundImage: 'repeating-linear-gradient(135deg, currentColor 0, currentColor 2px, transparent 2px, transparent 12px)'
-      }} />
+      {/* Next background pattern with conditional opacity */}
+      <div 
+        className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
+        style={{
+          backgroundImage: 'url(/bg-section-next.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
       <div className="absolute top-6 right-12 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl"></div>
       <div className="absolute bottom-6 left-12 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl"></div>
       

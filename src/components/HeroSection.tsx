@@ -49,11 +49,11 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-8 pt-1">
-              <button className="gradient-primary text-black font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg">
+            <div className="flex flex-col sm:flex-row gap-6 pt-1">
+              <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg">
                 Get my growth plan
               </button>
-              <button className="gradient-dark border border-white/30 hover:border-[#bee3ba] text-[#bee3ba] shadow-hover hover:shadow-glow font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-white/20 transform hover:scale-105 backdrop-blur-sm text-lg">
+              <button className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg">
                 See services
               </button>
             </div>

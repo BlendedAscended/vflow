@@ -92,7 +92,7 @@ const ContactSection = () => {
                 type="submit"
                 className="w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold py-4 px-8 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg"
               >
-                🚀 Submit
+                Submit
               </button>
             </form>
           </div>

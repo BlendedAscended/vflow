@@ -39,7 +39,7 @@
     --card-background: #ffffff;
     --card-foreground: #102023;
     --muted-background: #f4f7f5;
-    --muted-foreground: #4b5563;
+    --muted-foreground: #2e2e41;
     --border: #dbe5d9;
     --accent: #A5D6A7;
     --accent-foreground: #000000;
@@ -53,13 +53,12 @@ html.theme-light {
   --section-bg-1: #BEE3BA;
   --section-bg-2: #222E3C;
   --section-bg-3: #283c41;
-  --text-primary: #102023;
+  --text-primary: #2d2d4b;
   --text-secondary: #ffffff; /* ensure light text on dark sections */
   --text-accent: #e5f3e3; /* lighter mint for emphasis */
-  --card-background: #ffffff;
-  --card-foreground: #102023;
+  --card-background:rgba(65,76,78,0.45);
   --muted-background: #f4f7f5;
-  --muted-foreground: #4b5563;
+  --muted-foreground: #2d2d4b;
   --border: #dbe5d9;
   --accent: #A5D6A7;
   --accent-foreground: #000000;
@@ -88,9 +87,55 @@ html.theme-dark {
 }
 
 /* Reset margins and padding only for specific elements, not everything */
-body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+body, h1, h2, h3, h4, h5, h6, ul, ol, li, figure, figcaption, blockquote, dl, dd {
   margin: 0;
   padding: 0;
+}
+
+/* Allow p tags to have custom spacing when needed - only reset default browser styles */
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Override for p tags with Tailwind classes */
+p[class*="px-"], p[class*="py-"], p[class*="mx-"], p[class*="my-"], p[class*="mb-"], p[class*="mt-"] {
+  margin: unset;
+  padding: unset;
+}
+
+/* FAQ Button Reset */
+.faq-button {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.faq-button:focus,
+.faq-button:active,
+.faq-button:hover {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* FAQ Section Heading Override - Use inline styles instead */
+.faq-section h3 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Safe FAQ spacing classes */
+.faq-category-heading {
+  margin-bottom: 3rem !important;
+}
+
+.faq-cards-container {
+  margin-top: 3rem !important;
 }
 
 html,
