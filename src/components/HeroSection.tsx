@@ -44,7 +44,7 @@ const HeroSection = () => {
               
               <div className="space-y-4">
                 <div className="flex justify-start pt-4">
-                  <div className="text-[var(--text-primary)] font-bold text-sm uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-2xl border border-[var(--accent)]">
+                  <div className="text-[var(--accent-foreground)] font-bold text-sm uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-2xl border border-[var(--accent)]">
                     We Serve clients in {location}
                   </div>
                 </div>

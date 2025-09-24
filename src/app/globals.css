@@ -57,6 +57,7 @@ html.theme-light {
   --text-secondary: #ffffff; /* ensure light text on dark sections */
   --text-accent: #e5f3e3; /* lighter mint for emphasis */
   --card-background:rgba(65,76,78,0.45);
+  --card-foreground: #102023; 
   --muted-background: #f4f7f5;
   --muted-foreground: #2d2d4b;
   --border: #dbe5d9;

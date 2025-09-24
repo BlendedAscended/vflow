@@ -68,7 +68,7 @@ const BusinessInfoSection = () => {
               
               <div className="space-y-6">
                 <div className="flex justify-start mb-6 pt-4">
-                  <div className="text-[var(--text-primary)] font-bold text-xl semibold leading-tight uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-2xl border border-[var(--accent)]">
+                  <div className="text-[var(--accent-foreground)] font-bold text-xl semibold leading-tight uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-2xl border border-[var(--accent)]">
                   Intelligent Strategies for Market Dominance.
                   </div>
                 </div>
