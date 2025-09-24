@@ -197,20 +197,20 @@ const Navigation = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden mt-4 pb-4">
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 bg-[var(--card-background)] rounded-3xl p-6 border border-[var(--border)] shadow-xl">
             {/* Mobile theme toggle (visible here only on small screens) */}
             <button
               aria-label="Toggle theme"
               aria-pressed={isDark}
               onClick={toggleTheme}
-              className="self-start flex items-center justify-center w-10 h-10 rounded-full border border-black/10 bg-white/70 hover:bg-white transition-colors"
+              className="self-start flex items-center justify-center w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--section-bg-1)] hover:bg-[var(--accent)] transition-colors"
             >
               {isDark ? (
-                <svg className="h-5 w-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <svg className="h-5 w-5 text-[var(--text-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" strokeWidth="1.5"/>
                 </svg>
               ) : (
-                <svg className="h-5 w-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <svg className="h-5 w-5 text-[var(--text-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <circle cx="12" cy="12" r="4" strokeWidth="1.5"/>
                   <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M8.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M8.05 7.05L6.636 5.636" strokeWidth="1.5"/>
                 </svg>
@@ -220,7 +220,7 @@ const Navigation = () => {
             <div>
               <button 
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className="text-left text-black hover:text-gray-700 font-medium w-full flex items-center justify-between"
+                className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium w-full flex items-center justify-between py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300"
               >
                 <span>Services</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -233,7 +233,7 @@ const Navigation = () => {
                     <a
                       key={service.slug}
                       href={`/services/${service.slug}`}
-                      className="block text-gray-600 hover:text-gray-800 py-1"
+                      className="block text-[var(--text-accent)] hover:text-[var(--accent-foreground)] py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300"
                     >
                       {service.title}
                     </a>
@@ -242,11 +242,11 @@ const Navigation = () => {
               )}
             </div>
             
-            <a href="#about" className="text-black hover:text-gray-700 font-medium">About</a>
-            <a href="#blog" className="text-black hover:text-gray-700 font-medium">Blog</a>
-            <a href="#contact" className="text-black hover:text-gray-700 font-medium">Contact</a>
-            <button className="text-left text-black hover:text-gray-700 font-medium">Support</button>
-            <button className="gradient-primary text-black font-medium px-6 py-2 rounded-full transition-colors w-fit">
+            <a href="#about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">About</a>
+            <a href="#blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Blog</a>
+            <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Contact</a>
+            <button className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Support</button>
+            <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-hover hover:shadow-glow w-fit">
               Get started
             </button>
           </div>

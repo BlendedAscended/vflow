@@ -1,4 +1,17 @@
+"use client";
+
+import { useState, useRef, useEffect } from 'react';
+
 const AIToolsSection = () => {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.7;
+    }
+  }, []);
+
   return (
     <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-16 lg:py-24">
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
@@ -18,7 +31,7 @@ const AIToolsSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-8">
               <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg">
-                🚀 Get started
+                 Get started
               </button>
               <button className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg">
                 Learn more
@@ -26,20 +39,44 @@ const AIToolsSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Image */}
-          <div className="relative">
-            <div className="aspect-[4/3] bg-[var(--muted-background)] rounded-2xl overflow-hidden">
-              {/* Placeholder for AI tools interface */}
-              <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                <div className="text-center text-[var(--muted-foreground)]">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-[var(--card-background)] rounded-full flex items-center justify-center shadow-lg">
-                    <svg className="w-12 h-12 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm font-medium">AI Support Tools</p>
-                </div>
-              </div>
+          {/* Right Column - Video */}
+          <div className="relative group">
+            <div className="video-portal aspect-[4/3] bg-gradient-to-br from-white/10 via-blue-50/30 to-purple-50/20 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-700 backdrop-blur-sm border border-white/20">
+              <video
+                ref={videoRef}
+                src="/bg-video-section.mp4"
+                autoPlay
+                loop
+                muted={isMuted}
+                playsInline
+                className="w-full h-full object-cover rounded-2xl mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500"
+                onLoadedData={() => {
+                  if (videoRef.current) {
+                    videoRef.current.playbackRate = 0.7;
+                  }
+                }}
+              />
+              
+              {/* Video Overlay for Better Integration */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-blue-100/10 rounded-2xl pointer-events-none"></div>
+              
+              {/* Sound Control Button */}
+              <button
+                onClick={() => setIsMuted(!isMuted)}
+                className="absolute bottom-4 right-4 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:opacity-100 opacity-70"
+                aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+              >
+                {isMuted ? (
+                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                  </svg>
+                )}
+              </button>
             </div>
           </div>
         </div>

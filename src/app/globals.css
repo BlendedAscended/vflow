@@ -70,7 +70,7 @@ html.theme-dark {
   --section-bg-1: #102023;
   --section-bg-2: #2d2d4b;
   --section-bg-3: #102023;
-  --text-primary: #ffffff;
+  --text-primary: #bee3ba;
   --text-secondary: #bee3ba;
   --text-accent: #e5f3e3;
   --card-background: #1b2b2e;
@@ -315,4 +315,112 @@ select:focus {
 .shadow-hover:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Waterfall gradient for hero span with enhanced animations */
+.waterfall-gradient {
+  background: linear-gradient(45deg, var(--text-primary) 0%, rgba(255, 255, 255, 0.8) 25%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.5) 100%);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: waterfallFlow 4s ease-in-out infinite, shimmer 3s ease-in-out infinite;
+}
+
+/* Dark mode waterfall gradient */
+html.theme-dark .waterfall-gradient {
+  background: linear-gradient(45deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 25%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.5) 100%);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: waterfallFlow 4s ease-in-out infinite, shimmer 3s ease-in-out infinite;
+}
+
+/* Light mode waterfall gradient */
+html.theme-light .waterfall-gradient {
+  background: linear-gradient(45deg, #000000 0%, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.5) 100%);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: waterfallFlow 4s ease-in-out infinite, shimmer 3s ease-in-out infinite;
+}
+
+/* Waterfall flow animation */
+@keyframes waterfallFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Glowing portal effect for videos */
+.video-portal {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-portal::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(165, 214, 167, 0.1), transparent, rgba(165, 214, 167, 0.2), transparent);
+  animation: portalRotate 8s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.video-portal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(165, 214, 167, 0.05) 50%, transparent 100%);
+  animation: portalPulse 4s ease-in-out infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes portalRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes portalPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
 }

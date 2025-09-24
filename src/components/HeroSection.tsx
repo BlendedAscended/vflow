@@ -33,14 +33,18 @@ const HeroSection = () => {
           {/* Left Column - Content */}
           <div className="space-y-4 animate-slide-in-left">
             <div className="space-y-4">
-              <h1 className="text-3xl lg:text-5xl xl:text-6xl font-extrabold text-black leading-tight">
+              <h1 className="text-3xl lg:text-5xl xl:text-6xl font-extrabold text-[var(--text-primary)] leading-tight">
               Connect With More of Your Best Customers{' '}
-                <span className="gradient-text animate-pulse-medium">Automate Your Business Growth</span>
+                <span 
+                  className="animate-pulse-medium waterfall-gradient"
+                >
+                  Automate Your Business Growth
+                </span>
              </h1>
               
               <div className="space-y-4">
-                <div className="flex justify-start">
-                  <div className="text-[var(--text-primary)] font-bold text-sm uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-full border border-[var(--accent)]">
+                <div className="flex justify-start pt-4">
+                  <div className="text-[var(--text-primary)] font-bold text-sm uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-2xl border border-[var(--accent)]">
                     We Serve clients in {location}
                   </div>
                 </div>
@@ -62,7 +66,7 @@ const HeroSection = () => {
           {/* Right Column - Video */}
           <div className="relative animate-slide-in-right group">
             {/* Video Container with Background Integration */}
-            <div className="aspect-video bg-gradient-to-br from-white/10 via-green-50/30 to-blue-50/20 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-700 backdrop-blur-sm border border-white/20">
+            <div className="video-portal aspect-video bg-gradient-to-br from-white/10 via-green-50/30 to-blue-50/20 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-700 backdrop-blur-sm border border-white/20">
               <video
                 ref={videoRef}
                 src="/hero-video.mp4"

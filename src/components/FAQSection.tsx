@@ -116,11 +116,11 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
 
   return (
     <section className="faq-section w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-24 lg:py-40 relative overflow-hidden">
-      {/* Next background pattern with conditional opacity */}
+      {/* Gemini background pattern with conditional opacity */}
       <div 
         className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
         style={{
-          backgroundImage: 'url(/bg-section-last.png)',
+          backgroundImage: 'url(/bg-section-gemini.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -155,22 +155,46 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
                           : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
                       } hover:scale-[1.01]`}
                     >
-                      <button
-                        onClick={() => toggleItem(category, index)}
-                        className="faq-button w-full flex items-center justify-between text-left"
-                      >
-                        <span className="text-[var(--text-secondary)] text-xl font-semibold pr-8">{faq.question}</span>
-                        <svg
-                          className={`w-6 h-6 text-[var(--accent)] flex-shrink-0 ${
-                            openItems[category]?.includes(index) ? 'rotate-180' : ''
-                          }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
+                      {/* Mobile: Icon at top center, Desktop: Icon on right */}
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <button
+                          onClick={() => toggleItem(category, index)}
+                          className="faq-button w-full flex flex-col md:flex-row md:items-center md:justify-between text-left"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
+                          {/* Mobile: Icon at top center */}
+                          <div className="flex justify-center md:hidden mb-4">
+                            <svg
+                              className={`w-8 h-8 text-[var(--accent)] ${
+                                openItems[category]?.includes(index) ? 'rotate-180' : ''
+                              }`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </div>
+                          
+                          {/* Question text - full width on mobile */}
+                          <div className="flex-1 text-center md:text-left">
+                            <span className="text-[var(--text-secondary)] text-xl font-semibold">{faq.question}</span>
+                          </div>
+                          
+                          {/* Desktop: Icon on right */}
+                          <div className="hidden md:flex md:ml-4">
+                            <svg
+                              className={`w-6 h-6 text-[var(--accent)] flex-shrink-0 ${
+                                openItems[category]?.includes(index) ? 'rotate-180' : ''
+                              }`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </div>
+                        </button>
+                      </div>
 
                       {openItems[category]?.includes(index) && (
                         <div className="mt-4 pt-4 border-t border-[var(--border)]">
@@ -194,22 +218,46 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
                     : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
                 } hover:scale-[1.01]`}
               >
-                <button
-                  onClick={() => toggleItem('general', index)}
-                  className="faq-button w-full flex items-center justify-between text-left"
-                >
-                  <span className="text-[var(--text-secondary)] text-xl font-semibold pr-8">{faq.question}</span>
-                  <svg
-                    className={`w-6 h-6 text-[var(--accent)] flex-shrink-0 ${
-                      openItems['general']?.includes(index) ? 'rotate-180' : ''
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                {/* Mobile: Icon at top center, Desktop: Icon on right */}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                  <button
+                    onClick={() => toggleItem('general', index)}
+                    className="faq-button w-full flex flex-col md:flex-row md:items-center md:justify-between text-left"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
+                    {/* Mobile: Icon at top center */}
+                    <div className="flex justify-center md:hidden mb-4">
+                      <svg
+                        className={`w-8 h-8 text-[var(--accent)] ${
+                          openItems['general']?.includes(index) ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                    
+                    {/* Question text - full width on mobile */}
+                    <div className="flex-1 text-center md:text-left">
+                      <span className="text-[var(--text-secondary)] text-xl font-semibold">{faq.question}</span>
+                    </div>
+                    
+                    {/* Desktop: Icon on right */}
+                    <div className="hidden md:flex md:ml-4">
+                      <svg
+                        className={`w-6 h-6 text-[var(--accent)] flex-shrink-0 ${
+                          openItems['general']?.includes(index) ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
 
                 {openItems['general']?.includes(index) && (
                   <div className="mt-4 pt-4 border-t border-[var(--border)]">
