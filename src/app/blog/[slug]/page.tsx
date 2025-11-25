@@ -1,6 +1,7 @@
 import { client } from '../../../sanity/lib/client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PortableText } from '@portabletext/react';
 
 // TypeScript interfaces for blog post data
 interface BlogPost {
@@ -390,9 +391,10 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
                                   );
                                 default:
                                   return (
-                                    <p key={index} className="text-[var(--text-primary)] mb-4 leading-relaxed text-lg">
-                                      {blockText}
-                                    </p>
+                                    <div key={index} className="mb-4 text-[var(--text-primary)] leading-relaxed text-lg">
+                                      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                                      <PortableText value={[typedBlock] as any} />
+                                    </div>
                                   );
                               }
                             }
@@ -417,7 +419,14 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
                             );
                           }
 
-                          return null;
+                          // Fallback for unknown types (Hybrid Strategy)
+                          // This catches new block types (like YouTube) that we haven't manually handled
+                          return (
+                            <div key={index} className="my-6">
+                              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                              <PortableText value={[typedBlock] as any} />
+                            </div>
+                          );
                         }).filter(Boolean)}
                       </div>
                     ) : (
