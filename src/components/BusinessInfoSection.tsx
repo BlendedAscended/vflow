@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useLocationValue } from './LocationContext'; // Import useLocationValue
+import { submitContact } from '../app/actions/submitContact';
 
 const BusinessInfoSection = () => {
   const [isMuted, setIsMuted] = useState(true);
@@ -15,7 +16,7 @@ const BusinessInfoSection = () => {
   }, []);
 
   return (
-    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-16 lg:py-24">
+    <section id="about" className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-16 lg:py-24">
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 items-center">
           {/* Left Column - Video */}
@@ -35,10 +36,10 @@ const BusinessInfoSection = () => {
                   }
                 }}
               />
-              
+
               {/* Video Overlay for Better Integration */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-green-100/10 rounded-2xl pointer-events-none"></div>
-              
+
               {/* Sound Control Button */}
               <button
                 onClick={() => setIsMuted(!isMuted)}
@@ -63,13 +64,13 @@ const BusinessInfoSection = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] leading-tight">
-              Future-Proofing Your  <span className="gradient-text">Brand, Today.</span>
+                Future-Proofing Your  <span className="gradient-text">Brand, Today.</span>
               </h2>
-              
+
               <div className="space-y-6">
                 <div className="flex justify-start mb-6 pt-4">
                   <div className="text-[var(--accent-foreground)] font-bold text-xl semibold leading-tight uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-2xl border border-[var(--accent)]">
-                  Intelligent Strategies for Market Dominance.
+                    Intelligent Strategies for Market Dominance.
                   </div>
                 </div>
                 {/* <div className="inline-block">
@@ -81,7 +82,7 @@ const BusinessInfoSection = () => {
             </div>
 
             <div className="bg-[var(--card-background)] rounded-3xl p-10 lg:p-12 shadow-elegant border border-[var(--border)] flex flex-col h-full">
-              <h3 className="text-3xl font-bold text-[var(--card-foreground)] mb-6" style={{marginTop: '-5%', marginBottom: '2%'}}>
+              <h3 className="text-3xl font-bold text-[var(--card-foreground)] mb-6" style={{ marginTop: '-5%', marginBottom: '2%' }}>
                 Unleash Exponential Online Opportunity
               </h3>
               <p className="text-[var(--muted-foreground)] mr-6 mb-4 text-lg leading-tight flex-grow font-semibold">
@@ -89,13 +90,21 @@ const BusinessInfoSection = () => {
                 Serving {location} businesses with expert digital solutions.
               </p>
 
-              <form className="flex flex-col sm:flex-row gap-6 mt-8">
+              <form action={async (formData) => {
+                formData.append('name', 'Newsletter Subscriber');
+                formData.append('subject', 'Newsletter Signup');
+                await submitContact(formData);
+                // We might want to add some UI feedback here, but for now keeping it simple as per original design
+                alert('Thank you for subscribing!');
+              }} className="flex flex-col sm:flex-row gap-6 mt-8">
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
+                  required
                   className="flex-1 px-6 py-4 border-2 border-[var(--border)] rounded-full focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)] transition-all duration-300 text-lg bg-[var(--card-background)] text-[var(--card-foreground)]"
                 />
-                <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full transition-all duration-300 transform hover:scale-105 whitespace-nowrap text-lg shadow-hover hover:shadow-glow">
+                <button type="submit" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full transition-all duration-300 transform hover:scale-105 whitespace-nowrap text-lg shadow-hover hover:shadow-glow">
                   Submit
                 </button>
               </form>

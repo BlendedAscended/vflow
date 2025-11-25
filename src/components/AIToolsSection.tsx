@@ -13,7 +13,7 @@ const AIToolsSection = () => {
   }, []);
 
   return (
-    <section className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-16 lg:py-24">
+    <section id="projects" className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-16 lg:py-24">
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 items-center">
           {/* Left Column - Content */}
@@ -22,20 +22,20 @@ const AIToolsSection = () => {
               <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] leading-tight">
                 <span className="gradient-text">AI-powered</span> customer support tools
               </h2>
-              
+
               <p className="text-[var(--muted-foreground)] text-xl leading-relaxed">
-                Automate scheduling, lead capture, and support with advanced AI technology
+                Automate scheduling, lead capture, and support with advanced AI Technology
                 designed for local businesses in Montgomery County.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-8">
-              <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg">
-                 Get started
-              </button>
-              <button className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg">
+              <a href="#contact" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
+                Get started
+              </a>
+              <a href="#services" className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg text-center">
                 Learn more
-              </button>
+              </a>
             </div>
           </div>
 
@@ -56,10 +56,10 @@ const AIToolsSection = () => {
                   }
                 }}
               />
-              
+
               {/* Video Overlay for Better Integration */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-blue-100/10 rounded-2xl pointer-events-none"></div>
-              
+
               {/* Sound Control Button */}
               <button
                 onClick={() => setIsMuted(!isMuted)}

@@ -19,7 +19,7 @@ interface ServicesSectionProps {
 // Icon components based on service type
 const getServiceIcon = (iconType?: string) => {
   const iconClass = "w-8 h-8 text-white";
-  
+
   switch (iconType) {
     case 'website':
       return (
@@ -83,13 +83,13 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
     },
     {
       _id: "fallback-3",
-      title: "AI assistants & automation",
-      description: "Deploy an intelligent, autonomous workforce. AI assistants and automated workflows that handle routine tasks 24/7, freeing you to lead and innovate.",
+      title: "AI Assistants & Automation",
+      description: "Deploy an intelligent, autonomous workforce. AI Assistants and automated workflows that handle routine tasks 24/7, freeing you to lead and innovate.",
       icon: "ai"
     },
     {
       _id: "fallback-4",
-      title: "Cloud, IT & compliance",
+      title: "Cloud, IT & Compliance",
       description: "Build the unbreachable foundation for your growth. A secure, compliant cloud architecture that ensures your entire digital ecosystem is stable, protected, and poised for scale.",
       icon: "cloud"
     }
@@ -99,9 +99,9 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
   const displayServices = [...defaultServices, ...(services || [])];
 
   return (
-    <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden">
+    <section id="services" className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden">
       {/* Gemini background pattern */}
-      <div 
+      <div
         className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
         style={{
           backgroundImage: 'url(/bg-section-gemini.png)',
@@ -112,7 +112,7 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
       />
       <div className="absolute top-10 right-16 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-10 left-16 w-72 h-72 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow"></div>
-      
+
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-block mb-6 pt-4">
@@ -127,14 +127,13 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 max-w-6xl mx-auto items-start">
           {displayServices.map((service, index) => (
-            <div 
-              key={service._id} 
-              className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 animate-fade-in-up will-change-transform ${
-                index % 2 === 0
+            <div
+              key={service._id}
+              className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 animate-fade-in-up will-change-transform ${index % 2 === 0
                   ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
                   : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
-              } hover:scale-[1.01] hover:border-[var(--accent)] hover:shadow-lg`}
-              style={{animationDelay: `${index * 0.1}s`}}
+                } hover:scale-[1.01] hover:border-[var(--accent)] hover:shadow-lg`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="space-y-6 relative">
                 <div className="flex items-start justify-between mb-4">
@@ -147,16 +146,16 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
                     </span>
                   )}
                 </div>
-                
+
                 <div className="space-y-4">
                   <h3 className="text-2xl lg:text-3xl font-bold text-[var(--text-secondary)] leading-tight">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-[var(--text-accent)] text-lg leading-relaxed">
                     {service.description}
                   </p>
-                  
+
                   {service.features && service.features.length > 0 && (
                     <div className="space-y-2">
                       {service.features.slice(0, 3).map((feature, featureIndex) => (
@@ -169,7 +168,7 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
                       ))}
                     </div>
                   )}
-                  
+
                   {service.ctaText && (
                     <div className="pt-4">
                       <a

@@ -25,7 +25,7 @@ const HeroSection = () => {
       <div className="absolute inset-0"></div>
       <div className="absolute top-10 right-10 w-72 h-72 bg-[var(--accent)]/20 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-10 left-10 w-96 h-96 bg-[var(--accent)]/15 rounded-full blur-3xl animate-pulse-slow"></div>
-      
+
       {/* Theme toggle removed here; sticky desktop toggle is rendered globally */}
 
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
@@ -34,14 +34,14 @@ const HeroSection = () => {
           <div className="space-y-4 animate-slide-in-left">
             <div className="space-y-4">
               <h1 className="text-3xl lg:text-5xl xl:text-6xl font-extrabold text-[var(--text-primary)] leading-tight">
-              Connect With More of Your Best Customers{' '}
-                <span 
+                Connect With More of Your Best Customers{' '}
+                <span
                   className="animate-pulse-medium waterfall-gradient"
                 >
                   Automate Your Business Growth
                 </span>
-             </h1>
-              
+              </h1>
+
               <div className="space-y-4">
                 <div className="flex justify-start pt-4">
                   <div className="text-[var(--accent-foreground)] font-bold text-sm uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-2xl border border-[var(--accent)]">
@@ -49,17 +49,17 @@ const HeroSection = () => {
                   </div>
                 </div>
                 <p className="text-[var(--muted-foreground)] text-xl lg:text-2xl leading-relaxed max-w-3xl font-medium">
-                We unify your entire customer journey on one intelligent platform. Every stage, from marketing to operations, is engineered to make you the premier choice for customers.              </p>
+                  We unify your entire customer journey on one intelligent platform. Every stage, from marketing to operations, is engineered to make you the premier choice for customers.              </p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 pt-1">
-              <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg">
+              <a href="#contact" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
                 Get my growth plan
-              </button>
-              <button className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg">
+              </a>
+              <a href="#services" className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg text-center">
                 See services
-              </button>
+              </a>
             </div>
           </div>
 
@@ -81,10 +81,10 @@ const HeroSection = () => {
                   }
                 }}
               />
-              
+
               {/* Video Overlay for Better Integration */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-green-100/10 rounded-3xl pointer-events-none"></div>
-              
+
               {/* Sound Control Button */}
               <button
                 onClick={() => setIsMuted(!isMuted)}
@@ -102,8 +102,8 @@ const HeroSection = () => {
                   </svg>
                 )}
               </button>
-              
-      
+
+
             </div>
           </div>
         </div>

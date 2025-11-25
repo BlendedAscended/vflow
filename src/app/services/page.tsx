@@ -28,7 +28,7 @@ async function getAllServices() {
 
 export const metadata = {
   title: 'Our Services - Verbaflow LLC',
-  description: 'Comprehensive digital solutions for your business growth. Web development, marketing, AI automation, and more.',
+  description: 'Comprehensive digital solutions for your business growth. Web development, marketing, AI Automation, and more.',
 };
 
 export default async function ServicesPage() {

@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Verbaflow LLC - Grow Your Business with AI",
-  description: "Modern websites, marketing, and AI solutions for local businesses. Streamline operations, boost leads, and automate your workflow with expert support in Montgomery County.",
-  keywords: "web development, AI automation, digital marketing, Montgomery County, business growth",
+  description: "Modern websites, marketing, and AI Solutions for local businesses. Streamline operations, boost leads, and automate your workflow with expert support in Montgomery County.",
+  keywords: "web development, AI Automation, digital marketing, Montgomery County, business growth",
   authors: [{ name: "Verbaflow LLC" }],
   viewport: "width=device-width, initial-scale=1",
 };

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image'; 
+import Image from 'next/image';
 import { client } from '../sanity/lib/client';
 
 // TypeScript interface for navigation services
@@ -35,7 +35,7 @@ const Navigation = () => {
           dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
           apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION
         });
-        
+
         // Try a simpler query first
         const navigationServices: NavigationService[] = await client.fetch(`
           *[_type == "service"] {
@@ -45,14 +45,14 @@ const Navigation = () => {
             showInNavigation
           }
         `);
-        
+
         // Filter on client side for now
-        const filteredServices = navigationServices.filter((service: NavigationService) => 
+        const filteredServices = navigationServices.filter((service: NavigationService) =>
           service.active === true && service.showInNavigation === true
         );
         console.log('All services:', navigationServices);
         console.log('Filtered services:', filteredServices);
-        
+
         // Always show default services plus any Sanity services
         const allServices = [...defaultNavigationServices, ...filteredServices];
         setServices(allServices);
@@ -80,7 +80,7 @@ const Navigation = () => {
       const root = document.documentElement;
       root.classList.remove('theme-light', 'theme-dark');
       root.classList.add(`theme-${nextIsDark ? 'dark' : 'light'}`);
-    } catch {}
+    } catch { }
   }, []);
 
   const toggleTheme = () => {
@@ -89,7 +89,7 @@ const Navigation = () => {
     const root = document.documentElement;
     root.classList.remove('theme-light', 'theme-dark');
     root.classList.add(`theme-${nextIsDark ? 'dark' : 'light'}`);
-    try { localStorage.setItem('theme', nextIsDark ? 'dark' : 'light'); } catch {}
+    try { localStorage.setItem('theme', nextIsDark ? 'dark' : 'light'); } catch { }
   };
 
   return (
@@ -97,48 +97,46 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto">
         {/* Floating pill container */}
         <div className="flex items-center justify-between bg-[var(--card-background)] border border-[var(--border)] rounded-full shadow-elegant px-8 py-4 mx-auto max-w-4xl">
-        {/* Logo */}
-        <div className="flex items-center animate-slide-in-left pl-1">
-          <div className="w-8 h-8 relative mr-2">
-            <Image
-              src="/logo.png"
-              alt="LOGO"
-              fill
-              className="object-cover"
-              priority
-            />
+          {/* Logo */}
+          <div className="flex items-center animate-slide-in-left pl-1">
+            <div className="w-8 h-8 relative mr-2">
+              <Image
+                src="/logo.png"
+                alt="LOGO"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <span className="text-[var(--muted-foreground)] font-bold text-xl tracking-tight">Verbaflow LLC</span>
           </div>
-          <span className="text-[var(--muted-foreground)] font-bold text-xl tracking-tight">Verbaflow LLC</span>
-        </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-3">
-          {/* Services Dropdown */}
-          <div 
-            className="relative group"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
-          >
-            <button className="flex items-center space-x-1 text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
-              <span>Services</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-3">
+            {/* Services Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <button className="flex items-center space-x-1 text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
+                <span>Services</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
               {/* Dropdown Menu */}
               {isServicesOpen && (
-                <div className={`absolute left-0 top-full bg-[var(--card-background)] rounded-3xl shadow-xl border border-[var(--border)] py-4 z-50 ${
-                  services.length <= 6 ? 'w-72' : 
-                  services.length <= 12 ? 'w-96' : 
-                  'w-[48rem]'
-                }`}>
+                <div className={`absolute left-0 top-full bg-[var(--card-background)] rounded-3xl shadow-xl border border-[var(--border)] py-4 z-50 ${services.length <= 6 ? 'w-72' :
+                    services.length <= 12 ? 'w-96' :
+                      'w-[48rem]'
+                  }`}>
                   {services.length > 0 ? (
-                    <div className={`grid gap-1 px-4 ${
-                      services.length <= 6 ? 'grid-cols-1' :
-                      services.length <= 12 ? 'grid-cols-2' :
-                      'grid-cols-3'
-                    }`}>
+                    <div className={`grid gap-1 px-4 ${services.length <= 6 ? 'grid-cols-1' :
+                        services.length <= 12 ? 'grid-cols-2' :
+                          'grid-cols-3'
+                      }`}>
                       {services.map((service) => (
                         <a
                           key={service.slug}
@@ -156,41 +154,41 @@ const Navigation = () => {
                   )}
                 </div>
               )}
+            </div>
+
+            <a href="#about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
+              About
+            </a>
+
+            <a href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
+              Blog
+            </a>
+
+            <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
+              Contact
+            </a>
           </div>
 
-          <a href="#about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
-            About
-          </a>
-          
-          <a href="#blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
-            Blog
-          </a>
-          
-          <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
-            Contact
-          </a>
-        </div>
+          {/* CTA Button */}
+          <div className="hidden lg:flex items-center animate-slide-in-right">
+            <a href="#contact" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105">
+              Get started
+            </a>
+          </div>
 
-        {/* CTA Button */}
-        <div className="hidden lg:flex items-center animate-slide-in-right">
-          <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105">
-            Get started
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[var(--card-background)] border border-[var(--border)]"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
           </button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[var(--card-background)] border border-[var(--border)]"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
         </div>
       </div>
 
@@ -207,18 +205,18 @@ const Navigation = () => {
             >
               {isDark ? (
                 <svg className="h-5 w-5 text-[var(--text-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" strokeWidth="1.5"/>
+                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" strokeWidth="1.5" />
                 </svg>
               ) : (
                 <svg className="h-5 w-5 text-[var(--text-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <circle cx="12" cy="12" r="4" strokeWidth="1.5"/>
-                  <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M8.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M8.05 7.05L6.636 5.636" strokeWidth="1.5"/>
+                  <circle cx="12" cy="12" r="4" strokeWidth="1.5" />
+                  <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M8.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M8.05 7.05L6.636 5.636" strokeWidth="1.5" />
                 </svg>
               )}
             </button>
             {/* Mobile Services */}
             <div>
-              <button 
+              <button
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium w-full flex items-center justify-between py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300"
               >
@@ -241,9 +239,9 @@ const Navigation = () => {
                 </div>
               )}
             </div>
-            
+
             <a href="#about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">About</a>
-            <a href="#blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Blog</a>
+            <a href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Blog</a>
             <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Contact</a>
             <button className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Support</button>
             <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-hover hover:shadow-glow w-fit">

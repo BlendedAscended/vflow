@@ -17,13 +17,13 @@ interface FAQSectionProps {
 }
 
 const FAQSection = ({ faqs }: FAQSectionProps) => {
-  const [openItems, setOpenItems] = useState<{[category: string]: number[]}>({});
+  const [openItems, setOpenItems] = useState<{ [category: string]: number[] }>({});
 
   const toggleItem = (category: string, index: number) => {
     setOpenItems((prev) => ({
       ...prev,
-      [category]: prev[category]?.includes(index) 
-        ? prev[category].filter((item) => item !== index) 
+      [category]: prev[category]?.includes(index)
+        ? prev[category].filter((item) => item !== index)
         : [...(prev[category] || []), index]
     }));
   };
@@ -100,13 +100,13 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
     }
     acc[category].push(faq);
     return acc;
-  }, {} as {[key: string]: FAQ[]}) : {};
+  }, {} as { [key: string]: FAQ[] }) : {};
 
   // Show all categories when we have more than 4 total FAQs
   const categoriesToShow = shouldShowCategories ? Object.entries(groupedFaqs)
     .slice(0, 4) : []; // Limit to 4 sections max
 
-  const categoryTitles: {[key: string]: string} = {
+  const categoryTitles: { [key: string]: string } = {
     'general': 'General Questions',
     'services': 'Our Services',
     'pricing': 'Pricing & Plans',
@@ -115,9 +115,9 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
   };
 
   return (
-    <section className="faq-section w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-24 lg:py-40 relative overflow-hidden">
+    <section id="support" className="faq-section w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-24 lg:py-40 relative overflow-hidden">
       {/* Gemini background pattern with conditional opacity */}
-      <div 
+      <div
         className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
         style={{
           backgroundImage: 'url(/bg-section-gemini.png)',
@@ -149,11 +149,10 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
                   {categoryFaqs.map((faq, index) => (
                     <div
                       key={faq._id ?? index}
-                      className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 will-change-transform ${
-                        index % 2 === 0
+                      className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 will-change-transform ${index % 2 === 0
                           ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
                           : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
-                      } hover:scale-[1.01]`}
+                        } hover:scale-[1.01]`}
                     >
                       {/* Mobile: Icon at top center, Desktop: Icon on right */}
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -164,9 +163,8 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
                           {/* Mobile: Icon at top center */}
                           <div className="flex justify-center md:hidden mb-4">
                             <svg
-                              className={`w-8 h-8 text-[var(--accent)] ${
-                                openItems[category]?.includes(index) ? 'rotate-180' : ''
-                              }`}
+                              className={`w-8 h-8 text-[var(--accent)] ${openItems[category]?.includes(index) ? 'rotate-180' : ''
+                                }`}
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -174,18 +172,17 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
                           </div>
-                          
+
                           {/* Question text - full width on mobile */}
                           <div className="flex-1 text-center md:text-left">
                             <span className="text-[var(--text-secondary)] text-xl font-semibold">{faq.question}</span>
                           </div>
-                          
+
                           {/* Desktop: Icon on right */}
                           <div className="hidden md:flex md:ml-4">
                             <svg
-                              className={`w-6 h-6 text-[var(--accent)] flex-shrink-0 ${
-                                openItems[category]?.includes(index) ? 'rotate-180' : ''
-                              }`}
+                              className={`w-6 h-6 text-[var(--accent)] flex-shrink-0 ${openItems[category]?.includes(index) ? 'rotate-180' : ''
+                                }`}
                               fill="none"
                               stroke="currentColor"
                               viewBox="0 0 24 24"
@@ -212,11 +209,10 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
             {displayFaqs.map((faq, index) => (
               <div
                 key={faq._id ?? index}
-                className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 will-change-transform ${
-                  index % 2 === 0
+                className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 will-change-transform ${index % 2 === 0
                     ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
                     : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
-                } hover:scale-[1.01]`}
+                  } hover:scale-[1.01]`}
               >
                 {/* Mobile: Icon at top center, Desktop: Icon on right */}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -227,9 +223,8 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
                     {/* Mobile: Icon at top center */}
                     <div className="flex justify-center md:hidden mb-4">
                       <svg
-                        className={`w-8 h-8 text-[var(--accent)] ${
-                          openItems['general']?.includes(index) ? 'rotate-180' : ''
-                        }`}
+                        className={`w-8 h-8 text-[var(--accent)] ${openItems['general']?.includes(index) ? 'rotate-180' : ''
+                          }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -237,18 +232,17 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
-                    
+
                     {/* Question text - full width on mobile */}
                     <div className="flex-1 text-center md:text-left">
                       <span className="text-[var(--text-secondary)] text-xl font-semibold">{faq.question}</span>
                     </div>
-                    
+
                     {/* Desktop: Icon on right */}
                     <div className="hidden md:flex md:ml-4">
                       <svg
-                        className={`w-6 h-6 text-[var(--accent)] flex-shrink-0 ${
-                          openItems['general']?.includes(index) ? 'rotate-180' : ''
-                        }`}
+                        className={`w-6 h-6 text-[var(--accent)] flex-shrink-0 ${openItems['general']?.includes(index) ? 'rotate-180' : ''
+                          }`}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
