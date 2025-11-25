@@ -51,7 +51,7 @@ const BlogPage = () => {
     const fetchBlogs = async () => {
       try {
         // First try to get published blogs, then fallback to all blogs
-        let query = `
+        const query = `
           *[_type == "blog" && published == true] | order(publishedAt desc) {
             _id,
             title,
@@ -77,9 +77,9 @@ const BlogPage = () => {
             featured
           }
         `;
-        
+
         let blogsData: BlogPost[] = await client.fetch(query);
-        
+
         // If no published blogs found, try getting all blogs
         if (blogsData.length === 0) {
           const fallbackQuery = `
@@ -110,10 +110,10 @@ const BlogPage = () => {
           `;
           blogsData = await client.fetch(fallbackQuery);
         }
-        
+
         setBlogs(blogsData);
         setFilteredBlogs(blogsData);
-        
+
         // Calculate category counts
         const categoryCounts: { [key: string]: number } = {};
         blogsData.forEach(blog => {
@@ -121,7 +121,7 @@ const BlogPage = () => {
             categoryCounts[category] = (categoryCounts[category] || 0) + 1;
           });
         });
-        
+
         // Function to properly capitalize category names
         const capitalizeCategory = (category: string) => {
           const specialCases: { [key: string]: string } = {
@@ -136,11 +136,11 @@ const BlogPage = () => {
             'crm': 'CRM',
             'erp': 'ERP'
           };
-          
-          return specialCases[category.toLowerCase()] || 
-                 category.charAt(0).toUpperCase() + category.slice(1);
+
+          return specialCases[category.toLowerCase()] ||
+            category.charAt(0).toUpperCase() + category.slice(1);
         };
-        
+
         const categoryList: CategoryFilter[] = [
           { name: 'All', value: 'all', count: blogsData.length },
           ...Object.entries(categoryCounts).map(([value, count]) => ({
@@ -149,7 +149,7 @@ const BlogPage = () => {
             count
           }))
         ];
-        
+
         setCategories(categoryList);
         setLoading(false);
       } catch (error) {
@@ -166,7 +166,7 @@ const BlogPage = () => {
     if (selectedCategory === 'all') {
       setFilteredBlogs(blogs);
     } else {
-      setFilteredBlogs(blogs.filter(blog => 
+      setFilteredBlogs(blogs.filter(blog =>
         blog.categories.includes(selectedCategory)
       ));
     }
@@ -196,7 +196,7 @@ const BlogPage = () => {
     if (blog.slug?.current && blog.slug.current.length < 50) {
       return blog.slug.current;
     }
-    
+
     // Otherwise, generate a slug from the title
     return blog.title
       .toLowerCase()
@@ -220,38 +220,37 @@ const BlogPage = () => {
       {/* Parallax Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background with parallax effect */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url(/bg-section-gemini.png)',
             transform: 'translateZ(0)',
           }}
         />
-        
+
         {/* Overlay */}
         <div className="absolute inset-0 bg-[var(--section-bg-1)]/80" />
-        
+
         {/* Content */}
         <div className="relative z-10 text-center px-6 lg:px-12 max-w-6xl mx-auto">
           <h1 className="text-5xl lg:text-8xl font-extrabold text-[var(--text-primary)] mb-8 animate-fade-in-up">
             <span className="gradient-text">Insights</span> & <span className="gradient-text">Innovation</span>
           </h1>
           <p className="text-xl lg:text-2xl text-[var(--muted-foreground)] mb-12 max-w-4xl mx-auto animate-fade-in-up">
-            Explore the latest in AI, technology, and business innovation. 
+            Explore the latest in AI, technology, and business innovation.
             Weekly insights from the forefront of digital transformation.
           </p>
-          
+
           {/* Category Filter Pills */}
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in-up">
             {categories.map((category) => (
               <button
                 key={category.value}
                 onClick={() => setSelectedCategory(category.value)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-                  selectedCategory === category.value
-                    ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow'
-                    : 'bg-[var(--card-background)] text-[var(--card-foreground)] hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)]'
-                }`}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${selectedCategory === category.value
+                  ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow'
+                  : 'bg-[var(--card-background)] text-[var(--card-foreground)] hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)]'
+                  }`}
               >
                 {category.name} ({category.count})
               </button>
@@ -266,9 +265,9 @@ const BlogPage = () => {
           <h2 className="text-4xl lg:text-6xl font-bold text-[var(--text-primary)] text-center mb-16">
             Featured <span className="gradient-text">Articles</span>
           </h2>
-          
+
           <div className="relative">
-            <div 
+            <div
               ref={scrollContainerRef}
               className="flex overflow-x-auto scrollbar-hide space-x-8 pb-4"
               style={{ scrollSnapType: 'x mandatory' }}
@@ -276,9 +275,8 @@ const BlogPage = () => {
               {filteredBlogs.map((blog, index) => (
                 <div
                   key={blog._id}
-                  className={`flex-shrink-0 w-96 bg-[var(--card-background)] rounded-3xl shadow-elegant border border-[var(--border)] overflow-hidden transition-all duration-500 ${
-                    index === currentIndex ? 'scale-105 shadow-glow' : 'hover:scale-102'
-                  }`}
+                  className={`flex-shrink-0 w-96 bg-[var(--card-background)] rounded-3xl shadow-elegant border border-[var(--border)] overflow-hidden transition-all duration-500 ${index === currentIndex ? 'scale-105 shadow-glow' : 'hover:scale-102'
+                    }`}
                   style={{ scrollSnapAlign: 'start' }}
                 >
                   {blog.featuredImage?.asset?.url && (
@@ -291,7 +289,7 @@ const BlogPage = () => {
                       />
                     </div>
                   )}
-                  
+
                   <div className="p-8">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {blog.categories.map((category) => (
@@ -303,20 +301,20 @@ const BlogPage = () => {
                         </span>
                       ))}
                     </div>
-                    
+
                     <h3 className="text-xl font-bold text-[var(--card-foreground)] mb-3 line-clamp-2">
                       {blog.title}
                     </h3>
-                    
+
                     <p className="text-[var(--muted-foreground)] mb-4 line-clamp-3">
                       {blog.excerpt}
                     </p>
-                    
+
                     <div className="flex items-center justify-between text-sm text-[var(--muted-foreground)] mb-4">
                       <span>{formatDate(blog.publishedAt)}</span>
                       <span>{blog.readingTime} min read</span>
                     </div>
-                    
+
                     <Link
                       href={`/blog/${generateSlug(blog)}`}
                       className="inline-flex items-center text-[var(--accent)] font-semibold hover:text-[var(--accent-foreground)] transition-colors"
@@ -330,18 +328,17 @@ const BlogPage = () => {
                 </div>
               ))}
             </div>
-            
+
             {/* Navigation dots */}
             <div className="flex justify-center mt-8 space-x-2">
               {filteredBlogs.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? 'bg-[var(--accent)] scale-125'
-                      : 'bg-[var(--border)] hover:bg-[var(--accent)]'
-                  }`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
+                    ? 'bg-[var(--accent)] scale-125'
+                    : 'bg-[var(--border)] hover:bg-[var(--accent)]'
+                    }`}
                 />
               ))}
             </div>
@@ -355,7 +352,7 @@ const BlogPage = () => {
           <h2 className="text-4xl lg:text-6xl font-bold text-[var(--text-primary)] text-center mb-16">
             All <span className="gradient-text">Articles</span>
           </h2>
-          
+
           {filteredBlogs.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-xl text-[var(--muted-foreground)] mb-8">No articles found in this category.</p>
@@ -409,7 +406,7 @@ const BlogPage = () => {
                       />
                     </div>
                   )}
-                  
+
                   <div className="p-8">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {blog.categories.map((category) => (
@@ -421,20 +418,20 @@ const BlogPage = () => {
                         </span>
                       ))}
                     </div>
-                    
+
                     <h3 className="text-xl font-bold text-[var(--card-foreground)] mb-3 line-clamp-2">
                       {blog.title}
                     </h3>
-                    
+
                     <p className="text-[var(--muted-foreground)] mb-4 line-clamp-3">
                       {blog.excerpt}
                     </p>
-                    
+
                     <div className="flex items-center justify-between text-sm text-[var(--muted-foreground)] mb-4">
                       <span>{formatDate(blog.publishedAt)}</span>
                       <span>{blog.readingTime} min read</span>
                     </div>
-                    
+
                     <Link
                       href={`/blog/${generateSlug(blog)}`}
                       className="inline-flex items-center text-[var(--accent)] font-semibold hover:text-[var(--accent-foreground)] transition-colors"
@@ -459,10 +456,10 @@ const BlogPage = () => {
             Ready to <span className="gradient-text">Collaborate?</span>
           </h2>
           <p className="text-xl text-[var(--muted-foreground)] mb-12 max-w-4xl mx-auto">
-            Let's create research papers, insightful blogs, and spread the word about AI and technology. 
+            Let&apos;s create research papers, insightful blogs, and spread the word about AI and technology.
             Join the conversation and be part of the future.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-hover hover:shadow-glow">
               Start Collaborating

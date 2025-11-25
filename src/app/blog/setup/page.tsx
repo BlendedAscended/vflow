@@ -2,9 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import { client } from '../../../sanity/lib/client';
+import Link from 'next/link';
+
+interface SetupBlog {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  published: boolean;
+}
 
 const BlogSetupPage = () => {
-  const [blogs, setBlogs] = useState<any[]>([]);
+  const [blogs, setBlogs] = useState<SetupBlog[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -13,7 +21,7 @@ const BlogSetupPage = () => {
       try {
         // Check if there are any blogs in Sanity
         const query = `*[_type == "blog"]`;
-        const blogsData = await client.fetch(query);
+        const blogsData: SetupBlog[] = await client.fetch(query);
         setBlogs(blogsData);
         setLoading(false);
       } catch (error) {
@@ -41,7 +49,7 @@ const BlogSetupPage = () => {
           <h1 className="text-4xl font-bold text-[var(--card-foreground)] mb-8">
             Blog Setup Status
           </h1>
-          
+
           {error ? (
             <div className="text-red-500 mb-6">
               <h2 className="text-xl font-semibold mb-2">Connection Error</h2>
@@ -53,16 +61,16 @@ const BlogSetupPage = () => {
               <h2 className="text-2xl font-semibold text-[var(--card-foreground)] mb-4">
                 Sanity Connection: ✅ Connected
               </h2>
-              
+
               <div className="mb-6">
                 <h3 className="text-xl font-semibold text-[var(--card-foreground)] mb-2">
                   Blog Posts Found: {blogs.length}
                 </h3>
-                
+
                 {blogs.length === 0 ? (
                   <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded">
                     <p className="font-semibold">No blog posts found in Sanity!</p>
-                    <p className="mt-2">This is why you're getting "Post Not Found" errors.</p>
+                    <p className="mt-2">This is why you&apos;re getting &quot;Post Not Found&quot; errors.</p>
                   </div>
                 ) : (
                   <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
@@ -88,12 +96,12 @@ const BlogSetupPage = () => {
                           Published: {blog.published ? 'Yes' : 'No'}
                         </p>
                         {blog.slug?.current && (
-                          <a 
+                          <Link
                             href={`/blog/${blog.slug.current}`}
                             className="text-[var(--accent)] hover:underline"
                           >
                             View Blog Post →
-                          </a>
+                          </Link>
                         )}
                       </div>
                     ))}
@@ -105,7 +113,7 @@ const BlogSetupPage = () => {
                 <h3 className="font-semibold mb-2">Next Steps:</h3>
                 <ol className="list-decimal list-inside space-y-1">
                   <li>Go to your Sanity Studio at <code>/studio</code></li>
-                  <li>Create new "Blog" documents</li>
+                  <li>Create new &quot;Blog&quot; documents</li>
                   <li>Fill in all required fields (title, slug, content, etc.)</li>
                   <li>Set <code>published: true</code></li>
                   <li>Save and publish</li>
@@ -114,18 +122,18 @@ const BlogSetupPage = () => {
               </div>
 
               <div className="mt-8 flex gap-4">
-                <a 
+                <Link
                   href="/blog"
                   className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
                 >
                   Go to Blog
-                </a>
-                <a 
+                </Link>
+                <Link
                   href="/blog/test-blog"
                   className="border-2 border-[var(--accent)] text-[var(--accent)] font-bold px-6 py-3 rounded-full hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] transition-all duration-300"
                 >
                   View Test Blog
-                </a>
+                </Link>
               </div>
             </div>
           )}

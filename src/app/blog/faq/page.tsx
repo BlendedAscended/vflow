@@ -18,7 +18,7 @@ interface FAQBlog {
   title: string;
   slug: { current: string };
   excerpt: string;
-  content: any[];
+  content: unknown[]; // Keeping unknown[] for Portable Text content
   featuredImage?: {
     asset: {
       url: string;
@@ -98,15 +98,28 @@ const FAQBlogPage = () => {
     });
   };
 
+  // Define SanityImage interface based on user feedback
+  interface SanityImage {
+    asset: {
+      url: string;
+      _ref?: string;
+      _type?: 'reference';
+    };
+    _type?: 'image';
+    alt?: string;
+    caption?: string;
+  }
+
   // PortableText components for proper Sanity rich text rendering
   const components = {
     types: {
-      image: ({ value }: { value: any }) => {
+      image: ({ value }: { value: SanityImage }) => {
         if (!value?.asset?.url) {
           return null;
         }
         return (
           <div className="my-8">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={value.asset.url}
               alt={value.alt || 'Blog Image'}
@@ -122,41 +135,41 @@ const FAQBlogPage = () => {
       },
     },
     block: {
-      h1: ({ children }: any) => (
-        <h1 className="text-4xl font-bold text-[var(--text-primary)] mb-6 mt-8">{children}</h1>
+      h1: ({ children }: { children?: unknown }) => (
+        <h1 className="text-4xl font-bold text-[var(--text-primary)] mb-6 mt-8">{children as React.ReactNode}</h1>
       ),
-      h2: ({ children }: any) => (
-        <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-5 mt-6">{children}</h2>
+      h2: ({ children }: { children?: unknown }) => (
+        <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-5 mt-6">{children as React.ReactNode}</h2>
       ),
-      h3: ({ children }: any) => (
-        <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4 mt-5">{children}</h3>
+      h3: ({ children }: { children?: unknown }) => (
+        <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4 mt-5">{children as React.ReactNode}</h3>
       ),
-      h4: ({ children }: any) => (
-        <h4 className="text-xl font-bold text-[var(--text-primary)] mb-3 mt-4">{children}</h4>
+      h4: ({ children }: { children?: unknown }) => (
+        <h4 className="text-xl font-bold text-[var(--text-primary)] mb-3 mt-4">{children as React.ReactNode}</h4>
       ),
-      normal: ({ children }: any) => (
-        <p className="text-[var(--text-primary)] mb-4 leading-relaxed">{children}</p>
+      normal: ({ children }: { children?: unknown }) => (
+        <p className="text-[var(--text-primary)] mb-4 leading-relaxed">{children as React.ReactNode}</p>
       ),
-      blockquote: ({ children }: any) => (
+      blockquote: ({ children }: { children?: unknown }) => (
         <blockquote className="border-l-4 border-[var(--accent)] pl-6 py-2 my-6 text-[var(--muted-foreground)] italic">
-          {children}
+          {children as React.ReactNode}
         </blockquote>
       ),
     },
     list: {
-      bullet: ({ children }: any) => (
-        <ul className="list-disc list-inside text-[var(--text-primary)] mb-4 space-y-2">{children}</ul>
+      bullet: ({ children }: { children?: unknown }) => (
+        <ul className="list-disc list-inside text-[var(--text-primary)] mb-4 space-y-2">{children as React.ReactNode}</ul>
       ),
-      number: ({ children }: any) => (
-        <ol className="list-decimal list-inside text-[var(--text-primary)] mb-4 space-y-2">{children}</ol>
+      number: ({ children }: { children?: unknown }) => (
+        <ol className="list-decimal list-inside text-[var(--text-primary)] mb-4 space-y-2">{children as React.ReactNode}</ol>
       ),
     },
     listItem: {
-      bullet: ({ children }: any) => (
-        <li className="mb-1">{children}</li>
+      bullet: ({ children }: { children?: unknown }) => (
+        <li className="mb-1">{children as React.ReactNode}</li>
       ),
-      number: ({ children }: any) => (
-        <li className="mb-1">{children}</li>
+      number: ({ children }: { children?: unknown }) => (
+        <li className="mb-1">{children as React.ReactNode}</li>
       ),
     },
   };
@@ -206,6 +219,7 @@ const FAQBlogPage = () => {
 
               {faqBlog.featuredImage?.asset?.url && (
                 <div className="relative h-64 lg:h-96 rounded-2xl overflow-hidden mb-8">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={faqBlog.featuredImage.asset.url}
                     alt={faqBlog.featuredImage.alt || faqBlog.title}
@@ -215,7 +229,8 @@ const FAQBlogPage = () => {
               )}
 
               <div className="prose prose-lg max-w-none">
-                <PortableText value={faqBlog.content} components={components} />
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                <PortableText value={faqBlog.content as any} components={components} />
               </div>
             </div>
           </div>
@@ -230,7 +245,7 @@ const FAQBlogPage = () => {
           </h2>
 
           {/* Use the existing FAQSection component */}
-          <FAQSection />
+          <FAQSection faqs={faqs} />
         </div>
       </section>
 
@@ -320,7 +335,7 @@ const FAQBlogPage = () => {
             Still have questions?
           </h2>
           <p className="text-xl text-[var(--muted-foreground)] mb-12">
-            Can't find what you're looking for? We're here to help.
+            Can&apos;t find what you&apos;re looking for? We&apos;re here to help.
             Get in touch with our team for personalized assistance.
           </p>
 

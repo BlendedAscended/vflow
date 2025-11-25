@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { client } from '../sanity/lib/client';
 
@@ -129,13 +130,13 @@ const Navigation = () => {
               {/* Dropdown Menu */}
               {isServicesOpen && (
                 <div className={`absolute left-0 top-full bg-[var(--card-background)] rounded-3xl shadow-xl border border-[var(--border)] py-4 z-50 ${services.length <= 6 ? 'w-72' :
-                    services.length <= 12 ? 'w-96' :
-                      'w-[48rem]'
+                  services.length <= 12 ? 'w-96' :
+                    'w-[48rem]'
                   }`}>
                   {services.length > 0 ? (
                     <div className={`grid gap-1 px-4 ${services.length <= 6 ? 'grid-cols-1' :
-                        services.length <= 12 ? 'grid-cols-2' :
-                          'grid-cols-3'
+                      services.length <= 12 ? 'grid-cols-2' :
+                        'grid-cols-3'
                       }`}>
                       {services.map((service) => (
                         <a
@@ -160,9 +161,9 @@ const Navigation = () => {
               About
             </a>
 
-            <a href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
+            <Link href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
               Blog
-            </a>
+            </Link>
 
             <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
               Contact
@@ -241,7 +242,7 @@ const Navigation = () => {
             </div>
 
             <a href="#about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">About</a>
-            <a href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Blog</a>
+            <Link href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Blog</Link>
             <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Contact</a>
             <button className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Support</button>
             <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-hover hover:shadow-glow w-fit">

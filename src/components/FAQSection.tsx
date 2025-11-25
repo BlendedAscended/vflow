@@ -140,7 +140,7 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
 
         {shouldShowCategories ? (
           <div className="space-y-20">
-            {categoriesToShow.map(([category, categoryFaqs], categoryIndex) => (
+            {categoriesToShow.map(([category, categoryFaqs]) => (
               <div key={category} className="max-w-6xl mx-auto">
                 <h3 className="faq-category-heading text-3xl font-bold text-[var(--text-secondary)] text-center">
                   {categoryTitles[category] || category}
@@ -150,8 +150,8 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
                     <div
                       key={faq._id ?? index}
                       className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 will-change-transform ${index % 2 === 0
-                          ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
-                          : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
+                        ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
+                        : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
                         } hover:scale-[1.01]`}
                     >
                       {/* Mobile: Icon at top center, Desktop: Icon on right */}
@@ -210,8 +210,8 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
               <div
                 key={faq._id ?? index}
                 className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 will-change-transform ${index % 2 === 0
-                    ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
-                    : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
+                  ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
+                  : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
                   } hover:scale-[1.01]`}
               >
                 {/* Mobile: Icon at top center, Desktop: Icon on right */}
