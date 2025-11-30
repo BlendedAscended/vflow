@@ -24,7 +24,7 @@ interface BigDataCloudResponse {
 const LocationContext = createContext<LocationContextValue | undefined>(undefined);
 
 export function LocationProvider({ children }: { children: ReactNode }) {
-  const [location, setLocation] = useState<string>('your area');
+  const [location, setLocation] = useState<string>('United States');
 
   // Helper to extract state from BigDataCloud response
   const extractState = (data: BigDataCloudResponse): string | undefined => {

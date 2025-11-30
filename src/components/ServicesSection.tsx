@@ -10,6 +10,7 @@ interface Service {
   ctaLink?: string;
   featured?: boolean;
   active?: boolean;
+  slug?: string;
 }
 
 interface ServicesSectionProps {
@@ -73,25 +74,29 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
       _id: "fallback-1",
       title: "Website & app development",
       description: "Develop the central hub for your customer universe. A seamless website or app experience that forms the core of your brand's digital anatomy.",
-      icon: "website"
+      icon: "website",
+      slug: "website-development"
     },
     {
       _id: "fallback-2",
       title: "Marketing & social campaigns",
       description: "Execute targeted marketing campaigns designed for maximum impact. We turn digital noise into measurable signals for business growth..",
-      icon: "marketing"
+      icon: "marketing",
+      slug: "digital-marketing"
     },
     {
       _id: "fallback-3",
       title: "AI Assistants & Automation",
       description: "Deploy an intelligent, autonomous workforce. AI Assistants and automated workflows that handle routine tasks 24/7, freeing you to lead and innovate.",
-      icon: "ai"
+      icon: "ai",
+      slug: "ai-automation"
     },
     {
       _id: "fallback-4",
       title: "Cloud, IT & Compliance",
       description: "Build the unbreachable foundation for your growth. A secure, compliant cloud architecture that ensures your entire digital ecosystem is stable, protected, and poised for scale.",
-      icon: "cloud"
+      icon: "cloud",
+      slug: "cloud-solutions"
     }
   ];
 
@@ -116,7 +121,12 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <div className="inline-block mb-6 pt-4">
-            <div className="text-[var(--section-bg-1)] text-sm font-bold uppercase tracking-wider bg-[var(--muted-foreground)] px-8 py-4 rounded-2xl border border-[var(--border)]">
+            <div
+              className="text-[var(--accent)] text-sm font-bold uppercase tracking-wider bg-[var(--accent)]/10 pl-10 pr-6 py-3 rounded-r-2xl w-fit mx-auto"
+              style={{
+                clipPath: 'polygon(1.2rem 50%, 0 0, 100% 0, 100% 100%, 0 100%)'
+              }}
+            >
               Where strategy, technology, and automation converge, predictable growth emerges.
             </div>
           </div>
@@ -130,8 +140,8 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
             <div
               key={service._id}
               className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 animate-fade-in-up will-change-transform ${index % 2 === 0
-                  ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
-                  : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
+                ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
+                : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
                 } hover:scale-[1.01] hover:border-[var(--accent)] hover:shadow-lg`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -169,19 +179,17 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
                     </div>
                   )}
 
-                  {service.ctaText && (
-                    <div className="pt-4">
-                      <a
-                        href={service.ctaLink || '#contact'}
-                        className="inline-flex items-center px-6 py-3 rounded-2xl transition-all duration-300 transform bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03] hover:shadow-lg"
-                      >
-                        <span className="relative z-10">{service.ctaText}</span>
-                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </a>
-                    </div>
-                  )}
+                  <div className="pt-4">
+                    <a
+                      href={service.slug ? `/services/${service.slug}` : (service.ctaLink || '#contact')}
+                      className="inline-flex items-center px-6 py-3 rounded-2xl transition-all duration-300 transform bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03] hover:shadow-lg"
+                    >
+                      <span className="relative z-10">Learn More</span>
+                      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

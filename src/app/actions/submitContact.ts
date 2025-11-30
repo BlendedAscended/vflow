@@ -35,6 +35,7 @@ export async function submitContact(formData: FormData) {
             email,
             subject,
             message: message || 'No message provided',
+            source: 'Contact Form',
             status: 'new',
             submittedAt: new Date().toISOString(),
         })

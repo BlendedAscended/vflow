@@ -1,9 +1,13 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import Image from 'next/image';
 import { client } from '../../../sanity/lib/client';
 import { urlFor } from '../../../sanity/lib/image';
 import { PortableText } from '@portabletext/react';
 import { PortableTextBlock } from 'sanity';
+import ContactSection from '../../../components/ContactSection';
+import Navigation from '../../../components/Navigation';
+import Footer from '../../../components/Footer';
 
 // TypeScript interfaces
 interface ServicePageProps {
@@ -72,7 +76,7 @@ async function getService(slug: string): Promise<Service | null> {
         seo
       }
     `, { slug });
-    
+
     return service;
   } catch (error) {
     console.error('Error fetching service:', error);
@@ -84,7 +88,7 @@ async function getService(slug: string): Promise<Service | null> {
 export async function generateMetadata({ params }: ServicePageProps) {
   const { slug } = await params;
   const service = await getService(slug);
-  
+
   if (!service) {
     return {
       title: 'Service Not Found',
@@ -110,10 +114,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   return (
     <div className="min-h-screen">
+      <Navigation />
       {/* Hero Section */}
       <section className="relative py-24 lg:py-32 gradient-secondary overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-blue-500/10"></div>
-        
+
         <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Content */}
@@ -131,18 +136,16 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   </div>
                 )}
               </div>
-              
-              {service.ctaText && (
-                <a
-                  href={service.ctaLink || '#contact'}
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-xl hover:from-green-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  {service.ctaText}
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
-              )}
+
+              <Link
+                href="/services"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-xl hover:from-green-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Check out other services
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </div>
 
             {/* Hero Image */}
@@ -166,7 +169,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <section className="py-24 bg-white">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <div className="prose prose-lg max-w-none">
-            <PortableText value={(service.fullDescription ?? []) as PortableTextBlock[]} />
+              <PortableText value={(service.fullDescription ?? []) as PortableTextBlock[]} />
             </div>
           </div>
         </section>
@@ -178,10 +181,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="max-w-8xl mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-6">
-              What&rsquo;s Included
+                What&rsquo;s Included
               </h2>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {service.features.map((feature, index) => (
                 <div key={index} className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-hover">
@@ -209,7 +212,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 Why Choose This Service
               </h2>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {service.benefits.map((benefit, index) => (
                 <div key={index} className="text-center space-y-6">
@@ -238,21 +241,21 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 Our Process
               </h2>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {service.process
                 .sort((a, b) => a.step - b.step)
                 .map((step, index) => (
-                <div key={index} className="text-center space-y-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-400 rounded-full flex items-center justify-center mx-auto text-2xl font-bold text-white">
-                    {step.step}
+                  <div key={index} className="text-center space-y-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-400 rounded-full flex items-center justify-center mx-auto text-2xl font-bold text-white">
+                      {step.step}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-4">{step.title}</h3>
+                      <p className="text-gray-300">{step.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-4">{step.title}</h3>
-                    <p className="text-gray-300">{step.description}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </section>
@@ -267,7 +270,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 Pricing Options
               </h2>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {service.pricingTiers.map((tier, index) => (
                 <div key={index} className="bg-white border-2 border-gray-200 rounded-3xl p-8 shadow-hover hover:border-green-300 transition-all duration-300">
@@ -276,7 +279,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     <div className="text-4xl font-extrabold text-green-600 mb-2">{tier.price}</div>
                     <p className="text-gray-600">{tier.description}</p>
                   </div>
-                  
+
                   {tier.features && tier.features.length > 0 && (
                     <ul className="space-y-3 mb-8">
                       {tier.features.map((feature, featureIndex) => (
@@ -289,13 +292,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
                       ))}
                     </ul>
                   )}
-                  
-                  <a
+
+                  <Link
                     href={service.ctaLink || '#contact'}
                     className="block w-full text-center px-6 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-xl hover:from-green-600 hover:to-blue-600 transition-all duration-300"
                   >
                     Get Started
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -312,7 +315,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 Frequently Asked Questions
               </h2>
             </div>
-            
+
             <div className="space-y-6">
               {service.faq.map((item, index) => (
                 <div key={index} className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-hover">
@@ -326,25 +329,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
       )}
 
       {/* Final CTA */}
-      <section className="py-24 gradient-dark text-center">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-8">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-gray-300 mb-12 leading-relaxed">
-          Let&apos;s discuss how {service.title.toLowerCase()} can help grow your business.
-          </p>
-          <a
-            href={service.ctaLink || '#contact'}
-            className="inline-flex items-center px-12 py-4 bg-gradient-to-r from-green-400 to-blue-400 text-white font-semibold rounded-xl hover:from-green-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-lg"
-          >
-            {service.ctaText || 'Contact Us Today'}
-            <svg className="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </section>
+      <ContactSection />
+      <Footer />
     </div>
   );
 }

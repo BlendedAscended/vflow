@@ -1,4 +1,5 @@
 import { client } from '../../../sanity/lib/client';
+import ContactSection from '../../../components/ContactSection';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
@@ -234,64 +235,74 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
     return (
       <div className="min-h-screen bg-[var(--background)]">
         {/* Hero Section */}
-        <section className="relative py-20 lg:py-32 bg-[var(--section-bg-1)]">
-          <div className="max-w-6xl mx-auto px-6 lg:px-12">
-            <div className="text-center mb-12">
+        <section className="relative pt-16 !pb-0 lg:pt-24 lg:!pb-0 bg-[var(--section-bg-1)]">
+          <div className="max-w-[90%] 2xl:max-w-[1600px] mx-auto px-6 lg:px-12">
+            <div className="text-center !mb-6">
+              {/* Breadcrumbs */}
+              <nav className="flex justify-center items-center gap-2 text-sm text-[var(--muted-foreground)] mb-6 animate-fade-in">
+                <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
+                <span>/</span>
+                <Link href="/blog" className="hover:text-[var(--accent)] transition-colors">Blog</Link>
+                <span>/</span>
+                <span className="text-[var(--text-primary)] truncate max-w-[200px]">{String(post.title || 'Post')}</span>
+              </nav>
+
               {/* Categories */}
-              <div className="flex flex-wrap justify-center gap-2 mb-6">
+              <div className="flex flex-wrap justify-center gap-2 mb-6 animate-fade-in-up">
                 {post.categories && Array.isArray(post.categories) ? (
                   post.categories.map((category, index) => {
                     const categoryText = String(category || '');
                     return (
                       <span
                         key={`${categoryText}-${index}`}
-                        className="px-4 py-2 bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-semibold rounded-full"
+                        className="px-3 py-1 bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-bold uppercase tracking-wider rounded-full border border-[var(--accent)]/20"
                       >
                         {categoryText}
                       </span>
                     );
                   })
                 ) : (
-                  <span className="px-4 py-2 bg-gray-200 text-gray-600 text-sm font-semibold rounded-full">
+                  <span className="px-3 py-1 bg-gray-200 text-gray-600 text-xs font-bold uppercase tracking-wider rounded-full">
                     No categories
                   </span>
                 )}
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl lg:text-6xl font-bold text-[var(--text-primary)] mb-8 leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] mb-6 leading-tight tracking-tight animate-fade-in-up">
                 {String(post.title || 'Untitled')}
               </h1>
 
               {/* Excerpt */}
-              <p className="text-xl text-[var(--muted-foreground)] mb-8 max-w-4xl mx-auto">
+              <div className="text-xl text-[var(--muted-foreground)] mb-8 max-w-5xl mx-auto leading-relaxed animate-fade-in-up">
                 {String(post.excerpt || 'No excerpt available')}
-              </p>
+              </div>
 
               {/* Meta Information */}
-              <div className="flex flex-wrap justify-center items-center gap-6 text-[var(--muted-foreground)]">
-                <div className="flex items-center gap-2">
+              <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-medium text-[var(--muted-foreground)] animate-fade-in-up">
+                <div className="flex items-center gap-2 bg-[var(--card-background)] px-4 py-2 rounded-full border border-[var(--border)]">
                   {post.author?.image?.asset?.url && (
                     <Image
                       src={post.author.image.asset.url}
                       alt={String(post.author.name || 'Author')}
-                      width={40}
-                      height={40}
+                      width={24}
+                      height={24}
                       className="rounded-full"
                     />
                   )}
-                  <span>By {String(post.author?.name || 'Unknown Author')}</span>
+                  <span>{String(post.author?.name || 'Unknown Author')}</span>
                 </div>
-                <span>•</span>
-                <span>{post.publishedAt ? formatDate(post.publishedAt) : 'No date'}</span>
-                <span>•</span>
-                <span>{post.readingTime || 0} min read</span>
+                <div className="flex items-center gap-4 bg-[var(--card-background)] px-4 py-2 rounded-full border border-[var(--border)]">
+                  <span>{post.publishedAt ? formatDate(post.publishedAt) : 'No date'}</span>
+                  <span className="w-1 h-1 bg-[var(--muted-foreground)] rounded-full"></span>
+                  <span>{post.readingTime || 0} min read</span>
+                </div>
               </div>
             </div>
 
             {/* Featured Image */}
             {post.featuredImage?.asset?.url && (
-              <div className="relative h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-elegant">
+              <div className="relative h-64 lg:h-[400px] rounded-3xl overflow-hidden shadow-2xl border border-[var(--border)] animate-fade-in-up mb-8">
                 <Image
                   src={post.featuredImage.asset.url}
                   alt={post.featuredImage.alt || String(post.title || 'Blog Image')}
@@ -304,21 +315,24 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
         </section>
 
         {/* Subtle Premium Content Section */}
-        <section className="py-20 relative">
-          <div className="max-w-5xl mx-auto px-6 lg:px-12 relative">
+        <section className="!pt-4 pb-12 relative">
+          <div className="max-w-[90%] 2xl:max-w-[1600px] mx-auto px-6 lg:px-12 relative">
             {/* Subtle border container */}
             <div className="relative">
               {/* Very subtle outer glow */}
-              <div className="absolute -inset-1 bg-[var(--accent)]/5 rounded-2xl blur-sm"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-b from-[var(--accent)]/20 to-transparent rounded-2xl blur-sm opacity-50"></div>
 
               {/* Main content container */}
-              <div className="relative bg-[var(--card-background)] rounded-xl border border-[var(--border)] shadow-lg overflow-hidden">
+              <div className="relative bg-[var(--card-background)] rounded-2xl border border-[var(--border)] shadow-2xl overflow-hidden backdrop-blur-sm">
+                {/* Calculator-like Header Bar */}
+                <div className="h-2 bg-[var(--accent)]/20 w-full"></div>
+
                 {/* Content area with enhanced styling */}
-                <div className="px-8 py-8">
-                  <div className="prose prose-lg max-w-none">
+                <div className="px-8 py-10 lg:px-12 lg:py-14">
+                  <div className="max-w-none text-[var(--text-primary)]/90">
                     {/* Render content blocks with premium styling */}
                     {Array.isArray(post.content) && post.content.length > 0 ? (
-                      <div className="space-y-6">
+                      <div className="!space-y-8">
                         {post.content.map((block, index) => {
                           // Cast block to a usable type since we are using unknown
                           const typedBlock = block as {
@@ -349,23 +363,24 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
                                   return (
                                     <div key={index} className="relative">
                                       <div className="absolute -left-2 top-0 w-0.5 h-full bg-[var(--accent)] rounded-full"></div>
-                                      <h1 className="text-4xl font-bold text-[var(--text-primary)] mb-4 mt-6 leading-tight pl-4">
+                                      <h1 className="text-4xl font-bold text-[var(--text-primary)] mb-4 mt-8 leading-tight pl-4">
                                         {blockText}
                                       </h1>
                                     </div>
                                   );
                                 case 'h2':
                                   return (
-                                    <div key={index} className="relative">
-                                      <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-3 mt-5 relative pl-2">
-                                        <span className="relative">{blockText}</span>
-                                        <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-[var(--accent)] rounded-full"></div>
+                                    <div key={index} className="relative mt-12 mb-6">
+                                      <h2 className="text-3xl font-bold text-[var(--text-primary)] relative inline-block">
+                                        {blockText}
+                                        {/* Decorative underline */}
+                                        <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[var(--accent)] to-transparent rounded-full opacity-60"></div>
                                       </h2>
                                     </div>
                                   );
                                 case 'h3':
                                   return (
-                                    <h3 key={index} className="text-2xl font-bold text-[var(--text-primary)] mb-3 mt-4 relative">
+                                    <h3 key={index} className="text-2xl font-bold text-[var(--text-primary)] mb-3 mt-6 relative">
                                       <span className="inline-block px-2 py-1 bg-[var(--accent)]/10 rounded border-l-2 border-[var(--accent)]">
                                         {blockText}
                                       </span>
@@ -373,14 +388,14 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
                                   );
                                 case 'h4':
                                   return (
-                                    <h4 key={index} className="text-xl font-bold text-[var(--text-primary)] mb-2 mt-3 flex items-center">
+                                    <h4 key={index} className="text-xl font-bold text-[var(--text-primary)] mb-2 mt-4 flex items-center">
                                       <div className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full mr-2"></div>
                                       {blockText}
                                     </h4>
                                   );
                                 case 'blockquote':
                                   return (
-                                    <div key={index} className="relative my-6">
+                                    <div key={index} className="relative my-8">
                                       <div className="bg-[var(--section-bg-1)] rounded-lg border border-[var(--border)] p-4">
                                         <blockquote className="text-[var(--muted-foreground)] italic text-lg leading-relaxed relative pl-4">
                                           <div className="absolute left-0 top-0 w-0.5 h-full bg-[var(--accent)] rounded-full"></div>
@@ -391,16 +406,29 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
                                   );
                                 default:
                                   return (
-                                    <div key={index} className="mb-4 text-[var(--text-primary)] leading-relaxed text-lg">
-                                      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                      <PortableText value={[typedBlock] as any} />
+                                    <div key={index} className="text-[var(--text-primary)] leading-loose text-lg">
+                                      {(() => {
+                                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                        const portableTextValue = [typedBlock] as any;
+                                        return (
+                                          <PortableText
+                                            value={portableTextValue}
+                                            components={{
+                                              block: {
+                                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                                normal: ({ children }: any) => <div className="mb-0">{children}</div>
+                                              }
+                                            }}
+                                          />
+                                        );
+                                      })()}
                                     </div>
                                   );
                               }
                             }
                           } else if (typedBlock._type === 'image' && typedBlock.asset?.url) {
                             return (
-                              <div key={index} className="relative my-6">
+                              <div key={index} className="relative my-8">
                                 <div className="bg-[var(--card-background)] rounded-lg border border-[var(--border)] p-3 shadow-sm">
                                   <Image
                                     src={typedBlock.asset.url}
@@ -422,7 +450,7 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
                           // Fallback for unknown types (Hybrid Strategy)
                           // This catches new block types (like YouTube) that we haven't manually handled
                           return (
-                            <div key={index} className="my-6">
+                            <div key={index} className="my-8">
                               {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                               <PortableText value={[typedBlock] as any} />
                             </div>
@@ -444,6 +472,8 @@ const BlogPostPage = async ({ params }: BlogPostPageProps) => {
             </div>
           </div>
         </section>
+        {/* CTA Section */}
+        <ContactSection />
       </div>
     );
 

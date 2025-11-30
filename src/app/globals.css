@@ -99,11 +99,7 @@ p {
   padding: 0;
 }
 
-/* Override for p tags with Tailwind classes */
-p[class*="px-"], p[class*="py-"], p[class*="mx-"], p[class*="my-"], p[class*="mb-"], p[class*="mt-"] {
-  margin: unset;
-  padding: unset;
-}
+/* Override for p tags with Tailwind classes - REMOVED as it breaks specificity */
 
 /* FAQ Button Reset */
 .faq-button {

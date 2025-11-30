@@ -69,7 +69,12 @@ const BusinessInfoSection = () => {
 
               <div className="space-y-6">
                 <div className="flex justify-start mb-6 pt-4">
-                  <div className="text-[var(--accent-foreground)] font-bold text-xl semibold leading-tight uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-2xl border border-[var(--accent)]">
+                  <div
+                    className="text-[var(--accent)] font-bold text-xl semibold leading-tight uppercase tracking-wider bg-[var(--accent)]/10 pl-10 pr-6 py-3 rounded-r-2xl w-fit"
+                    style={{
+                      clipPath: 'polygon(1.2rem 50%, 0 0, 100% 0, 100% 100%, 0 100%)'
+                    }}
+                  >
                     Intelligent Strategies for Market Dominance.
                   </div>
                 </div>

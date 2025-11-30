@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { useLocationValue } from './LocationContext';
 
 const HeroSection = () => {
@@ -44,7 +45,12 @@ const HeroSection = () => {
 
               <div className="space-y-4">
                 <div className="flex justify-start pt-4">
-                  <div className="text-[var(--accent-foreground)] font-bold text-sm uppercase tracking-wider bg-[var(--accent)] px-8 py-4 rounded-2xl border border-[var(--accent)]">
+                  <div
+                    className="text-[var(--accent)] font-bold text-sm uppercase tracking-wider bg-[var(--accent)]/10 pl-10 pr-6 py-3 rounded-r-2xl w-fit"
+                    style={{
+                      clipPath: 'polygon(1.2rem 50%, 0 0, 100% 0, 100% 100%, 0 100%)'
+                    }}
+                  >
                     We Serve clients in {location}
                   </div>
                 </div>
@@ -54,12 +60,12 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 pt-1">
-              <a href="#contact" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
+              <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
                 Get my growth plan
-              </a>
-              <a href="#services" className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg text-center">
+              </Link>
+              <Link href="/services" className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg text-center lg:hidden">
                 See services
-              </a>
+              </Link>
             </div>
           </div>
 

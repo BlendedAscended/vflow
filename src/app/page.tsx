@@ -9,6 +9,7 @@ import PricingSection from '../components/PricingSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FAQSection from '../components/FAQSection';
 import ContactSection from '../components/ContactSection';
+import QuoteRequestSection from '../components/QuoteRequestSection';
 import Footer from '../components/Footer';
 import { client } from '../sanity/lib/client';
 
@@ -86,42 +87,45 @@ export default async function Home() {
     getServices(),
     getFAQs()
   ]);
-  
+
   return (
     <LocationProvider>
-    <div className="min-h-screen">
-      {/* Sticky theme toggle on large screens */}
-      <ThemeToggle />
-      {/* Navigation */}
-      <Navigation />
-      
-      {/* Hero Section */}
-      <HeroSection />
-      
-      {/* Services Section */}
-      <ServicesSection services={services} />
-      
-      {/* Business Info Section */}
-      <BusinessInfoSection />
-      
-      {/* AI Tools Section */}
-      <AIToolsSection />
-      
-      {/* Pricing Section */}
-      <PricingSection />
-      
-      {/* Testimonials Section */}
-      <TestimonialsSection testimonials={testimonials} />
-      
-      {/* FAQ Section */}
-      <FAQSection faqs={faqs} />
-      
-      {/* Contact Section */}
-      <ContactSection />
-      
-      {/* Footer */}
-      <Footer />
-    </div>
+      <div className="min-h-screen">
+        {/* Sticky theme toggle on large screens */}
+        <ThemeToggle />
+        {/* Navigation */}
+        <Navigation />
+
+        {/* Hero Section */}
+        <HeroSection />
+
+        {/* Services Section */}
+        <ServicesSection services={services} />
+
+        {/* Business Info Section */}
+        <BusinessInfoSection />
+
+        {/* AI Tools Section */}
+        <AIToolsSection />
+
+        {/* Pricing Section */}
+        <PricingSection />
+
+        {/* Testimonials Section */}
+        <TestimonialsSection testimonials={testimonials} />
+
+        {/* FAQ Section */}
+        <FAQSection faqs={faqs} />
+
+        {/* Quote Request Section */}
+        <QuoteRequestSection />
+
+        {/* Contact Section */}
+        <ContactSection />
+
+        {/* Footer */}
+        <Footer />
+      </div>
     </LocationProvider>
   );
 }

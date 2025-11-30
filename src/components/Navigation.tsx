@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { client } from '../sanity/lib/client';
 
 // TypeScript interface for navigation services
@@ -26,6 +27,10 @@ const Navigation = () => {
   const [isDark, setIsDark] = useState(false);
   const [services, setServices] = useState<NavigationService[]>([]);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+  // Pages that have their own contact section
+  const hasContactSection = isHome || pathname === '/about' || pathname === '/blog' || pathname.startsWith('/services/');
 
   // Fetch services for navigation dropdown
   useEffect(() => {
@@ -99,7 +104,7 @@ const Navigation = () => {
         {/* Floating pill container */}
         <div className="flex items-center justify-between bg-[var(--card-background)] border border-[var(--border)] rounded-full shadow-elegant px-8 py-4 mx-auto max-w-4xl">
           {/* Logo */}
-          <div className="flex items-center animate-slide-in-left pl-1">
+          <Link href="/" className="flex items-center animate-slide-in-left pl-1">
             <div className="w-8 h-8 relative mr-2">
               <Image
                 src="/logo.png"
@@ -110,7 +115,7 @@ const Navigation = () => {
               />
             </div>
             <span className="text-[var(--muted-foreground)] font-bold text-xl tracking-tight">Verbaflow LLC</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-3">
@@ -157,24 +162,28 @@ const Navigation = () => {
               )}
             </div>
 
-            <a href="#about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
+            <Link href="/about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
               About
-            </a>
+            </Link>
 
             <Link href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
               Blog
             </Link>
 
-            <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
+            <Link href={hasContactSection ? "#contact" : "/#contact"} className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
               Contact
-            </a>
+            </Link>
+
+            <Link href="/#quote" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
+              Request Quote
+            </Link>
           </div>
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center animate-slide-in-right">
-            <a href="#contact" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105">
+            <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105">
               Get started
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -241,13 +250,14 @@ const Navigation = () => {
               )}
             </div>
 
-            <a href="#about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">About</a>
+            <Link href="/about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">About</Link>
             <Link href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Blog</Link>
-            <a href="#contact" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Contact</a>
+            <Link href={hasContactSection ? "#contact" : "/#contact"} className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Contact</Link>
+            <Link href="/#quote" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Request Quote</Link>
             <button className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Support</button>
-            <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-hover hover:shadow-glow w-fit">
+            <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-hover hover:shadow-glow w-fit">
               Get started
-            </button>
+            </Link>
           </div>
         </div>
       )}

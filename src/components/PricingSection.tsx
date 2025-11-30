@@ -53,18 +53,12 @@ const PricingSection = () => {
     }
   ];
 
-  // Compose cumulative benefits so each tier includes all prior tiers
-  const cumulativePlans = pricingPlans.map((plan, idx) => {
-    const cumulative = pricingPlans
-      .slice(0, idx + 1)
-      .flatMap(p => p.features);
-    return { ...plan, cumulative };
-  });
+
 
   return (
     <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden">
       {/* Next background pattern with conditional opacity */}
-      <div 
+      <div
         className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
         style={{
           backgroundImage: 'url(/bg-section-next.png)',
@@ -75,7 +69,7 @@ const PricingSection = () => {
       />
       <div className="absolute top-20 right-20 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-20 left-20 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow"></div>
-      
+
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
@@ -87,20 +81,19 @@ const PricingSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4 max-w-6xl mx-auto items-start">
-          {cumulativePlans.map((plan, index) => (
-            <div 
-              key={index} 
-              className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 animate-fade-in-up will-change-transform ${
-                index % 2 === 0
-                  ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
-                  : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
-              } ${index === 1 ? 'ring-2 ring-[var(--accent)]/70 shadow-glow scale-[1.02]' : 'hover:scale-[1.02] hover:-rotate-[0.25deg]'}`}
-              style={{animationDelay: `${index * 0.1}s`}}
+          {pricingPlans.map((plan, index) => (
+            <div
+              key={index}
+              className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 animate-fade-in-up will-change-transform ${index % 2 === 0
+                ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
+                : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
+                } ${index === 1 ? 'ring-2 ring-[var(--accent)]/70 shadow-glow scale-[1.02] hover:scale-[1.05]' : 'hover:scale-[1.02] hover:-rotate-[0.25deg]'}`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="mb-6">
                 <h3 className="text-3xl font-bold text-[var(--text-secondary)] mb-4">{plan.name}</h3>
                 <p className="text-[var(--text-accent)] text-lg mb-6 leading-relaxed">{plan.description}</p>
-                
+
                 <div className="mb-6">
                   <div className="flex items-baseline mb-2">
                     <span className="text-5xl font-extrabold text-[var(--text-secondary)]">{plan.price}</span>
@@ -109,13 +102,12 @@ const PricingSection = () => {
                   <p className="text-[var(--text-accent)] text-lg">{plan.yearlyPrice}</p>
                 </div>
 
-                <button className={`relative w-full font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform mb-6 text-lg overflow-hidden ${
-                  index === 1
-                    ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow hover:scale-[1.03]'
-                    : index === 0
-                      ? 'border-2 border-[var(--accent)] text-[var(--text-accent)] bg-transparent hover:bg-[var(--accent)]/10 hover:scale-[1.03]'
-                      : 'bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03]'
-                }`}>
+                <button className={`relative w-full font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform mb-6 text-lg overflow-hidden ${index === 1
+                  ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow hover:scale-[1.03]'
+                  : index === 0
+                    ? 'border-2 border-[var(--accent)] text-[var(--text-accent)] bg-transparent hover:bg-[var(--accent)]/10 hover:scale-[1.03]'
+                    : 'bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03]'
+                  }`}>
                   <span className="relative z-10">{plan.buttonText}</span>
                   <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
                     background: 'radial-gradient(120% 120% at 0% 0%, rgba(255,255,255,0.25) 0%, transparent 40%)'
@@ -124,7 +116,7 @@ const PricingSection = () => {
               </div>
 
               <div className="space-y-3">
-                {plan.cumulative.map((feature, featureIndex) => (
+                {plan.features.map((feature, featureIndex) => (
                   <div key={featureIndex} className="flex items-start space-x-3">
                     <svg className="w-5 h-5 text-[var(--accent)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

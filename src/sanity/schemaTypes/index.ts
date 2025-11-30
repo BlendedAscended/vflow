@@ -9,7 +9,9 @@ import { serviceType } from './serviceType'
 import { faqType } from './faqType'
 import { blogType } from './blogType'
 import { contactType } from './contactType'
+import { chatLogType } from './chatLogType'
+import { systemContextType } from './systemContextType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType, categoryType, postType, authorType, testimonialType, serviceType, faqType, blogType, contactType],
+  types: [blockContentType, categoryType, postType, authorType, testimonialType, serviceType, faqType, blogType, contactType, chatLogType, systemContextType],
 }

@@ -34,7 +34,7 @@ interface ResumeCategory {
   icon: string;
 }
 
-const ContactBlogPage = () => {
+const PortfolioPage = () => {
   const [journeyBlog, setJourneyBlog] = useState<ContactBlog | null>(null);
   const [skillsBlog, setSkillsBlog] = useState<ContactBlog | null>(null);
   const [loading, setLoading] = useState(true);
@@ -520,4 +520,4 @@ const ContactBlogPage = () => {
   );
 };
 
-export default ContactBlogPage;
+export default PortfolioPage;

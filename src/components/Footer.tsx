@@ -1,13 +1,24 @@
-import Image from 'next/image'; 
+'use client';
+
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { useVapi } from './VapiContext';
+
 const Footer = () => {
+  const pathname = usePathname();
+  const { toggleCall, isSessionActive } = useVapi();
+  const isHome = pathname === '/';
+  const hasContactSection = isHome || pathname === '/about' || pathname === '/blog' || pathname.startsWith('/services/');
+
   const navigationLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
     { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/blog/faq' },
-    { name: 'Contact', href: '/blog/contact' },
-    { name: 'Support', href: '#support' }
+    { name: 'Contact', href: hasContactSection ? '#contact' : '/#contact' },
+    { name: 'Support', href: '#support' },
+
+    { name: 'Call Us', href: '#', isButton: true, onClick: toggleCall }
   ];
 
   const socialLinks = [
@@ -61,7 +72,7 @@ const Footer = () => {
   return (
     <footer className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-20 lg:py-24 relative overflow-hidden">
       {/* Next background pattern with conditional opacity */}
-      <div 
+      <div
         className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
         style={{
           backgroundImage: 'url(/bg-section-next.png)',
@@ -72,14 +83,14 @@ const Footer = () => {
       />
       <div className="absolute top-6 right-12 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl"></div>
       <div className="absolute bottom-6 left-12 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl"></div>
-      
+
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-16">
           {/* Logo and Company Name */}
           <div className="flex items-center space-x-4 animate-fade-in">
             <div className="w-16 h-12 relative">
               <Image
-                  src="/logo.png"
+                src="/logo.png"
                 alt="Verbaflow LLC Logo"
                 fill
                 className="object-contain"
@@ -98,9 +109,17 @@ const Footer = () => {
               <a
                 key={index}
                 href={link.href}
-                className="text-[var(--text-accent)] hover:opacity-90 transition-colors text-sm font-medium"
+                onClick={() => {
+                  if (link.isButton) {
+                    link.onClick();
+                  }
+                }}
+                className={`${link.isButton
+                  ? `bg-[var(--accent)] text-[var(--accent-foreground)] px-6 py-2.5 rounded-full hover:shadow-glow hover:scale-105 transition-all duration-300 text-sm font-bold ${isSessionActive ? 'animate-pulse bg-red-500' : ''}`
+                  : "text-[var(--text-accent)] hover:opacity-90 transition-colors text-sm font-medium"
+                  }`}
               >
-                {link.name}
+                {link.isButton && isSessionActive ? 'End Call' : link.name}
               </a>
             ))}
           </div>
@@ -111,14 +130,13 @@ const Footer = () => {
               <a
                 key={index}
                 href={social.href}
-                className={`hover:opacity-90 transition-colors ${
-                  social.name === 'LinkedIn' ? 'text-[#0A66C2]' :
+                className={`hover:opacity-90 transition-colors ${social.name === 'LinkedIn' ? 'text-[#0A66C2]' :
                   social.name === 'Twitter' ? 'text-[#1DA1F2]' :
-                  social.name === 'Facebook' ? 'text-[#1877F2]' :
-                  social.name === 'Instagram' ? 'text-[#E4405F]' :
-                  social.name === 'YouTube' ? 'text-[#FF0000]' :
-                  'text-[var(--text-accent)]'
-                }`}
+                    social.name === 'Facebook' ? 'text-[#1877F2]' :
+                      social.name === 'Instagram' ? 'text-[#E4405F]' :
+                        social.name === 'YouTube' ? 'text-[#FF0000]' :
+                          'text-[var(--text-accent)]'
+                  }`}
                 aria-label={social.name}
               >
                 {social.icon}

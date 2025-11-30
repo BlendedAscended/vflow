@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { client } from '../../sanity/lib/client';
 import Image from 'next/image';
 import Link from 'next/link';
+import ContactSection from '../../components/ContactSection';
 
 // TypeScript interfaces for blog data
 interface BlogPost {
@@ -45,6 +46,25 @@ const BlogPage = () => {
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Function to properly capitalize category names
+  const capitalizeCategory = (category: string) => {
+    const specialCases: { [key: string]: string } = {
+      'ai': 'AI',
+      'seo': 'SEO',
+      'api': 'API',
+      'rpa': 'RPA',
+      'llm': 'LLM',
+      'it': 'IT',
+      'ml': 'ML',
+      'nlp': 'NLP',
+      'crm': 'CRM',
+      'erp': 'ERP'
+    };
+
+    return specialCases[category.toLowerCase()] ||
+      category.charAt(0).toUpperCase() + category.slice(1);
+  };
 
   // Fetch blogs from Sanity
   useEffect(() => {
@@ -121,25 +141,6 @@ const BlogPage = () => {
             categoryCounts[category] = (categoryCounts[category] || 0) + 1;
           });
         });
-
-        // Function to properly capitalize category names
-        const capitalizeCategory = (category: string) => {
-          const specialCases: { [key: string]: string } = {
-            'ai': 'AI',
-            'seo': 'SEO',
-            'api': 'API',
-            'rpa': 'RPA',
-            'llm': 'LLM',
-            'it': 'IT',
-            'ml': 'ML',
-            'nlp': 'NLP',
-            'crm': 'CRM',
-            'erp': 'ERP'
-          };
-
-          return specialCases[category.toLowerCase()] ||
-            category.charAt(0).toUpperCase() + category.slice(1);
-        };
 
         const categoryList: CategoryFilter[] = [
           { name: 'All', value: 'all', count: blogsData.length },
@@ -218,7 +219,7 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen bg-[var(--background)]">
       {/* Parallax Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden py-24">
         {/* Background with parallax effect */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -233,13 +234,13 @@ const BlogPage = () => {
 
         {/* Content */}
         <div className="relative z-10 text-center px-6 lg:px-12 max-w-6xl mx-auto">
-          <h1 className="text-5xl lg:text-8xl font-extrabold text-[var(--text-primary)] mb-8 animate-fade-in-up">
+          <h1 className="text-5xl lg:text-8xl font-extrabold text-[var(--text-primary)] !mb-16 animate-fade-in-up">
             <span className="gradient-text">Insights</span> & <span className="gradient-text">Innovation</span>
           </h1>
-          <p className="text-xl lg:text-2xl text-[var(--muted-foreground)] mb-12 max-w-4xl mx-auto animate-fade-in-up">
+          <div className="text-xl lg:text-2xl text-[var(--muted-foreground)] mb-14 max-w-4xl mx-auto animate-fade-in-up">
             Explore the latest in AI, technology, and business innovation.
             Weekly insights from the forefront of digital transformation.
-          </p>
+          </div>
 
           {/* Category Filter Pills */}
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in-up">
@@ -262,7 +263,7 @@ const BlogPage = () => {
       {/* Horizontal Scrolling Featured Section */}
       <section className="py-20 bg-[var(--section-bg-2)]">
         <div className="max-w-8xl mx-auto px-6 lg:px-12">
-          <h2 className="text-4xl lg:text-6xl font-bold text-[var(--text-primary)] text-center mb-16">
+          <h2 className="text-4xl lg:text-6xl font-bold text-[var(--text-primary)] text-center !mb-16">
             Featured <span className="gradient-text">Articles</span>
           </h2>
 
@@ -293,12 +294,17 @@ const BlogPage = () => {
                   <div className="p-8">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {blog.categories.map((category) => (
-                        <span
+                        <button
                           key={category}
-                          className="px-3 py-1 bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-semibold rounded-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setSelectedCategory(category);
+                            // Scroll to top of filters if needed, or just let it filter
+                          }}
+                          className="px-3 py-1 bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-bold rounded-full hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] transition-colors uppercase tracking-wide"
                         >
-                          {category}
-                        </span>
+                          {capitalizeCategory(category)}
+                        </button>
                       ))}
                     </div>
 
@@ -306,9 +312,9 @@ const BlogPage = () => {
                       {blog.title}
                     </h3>
 
-                    <p className="text-[var(--muted-foreground)] mb-4 line-clamp-3">
+                    <div className="text-[var(--muted-foreground)] mb-4 line-clamp-3">
                       {blog.excerpt}
-                    </p>
+                    </div>
 
                     <div className="flex items-center justify-between text-sm text-[var(--muted-foreground)] mb-4">
                       <span>{formatDate(blog.publishedAt)}</span>
@@ -349,15 +355,15 @@ const BlogPage = () => {
       {/* All Blogs Grid Section */}
       <section className="py-20 bg-[var(--section-bg-1)]">
         <div className="max-w-8xl mx-auto px-6 lg:px-12">
-          <h2 className="text-4xl lg:text-6xl font-bold text-[var(--text-primary)] text-center mb-16">
+          <h2 className="text-4xl lg:text-6xl font-bold text-[var(--text-primary)] text-center !mb-16">
             All <span className="gradient-text">Articles</span>
           </h2>
 
           {filteredBlogs.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-xl text-[var(--muted-foreground)] mb-8">No articles found in this category.</p>
+              <div className="text-xl text-[var(--muted-foreground)] mb-8">No articles found in this category.</div>
               <div className="space-y-4">
-                <p className="text-[var(--muted-foreground)]">You can test the blog functionality with our sample post:</p>
+                <div className="text-[var(--muted-foreground)]">You can test the blog functionality with our sample post:</div>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="/blog/test-blog"
@@ -410,12 +416,16 @@ const BlogPage = () => {
                   <div className="p-8">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {blog.categories.map((category) => (
-                        <span
+                        <button
                           key={category}
-                          className="px-3 py-1 bg-[var(--accent)] text-[var(--accent-foreground)] text-sm font-semibold rounded-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setSelectedCategory(category);
+                          }}
+                          className="px-3 py-1 bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-bold rounded-full hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] transition-colors uppercase tracking-wide"
                         >
-                          {category}
-                        </span>
+                          {capitalizeCategory(category)}
+                        </button>
                       ))}
                     </div>
 
@@ -423,9 +433,9 @@ const BlogPage = () => {
                       {blog.title}
                     </h3>
 
-                    <p className="text-[var(--muted-foreground)] mb-4 line-clamp-3">
+                    <div className="text-[var(--muted-foreground)] mb-4 line-clamp-3">
                       {blog.excerpt}
-                    </p>
+                    </div>
 
                     <div className="flex items-center justify-between text-sm text-[var(--muted-foreground)] mb-4">
                       <span>{formatDate(blog.publishedAt)}</span>
@@ -450,26 +460,7 @@ const BlogPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[var(--section-bg-2)]">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-4xl lg:text-6xl font-bold text-[var(--text-primary)] mb-8">
-            Ready to <span className="gradient-text">Collaborate?</span>
-          </h2>
-          <p className="text-xl text-[var(--muted-foreground)] mb-12 max-w-4xl mx-auto">
-            Let&apos;s create research papers, insightful blogs, and spread the word about AI and technology.
-            Join the conversation and be part of the future.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-hover hover:shadow-glow">
-              Start Collaborating
-            </button>
-            <button className="border-2 border-[var(--accent)] text-[var(--accent)] font-bold px-10 py-4 rounded-full hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] transition-all duration-300 transform hover:scale-105">
-              Write Research Papers
-            </button>
-          </div>
-        </div>
-      </section>
+      <ContactSection />
     </div>
   );
 };
