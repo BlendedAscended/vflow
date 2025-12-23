@@ -3,9 +3,11 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocationValue } from './LocationContext';
+import QuoteOverlay from './QuoteOverlay';
 
 const HeroSection = () => {
   const [isMuted, setIsMuted] = useState(true);
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   // at top of component state
   const { location } = useLocationValue();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -63,9 +65,12 @@ const HeroSection = () => {
               <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
                 Get my growth plan
               </Link>
-              <Link href="/services" className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg text-center lg:hidden">
-                See services
-              </Link>
+              <button
+                onClick={() => setIsQuoteOpen(true)}
+                className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg text-center"
+              >
+                Request Quote
+              </button>
             </div>
           </div>
 
@@ -114,6 +119,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      <QuoteOverlay isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
     </section>
   );
 };

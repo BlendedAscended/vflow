@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Define the structure of our wizard data
@@ -92,6 +92,26 @@ export default function GrowthPlanWizard() {
     const [step, setStep] = useState(0);
     const [data, setData] = useState<WizardData>(initialData);
 
+    useEffect(() => {
+        const stored = localStorage.getItem('vflow_growth_plan_partial');
+        if (stored) {
+            try {
+                const parsed = JSON.parse(stored);
+                setData(prev => ({
+                    ...prev,
+                    subNiches: parsed.goals || [],
+                    // Map the free text details to 'goals' since it is sent to API but unused in Wizard UI
+                    goals: parsed.details ? [parsed.details] : []
+                }));
+                // Optional: Clear it so it doesn't persist forever, or keep it? 
+                // Better to clear to avoid confusion on refresh if they want to start over.
+                localStorage.removeItem('vflow_growth_plan_partial');
+            } catch (e) {
+                console.error('Failed to parse stored growth plan data', e);
+            }
+        }
+    }, []);
+
     const [isGenerating, setIsGenerating] = useState(false);
 
     interface GrowthPlan {
@@ -110,10 +130,14 @@ export default function GrowthPlanWizard() {
     const totalSteps = 7;
 
     const handleNext = () => {
-        if (step < totalSteps - 2) {
+        console.log(`📍 handleNext called. Current step: ${step}, totalSteps: ${totalSteps}`);
+        // Step 4 is the last form step (Timeline & Contact), so we need to generate the plan
+        if (step < 4) {
+            console.log('→ Moving to next step (not final)');
             setStep(step + 1);
         } else {
-            setStep(step + 1);
+            console.log('→ Final step! Calling generatePlan()');
+            setStep(step + 1); // Move to step 5 (loading/results)
             generatePlan();
         }
     };
@@ -147,8 +171,10 @@ export default function GrowthPlanWizard() {
     };
 
     const generatePlan = async () => {
+        console.log('🚀 generatePlan called with data:', data);
         setIsGenerating(true);
         try {
+            console.log('→ Sending request to /api/generate-strategy...');
             const response = await fetch('/api/generate-strategy', {
                 method: 'POST',
                 headers: {
@@ -157,14 +183,21 @@ export default function GrowthPlanWizard() {
                 body: JSON.stringify(data),
             });
 
+            console.log('→ Response received. Status:', response.status, 'OK:', response.ok);
+
             if (!response.ok) {
+                const errorText = await response.text();
+                console.error('✗ API returned error:', errorText);
+                alert(`Error: ${response.status} - ${errorText}`);
                 throw new Error('Failed to generate plan');
             }
 
             const result = await response.json();
+            console.log('✓ Plan generated successfully:', result);
             setGeneratedPlan(result.plan);
         } catch (error) {
-            console.error('Error generating plan:', error);
+            console.error('✗✗✗ Error generating plan:', error);
+            alert(`Failed to generate plan: ${error instanceof Error ? error.message : 'Unknown error'}`);
             // We don't set a string error message here anymore since the type is GrowthPlan
             // You might want to handle error state separately
         } finally {

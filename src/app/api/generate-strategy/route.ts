@@ -1,98 +1,111 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI, SchemaType, Schema } from '@google/generative-ai';
-import { verbaflowServices } from '../../../lib/knowledge-base';
+import { getServices } from '../../../lib/knowledge-base';
 import { Resend } from 'resend';
 import { createClient } from 'next-sanity';
 import { apiVersion, dataset, projectId } from '../../../sanity/env';
 
 // Initialize Gemini client inside the handler
 
-// Define the schema for the structured output
-const planSchema: Schema = {
-    description: "A comprehensive growth strategy plan",
-    type: SchemaType.OBJECT,
-    properties: {
-        executive_summary: {
-            type: SchemaType.STRING,
-            description: "A high-level summary of the strategy tailored to the client's industry and stage.",
-            nullable: false,
-        },
-        phases: {
-            type: SchemaType.ARRAY,
-            description: "Three distinct phases of growth (Immediate, Strategic, Scale).",
-            items: {
-                type: SchemaType.OBJECT,
-                properties: {
-                    title: { type: SchemaType.STRING, description: "Title of the phase (e.g., Phase 1: Immediate Wins)" },
-                    duration: { type: SchemaType.STRING, description: "Estimated duration (e.g., Days 1-30)" },
-                    actions: {
-                        type: SchemaType.ARRAY,
-                        items: { type: SchemaType.STRING },
-                        description: "List of specific actionable steps."
-                    }
-                },
-                required: ["title", "duration", "actions"]
-            }
-        },
-        recommended_services: {
-            type: SchemaType.ARRAY,
-            description: "List of Verbaflow services that would help execute this plan.",
-            items: {
-                type: SchemaType.STRING,
-                format: 'enum',
-                enum: verbaflowServices.map(s => s.name) // Constrain to actual services
-            }
-        },
-        estimated_investment: {
-            type: SchemaType.STRING,
-            description: "A rough estimated monthly investment range based on the recommended services."
-        }
-    },
-    required: ["executive_summary", "phases", "recommended_services", "estimated_investment"]
-};
-
 export async function POST(request: Request) {
-    console.log('API Route /api/generate-strategy called');
+    console.log('=== API Route /api/generate-strategy called ===');
     try {
         const body = await request.json();
-        console.log('Request body:', JSON.stringify(body, null, 2));
+        console.log('✓ Request body parsed:', JSON.stringify(body, null, 2));
+
+        // 1. Fetch Dynamic Data from Supabase
+        console.log('→ Fetching services from Supabase...');
+        let verbaflowServices;
+        try {
+            verbaflowServices = await getServices();
+            console.log(`✓ Fetched ${verbaflowServices?.length || 0} services from Supabase`);
+        } catch (dbError) {
+            console.error('✗ Error fetching services from Supabase:', dbError);
+            verbaflowServices = null;
+        }
+
+        // Fallback if DB fetch fails or returns empty, to prevent Gemini Schema error (empty enum)
+        if (!verbaflowServices || verbaflowServices.length === 0) {
+            console.warn('⚠ Warning: No services fetched from DB. Using fallback defaults.');
+            verbaflowServices = [
+                { name: "Website Development", id: "web", description: "", price_range: "" },
+                { name: "Digital Marketing", id: "marketing", description: "", price_range: "" },
+                { name: "AI Automation", id: "ai", description: "", price_range: "" },
+                { name: "Cloud Solutions", id: "cloud", description: "", price_range: "" },
+                { name: "Trade & Home Services", id: "trade", description: "", price_range: "" }
+            ];
+        }
+
+        // 2. Define Schema with Dynamic Enums
+        const planSchema: Schema = {
+            description: "A comprehensive growth strategy plan",
+            type: SchemaType.OBJECT,
+            properties: {
+                executive_summary: {
+                    type: SchemaType.STRING,
+                    description: "A high-level summary of the strategy tailored to the client's industry and stage.",
+                    nullable: false,
+                },
+                phases: {
+                    type: SchemaType.ARRAY,
+                    description: "Three distinct phases of growth (Immediate, Strategic, Scale).",
+                    items: {
+                        type: SchemaType.OBJECT,
+                        properties: {
+                            title: { type: SchemaType.STRING, description: "Title of the phase (e.g., Phase 1: Immediate Wins)" },
+                            duration: { type: SchemaType.STRING, description: "Estimated duration (e.g., Days 1-30)" },
+                            actions: {
+                                type: SchemaType.ARRAY,
+                                items: { type: SchemaType.STRING },
+                                description: "List of specific actionable steps."
+                            }
+                        },
+                        required: ["title", "duration", "actions"]
+                    }
+                },
+                recommended_services: {
+                    type: SchemaType.ARRAY,
+                    description: "List of Verbaflow services that would help execute this plan.",
+                    items: {
+                        type: SchemaType.STRING,
+                        format: 'enum',
+                        enum: verbaflowServices.map(s => s.name) // Dynamic from DB (or fallback)
+                    }
+                },
+                estimated_investment: {
+                    type: SchemaType.STRING,
+                    description: "A rough estimated monthly investment range based on the recommended services."
+                }
+            },
+            required: ["executive_summary", "phases", "recommended_services", "estimated_investment"]
+        };
 
         const apiKey = process.env.GEMINI_API_KEY || process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-        console.log('API Key present:', !!apiKey);
+        console.log('→ Checking Gemini API Key... Present:', !!apiKey);
 
         if (!apiKey) {
-            console.error('Missing GEMINI_API_KEY - Using MOCK response for testing');
+            console.error('✗ Missing GEMINI_API_KEY - Using MOCK response for testing');
+            // ... (Mock response handling)
+            // For mock, we can just return what we had before, or use the first few services from DB
             const mockPlan = {
-                executive_summary: "This is a MOCK executive summary. The API key is missing, so we are simulating a successful response to test the frontend display. Your business is in the [Industry] industry and is currently in the [Stage] stage.",
+                executive_summary: "This is a MOCK executive summary. The API key is missing...",
                 phases: [
-                    {
-                        title: "Phase 1: Immediate Wins",
-                        duration: "Days 1-30",
-                        actions: ["Action 1: Optimize website", "Action 2: Set up analytics", "Action 3: Claim social profiles"]
-                    },
-                    {
-                        title: "Phase 2: Strategic Growth",
-                        duration: "Months 2-6",
-                        actions: ["Action 1: Launch content marketing", "Action 2: Start email campaigns", "Action 3: Run paid ads"]
-                    },
-                    {
-                        title: "Phase 3: Scaling",
-                        duration: "Months 6+",
-                        actions: ["Action 1: Hire sales team", "Action 2: Automate workflows", "Action 3: Expand to new markets"]
-                    }
+                    { title: "Phase 1", duration: "1mo", actions: ["Mock Action"] }
                 ],
-                recommended_services: ["Digital Marketing", "Website Development", "SEO Optimization"],
-                estimated_investment: "$2,000 - $4,000 / month"
+                recommended_services: [verbaflowServices[0]?.name || "Web Design"],
+                estimated_investment: "$2,000 - $4,000"
             };
             return NextResponse.json({ plan: mockPlan });
         }
 
         // Initialize Gemini client inside the function
+        console.log('→ Initializing Gemini AI client...');
         const genAI = new GoogleGenerativeAI(apiKey);
 
         // Use verbaflowServices as serviceKnowledgeBase
         const serviceKnowledgeBase = verbaflowServices;
 
+        console.log('→ Creating Gemini model with schema...');
         const model = genAI.getGenerativeModel({
             model: "gemini-2.5-flash",
             systemInstruction: `
@@ -117,7 +130,7 @@ export async function POST(request: Request) {
             },
         });
 
-        const { industry, stage, challenges, goals, teamSize, budget, timeline, email, name, subNiches } = body;
+        const { industry, stage, challenges, goals, teamSize, budget, timeline, name, email, subNiches } = body;
 
         const prompt = `
       Create a growth plan for a client with the following profile:
@@ -132,58 +145,64 @@ export async function POST(request: Request) {
       - Name: ${name}
     `;
 
-        console.log('Sending prompt to Gemini...');
+        console.log('→ Calling Gemini API to generate content...');
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();
-        console.log('Gemini response received:', text);
+        console.log('✓ Gemini response received, length:', text.length);
 
         const plan = JSON.parse(text);
+        console.log('✓ Plan parsed successfully');
 
-        // --- Save to Sanity ---
+        // --- Save to Supabase (Leads) ---
         try {
-            const token = process.env.SANITY_API_TOKEN;
-            if (token) {
-                const client = createClient({
-                    projectId,
-                    dataset,
-                    apiVersion,
-                    token,
-                    useCdn: false,
-                });
+            // Use the SERVICE_ROLE_KEY if available for admin privileges (bypassing RLS if needed),
+            // otherwise fall back to common client. 
+            // Note: For server-side operations, strictly better to use a service client if RLS is tight.
+            // We will import the shared client for now, but assume RLS allows insert or we use admin client.
+            const { supabase } = await import('../../../lib/supabase');
 
-                await client.create({
-                    _type: 'contact',
-                    name,
-                    email,
-                    subject: 'Growth Plan Generation',
-                    message: `Growth Plan generated for ${industry} industry, ${stage} stage.`,
-                    source: 'Growth Plan',
-                    industry,
-                    stage,
-                    challenges,
-                    goals,
-                    teamSize,
-                    budget,
-                    timeline,
-                    status: 'new',
-                    submittedAt: new Date().toISOString(),
-                });
-                console.log('Saved to Sanity successfully');
+            // To properly use the service role key for admin access (if needed):
+            // const supabaseAdmin = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
+
+            const { error: dbError } = await supabase.from('leads').insert({
+                name,
+                email,
+                industry,
+                stage,
+                team_size: teamSize,
+                budget,
+                timeline,
+                challenges,
+                goals,
+                sub_niches: subNiches,
+                growth_plan_data: plan, // Storing the full generated JSON
+                created_at: new Date().toISOString()
+            });
+
+            if (dbError) {
+                console.error('Supabase DB Error:', dbError);
+                // Don't fail the request, just log it. 
+                // In production, you might want to alert someone.
             } else {
-                console.warn('Skipping Sanity save: Missing SANITY_API_TOKEN');
+                console.log('Lead saved to Supabase successfully');
             }
-        } catch (sanityError) {
-            console.error('Error saving to Sanity:', sanityError);
+        } catch (dbErr) {
+            console.error('Error saving to Supabase:', dbErr);
         }
         // ----------------------
 
         // --- Email Sending Logic (Resend) ---
         const resendApiKey = process.env.RESEND_API_KEY;
+        console.log('→ Checking Resend API Key... Present:', !!resendApiKey, 'Email:', email);
+
         if (resendApiKey && email) {
             try {
                 const resend = new Resend(resendApiKey);
-                console.log(`Attempting to send email to ${email}...`);
+                console.log(`→ Attempting to send email to ${email}...`);
+
+                // Use your verified domain
+                const fromEmail = 'Verbaflow Growth Plan <noreply@mail.verbaflowllc.com>';
 
                 const emailHtml = `
                     <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
@@ -220,28 +239,29 @@ export async function POST(request: Request) {
                 `;
 
                 const { data, error } = await resend.emails.send({
-                    from: 'Verbaflow <onboarding@resend.dev>', // Use default Resend domain for testing if not configured
+                    from: fromEmail,
                     to: [email],
                     subject: 'Your Custom Growth Strategy Plan - Verbaflow',
                     html: emailHtml,
                 });
 
                 if (error) {
-                    console.error('Resend API Error:', error);
+                    console.error('✗ Resend API Error:', error);
                 } else {
-                    console.log('Email sent successfully:', data);
+                    console.log('✓ Email sent successfully:', data);
                 }
             } catch (emailError) {
-                console.error('Error sending email:', emailError);
+                console.error('✗ Error sending email:', emailError);
             }
         } else {
-            console.log('Skipping email: Missing RESEND_API_KEY or user email.');
+            console.log('⚠ Skipping email: Missing RESEND_API_KEY or user email.');
         }
-        // ------------------------------------
 
+        console.log('✓ Returning plan to client...');
         return NextResponse.json({ plan });
     } catch (error) {
-        console.error('Error generating strategy:', error);
+        console.error('✗✗✗ FATAL ERROR in generate-strategy:', error);
+        console.error('Error details:', JSON.stringify(error, null, 2));
         return NextResponse.json(
             { error: 'Failed to generate strategy' },
             { status: 500 }

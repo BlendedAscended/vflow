@@ -1,4 +1,11 @@
+'use client';
+
+import { useState } from 'react';
+import QuoteOverlay from './QuoteOverlay';
+
 const PricingSection = () => {
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [selectedTier, setSelectedTier] = useState<string | undefined>(undefined);
   const pricingPlans = [
     {
       name: "Coupe",
@@ -102,12 +109,17 @@ const PricingSection = () => {
                   <p className="text-[var(--text-accent)] text-lg">{plan.yearlyPrice}</p>
                 </div>
 
-                <button className={`relative w-full font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform mb-6 text-lg overflow-hidden ${index === 1
-                  ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow hover:scale-[1.03]'
-                  : index === 0
-                    ? 'border-2 border-[var(--accent)] text-[var(--text-accent)] bg-transparent hover:bg-[var(--accent)]/10 hover:scale-[1.03]'
-                    : 'bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03]'
-                  }`}>
+                <button
+                  onClick={() => {
+                    setSelectedTier(plan.name);
+                    setIsQuoteOpen(true);
+                  }}
+                  className={`relative w-full font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform mb-6 text-lg overflow-hidden ${index === 1
+                    ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow hover:scale-[1.03]'
+                    : index === 0
+                      ? 'border-2 border-[var(--accent)] text-[var(--text-accent)] bg-transparent hover:bg-[var(--accent)]/10 hover:scale-[1.03]'
+                      : 'bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03]'
+                    }`}>
                   <span className="relative z-10">{plan.buttonText}</span>
                   <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
                     background: 'radial-gradient(120% 120% at 0% 0%, rgba(255,255,255,0.25) 0%, transparent 40%)'
@@ -134,7 +146,14 @@ const PricingSection = () => {
           ))}
         </div>
       </div>
-    </section>
+
+      <QuoteOverlay
+        isOpen={isQuoteOpen}
+        onClose={() => setIsQuoteOpen(false)}
+        initialTier={selectedTier}
+        initialPrice={pricingPlans.find(p => p.name === selectedTier)?.price ? `${pricingPlans.find(p => p.name === selectedTier)?.price}${pricingPlans.find(p => p.name === selectedTier)?.period}` : undefined}
+      />
+    </section >
   );
 };
 

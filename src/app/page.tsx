@@ -9,7 +9,7 @@ import PricingSection from '../components/PricingSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FAQSection from '../components/FAQSection';
 import ContactSection from '../components/ContactSection';
-import QuoteRequestSection from '../components/QuoteRequestSection';
+
 import Footer from '../components/Footer';
 import { client } from '../sanity/lib/client';
 
@@ -117,8 +117,7 @@ export default async function Home() {
         {/* FAQ Section */}
         <FAQSection faqs={faqs} />
 
-        {/* Quote Request Section */}
-        <QuoteRequestSection />
+
 
         {/* Contact Section */}
         <ContactSection />

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { verbaflowServices, industryContext } from '../../../lib/knowledge-base';
+import { getServices, getIndustryContext } from '../../../lib/knowledge-base';
 import { createClient } from 'next-sanity';
 import { apiVersion, dataset, projectId } from '../../../sanity/env';
 
@@ -17,6 +17,11 @@ export async function POST(request: Request) {
                 { status: 500 }
             );
         }
+
+        // --- Fetch Knowledge Base from Supabase ---
+        const verbaflowServices = await getServices();
+        const industryContext = await getIndustryContext();
+        // ------------------------------------------
 
         // --- Fetch System Context from Sanity ---
         let systemContext = "";
