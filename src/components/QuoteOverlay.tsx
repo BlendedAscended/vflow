@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import AddPaymentMethod from './payment/AddPaymentMethod';
 
 
 // Define the suggestion logic
@@ -60,14 +59,13 @@ const QuoteOverlay = ({ isOpen, onClose, initialTier, initialPrice }: QuoteOverl
     const [isSending, setIsSending] = useState(false);
     const [sendStatus, setSendStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [newsletter, setNewsletter] = useState(false);
-    const [showPaymentForm, setShowPaymentForm] = useState(false);
 
     // Scroll to top when view changes or payment form opens
     useEffect(() => {
         if (scrollContainerRef.current) {
             scrollContainerRef.current.scrollTop = 0;
         }
-    }, [view, showPaymentForm]);
+    }, [view]);
 
     // Reset state when opened
     useEffect(() => {
@@ -82,7 +80,6 @@ const QuoteOverlay = ({ isOpen, onClose, initialTier, initialPrice }: QuoteOverl
             setEmail('');
             setName('');
             setNewsletter(false);
-            setShowPaymentForm(false);
 
             // Lock body scroll
             document.body.style.overflow = 'hidden';
@@ -413,32 +410,61 @@ For a detailed breakdown and strategy, please visit: https://verbaflow.com/growt
 
                                                     {initialTier && (
                                                         <div className="pt-4 border-t border-[var(--border)]">
-                                                            {!showPaymentForm ? (
-                                                                <button
-                                                                    onClick={() => setShowPaymentForm(true)}
-                                                                    className="w-full text-center text-sm font-black text-black dark:text-white hover:underline uppercase tracking-wide py-2"
-                                                                >
-                                                                    + Add Card Details
-                                                                </button>
-                                                            ) : (
-                                                                <div className="bg-[var(--background)] p-4 rounded-xl border border-[var(--border)] text-left animate-in fade-in slide-in-from-top-4 duration-300">
-                                                                    <div className="flex justify-between items-center mb-4">
-                                                                        <h4 className="font-bold text-[var(--text-primary)]">Secure Payment</h4>
-                                                                        <span className="bg-[var(--accent)]/10 text-[var(--text-primary)] px-3 py-1 rounded-full text-sm font-bold">
-                                                                            Plan: {initialTier} {initialPrice && `(${initialPrice})`}
-                                                                        </span>
-                                                                    </div>
-                                                                    <p className="text-sm text-[var(--text-secondary)] mb-4">
-                                                                        You will be charged {initialPrice} for the <span className="font-bold">{initialTier}</span> plan.
-                                                                    </p>
-                                                                    <AddPaymentMethod
-                                                                        onSuccess={() => {
-                                                                            alert('Payment method saved successfully!');
-                                                                            setShowPaymentForm(false);
-                                                                        }}
-                                                                    />
+                                                            <div className="bg-[var(--background)] p-4 rounded-xl border border-[var(--border)] text-left animate-in fade-in slide-in-from-top-4 duration-300">
+                                                                <div className="flex justify-between items-center mb-4">
+                                                                    <h4 className="font-bold text-[var(--text-primary)]">Secure Payment</h4>
+                                                                    <span className="bg-[var(--accent)]/10 text-[var(--text-primary)] px-3 py-1 rounded-full text-sm font-bold">
+                                                                        Plan: {initialTier} {initialPrice && `(${initialPrice})`}
+                                                                    </span>
                                                                 </div>
-                                                            )}
+                                                                <p className="text-sm text-[var(--text-secondary)] mb-4">
+                                                                    You will be redirected to Stripe to securely complete your subscription for the <span className="font-bold">{initialTier}</span> plan.
+                                                                </p>
+                                                                <button
+                                                                    onClick={async () => {
+                                                                        const priceIdMap: Record<string, string | undefined> = {
+                                                                            'Coupe': process.env.NEXT_PUBLIC_STRIPE_PRICE_COUPE,
+                                                                            'Muscle': process.env.NEXT_PUBLIC_STRIPE_PRICE_MUSCLE,
+                                                                            'Grand Tourer': process.env.NEXT_PUBLIC_STRIPE_PRICE_GRAND_TOURER,
+                                                                            // Add others if needed
+                                                                        };
+                                                                        const priceId = priceIdMap[initialTier] || process.env.NEXT_PUBLIC_STRIPE_PRICE_SIMPLE;
+
+                                                                        if (!priceId) {
+                                                                            alert('Error: Pricing configuration missing. Please contact support.');
+                                                                            return;
+                                                                        }
+
+                                                                        try {
+                                                                            const res = await fetch('/api/checkout', {
+                                                                                method: 'POST',
+                                                                                headers: { 'Content-Type': 'application/json' },
+                                                                                body: JSON.stringify({
+                                                                                    priceId,
+                                                                                    mode: initialTier === 'Simple Website' ? 'payment' : 'subscription',
+                                                                                    email,
+                                                                                    userId: 'guest_via_quote' // Or actual ID
+                                                                                }),
+                                                                            });
+                                                                            const data = await res.json();
+                                                                            if (data.url) {
+                                                                                window.location.href = data.url;
+                                                                            } else {
+                                                                                alert('Failed to start checkout.');
+                                                                            }
+                                                                        } catch (e) {
+                                                                            console.error(e);
+                                                                            alert('An error occurred.');
+                                                                        }
+                                                                    }}
+                                                                    className="w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold py-4 rounded-xl hover:shadow-glow transition-all flex items-center justify-center gap-2"
+                                                                >
+                                                                    <span>Proceed to Payment</span>
+                                                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     )}
                                                 </div>
