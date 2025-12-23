@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { supabase } from '@/lib/supabase'; // Ensure this path is correct
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_fallback_key', {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     apiVersion: '2024-06-20' as any,
 });
