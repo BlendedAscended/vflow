@@ -133,9 +133,9 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
             Your business questions, <span className="gradient-text">answered fast</span>
           </h2>
-          <p className="text-[var(--text-accent)] text-xl max-w-3xl mx-auto leading-relaxed">
+          <div className="text-[var(--text-accent)] text-xl max-w-3xl mx-auto leading-relaxed text-center">
             Get clear info on our web, marketing, and automation services.
-          </p>
+          </div>
         </div>
 
         {shouldShowCategories ? (

@@ -131,8 +131,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   {service.shortDescription}
                 </p>
                 {service.price && (
-                  <div className="inline-block bg-green-100 text-green-800 px-6 py-3 rounded-full font-semibold text-lg">
-                    {service.price}
+                  <div
+                    className="text-green-600 font-bold text-sm uppercase tracking-wider bg-green-100 pl-10 pr-6 py-3 rounded-r-2xl w-fit inline-block mb-8"
+                    style={{
+                      clipPath: 'polygon(1.2rem 50%, 0 0, 100% 0, 100% 100%, 0 100%)'
+                    }}
+                  >
+                    Starting at {service.price}
                   </div>
                 )}
               </div>

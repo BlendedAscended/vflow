@@ -49,7 +49,8 @@ const industries = [
     { id: 'healthcare', label: 'Healthcare & Wellness', icon: '⚕️' },
     { id: 'tech', label: 'Technology & SaaS', icon: '💻' },
     { id: 'realestate', label: 'Real Estate', icon: '🏠' },
-    { id: 'construction', label: 'Construction', icon: '🏗️' }
+    { id: 'construction', label: 'Construction', icon: '🏗️' },
+    { id: 'other', label: 'Other', icon: '🌐' }
 ];
 
 const stages = [
@@ -76,10 +77,10 @@ const teamSizes = [
 ];
 
 const budgets = [
-    { id: 'low', label: 'Under $1k/mo' },
-    { id: 'medium', label: '$1k - $5k/mo' },
-    { id: 'high', label: '$5k - $10k/mo' },
-    { id: 'enterprise', label: '$10k+/mo' }
+    { id: 'low', label: 'Under $1k' },
+    { id: 'medium', label: '$1k - $5k' },
+    { id: 'high', label: '$5k - $10k' },
+    { id: 'enterprise', label: '$10k+' }
 ];
 
 const timelines = [
@@ -127,17 +128,17 @@ export default function GrowthPlanWizard() {
 
     const [generatedPlan, setGeneratedPlan] = useState<GrowthPlan | null>(null);
 
-    const totalSteps = 7;
+    const totalSteps = 6;
 
     const handleNext = () => {
         console.log(`📍 handleNext called. Current step: ${step}, totalSteps: ${totalSteps}`);
-        // Step 4 is the last form step (Timeline & Contact), so we need to generate the plan
-        if (step < 4) {
+        // Step 5 is the last form step (Timeline & Contact), so we need to generate the plan
+        if (step < 5) {
             console.log('→ Moving to next step (not final)');
             setStep(step + 1);
         } else {
             console.log('→ Final step! Calling generatePlan()');
-            setStep(step + 1); // Move to step 5 (loading/results)
+            setStep(step + 1); // Move to step 6 (loading/results)
             generatePlan();
         }
     };
@@ -198,8 +199,6 @@ export default function GrowthPlanWizard() {
         } catch (error) {
             console.error('✗✗✗ Error generating plan:', error);
             alert(`Failed to generate plan: ${error instanceof Error ? error.message : 'Unknown error'}`);
-            // We don't set a string error message here anymore since the type is GrowthPlan
-            // You might want to handle error state separately
         } finally {
             setIsGenerating(false);
         }
@@ -304,7 +303,7 @@ export default function GrowthPlanWizard() {
 
                     {step === 2 && (
                         <motion.div
-                            key="step1"
+                            key="step2-stage"
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
@@ -340,9 +339,9 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 2 && (
+                    {step === 3 && (
                         <motion.div
-                            key="step2"
+                            key="step3-challenges"
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
@@ -376,9 +375,9 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 3 && (
+                    {step === 4 && (
                         <motion.div
-                            key="step3"
+                            key="step4-team"
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
@@ -407,7 +406,7 @@ export default function GrowthPlanWizard() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-[var(--text-primary)] font-semibold mb-3">Monthly Budget for Growth</label>
+                                    <label className="block text-[var(--text-primary)] font-semibold mb-3">Budget for Growth</label>
                                     <div className="grid grid-cols-2 gap-3">
                                         {budgets.map((budget) => (
                                             <button
@@ -435,9 +434,9 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 4 && (
+                    {step === 5 && (
                         <motion.div
-                            key="step4"
+                            key="step5-timeline"
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
@@ -497,9 +496,9 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 5 && (
+                    {step === 6 && (
                         <motion.div
-                            key="step5"
+                            key="step6"
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             className="flex-1 flex flex-col items-center justify-center text-center w-full"
@@ -590,7 +589,7 @@ export default function GrowthPlanWizard() {
                                                 <p className="text-3xl font-bold text-[var(--accent)] mb-1">
                                                     {generatedPlan.estimated_investment}
                                                 </p>
-                                                <p className="text-sm text-[var(--muted-foreground)]">Monthly estimate based on recommended services.</p>
+                                                <p className="text-sm text-[var(--muted-foreground)]">Based on recommended services.</p>
                                             </div>
                                         </div>
 

@@ -72,7 +72,7 @@ export async function POST(request: Request) {
                 },
                 estimated_investment: {
                     type: SchemaType.STRING,
-                    description: "A rough estimated monthly investment range based on the recommended services."
+                    description: "A rough estimated project investment range based on the recommended services."
                 }
             },
             required: ["executive_summary", "phases", "recommended_services", "estimated_investment"]
@@ -118,7 +118,7 @@ export async function POST(request: Request) {
         - The "Executive Summary" should be a high-level strategic overview.
         - The "Action Plan" should be broken down into 3 distinct phases (e.g., "Immediate Wins", "Strategic Growth", "Scaling & Automation").
         - "Recommended Services" MUST be selected ONLY from the provided knowledge base.
-        - "Estimated Investment" should be a realistic monthly range based on the services and the user's stated budget.
+        - "Estimated Investment" should be a realistic project investment range based on the services and the user's stated budget.
         - Tone: Professional, encouraging, and authoritative.
       `,
             generationConfig: {

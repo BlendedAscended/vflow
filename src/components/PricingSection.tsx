@@ -10,9 +10,8 @@ const PricingSection = () => {
     {
       name: "Coupe",
       description: "Essential website and online presence setup for new businesses.",
-      price: "$19",
+      price: "$49",
       period: "/mo",
-      yearlyPrice: "or $199 yearly",
       features: [
         "Custom Website Development",
         "Landing Page Design & Optimization",
@@ -26,9 +25,8 @@ const PricingSection = () => {
     {
       name: "Muscle",
       description: "Advanced marketing and automation tools for growing teams.",
-      price: "$29",
+      price: "$99",
       period: "/mo",
-      yearlyPrice: "or $299 yearly",
       features: [
         "Social Media Marketing & Campaigns",
         "Automated Lead Response & Appointment Scheduling",
@@ -42,9 +40,8 @@ const PricingSection = () => {
     {
       name: "Grand Tourer",
       description: "Full-service automation, analytics, and compliance for scaling operations.",
-      price: "$49",
+      price: "$199",
       period: "/mo",
-      yearlyPrice: "or $499 yearly",
       features: [
         "AI Chatbot Development & Integration",
         "Voice Command Workflow Automation",
@@ -80,11 +77,11 @@ const PricingSection = () => {
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
-            Seize Your Unfair Advantage. <span className="gradient-text"> Today.</span>
+            We work with winners.
           </h2>
-          <p className="text-[var(--text-accent)] text-xl max-w-3xl mx-auto leading-relaxed">
-            The market waits for no one. Secure AI-powered growth and market leadership with these exclusive plans, available now at rates designed to accelerate your success.
-          </p>
+          <div className="text-[var(--text-accent)] text-lg sm:text-lg max-w-6xl mx-auto leading-relaxed text-center px-4 sm:px-8">
+            This membership acts as your retainer of intent: a low-barrier way to secure our expertise. The cost? It’s pocket change compared to the upside. But it proves you're serious. Once you’re in, we stop guessing, assess your needs, and plug you into the right network immediately. Stop standing on the sidelines. Pick a tier and let’s get to work.
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4 max-w-6xl mx-auto items-start">
@@ -106,7 +103,6 @@ const PricingSection = () => {
                     <span className="text-5xl font-extrabold text-[var(--text-secondary)]">{plan.price}</span>
                     <span className="text-[var(--text-accent)] ml-3 text-xl">{plan.period}</span>
                   </div>
-                  <p className="text-[var(--text-accent)] text-lg">{plan.yearlyPrice}</p>
                 </div>
 
                 <button

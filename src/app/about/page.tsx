@@ -9,9 +9,14 @@ export default function AboutPage() {
             <Navigation />
             <main className="max-w-4xl mx-auto px-6 py-24">
                 <h1 className="text-4xl font-bold mb-8 text-[var(--text-primary)]">About Us</h1>
-                <p className="text-lg text-[var(--text-secondary)]">
-                    This is the About page. Content coming soon.
-                </p>
+                <div className="space-y-6 text-lg text-[var(--text-secondary)] leading-relaxed">
+                    <p>
+                        Your technical partner for the AI era. With a foundation in Solution Architecture, Software Engineering, and Data Consulting, we bring enterprise-grade expertise to growing businesses.
+                    </p>
+                    <p>
+                        We specialize in unifying the technical and the creative, delivering secure Cloud Infrastructure, custom Software Development, and next-gen AI Solutions under one roof. We don't just build software; we architect the solutions that power your company's next phase of growth.
+                    </p>
+                </div>
             </main>
             <ContactSection />
             <Footer />

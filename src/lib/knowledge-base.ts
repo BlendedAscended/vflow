@@ -21,16 +21,26 @@ export const verbaflowServices = [ ... ];
 export const industryContext = { ... };
 */
 
-export async function getServices(): Promise<Service[]> {
-    const { data, error } = await supabase
-        .from('services')
-        .select('*');
+import { client } from '../sanity/lib/client';
 
-    if (error) {
-        console.error('Error fetching services:', error);
+export async function getServices(): Promise<Service[]> {
+    try {
+        const data = await client.fetch(`*[_type == "service" && active == true]{
+            _id,
+            title,
+            description,
+            price
+        }`);
+        return data.map((s: any) => ({
+            id: s._id,
+            name: s.title,
+            description: s.description,
+            price_range: s.price || 'Contact for pricing'
+        }));
+    } catch (error) {
+        console.error('Error fetching services from Sanity:', error);
         return [];
     }
-    return data as Service[];
 }
 
 export async function getIndustryContext(): Promise<Record<string, string>> {

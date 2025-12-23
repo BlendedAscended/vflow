@@ -100,8 +100,8 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
     }
   ];
 
-  // Always show default services, plus any additional services from Sanity
-  const displayServices = [...defaultServices, ...(services || [])];
+  // Use services from props (Sanity) if available, otherwise use default fallback
+  const displayServices = (services && services.length > 0) ? services : defaultServices;
 
   return (
     <section id="services" className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden">

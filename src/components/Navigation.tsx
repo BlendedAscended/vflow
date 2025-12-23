@@ -59,14 +59,13 @@ const Navigation = () => {
         console.log('All services:', navigationServices);
         console.log('Filtered services:', filteredServices);
 
-        // Always show default services plus any Sanity services
-        const allServices = [...defaultNavigationServices, ...filteredServices];
-        setServices(allServices);
+        // Show only Sanity services
+        setServices(filteredServices);
       } catch (error) {
         console.error('Error fetching navigation services:', error);
         console.error('Full error details:', error);
-        // Use default services when Sanity fails
-        setServices(defaultNavigationServices);
+        // Use empty array when Sanity fails
+        setServices([]);
       }
     };
 
@@ -134,9 +133,9 @@ const Navigation = () => {
 
               {/* Dropdown Menu */}
               {isServicesOpen && (
-                <div className={`absolute left-0 top-full bg-[var(--card-background)] rounded-3xl shadow-xl border border-[var(--border)] py-4 z-50 ${services.length <= 6 ? 'w-72' :
-                  services.length <= 12 ? 'w-96' :
-                    'w-[48rem]'
+                <div className={`absolute left-0 top-full bg-[var(--card-background)] rounded-3xl shadow-xl border border-[var(--border)] py-4 z-50 ${services.length <= 6 ? 'w-96' :
+                  services.length <= 12 ? 'w-[32rem]' :
+                    'w-[56rem]'
                   }`}>
                   {services.length > 0 ? (
                     <div className={`grid gap-1 px-4 ${services.length <= 6 ? 'grid-cols-1' :

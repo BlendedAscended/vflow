@@ -53,7 +53,7 @@ const HeroSection = () => {
                       clipPath: 'polygon(1.2rem 50%, 0 0, 100% 0, 100% 100%, 0 100%)'
                     }}
                   >
-                    We Serve clients in {location}
+                    Serving clients in {location}
                   </div>
                 </div>
                 <p className="text-[var(--muted-foreground)] text-xl lg:text-2xl leading-relaxed max-w-3xl font-medium">

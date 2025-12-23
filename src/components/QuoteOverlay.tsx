@@ -15,26 +15,32 @@ const suggestionMap: Record<string, string[]> = {
     'App Development': ['iOS App', 'Android App', 'Cross-platform', 'Internal Tool']
 };
 
-// Simplified pricing mapping for instant quote
-const pricingMap: Record<string, number> = {
-    'Web Design': 3000,
-    'Digital Marketing': 1500,
-    'AI Automation': 2000,
-    'Consulting': 1000,
-    'App Development': 5000,
-    'E-commerce Store': 4000,
-    'Landing Page': 1500,
-    'Corporate Website': 3000,
-    'SaaS Dashboard': 5000,
-    'SEO Optimization': 1000,
-    'Social Media Management': 1500,
-    'PPC Advertising': 1000,
-    'Customer Support Chatbot': 2500,
-    'Workflow Automation': 1500,
-    'iOS App': 6000,
-    'Android App': 6000,
-    'Cross-platform': 8000
+// Simplified pricing mapping with ranges for instant quote
+const pricingMap: Record<string, { min: number; max: number }> = {
+    'Web Design': { min: 295, max: 495 },
+    'Digital Marketing': { min: 145, max: 295 },
+    'AI Automation': { min: 195, max: 395 },
+    'Consulting': { min: 95, max: 195 },
+    'App Development': { min: 495, max: 1495 },
+    'E-commerce Store': { min: 395, max: 795 },
+    'Landing Page': { min: 95, max: 245 },
+    'Corporate Website': { min: 295, max: 595 },
+    'SaaS Dashboard': { min: 495, max: 995 },
+    'SEO Optimization': { min: 95, max: 195 },
+    'Social Media Management': { min: 145, max: 295 },
+    'PPC Advertising': { min: 95, max: 245 },
+    'Customer Support Chatbot': { min: 245, max: 495 },
+    'Workflow Automation': { min: 145, max: 395 },
+    'iOS App': { min: 595, max: 1195 },
+    'Android App': { min: 595, max: 1195 },
+    'Cross-platform': { min: 795, max: 1495 }
 };
+
+interface QuoteResult {
+    min: number;
+    max: number;
+    details: string[];
+}
 
 interface QuoteOverlayProps {
     isOpen: boolean;
@@ -53,11 +59,12 @@ const QuoteOverlay = ({ isOpen, onClose, initialTier, initialPrice }: QuoteOverl
 
     // New state for Instant Quote Wizard
     const [view, setView] = useState<'input' | 'processing' | 'result'>('input');
-    const [quoteResult, setQuoteResult] = useState<{ total: number; details: string[] } | null>(null);
+    const [quoteResult, setQuoteResult] = useState<QuoteResult | null>(null);
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [isSending, setIsSending] = useState(false);
     const [sendStatus, setSendStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [downloadStatus, setDownloadStatus] = useState<'idle' | 'success'>('idle');
     const [newsletter, setNewsletter] = useState(false);
 
     // Scroll to top when view changes or payment form opens
@@ -131,38 +138,44 @@ const QuoteOverlay = ({ isOpen, onClose, initialTier, initialPrice }: QuoteOverl
 
         // Simulate calculation delay
         setTimeout(() => {
-            let total = 0;
+            let totalMin = 0;
+            let totalMax = 0;
             const details: string[] = [];
 
             // 1. Check selected tags
             selectedTags.forEach(tag => {
-                if (pricingMap[tag]) {
-                    total += pricingMap[tag];
-                    details.push(`${tag}: $${pricingMap[tag].toLocaleString()}`);
+                const price = pricingMap[tag];
+                if (price) {
+                    totalMin += price.min;
+                    totalMax += price.max;
+                    details.push(`${tag}: $${price.min.toLocaleString()} - $${price.max.toLocaleString()}`);
                 }
             });
 
             // 2. Check input text for keywords (simple heuristic)
             Object.keys(pricingMap).forEach(key => {
                 if (inputValue.toLowerCase().includes(key.toLowerCase()) && !selectedTags.includes(key)) {
-                    total += pricingMap[key];
-                    details.push(`${key} (detected): $${pricingMap[key].toLocaleString()}`);
+                    const price = pricingMap[key];
+                    totalMin += price.min;
+                    totalMax += price.max;
+                    details.push(`${key} (detected): $${price.min.toLocaleString()} - $${price.max.toLocaleString()}`);
                 }
             });
 
             // Handle initialTier pricing if present and not covered
-            if (initialTier && total === 0) {
+            if (initialTier && totalMin === 0) {
                 // Fallback or specific logic for tiers if they aren't in pricingMap
                 // For now, let's assume the user might add more details or we just use base consultation
             }
 
             // Base fee if nothing matched but input exists
-            if (total === 0 && inputValue.length > 0) {
-                total = 1000;
-                details.push('Consultation & Analysis: $1,000');
+            if (totalMin === 0 && inputValue.length > 0) {
+                totalMin = 95;
+                totalMax = 295;
+                details.push('Consultation & Analysis: $95 - $295');
             }
 
-            setQuoteResult({ total, details });
+            setQuoteResult({ min: totalMin, max: totalMax, details });
             setView('result');
         }, 1500);
     };
@@ -179,14 +192,14 @@ const QuoteOverlay = ({ isOpen, onClose, initialTier, initialPrice }: QuoteOverl
                     email,
                     name,
                     quoteDetails: quoteResult?.details || [],
-                    totalEstimate: `$${quoteResult?.total.toLocaleString()}`,
+                    totalEstimate: `$${quoteResult?.min.toLocaleString()} - $${quoteResult?.max.toLocaleString()}`,
                     newsletter // Send this to API if needed
                 })
             });
 
             if (response.ok) {
                 setSendStatus('success');
-                alert('Quote emailed successfully!');
+                // Removed alert to improve UX
             } else {
                 setSendStatus('error');
             }
@@ -209,7 +222,7 @@ SELECTED SERVICES:
 ${quoteResult?.details.map(d => `- ${d}`).join('\n')}
 
 -----------------------
-ESTIMATED TOTAL: $${quoteResult?.total.toLocaleString()}
+ESTIMATED RANGE: $${quoteResult?.min.toLocaleString()} - $${quoteResult?.max.toLocaleString()}
 -----------------------
 
 ${newsletter ? '[x] Subscribed to Newsletter' : ''}
@@ -224,6 +237,7 @@ For a detailed breakdown and strategy, please visit: https://verbaflow.com/growt
         document.body.appendChild(element); // Required for FireFox
         element.click();
         document.body.removeChild(element);
+        setDownloadStatus('success');
     };
 
     if (!isOpen && !isClosing) return null;
@@ -321,7 +335,7 @@ For a detailed breakdown and strategy, please visit: https://verbaflow.com/growt
                                                 <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">Free</span>
                                             </button>
                                             <p className="text-xs text-center text-[var(--muted-foreground)] mt-3">
-                                                Based on standard pricing for services within 50 miles.
+                                                Based on standard regional pricing.
                                             </p>
                                         </div>
                                     </motion.div>
@@ -356,11 +370,11 @@ For a detailed breakdown and strategy, please visit: https://verbaflow.com/growt
                                             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-2">
                                                 Estimated Investment
                                             </h2>
-                                            <div className="text-5xl font-extrabold text-[var(--accent)] gradient-text my-4">
-                                                ${quoteResult.total.toLocaleString()}
+                                            <div className="text-4xl sm:text-5xl font-extrabold text-[var(--accent)] gradient-text my-4 whitespace-nowrap">
+                                                ${quoteResult.min.toLocaleString()} - ${quoteResult.max.toLocaleString()}
                                             </div>
                                             <p className="text-[var(--muted-foreground)]">
-                                                Estimated monthly or one-time project fee based on selection.
+                                                Estimated project investment range based on selected services.
                                             </p>
                                         </div>
 
@@ -369,8 +383,8 @@ For a detailed breakdown and strategy, please visit: https://verbaflow.com/growt
                                             <ul className="space-y-2">
                                                 {quoteResult.details.map((detail, idx) => (
                                                     <li key={idx} className="flex items-center gap-2 text-[var(--text-secondary)]">
-                                                        <span className="text-green-500">✓</span>
-                                                        {detail}
+                                                        <span className="text-green-500 flex-shrink-0">✓</span>
+                                                        <span className="whitespace-nowrap overflow-hidden text-ellipsis">{detail}</span>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -395,94 +409,93 @@ For a detailed breakdown and strategy, please visit: https://verbaflow.com/growt
                                                 />
                                             </div>
 
-                                            {sendStatus === 'success' ? (
-                                                <div className="space-y-4">
-                                                    <div className="p-4 bg-green-100 text-green-700 rounded-xl text-center font-medium">
-                                                        <p>Quote sent successfully! Check your inbox.</p>
-                                                    </div>
+                                            <div className="flex gap-4">
+                                                <button
+                                                    onClick={handleSendEmail}
+                                                    disabled={isSending || !email || sendStatus === 'success'}
+                                                    className="flex-1 bg-[var(--accent)] text-[var(--accent-foreground)] font-bold py-4 rounded-xl hover:shadow-glow transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                                >
+                                                    {isSending ? 'Sending...' : sendStatus === 'success' ? 'Sent!' : 'Email Quote'}
+                                                </button>
+                                                <button
+                                                    onClick={handleDownloadQuote}
+                                                    disabled={downloadStatus === 'success'}
+                                                    className="flex-1 bg-[var(--section-bg-3)] border-2 border-[var(--border)] text-[var(--text-primary)] font-bold py-4 rounded-xl hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] transition-all disabled:opacity-75 disabled:cursor-default"
+                                                >
+                                                    {downloadStatus === 'success' ? 'Downloaded!' : 'Download PDF'}
+                                                </button>
+                                            </div>
 
-                                                    <button
-                                                        onClick={handleDownloadQuote}
-                                                        className="w-full bg-[var(--section-bg-3)] border-2 border-[var(--border)] text-[var(--text-primary)] font-bold py-4 rounded-xl hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] transition-all"
-                                                    >
-                                                        Download PDF
-                                                    </button>
+                                            <div className="space-y-1">
+                                                {sendStatus === 'success' && (
+                                                    <p className="text-sm text-green-600 font-medium text-center animate-in fade-in slide-in-from-top-2">
+                                                        ✓ Quote emailed successfully to {email}
+                                                    </p>
+                                                )}
+                                                {downloadStatus === 'success' && (
+                                                    <p className="text-sm text-green-600 font-medium text-center animate-in fade-in slide-in-from-top-2">
+                                                        ✓ PDF Downloaded successfully
+                                                    </p>
+                                                )}
+                                            </div>
 
-                                                    {initialTier && (
-                                                        <div className="pt-4 border-t border-[var(--border)]">
-                                                            <div className="bg-[var(--background)] p-4 rounded-xl border border-[var(--border)] text-left animate-in fade-in slide-in-from-top-4 duration-300">
-                                                                <div className="flex justify-between items-center mb-4">
-                                                                    <h4 className="font-bold text-[var(--text-primary)]">Secure Payment</h4>
-                                                                    <span className="bg-[var(--accent)]/10 text-[var(--text-primary)] px-3 py-1 rounded-full text-sm font-bold">
-                                                                        Plan: {initialTier} {initialPrice && `(${initialPrice})`}
-                                                                    </span>
-                                                                </div>
-                                                                <p className="text-sm text-[var(--text-secondary)] mb-4">
-                                                                    You will be redirected to Stripe to securely complete your subscription for the <span className="font-bold">{initialTier}</span> plan.
-                                                                </p>
-                                                                <button
-                                                                    onClick={async () => {
-                                                                        const priceIdMap: Record<string, string | undefined> = {
-                                                                            'Coupe': process.env.NEXT_PUBLIC_STRIPE_PRICE_COUPE,
-                                                                            'Muscle': process.env.NEXT_PUBLIC_STRIPE_PRICE_MUSCLE,
-                                                                            'Grand Tourer': process.env.NEXT_PUBLIC_STRIPE_PRICE_GRAND_TOURER,
-                                                                            // Add others if needed
-                                                                        };
-                                                                        const priceId = priceIdMap[initialTier] || process.env.NEXT_PUBLIC_STRIPE_PRICE_SIMPLE;
-
-                                                                        if (!priceId) {
-                                                                            alert('Error: Pricing configuration missing. Please contact support.');
-                                                                            return;
-                                                                        }
-
-                                                                        try {
-                                                                            const res = await fetch('/api/checkout', {
-                                                                                method: 'POST',
-                                                                                headers: { 'Content-Type': 'application/json' },
-                                                                                body: JSON.stringify({
-                                                                                    priceId,
-                                                                                    mode: initialTier === 'Simple Website' ? 'payment' : 'subscription',
-                                                                                    email,
-                                                                                    userId: 'guest_via_quote' // Or actual ID
-                                                                                }),
-                                                                            });
-                                                                            const data = await res.json();
-                                                                            if (data.url) {
-                                                                                window.location.href = data.url;
-                                                                            } else {
-                                                                                alert('Failed to start checkout.');
-                                                                            }
-                                                                        } catch (e) {
-                                                                            console.error(e);
-                                                                            alert('An error occurred.');
-                                                                        }
-                                                                    }}
-                                                                    className="w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold py-4 rounded-xl hover:shadow-glow transition-all flex items-center justify-center gap-2"
-                                                                >
-                                                                    <span>Proceed to Payment</span>
-                                                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                                                    </svg>
-                                                                </button>
-                                                            </div>
+                                            {initialTier && (
+                                                <div className="pt-4 border-t border-[var(--border)]">
+                                                    <div className="bg-[var(--background)] p-4 rounded-xl border border-[var(--border)] text-left animate-in fade-in slide-in-from-top-4 duration-300">
+                                                        <div className="flex justify-between items-center mb-4">
+                                                            <h4 className="font-bold text-[var(--text-primary)]">Secure Payment</h4>
+                                                            <span className="bg-[var(--accent)]/10 text-[var(--text-primary)] px-3 py-1 rounded-full text-sm font-bold">
+                                                                Plan: {initialTier} {initialPrice && `(${initialPrice})`}
+                                                            </span>
                                                         </div>
-                                                    )}
-                                                </div>
-                                            ) : (
-                                                <div className="flex gap-4">
-                                                    <button
-                                                        onClick={handleSendEmail}
-                                                        disabled={isSending || !email}
-                                                        className="flex-1 bg-[var(--accent)] text-[var(--accent-foreground)] font-bold py-4 rounded-xl hover:shadow-glow transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                                    >
-                                                        {isSending ? 'Sending...' : 'Email Quote'}
-                                                    </button>
-                                                    <button
-                                                        onClick={handleDownloadQuote}
-                                                        className="flex-1 bg-[var(--section-bg-3)] border-2 border-[var(--border)] text-[var(--text-primary)] font-bold py-4 rounded-xl hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] transition-all"
-                                                    >
-                                                        Download PDF
-                                                    </button>
+                                                        <div className="text-sm text-[var(--text-secondary)] mb-8">
+                                                            You will be redirected to Stripe to securely complete your subscription for the <span className="font-bold">{initialTier}</span> plan.
+                                                        </div>
+                                                        <button
+                                                            onClick={async () => {
+                                                                const priceIdMap: Record<string, string | undefined> = {
+                                                                    'Coupe': process.env.NEXT_PUBLIC_STRIPE_PRICE_COUPE,
+                                                                    'Muscle': process.env.NEXT_PUBLIC_STRIPE_PRICE_MUSCLE,
+                                                                    'Grand Tourer': process.env.NEXT_PUBLIC_STRIPE_PRICE_GRAND_TOURER,
+                                                                    // Add others if needed
+                                                                };
+                                                                const priceId = priceIdMap[initialTier] || process.env.NEXT_PUBLIC_STRIPE_PRICE_SIMPLE;
+
+                                                                if (!priceId) {
+                                                                    alert('Error: Pricing configuration missing. Please contact support.');
+                                                                    return;
+                                                                }
+
+                                                                try {
+                                                                    const res = await fetch('/api/checkout', {
+                                                                        method: 'POST',
+                                                                        headers: { 'Content-Type': 'application/json' },
+                                                                        body: JSON.stringify({
+                                                                            priceId,
+                                                                            mode: initialTier === 'Simple Website' ? 'payment' : 'subscription',
+                                                                            email,
+                                                                            userId: 'guest_via_quote' // Or actual ID
+                                                                        }),
+                                                                    });
+                                                                    const data = await res.json();
+                                                                    if (data.url) {
+                                                                        window.location.href = data.url;
+                                                                    } else {
+                                                                        alert('Failed to start checkout.');
+                                                                    }
+                                                                } catch (e) {
+                                                                    console.error(e);
+                                                                    alert('An error occurred.');
+                                                                }
+                                                            }}
+                                                            className="w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold py-4 rounded-xl hover:shadow-glow transition-all flex items-center justify-center gap-2"
+                                                        >
+                                                            <span>Proceed to Payment</span>
+                                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             )}
 
