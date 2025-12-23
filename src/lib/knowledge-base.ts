@@ -46,7 +46,7 @@ export async function getIndustryContext(): Promise<Record<string, string>> {
     // Convert back to the object format expected by the app { key: value }
     const contextMap: Record<string, string> = {};
     if (data) {
-        data.forEach((item: any) => {
+        data.forEach((item: IndustryContext) => {
             contextMap[item.industry_key] = item.focus_area;
         });
     }

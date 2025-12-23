@@ -2,8 +2,6 @@ import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI, SchemaType, Schema } from '@google/generative-ai';
 import { getServices } from '../../../lib/knowledge-base';
 import { Resend } from 'resend';
-import { createClient } from 'next-sanity';
-import { apiVersion, dataset, projectId } from '../../../sanity/env';
 
 // Initialize Gemini client inside the handler
 
