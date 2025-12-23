@@ -14,7 +14,7 @@ export default function AboutPage() {
                         Your technical partner for the AI era. With a foundation in Solution Architecture, Software Engineering, and Data Consulting, we bring enterprise-grade expertise to growing businesses.
                     </p>
                     <p>
-                        We specialize in unifying the technical and the creative, delivering secure Cloud Infrastructure, custom Software Development, and next-gen AI Solutions under one roof. We don't just build software; we architect the solutions that power your company's next phase of growth.
+                        We specialize in unifying the technical and the creative, delivering secure Cloud Infrastructure, custom Software Development, and next-gen AI Solutions under one roof. We don&apos;t just build software; we architect the solutions that power your company&apos;s next phase of growth.
                     </p>
                 </div>
             </main>

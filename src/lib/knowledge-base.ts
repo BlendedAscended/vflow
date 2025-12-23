@@ -23,6 +23,13 @@ export const industryContext = { ... };
 
 import { client } from '../sanity/lib/client';
 
+interface SanityService {
+    _id: string;
+    title: string;
+    description: string;
+    price?: string;
+}
+
 export async function getServices(): Promise<Service[]> {
     try {
         const data = await client.fetch(`*[_type == "service" && active == true]{
@@ -31,7 +38,7 @@ export async function getServices(): Promise<Service[]> {
             description,
             price
         }`);
-        return data.map((s: any) => ({
+        return data.map((s: SanityService) => ({
             id: s._id,
             name: s.title,
             description: s.description,

@@ -14,13 +14,7 @@ interface NavigationService {
   showInNavigation?: boolean; // Add this line
 }
 
-// Fallback navigation services that always show
-const defaultNavigationServices: NavigationService[] = [
-  { title: "Website Development", slug: "website-development" },
-  { title: "Digital Marketing", slug: "digital-marketing" },
-  { title: "AI Automation", slug: "ai-automation" },
-  { title: "Cloud Solutions", slug: "cloud-solutions" }
-];
+
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

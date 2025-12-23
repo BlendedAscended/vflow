@@ -19,7 +19,7 @@ const PricingSection = () => {
         "Google Business Profile",
         "Portfolio Website Development"
       ],
-      buttonText: "Start free",
+      buttonText: "Start Winning",
       isPopular: false
     },
     {
@@ -80,7 +80,7 @@ const PricingSection = () => {
             We work with winners.
           </h2>
           <div className="text-[var(--text-accent)] text-lg sm:text-lg max-w-6xl mx-auto leading-relaxed text-center px-4 sm:px-8">
-            This membership acts as your retainer of intent: a low-barrier way to secure our expertise. The cost? It’s pocket change compared to the upside. But it proves you're serious. Once you’re in, we stop guessing, assess your needs, and plug you into the right network immediately. Stop standing on the sidelines. Pick a tier and let’s get to work.
+            This membership acts as your retainer of intent: a low-barrier way to secure our expertise. The cost? It&apos;s pocket change compared to the upside. But it proves you&apos;re serious. Once you&apos;re in, we stop guessing, assess your needs, and plug you into the right network immediately. Stop standing on the sidelines. Pick a tier and let&apos;s get to work.
           </div>
         </div>
 
