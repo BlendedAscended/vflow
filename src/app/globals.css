@@ -83,6 +83,20 @@ html.theme-dark {
   --accent-foreground: #000000;
 }
 
+/* Agency page — Developer Dark Mode scoped tokens */
+.agency-page {
+  --agency-bg: #0F172A;
+  --agency-bg-card: rgba(255, 255, 255, 0.03);
+  --agency-text: #F3F4F6;
+  --agency-text-muted: #94A3B8;
+  --agency-border: rgba(255, 255, 255, 0.1);
+  --color-accent-health: #00c203;
+  --color-accent-finance: #2E75B6;
+  --color-accent-cloud: #7C3AED;
+  --color-accent-aiml: #F59E0B;
+  --color-accent-tech: #06B6D4;
+}
+
 * {
   box-sizing: border-box;
 }

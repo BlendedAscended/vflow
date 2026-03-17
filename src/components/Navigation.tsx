@@ -163,6 +163,10 @@ const Navigation = () => {
               Blog
             </Link>
 
+            <Link href="/agency" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
+              Agency
+            </Link>
+
             <Link href={hasContactSection ? "#contact" : "/#contact"} className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
               Contact
             </Link>
@@ -243,6 +247,7 @@ const Navigation = () => {
 
             <Link href="/about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">About</Link>
             <Link href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Blog</Link>
+            <Link href="/agency" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Agency</Link>
             <Link href={hasContactSection ? "#contact" : "/#contact"} className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Contact</Link>
 
             <button className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Support</button>

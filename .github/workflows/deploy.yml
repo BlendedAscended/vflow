@@ -1,0 +1,88 @@
+name: Deploy VerbaFlow to Hetzner
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:          # Allow manual trigger from GitHub UI
+
+concurrency:
+  group: deploy-verbaflow
+  cancel-in-progress: false   # Never cancel mid-deploy
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ── 2. Setup Node ────────────────────────────────────────────────────
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      # ── 3. Install & Build (local check before deploy) ───────────────────
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+
+      - name: Lint check
+        run: npm run lint
+        continue-on-error: true   # Don't block deploy on lint warnings
+
+      # ── 4. Deploy via SSH ────────────────────────────────────────────────
+      - name: Deploy to Hetzner
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HETZNER_HOST }}
+          username: ${{ secrets.HETZNER_USER }}
+          key: ${{ secrets.HETZNER_SSH_KEY }}
+          port: ${{ secrets.HETZNER_PORT }}
+          timeout: 120s
+          script: |
+            set -e
+            echo "━━━ Starting deployment ━━━"
+            cd /var/www/verbaflow
+
+            # Pull latest code
+            echo "→ Pulling latest code..."
+            git fetch origin main
+            git reset --hard origin/main
+
+            # Install dependencies (ci = clean install, uses lockfile)
+            echo "→ Installing dependencies..."
+            npm ci --prefer-offline --omit=dev
+
+            # Build
+            echo "→ Building Next.js app..."
+            npm run build
+
+            # Reload PM2 (zero-downtime in cluster mode)
+            echo "→ Reloading PM2..."
+            pm2 reload verbaflow --update-env
+
+            # Health check — wait for app to respond
+            echo "→ Health check..."
+            for i in $(seq 1 10); do
+              if curl -sf http://localhost:3000 > /dev/null 2>&1; then
+                echo "✓ App is responding on :3000"
+                break
+              fi
+              echo "  Waiting... (attempt $i/10)"
+              sleep 3
+            done
+
+            pm2 list
+            echo "━━━ Deployment complete ━━━"
+
+      # ── 5. Notify on failure ─────────────────────────────────────────────
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Deployment to Hetzner failed. Check SSH logs."
+          # Add Resend/Slack notification here if needed

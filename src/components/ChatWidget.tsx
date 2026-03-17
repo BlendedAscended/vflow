@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type Message = {
@@ -8,7 +9,7 @@ type Message = {
     content: string;
 };
 
-export default function ChatWidget() {
+function ChatWidgetInner() {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
     const [inputValue, setInputValue] = useState('');
@@ -170,4 +171,10 @@ export default function ChatWidget() {
             </AnimatePresence>
         </>
     );
+}
+
+export default function ChatWidget() {
+    const pathname = usePathname();
+    if (pathname === '/agency') return null;
+    return <ChatWidgetInner />;
 }

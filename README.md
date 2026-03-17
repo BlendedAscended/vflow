@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # Verbaflow LLC Website
 
-A modern, responsive website built with Next.js, TypeScript, and Tailwind CSS, replicating the Webflow design for Verbaflow LLC - a business growth and AI automation company.
+A modern, responsive website built with Next.js, TypeScript, and Tailwind CSS, replicating the Webflow design for Verbaflow LLC — a business growth and AI automation company.
 
 ## 🚀 Live Demo
 
@@ -145,12 +144,30 @@ cd vflow1.0
 npm install
 ```
 
-3. Start the development server:
+3. Create a `.env.local` file with the following (example values are in `.env`):
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=yourProjectId
+NEXT_PUBLIC_SANITY_DATASET=yourDataset
+NEXT_PUBLIC_SANITY_API_VERSION=2025-09-17
+```
+
+4. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+
+## Environment Variables
+
+This project uses environment variables for Sanity, Stripe, and other APIs. For local development, put values in `.env.local` (it is gitignored).
+
+- `NEXT_PUBLIC_SANITY_PROJECT_ID` — Sanity project ID
+- `NEXT_PUBLIC_SANITY_DATASET` — Sanity dataset name
+- `NEXT_PUBLIC_SANITY_API_VERSION` — Sanity API version (optional, default is `2025-09-17`)
+
+> Note: The repo currently includes `.env` with example values. Do not commit any real API keys or secrets.
 
 ### Build for Production
 

@@ -1,0 +1,47 @@
+# ──────────────────────────────────────────────────────────────────
+# Cloudflare Tunnel Config
+# Place at: /home/claw/.cloudflared/config.yml  on Hetzner
+#
+# Replace <TUNNEL_ID> with the ID from:
+#   cloudflared tunnel create verbaflow-main
+# ──────────────────────────────────────────────────────────────────
+
+tunnel: <TUNNEL_ID>
+credentials-file: /home/claw/.cloudflared/<TUNNEL_ID>.json
+
+# How long to wait for connection
+connect-timeout: 30s
+
+# Auto-update cloudflared daemon
+no-autoupdate: false
+
+ingress:
+  # ── Main verbaflow site ──────────────────────────────────────────
+  - hostname: verbaflowllc.com
+    service: http://localhost:3000
+    originRequest:
+      noTLSVerify: true
+      connectTimeout: 30s
+      tcpKeepAlive: 30s
+      keepAliveTimeout: 90s
+      keepAliveConnections: 100
+
+  - hostname: www.verbaflowllc.com
+    service: http://localhost:3000
+    originRequest:
+      noTLSVerify: true
+
+  # ── Portfolio site ───────────────────────────────────────────────
+  - hostname: sandeep.verbaflowllc.com
+    service: http://localhost:3001
+    originRequest:
+      noTLSVerify: true
+      connectTimeout: 30s
+
+  # ── agency subdomain is handled via Cloudflare Redirect Rule ────
+  # agency.verbaflowllc.com → 301 → verbaflowllc.com/agency
+  # (Set up in Cloudflare Dashboard → Rules → Redirect Rules)
+  # DNS record: CNAME agency → verbaflowllc.com (DNS only, not tunneled)
+
+  # ── Catch-all (required, must be last) ──────────────────────────
+  - service: http_status:404
