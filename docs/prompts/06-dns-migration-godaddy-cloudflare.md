@@ -88,7 +88,7 @@ Once Hetzner server is running and verified at `http://localhost:3000`:
    ```bash
    curl -I https://verbaflowllc.com  # 200 from Hetzner
    # Check PM2 logs for incoming requests
-   ssh claw@<HETZNER_IP> "pm2 logs verbaflow --lines 5"
+   ssh senpai@<HETZNER_IP> "pm2 logs verbaflow --lines 5"
    ```
 
 4. Decommission Vercel project (optional — keep it for 1 week as fallback):

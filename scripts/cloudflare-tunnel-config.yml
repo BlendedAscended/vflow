@@ -1,13 +1,13 @@
 # ──────────────────────────────────────────────────────────────────
 # Cloudflare Tunnel Config
-# Place at: /home/claw/.cloudflared/config.yml  on Hetzner
+# Place at: /home/senpai/.cloudflared/config.yml  on Hetzner
 #
 # Replace <TUNNEL_ID> with the ID from:
 #   cloudflared tunnel create verbaflow-main
 # ──────────────────────────────────────────────────────────────────
 
 tunnel: <TUNNEL_ID>
-credentials-file: /home/claw/.cloudflared/<TUNNEL_ID>.json
+credentials-file: /home/senpai/.cloudflared/<TUNNEL_ID>.json
 
 # How long to wait for connection
 connect-timeout: 30s

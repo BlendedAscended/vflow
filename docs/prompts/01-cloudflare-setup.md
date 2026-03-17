@@ -6,20 +6,20 @@
 
 You are deploying a Cloudflare Tunnel for the VerbaFlow production infrastructure.
 
-**Target server**: Hetzner Cx22, Ubuntu 22.04, SSH user `claw`
+**Target server**: Hetzner Cx22, Ubuntu 22.04, SSH user `senpai`
 **Domains to route**:
 - `verbaflowllc.com` → `localhost:3000`
 - `www.verbaflowllc.com` → `localhost:3000`
 - `sandeep.verbaflowllc.com` → `localhost:3001`
 - `agency.verbaflowllc.com` → Cloudflare Redirect Rule → `https://verbaflowllc.com/agency` (301)
 
-**The tunnel config is already written** at `scripts/cloudflare-tunnel-config.yml` in the repo. Copy it to `/home/claw/.cloudflared/config.yml` after replacing `<TUNNEL_ID>`.
+**The tunnel config is already written** at `scripts/cloudflare-tunnel-config.yml` in the repo. Copy it to `/home/senpai/.cloudflared/config.yml` after replacing `<TUNNEL_ID>`.
 
 ## Execute these steps in order:
 
 ### 1. SSH into Hetzner and authenticate cloudflared
 ```bash
-ssh claw@<HETZNER_IP>
+ssh senpai@<HETZNER_IP>
 cloudflared tunnel login
 # Opens browser — authorize with Cloudflare account that owns verbaflowllc.com
 ```

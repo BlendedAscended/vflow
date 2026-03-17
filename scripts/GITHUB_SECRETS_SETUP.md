@@ -22,10 +22,10 @@ ssh-keygen -t ed25519 -C "github-deploy@verbaflowllc" -f ~/.ssh/hetzner_deploy
 
 ```bash
 # Copy public key to Hetzner
-ssh-copy-id -i ~/.ssh/hetzner_deploy.pub claw@<YOUR_HETZNER_IP>
+ssh-copy-id -i ~/.ssh/hetzner_deploy.pub senpai@<YOUR_HETZNER_IP>
 
 # Verify it works
-ssh -i ~/.ssh/hetzner_deploy claw@<YOUR_HETZNER_IP> "echo connected"
+ssh -i ~/.ssh/hetzner_deploy senpai@<YOUR_HETZNER_IP> "echo connected"
 ```
 
 ## Step 3 — Add Secrets to GitHub Repos
@@ -36,7 +36,7 @@ GitHub → `verbaflow` repo → Settings → Secrets and variables → Actions
 | Secret Name | Value |
 |-------------|-------|
 | `HETZNER_HOST` | `<YOUR_HETZNER_IP>` e.g. `65.21.45.123` |
-| `HETZNER_USER` | `claw` |
+| `HETZNER_USER` | `senpai` |
 | `HETZNER_SSH_KEY` | Full content of `~/.ssh/hetzner_deploy` including `-----BEGIN...` and `-----END...` |
 | `HETZNER_PORT` | `22` |
 
@@ -73,7 +73,7 @@ If GitHub Actions fails, deploy manually from local:
 
 ```bash
 # SSH into Hetzner
-ssh claw@<HETZNER_IP>
+ssh senpai@<HETZNER_IP>
 
 # Deploy verbaflow
 cd /var/www/verbaflow && git pull && npm ci && npm run build && pm2 reload verbaflow
@@ -85,5 +85,5 @@ cd /var/www/portfolio && git pull && npm ci && npm run build && pm2 reload portf
 Or from local machine using deploy script:
 ```bash
 # One-liner remote deploy
-ssh claw@<HETZNER_IP> "cd /var/www/verbaflow && git pull && npm ci && npm run build && pm2 reload verbaflow"
+ssh senpai@<HETZNER_IP> "cd /var/www/verbaflow && git pull && npm ci && npm run build && pm2 reload verbaflow"
 ```

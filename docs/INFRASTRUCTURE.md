@@ -32,7 +32,7 @@ Hetzner Cx22 — Germany (Ubuntu 22.04 LTS)
 - **Plan**: Cx22 (4 vCPU, 16 GB RAM, 160 GB SSD)
 - **Location**: Falkenstein, Germany (fsn1)
 - **OS**: Ubuntu 22.04 LTS
-- **SSH User**: `claw`
+- **SSH User**: `senpai`
 
 ---
 
@@ -81,7 +81,7 @@ TXT  resend._domainkey → "p=MIGfMA0G..."                       (DKIM for Resen
 ### Step 2.1 — SSH Into Your Server
 
 ```bash
-ssh claw@<YOUR_HETZNER_IP>
+ssh senpai@<YOUR_HETZNER_IP>
 ```
 
 ### Step 2.2 — Run Bootstrap Script
@@ -101,7 +101,7 @@ Or copy the script manually from `scripts/bootstrap-hetzner.sh`.
 3. Installs PM2 globally
 4. Installs `cloudflared` (Cloudflare Tunnel daemon)
 5. Creates app directories: `/var/www/verbaflow` and `/var/www/portfolio`
-6. Sets `claw` user as owner
+6. Sets `senpai` user as owner
 7. Configures UFW firewall (blocks ALL inbound except SSH on 2222)
 8. Hardens SSH config
 9. Installs `fail2ban`
@@ -136,7 +136,7 @@ Paste this (replace `<TUNNEL_ID>` with your actual ID):
 
 ```yaml
 tunnel: <TUNNEL_ID>
-credentials-file: /home/claw/.cloudflared/<TUNNEL_ID>.json
+credentials-file: /home/senpai/.cloudflared/<TUNNEL_ID>.json
 
 ingress:
   # Main verbaflow site
@@ -323,7 +323,7 @@ On every push to `main`:
 
 ```
 HETZNER_HOST       = <your Hetzner IP>
-HETZNER_USER       = claw
+HETZNER_USER       = senpai
 HETZNER_SSH_KEY    = <private key content (Ed25519 recommended)>
 HETZNER_PORT       = 22 (or 2222 if hardened)
 ```

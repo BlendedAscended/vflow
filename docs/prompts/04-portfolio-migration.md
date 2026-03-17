@@ -66,7 +66,7 @@ Go to: `https://github.com/BlendedAscended/DonPortfolio → Settings → Secrets
 | Secret | Value |
 |---|---|
 | `HETZNER_HOST` | Your Hetzner server IP |
-| `HETZNER_USER` | `claw` |
+| `HETZNER_USER` | `senpai` |
 | `HETZNER_SSH_KEY` | Full contents of `~/.ssh/hetzner_deploy` (private key) |
 | `HETZNER_PORT` | `22` |
 
@@ -77,7 +77,7 @@ Go to: `https://github.com/BlendedAscended/DonPortfolio → Settings → Secrets
 ## Step 3 — Initial server setup (run once via SSH)
 
 ```bash
-ssh claw@<HETZNER_IP>
+ssh senpai@<HETZNER_IP>
 
 # Create deploy directory
 mkdir -p /var/www/portfolio
@@ -102,7 +102,7 @@ rm -rf /var/www/portfolio-repo
 **Simpler alternative (recommended):** Clone the whole repo and deploy from the subdirectory:
 
 ```bash
-ssh claw@<HETZNER_IP>
+ssh senpai@<HETZNER_IP>
 
 git clone https://github.com/BlendedAscended/DonPortfolio.git /var/www/donportfolio-repo
 ln -sfn /var/www/donportfolio-repo/portfolio /var/www/portfolio

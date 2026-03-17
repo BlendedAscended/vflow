@@ -38,7 +38,7 @@ If missing, get values from [resend.com/domains](https://resend.com/domains).
 
 ## Step 4 — Update RESEND_API_KEY in production .env
 ```bash
-ssh claw@<HETZNER_IP>
+ssh senpai@<HETZNER_IP>
 cd /var/www/verbaflow
 # Edit .env — update to production Resend API key
 nano .env

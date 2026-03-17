@@ -6,7 +6,7 @@
 
 You are setting up a fresh Hetzner Cx22 (Ubuntu 22.04) server for VerbaFlow production.
 
-**Server**: `claw@<HETZNER_IP>`
+**Server**: `senpai@<HETZNER_IP>`
 **Apps**:
 - VerbaFlow main site → `/var/www/verbaflow` → PM2 `verbaflow` → port `3000`
 - DonPortfolio → `/var/www/portfolio` → PM2 `portfolio` → port `3001`
@@ -17,16 +17,16 @@ You are setting up a fresh Hetzner Cx22 (Ubuntu 22.04) server for VerbaFlow prod
 ```bash
 ssh root@<HETZNER_IP>
 
-# Create claw user if not exists
-useradd -m -s /bin/bash claw
-usermod -aG sudo claw
-mkdir -p /home/claw/.ssh
-cp ~/.ssh/authorized_keys /home/claw/.ssh/
-chown -R claw:claw /home/claw/.ssh
-chmod 700 /home/claw/.ssh && chmod 600 /home/claw/.ssh/authorized_keys
+# Create senpai user if not exists
+useradd -m -s /bin/bash senpai
+usermod -aG sudo senpai
+mkdir -p /home/senpai/.ssh
+cp ~/.ssh/authorized_keys /home/senpai/.ssh/
+chown -R senpai:senpai /home/senpai/.ssh
+chmod 700 /home/senpai/.ssh && chmod 600 /home/senpai/.ssh/authorized_keys
 
-# Switch to claw and run bootstrap
-su - claw
+# Switch to senpai and run bootstrap
+su - senpai
 curl -o bootstrap.sh https://raw.githubusercontent.com/<YOUR_GH_USERNAME>/verbaflow/main/scripts/bootstrap-hetzner.sh
 chmod +x bootstrap.sh
 sudo ./bootstrap.sh
@@ -34,7 +34,7 @@ sudo ./bootstrap.sh
 
 ## Step 2 — Deploy VerbaFlow
 ```bash
-ssh claw@<HETZNER_IP>
+ssh senpai@<HETZNER_IP>
 cd /var/www/verbaflow
 git clone https://github.com/<YOUR_GH_USERNAME>/verbaflow.git .
 cp .env.example .env

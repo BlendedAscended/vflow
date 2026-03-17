@@ -5,7 +5,7 @@
 # =============================================================================
 set -euo pipefail
 
-DEPLOY_USER="claw"
+DEPLOY_USER="senpai"
 VERBAFLOW_DIR="/var/www/verbaflow"
 PORTFOLIO_DIR="/var/www/portfolio"
 NODE_VERSION="22"

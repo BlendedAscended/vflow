@@ -22,8 +22,8 @@ You are setting up GitHub Actions auto-deploy for two repos to Hetzner.
 ssh-keygen -t ed25519 -C "github-deploy@verbaflowllc" -f ~/.ssh/hetzner_deploy
 # Private → goes into GitHub Secrets
 # Public  → goes onto Hetzner server
-ssh-copy-id -i ~/.ssh/hetzner_deploy.pub claw@<HETZNER_IP>
-ssh -i ~/.ssh/hetzner_deploy claw@<HETZNER_IP> "echo ✓ connected"
+ssh-copy-id -i ~/.ssh/hetzner_deploy.pub senpai@<HETZNER_IP>
+ssh -i ~/.ssh/hetzner_deploy senpai@<HETZNER_IP> "echo ✓ connected"
 ```
 
 ## Step 2 — Add secrets to BOTH GitHub repos
@@ -32,7 +32,7 @@ Go to: `repo → Settings → Secrets and variables → Actions → New reposito
 | Secret | Value |
 |--------|-------|
 | `HETZNER_HOST` | Your Hetzner IP |
-| `HETZNER_USER` | `claw` |
+| `HETZNER_USER` | `senpai` |
 | `HETZNER_SSH_KEY` | Full contents of `~/.ssh/hetzner_deploy` |
 | `HETZNER_PORT` | `22` |
 
