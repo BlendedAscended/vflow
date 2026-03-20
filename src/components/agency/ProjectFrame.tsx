@@ -6,6 +6,7 @@ import type { AgencyDomain } from '../../data/agencyDomains';
 import { HealthcareTopChartV2, HealthcareBottomChart } from './infographics/HealthcareCharts';
 import { FinanceTopChart, FinanceBottomChart, UMDChart, CDSChart } from './infographics/FinanceCharts';
 import { PlatformTopChart, PlatformBottomChart } from './infographics/PlatformCharts';
+import ThreeAgencyBackground from './ThreeAgencyBackground';
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>> = {
   Heart,
@@ -156,6 +157,18 @@ export default function ProjectFrame({ domain, isActive }: ProjectFrameProps) {
         {BottomChart && (
           <div className="mb-5">
             <BottomChart />
+          </div>
+        )}
+
+        {/* 3D Visual Analysis */}
+        {isActive && (
+          <div className="mb-6 h-48 rounded-xl overflow-hidden border border-[var(--agency-border)] bg-black/20">
+            <div className="absolute top-3 left-4 z-10">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--agency-text-muted)] opacity-60">
+                3D Performance Model
+              </p>
+            </div>
+            <ThreeAgencyBackground activeDomain={domain.id} />
           </div>
         )}
 
