@@ -3,6 +3,7 @@ import ThemeToggle from '../components/ThemeToggle';
 import { LocationProvider } from '../components/LocationContext';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
+import CommandCentre from '../components/CommandCentre/CommandCentre';
 import BusinessInfoSection from '../components/BusinessInfoSection';
 import AIToolsSection from '../components/AIToolsSection';
 import PricingSection from '../components/PricingSection';
@@ -101,6 +102,9 @@ export default async function Home() {
 
         {/* Services Section */}
         <ServicesSection services={services} />
+
+        {/* Command Centre — DNA helix metric dashboard */}
+        <CommandCentre />
 
         {/* Business Info Section */}
         <BusinessInfoSection />

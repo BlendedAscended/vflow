@@ -77,15 +77,15 @@ const HeroSection = () => {
           {/* Right Column - Video */}
           <div className="relative animate-slide-in-right group">
             {/* Video Container with Background Integration */}
-            <div className="video-portal aspect-video bg-gradient-to-br from-white/10 via-green-50/30 to-blue-50/20 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-700 backdrop-blur-sm border border-white/20">
+            <div className="video-portal aspect-video bg-[#0A0F1A] rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-700 border border-white/10">
               <video
                 ref={videoRef}
-                src="/hero-video.mp4"
+                src="/hero-video-v2.mp4"
                 autoPlay
                 loop
                 muted={isMuted}
                 playsInline
-                className="w-full h-full object-cover rounded-3xl mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500"
+                className="w-full h-full object-cover rounded-3xl opacity-90 hover:opacity-100 transition-opacity duration-500"
                 onLoadedData={() => {
                   if (videoRef.current) {
                     videoRef.current.playbackRate = 0.7;
@@ -93,22 +93,22 @@ const HeroSection = () => {
                 }}
               />
 
-              {/* Video Overlay for Better Integration */}
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-green-100/10 rounded-3xl pointer-events-none"></div>
+              {/* Subtle vignette to blend edges into section */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--section-bg-1)]/20 via-transparent to-[var(--section-bg-1)]/30 rounded-3xl pointer-events-none"></div>
 
               {/* Sound Control Button */}
               <button
                 onClick={() => setIsMuted(!isMuted)}
-                className="absolute bottom-4 right-4 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:opacity-100 opacity-70"
+                className="absolute bottom-4 right-4 bg-black/50 hover:bg-black/70 backdrop-blur-sm rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group-hover:opacity-100 opacity-70"
                 aria-label={isMuted ? 'Unmute video' : 'Mute video'}
               >
                 {isMuted ? (
-                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
                   </svg>
                 ) : (
-                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                   </svg>
                 )}

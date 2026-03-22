@@ -2,7 +2,6 @@
 
 import { useState, useRef, useMemo, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import SplineHelix from './SplineHelix';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Service {
@@ -353,7 +352,225 @@ function HelixVisualization({ services, amplitude, onProteinClick }: HelixProps)
   );
 }
 
-// ─── Pricing Quiz Modal ────────────────────────────────────────────────────────
+// ─── Shared quiz body (used inline on desktop + modal on mobile) ──────────────
+interface QuizBodyProps {
+  step: number;
+  answers: string[];
+  showResult: boolean;
+  onSelect: (opt: string) => void;
+  onAdvance: () => void;
+  onReset: () => void;
+  onClose?: () => void;
+}
+
+function QuizBody({ step, answers, showResult, onSelect, onAdvance, onReset, onClose }: QuizBodyProps) {
+  const current = QUIZ_STEPS[step];
+  const chosen = answers[step];
+  const isRush = answers[2] === 'This week';
+  const [pMin, pMax] = showResult ? calcPrice(answers[0], answers[1], answers[2]) : [0, 0];
+  const CAL_URL = 'https://cal.com/sandeep-singh/30min';
+
+  return (
+    <>
+      {/* Header */}
+      <div className="px-6 pt-6 pb-4 border-b border-[var(--border)]">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: ACCENT_HX }}>
+              Individual Service Pricing
+            </p>
+            <h3 className="text-[var(--text-secondary)] text-lg font-bold leading-snug">
+              3 Questions → Your Price &amp; Meeting
+            </h3>
+          </div>
+          <div className="flex gap-2 mt-0.5">
+            {showResult && (
+              <button onClick={onReset} className="text-[var(--text-accent)] opacity-50 hover:opacity-90 transition-opacity">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+                </svg>
+              </button>
+            )}
+            {onClose && (
+              <button onClick={onClose} className="text-[var(--text-accent)] opacity-50 hover:opacity-90 transition-opacity">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Progress bar */}
+        {!showResult && (
+          <div className="mt-4 space-y-1.5">
+            <div className="flex gap-1.5">
+              {QUIZ_STEPS.map((_, i) => (
+                <div key={i} className="flex-1 h-0.5 rounded-full transition-all duration-500"
+                  style={{ background: i <= step ? ACCENT_HX : 'var(--border)' }} />
+              ))}
+            </div>
+            <div className="flex">
+              {QUIZ_STEPS.map((s, i) => (
+                <div key={i} className="flex-1 text-[8px] font-bold uppercase tracking-wider transition-colors duration-300"
+                  style={{ color: i <= step ? ACCENT_HX : 'var(--text-accent)', opacity: i <= step ? 1 : 0.35 }}>
+                  {s.label}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Body */}
+      <div className="px-6 py-5 flex-1 overflow-y-auto">
+        <AnimatePresence mode="wait">
+          {!showResult ? (
+            <motion.div
+              key={step}
+              initial={{ opacity: 0, x: 18 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -18 }}
+              transition={{ duration: 0.18 }}
+            >
+              <p className="text-sm text-[var(--text-accent)] mb-4">{current.question}</p>
+              <div className="space-y-2">
+                {current.options.map(opt => {
+                  const active = chosen === opt;
+                  return (
+                    <button
+                      key={opt}
+                      onClick={() => onSelect(opt)}
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-2xl border-2 transition-all duration-200 text-left text-sm font-medium"
+                      style={{
+                        borderColor: active ? ACCENT_HX : 'var(--border)',
+                        background: active ? `${ACCENT_HX}18` : 'transparent',
+                        color: active ? ACCENT_HX : 'var(--text-accent)',
+                      }}
+                    >
+                      {opt}
+                      {active && (
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={ACCENT_HX} strokeWidth={2.5}>
+                          <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="result"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.28 }}
+            >
+              <div className="rounded-2xl p-5 mb-3 text-center border border-[var(--border)]"
+                style={{ background: 'var(--section-bg-2)' }}>
+                <p className="text-[9px] uppercase tracking-widest font-bold mb-2 opacity-60" style={{ color: 'var(--text-accent)' }}>
+                  Estimated Investment
+                </p>
+                <p className="text-4xl font-extrabold leading-none mb-2" style={{ color: ACCENT_HX }}>
+                  ${pMin.toLocaleString()} – ${pMax.toLocaleString()}
+                </p>
+                <p className="text-[11px] opacity-55 mb-3" style={{ color: 'var(--text-accent)' }}>
+                  {answers[0]} · {answers[1]}
+                </p>
+                {isRush && (
+                  <span className="inline-flex items-center gap-1 bg-orange-500/20 text-orange-400 text-[10px] font-bold px-3 py-1 rounded-full">
+                    🔥 Rush rate applies
+                  </span>
+                )}
+              </div>
+
+              <div className="rounded-2xl px-4 py-3 mb-3 flex items-center gap-3 border border-[var(--border)]"
+                style={{ background: 'var(--section-bg-2)' }}>
+                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: `${ACCENT_HX}22` }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={ACCENT_HX} strokeWidth={2}>
+                    <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold" style={{ color: 'var(--text-secondary)' }}>30-min Discovery Call</p>
+                  <p className="text-[11px] opacity-55" style={{ color: 'var(--text-accent)' }}>Quick overview &amp; fit check</p>
+                </div>
+              </div>
+
+              <a
+                href={CAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl font-bold text-sm transition-opacity hover:opacity-90"
+                style={{ background: ACCENT_HX, color: 'var(--accent-foreground)' }}
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                Book on cal.com
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+
+              <button onClick={onReset}
+                className="w-full mt-3 text-center text-[11px] opacity-40 hover:opacity-70 transition-opacity"
+                style={{ color: 'var(--text-accent)' }}>
+                ↺ Start over
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* Next / Calculate footer */}
+      {!showResult && (
+        <div className="px-6 pb-6">
+          <button
+            onClick={onAdvance}
+            disabled={!chosen}
+            className="w-full py-3.5 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200"
+            style={{
+              background: chosen ? ACCENT_HX : 'var(--border)',
+              color: chosen ? 'var(--accent-foreground)' : 'var(--text-accent)',
+              opacity: chosen ? 1 : 0.5,
+              cursor: chosen ? 'pointer' : 'not-allowed',
+            }}
+          >
+            {step < 2 ? 'Next' : 'Calculate My Price'}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      )}
+    </>
+  );
+}
+
+// ─── Inline quiz panel (desktop right column) ─────────────────────────────────
+interface InlinePanelProps {
+  step: number;
+  answers: string[];
+  showResult: boolean;
+  onSelect: (opt: string) => void;
+  onAdvance: () => void;
+  onReset: () => void;
+}
+
+function InlinePricingPanel(props: InlinePanelProps) {
+  return (
+    <div
+      className="flex flex-col rounded-2xl border border-[var(--border)] overflow-hidden"
+      style={{ background: 'var(--section-bg-3)', minHeight: 420 }}
+    >
+      <QuizBody {...props} />
+    </div>
+  );
+}
+
+// ─── Pricing Quiz Modal (mobile) ──────────────────────────────────────────────
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -383,9 +600,6 @@ function PricingModal({ isOpen, onClose, prefilledSlug }: ModalProps) {
     }
   }, [isOpen, prefilledSlug, reset]);
 
-  const current = QUIZ_STEPS[step];
-  const chosen = answers[step];
-
   function select(opt: string) {
     const next = [...answers];
     next[step] = opt;
@@ -397,17 +611,10 @@ function PricingModal({ isOpen, onClose, prefilledSlug }: ModalProps) {
     else setShowResult(true);
   }
 
-  const isRush = answers[2] === 'This week';
-  const [pMin, pMax] = showResult ? calcPrice(answers[0], answers[1], answers[2]) : [0, 0];
-
-  // Update this with your actual cal.com link
-  const CAL_URL = 'https://cal.com/verbaflow/discovery';
-
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
           <motion.div
             className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
@@ -415,195 +622,23 @@ function PricingModal({ isOpen, onClose, prefilledSlug }: ModalProps) {
             exit={{ opacity: 0 }}
             onClick={onClose}
           />
-
-          {/* Right-side drawer */}
           <motion.div
-            className="fixed top-0 right-0 bottom-0 z-50 flex items-center pointer-events-none"
-            style={{ width: 'min(420px, 92vw)' }}
+            className="fixed top-0 right-0 bottom-0 z-50 flex flex-col pointer-events-auto"
+            style={{ width: 'min(420px, 92vw)', background: 'var(--section-bg-3)' }}
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', stiffness: 320, damping: 30 }}
           >
-            <motion.div
-              className="pointer-events-auto w-full h-full overflow-y-auto rounded-l-3xl shadow-2xl border-l border-t border-b border-[var(--border)]"
-              style={{ background: 'var(--section-bg-3)' }}
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 320, damping: 30 }}
-            >
-              {/* Header */}
-              <div className="px-6 pt-6 pb-4 border-b border-[var(--border)]">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: ACCENT_HX }}>
-                      Individual Service Pricing
-                    </p>
-                    <h3 className="text-[var(--text-secondary)] text-lg font-bold leading-snug">
-                      3 Questions → Your Price &amp; Meeting
-                    </h3>
-                  </div>
-                  <div className="flex gap-2 mt-0.5">
-                    {showResult && (
-                      <button onClick={reset} className="text-[var(--text-accent)] opacity-50 hover:opacity-90 transition-opacity">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                          <path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
-                        </svg>
-                      </button>
-                    )}
-                    <button onClick={onClose} className="text-[var(--text-accent)] opacity-50 hover:opacity-90 transition-opacity">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                        <path d="M18 6L6 18M6 6l12 12"/>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Progress */}
-                {!showResult && (
-                  <div className="mt-4 space-y-1.5">
-                    <div className="flex gap-1.5">
-                      {QUIZ_STEPS.map((_, i) => (
-                        <div key={i} className="flex-1 h-0.5 rounded-full transition-all duration-500"
-                          style={{ background: i <= step ? ACCENT_HX : 'var(--border)' }} />
-                      ))}
-                    </div>
-                    <div className="flex">
-                      {QUIZ_STEPS.map((s, i) => (
-                        <div key={i} className="flex-1 text-[8px] font-bold uppercase tracking-wider transition-colors duration-300"
-                          style={{ color: i <= step ? ACCENT_HX : 'var(--text-accent)', opacity: i <= step ? 1 : 0.35 }}>
-                          {s.label}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Body */}
-              <div className="px-6 py-5">
-                <AnimatePresence mode="wait">
-                  {!showResult ? (
-                    <motion.div
-                      key={step}
-                      initial={{ opacity: 0, x: 18 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -18 }}
-                      transition={{ duration: 0.18 }}
-                    >
-                      <p className="text-sm text-[var(--text-accent)] mb-4">{current.question}</p>
-                      <div className="space-y-2">
-                        {current.options.map(opt => {
-                          const active = chosen === opt;
-                          return (
-                            <button
-                              key={opt}
-                              onClick={() => select(opt)}
-                              className="w-full flex items-center justify-between px-4 py-3 rounded-2xl border-2 transition-all duration-200 text-left text-sm font-medium"
-                              style={{
-                                borderColor: active ? ACCENT_HX : 'var(--border)',
-                                background: active ? `${ACCENT_HX}18` : 'transparent',
-                                color: active ? ACCENT_HX : 'var(--text-accent)',
-                              }}
-                            >
-                              {opt}
-                              {active && (
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={ACCENT_HX} strokeWidth={2.5}>
-                                  <path d="M20 6L9 17l-5-5"/>
-                                </svg>
-                              )}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="result"
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.28 }}
-                    >
-                      {/* Price display */}
-                      <div className="rounded-2xl p-5 mb-3 text-center border border-[var(--border)]"
-                        style={{ background: 'var(--section-bg-2)' }}>
-                        <p className="text-[9px] uppercase tracking-widest font-bold mb-2 opacity-60" style={{ color: 'var(--text-accent)' }}>
-                          Estimated Investment
-                        </p>
-                        <p className="text-4xl font-extrabold leading-none mb-2" style={{ color: ACCENT_HX }}>
-                          ${pMin.toLocaleString()} – ${pMax.toLocaleString()}
-                        </p>
-                        <p className="text-[11px] opacity-55 mb-3" style={{ color: 'var(--text-accent)' }}>
-                          {answers[0]} · {answers[1]}
-                        </p>
-                        {isRush && (
-                          <span className="inline-flex items-center gap-1 bg-orange-500/20 text-orange-400 text-[10px] font-bold px-3 py-1 rounded-full">
-                            🔥 Rush rate applies
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Discovery call card */}
-                      <div className="rounded-2xl px-4 py-3 mb-3 flex items-center gap-3 border border-[var(--border)]"
-                        style={{ background: 'var(--section-bg-2)' }}>
-                        <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                          style={{ background: `${ACCENT_HX}22` }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={ACCENT_HX} strokeWidth={2}>
-                            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                          </svg>
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold" style={{ color: 'var(--text-secondary)' }}>30-min Discovery Call</p>
-                          <p className="text-[11px] opacity-55" style={{ color: 'var(--text-accent)' }}>Quick overview &amp; fit check</p>
-                        </div>
-                      </div>
-
-                      {/* Book button */}
-                      <a
-                        href={CAL_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl font-bold text-sm transition-opacity hover:opacity-90"
-                        style={{ background: ACCENT_HX, color: 'var(--accent-foreground)' }}
-                      >
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                        </svg>
-                        Book on cal.com
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                          <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                      </a>
-
-                      <button onClick={reset}
-                        className="w-full mt-3 text-center text-[11px] opacity-40 hover:opacity-70 transition-opacity"
-                        style={{ color: 'var(--text-accent)' }}>
-                        ↺ Start over
-                      </button>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* Next / Calculate button */}
-              {!showResult && (
-                <div className="px-6 pb-6">
-                  <button
-                    onClick={advance}
-                    disabled={!chosen}
-                    className="w-full py-3.5 rounded-2xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200"
-                    style={{
-                      background: chosen ? ACCENT_HX : 'var(--border)',
-                      color: chosen ? 'var(--accent-foreground)' : 'var(--text-accent)',
-                      opacity: chosen ? 1 : 0.5,
-                      cursor: chosen ? 'pointer' : 'not-allowed',
-                    }}
-                  >
-                    {step < 2 ? 'Next' : 'Calculate My Price'}
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </button>
-                </div>
-              )}
-            </motion.div>
+            <QuizBody
+              step={step}
+              answers={answers}
+              showResult={showResult}
+              onSelect={select}
+              onAdvance={advance}
+              onReset={reset}
+              onClose={onClose}
+            />
           </motion.div>
         </>
       )}
@@ -615,6 +650,28 @@ function PricingModal({ isOpen, onClose, prefilledSlug }: ModalProps) {
 const ServicesSection = ({ services }: ServicesSectionProps) => {
   const [quizOpen, setQuizOpen] = useState(false);
   const [quizSlug, setQuizSlug] = useState<string | undefined>();
+
+  // Inline panel state (desktop right column)
+  const [panelStep, setPanelStep] = useState(0);
+  const [panelAnswers, setPanelAnswers] = useState<string[]>(['', '', '']);
+  const [panelResult, setPanelResult] = useState(false);
+
+  const resetPanel = useCallback(() => {
+    setPanelStep(0);
+    setPanelAnswers(['', '', '']);
+    setPanelResult(false);
+  }, []);
+
+  function panelSelect(opt: string) {
+    const next = [...panelAnswers];
+    next[panelStep] = opt;
+    setPanelAnswers(next);
+  }
+
+  function panelAdvance() {
+    if (panelStep < 2) setPanelStep(s => s + 1);
+    else setPanelResult(true);
+  }
 
   const defaultServices: Service[] = [
     {
@@ -642,8 +699,18 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
   const displayServices = services && services.length > 0 ? services : defaultServices;
 
   function openQuiz(svc: Service) {
+    // On mobile → open drawer modal
     setQuizSlug(svc.slug);
     setQuizOpen(true);
+    // On desktop → pre-fill the inline panel to step 1 with this service
+    const mapped = SLUG_TO_SVC[svc.slug ?? ''] ?? '';
+    if (mapped) {
+      setPanelAnswers([mapped, '', '']);
+      setPanelStep(1);
+      setPanelResult(false);
+    } else {
+      resetPanel();
+    }
   }
 
   return (
@@ -783,42 +850,26 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
             })}
           </div>
 
-          {/* ── Right: DNA helix + Command Centre ── */}
+          {/* ── Right: inline pricing quiz ── */}
           <div className="hidden lg:block">
             <div className="sticky top-24">
-              {/* Column header */}
               <div className="flex items-center justify-between mb-3 px-1">
                 <span className="text-[10px] font-bold uppercase tracking-widest opacity-50" style={{ color: 'var(--text-accent)' }}>
-                  Command Centre
+                  Individual Service Pricing
                 </span>
                 <span className="text-[9px] font-medium opacity-40 italic" style={{ color: 'var(--text-accent)' }}>
-                  tap a protein to price a service
+                  Scroll to explore · tap + to add
                 </span>
               </div>
 
-              {/* Helix container – fixed height so it doesn't collapse */}
-              <div className="relative w-full" style={{ height: 700 }}>
-                {/* 
-                  Replacing 2D HelixVisualization with 3D SplineHelix.
-                  To use your own Spline scene:
-                  1. Go to spline.design -> Export -> Viewer
-                  2. Copy the .splinecode URL
-                  3. Update the sceneUrl prop below.
-                */}
-                <SplineHelix 
-                  sceneUrl="https://prod.spline.design/your-unique-id/scene.splinecode" 
-                  className="scale-110 translate-x-4"
-                />
-                
-                {/* 
-                  HelixVisualization is still available if you want to switch back:
-                  <HelixVisualization
-                    services={displayServices}
-                    amplitude={80}
-                    onProteinClick={openQuiz}
-                  />
-                */}
-              </div>
+              <InlinePricingPanel
+                step={panelStep}
+                answers={panelAnswers}
+                showResult={panelResult}
+                onSelect={panelSelect}
+                onAdvance={panelAdvance}
+                onReset={resetPanel}
+              />
             </div>
           </div>
         </div>

@@ -21,40 +21,27 @@ export default function DomainToggle({ domain, isActive, onClick }: DomainToggle
   return (
     <button
       onClick={onClick}
-      className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all duration-300"
+      className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-left transition-all duration-200"
       style={
         isActive
           ? {
-              border: `1px solid ${domain.accent}`,
-              color: domain.accent,
-              backgroundColor: `${domain.accent}15`,
-              boxShadow: `0 0 16px ${domain.accent}30`,
+              borderLeft: `3px solid ${domain.accent}`,
+              color: '#111111',
+              backgroundColor: `${domain.accent}10`,
+              border: `1px solid ${domain.accent}30`,
             }
           : {
-              border: '1px solid var(--agency-border)',
-              color: 'var(--agency-text-muted)',
+              border: '1px solid transparent',
+              color: '#6B7280',
               backgroundColor: 'transparent',
             }
       }
     >
       <Icon
-        size={16}
-        style={{ color: isActive ? domain.accent : 'var(--agency-text-muted)', flexShrink: 0 }}
+        size={14}
+        style={{ color: isActive ? domain.accent : '#6B7280', flexShrink: 0 }}
       />
-      <div className="flex flex-col min-w-0">
-        <span className="text-sm font-semibold leading-tight">{domain.name}</span>
-        {isActive && (
-          <span className="text-xs leading-tight mt-0.5 truncate" style={{ color: 'var(--agency-text-muted)' }}>
-            {domain.tagline}
-          </span>
-        )}
-      </div>
-      {isActive && (
-        <div
-          className="ml-auto w-1.5 h-1.5 rounded-full flex-shrink-0"
-          style={{ backgroundColor: domain.accent, boxShadow: `0 0 6px ${domain.accent}` }}
-        />
-      )}
+      <span className="text-xs font-semibold leading-tight truncate">{domain.name}</span>
     </button>
   );
 }

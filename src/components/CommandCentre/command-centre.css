@@ -1,0 +1,229 @@
+/* ── CommandCentre Design Tokens ─────────────────────────────────────────── */
+.command-centre-root {
+  /* Page */
+  --dd-bg-page: #0A0A0B;
+  --dd-bg-surface: #111113;
+  --dd-bg-elevated: #18181B;
+
+  /* Text */
+  --dd-text-primary: #FAFAFA;
+  --dd-text-secondary: #A1A1AA;
+  --dd-text-muted: #71717A;
+
+  /* Borders */
+  --dd-border-default: rgba(255, 255, 255, 0.08);
+  --dd-border-subtle: rgba(255, 255, 255, 0.04);
+  --dd-border-strong: rgba(255, 255, 255, 0.15);
+
+  /* Metric: Revenue (teal ramp) */
+  --metric-revenue-fill: #085041;
+  --metric-revenue-border: #1D9E75;
+  --metric-revenue-label: #9FE1CB;
+  --metric-revenue-value: #E1F5EE;
+  --metric-revenue-delta: #5DCAA5;
+  --metric-revenue-action-fill: #04342C;
+  --metric-revenue-action-text: #9FE1CB;
+  --metric-revenue-action-border: #0F6E56;
+
+  /* Metric: Clients (blue ramp) */
+  --metric-clients-fill: #0C447C;
+  --metric-clients-border: #378ADD;
+  --metric-clients-label: #B5D4F4;
+  --metric-clients-value: #E6F1FB;
+  --metric-clients-delta: #85B7EB;
+  --metric-clients-action-fill: #042C53;
+  --metric-clients-action-text: #B5D4F4;
+  --metric-clients-action-border: #185FA5;
+
+  /* Metric: Conversion (green ramp) */
+  --metric-conversion-fill: #27500A;
+  --metric-conversion-border: #639922;
+  --metric-conversion-label: #C0DD97;
+  --metric-conversion-value: #EAF3DE;
+  --metric-conversion-delta: #97C459;
+  --metric-conversion-action-fill: #173404;
+  --metric-conversion-action-text: #C0DD97;
+  --metric-conversion-action-border: #3B6D11;
+
+  /* Metric: Performance (coral ramp) */
+  --metric-performance-fill: #712B13;
+  --metric-performance-border: #D85A30;
+  --metric-performance-label: #F5C4B3;
+  --metric-performance-value: #FAECE7;
+  --metric-performance-delta: #F0997B;
+  --metric-performance-action-fill: #4A1B0C;
+  --metric-performance-action-text: #F5C4B3;
+  --metric-performance-action-border: #993C1D;
+
+  /* Helix */
+  --helix-strand-purple: #534AB7;
+  --helix-strand-teal: #0F6E56;
+  --helix-rung: rgba(255, 255, 255, 0.08);
+  --helix-connector: rgba(255, 255, 255, 0.06);
+
+  /* Typography */
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-action: 6px;
+
+  /* Transitions */
+  --duration-fast: 150ms;
+  --duration-default: 200ms;
+  --duration-slow: 500ms;
+  --easing-default: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Section Shell ────────────────────────────────────────────────────────── */
+.command-centre {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  height: 800px;
+  padding: 64px 0;
+}
+
+.helix-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.metric-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* ── Metric Card ─────────────────────────────────────────────────────────── */
+.metric-card {
+  position: absolute;
+  width: 220px;
+  height: 100px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  border-width: 0.5px;
+  border-style: solid;
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-default) var(--easing-default);
+}
+
+.metric-card__label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.metric-card__value {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 4px;
+}
+
+.metric-card__delta {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* ── Action Button ───────────────────────────────────────────────────────── */
+.action-button {
+  position: absolute;
+  bottom: -38px;
+  right: 0;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-width: 0.5px;
+  border-style: solid;
+  border-radius: var(--radius-action);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--easing-default);
+}
+
+.action-button__label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+/* ── Tablet (768px) ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .command-centre {
+    height: 700px;
+  }
+
+  .metric-card {
+    width: 190px;
+    height: 90px;
+  }
+}
+
+/* ── Mobile (390px) ──────────────────────────────────────────────────────── */
+@media (max-width: 390px) {
+  .command-centre {
+    height: auto;
+    padding: 32px 16px;
+  }
+
+  .helix-svg {
+    display: none;
+  }
+
+  .metric-layer {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .metric-card {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .metric-card,
+  .action-button {
+    transition-duration: 0ms;
+  }
+}

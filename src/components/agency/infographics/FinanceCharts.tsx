@@ -4,15 +4,16 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const ACCENT      = '#2E75B6';
-const ACCENT_DIM  = 'rgba(46,117,182,0.12)';
-const BORDER      = 'rgba(255,255,255,0.08)';
-const TEXT        = '#F3F4F6';
-const MUTED       = '#64748B';
-const TEAL        = '#0D9488';   // UM / clinical teal
-const TEAL_DIM    = 'rgba(13,148,136,0.12)';
-const AMBER       = '#D97706';   // CDS alert amber
-const AMBER_DIM   = 'rgba(217,119,6,0.12)';
-const SLATE       = '#475569';
+const ACCENT_DIM  = 'rgba(46,117,182,0.08)';
+const BORDER      = '#E5E5E0';
+const TEXT        = '#111111';
+const MUTED       = '#6B7280';
+const TEAL        = '#0D9488';
+const TEAL_DIM    = 'rgba(13,148,136,0.06)';
+const AMBER       = '#D97706';
+const AMBER_DIM   = 'rgba(217,119,6,0.06)';
+const SLATE       = '#CBD5E1';
+const TRACK       = '#F0F0EC';
 
 // ─── TOP: 99.9% Reliability Arc Gauge ────────────────────────────────────────
 
@@ -37,7 +38,7 @@ function ReliabilityArc({ pct, inView }: { pct: number; inView: boolean }) {
       <path
         d={`M ${startX} ${startY} A ${r} ${r} 0 0 1 ${endX} ${endY}`}
         fill="none"
-        stroke="rgba(255,255,255,0.08)"
+        stroke="${TRACK}"
         strokeWidth="8"
         strokeLinecap="round"
       />
@@ -50,7 +51,6 @@ function ReliabilityArc({ pct, inView }: { pct: number; inView: boolean }) {
         strokeWidth="8"
         strokeLinecap="round"
         style={{
-          filter: `drop-shadow(0 0 4px ${ACCENT}80)`,
           strokeDasharray: `${circumference}`,
         }}
         initial={{ strokeDashoffset: circumference }}
@@ -71,7 +71,7 @@ function ReliabilityArc({ pct, inView }: { pct: number; inView: boolean }) {
           <line
             key={tick}
             x1={x1} y1={y1} x2={x2} y2={y2}
-            stroke="rgba(255,255,255,0.15)"
+            stroke="#D1D5DB"
             strokeWidth="1"
           />
         );
@@ -134,7 +134,7 @@ export function FinanceTopChart() {
               <div className="w-full flex items-end justify-center" style={{ height: 36 }}>
                 <motion.div
                   className="w-5 rounded-t-sm"
-                  style={{ background: ACCENT, opacity: 0.7 + i * 0.075, boxShadow: `0 0 4px ${ACCENT}40` }}
+                  style={{ background: ACCENT, opacity: 0.7 + i * 0.075 }}
                   initial={{ height: 0 }}
                   animate={inView ? { height: Math.max(fillH, 6) } : { height: 0 }}
                   transition={{ duration: 0.7, delay: 0.4 + i * 0.1, ease: 'easeOut' }}
@@ -191,7 +191,7 @@ export function FinanceBottomChart() {
                 <span className="text-xs font-medium" style={{ color: TEXT }}>{row.label}</span>
                 <span
                   className="ml-2 text-xs px-1.5 py-0.5 rounded"
-                  style={{ background: 'rgba(255,255,255,0.06)', color: MUTED }}
+                  style={{ background: '${TRACK}', color: MUTED }}
                 >
                   {row.category}
                 </span>
@@ -200,7 +200,7 @@ export function FinanceBottomChart() {
             </div>
 
             {/* Stacked bar: after (blue) + saving (lighter) = full 100% */}
-            <div className="h-2.5 w-full rounded-full overflow-hidden flex" style={{ background: 'rgba(255,255,255,0.05)' }}>
+            <div className="h-2.5 w-full rounded-full overflow-hidden flex" style={{ background: '${TRACK}' }}>
               {/* Remaining cost (after AI) */}
               <motion.div
                 style={{ background: '#334155', height: '100%' }}
@@ -213,7 +213,6 @@ export function FinanceBottomChart() {
                 style={{
                   background: `linear-gradient(90deg, ${ACCENT}80, ${ACCENT})`,
                   height: '100%',
-                  boxShadow: `0 0 6px ${ACCENT}60`,
                 }}
                 initial={{ width: '0%' }}
                 animate={inView ? { width: `${row.saving}%` } : { width: '0%' }}
@@ -328,7 +327,7 @@ export function UMDChart() {
                 key={s.label}
                 d={donutPath(CX, CY, R, s.start, s.end, W)}
                 fill={s.color}
-                style={{ filter: `drop-shadow(0 0 3px ${s.color}60)` }}
+                style={{  }}
                 initial={{ opacity: 0, scale: 0.6 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.2 + i * 0.15, duration: 0.5, ease: 'backOut' }}
@@ -359,7 +358,7 @@ export function UMDChart() {
                   <span className="text-xs font-bold font-mono" style={{ color: s.color }}>{s.pct}%</span>
                 </div>
                 <div className="h-1 w-full rounded-full mt-0.5 overflow-hidden"
-                  style={{ background: 'rgba(255,255,255,0.06)' }}>
+                  style={{ background: '${TRACK}' }}>
                   <motion.div
                     className="h-full rounded-full"
                     style={{ background: s.color }}
@@ -403,7 +402,7 @@ export function UMDChart() {
                 </div>
                 {/* Before bar */}
                 <div className="relative h-2 w-full rounded-full overflow-hidden"
-                  style={{ background: 'rgba(255,255,255,0.05)' }}>
+                  style={{ background: '${TRACK}' }}>
                   <motion.div
                     className="absolute left-0 top-0 h-full rounded-full"
                     style={{ background: SLATE }}
@@ -415,7 +414,6 @@ export function UMDChart() {
                     className="absolute left-0 top-0 h-full rounded-full"
                     style={{
                       background: `linear-gradient(90deg, ${TEAL}, ${TEAL}CC)`,
-                      boxShadow: `0 0 6px ${TEAL}50`,
                     }}
                     initial={{ width: '0%' }}
                     animate={inView ? { width: `${(row.after / maxLOS) * 100}%` } : {}}
@@ -525,12 +523,11 @@ export function CDSChart() {
                   Adherence
                 </span>
                 <div className="flex-1 h-1.5 rounded-full overflow-hidden"
-                  style={{ background: 'rgba(255,255,255,0.06)' }}>
+                  style={{ background: '${TRACK}' }}>
                   <motion.div
                     className="h-full rounded-full"
                     style={{
                       background: row.adherence >= 90 ? TEAL : AMBER,
-                      boxShadow: `0 0 4px ${row.adherence >= 90 ? TEAL : AMBER}60`,
                     }}
                     initial={{ width: '0%' }}
                     animate={inView ? { width: `${row.adherence}%` } : {}}
@@ -545,7 +542,7 @@ export function CDSChart() {
                   Savings
                 </span>
                 <div className="flex-1 h-1.5 rounded-full overflow-hidden"
-                  style={{ background: 'rgba(255,255,255,0.06)' }}>
+                  style={{ background: '${TRACK}' }}>
                   <motion.div
                     className="h-full rounded-full"
                     style={{
@@ -585,7 +582,6 @@ export function CDSChart() {
                     border: `1.5px solid ${AMBER}60`,
                     color: AMBER,
                     fontSize: size > 32 ? 9 : 7,
-                    boxShadow: `0 0 ${size / 3}px ${AMBER}30`,
                   }}
                 >
                   ${row.avoided}K
