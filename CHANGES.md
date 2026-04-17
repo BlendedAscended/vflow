@@ -1,3 +1,10 @@
+## 2026-04-17 - Hide glass card visual panel and "No credit card required" text
+
+**Changes:**
+- Wrapped right-side glass card visual (`vf-hero__visual`) in `{false && ...}` to hide it
+- Wrapped "No credit card required." span in `{false && ...}` to hide it
+- Both easily re-enabled by removing the `{false && ...}` wrapper
+
 ## 2026-04-17 - Hide Request Quote button from home page hero
 
 **Changes:**

@@ -88,11 +88,11 @@ const HeroSection = () => {
               )}
             </div>
 
-            <span className="vf-hero__micro">No credit card required.</span>
+            {false && <span className="vf-hero__micro">No credit card required.</span>}
           </div>
 
           {/* ── RIGHT: Glass product card ────────── */}
-          <div className="vf-hero__visual animate-slide-in-right">
+          {false && <div className="vf-hero__visual animate-slide-in-right">
             {/* Main glass card */}
             <div className="vf-glass-card">
               <div className="vf-glass-card__header">
@@ -127,7 +127,7 @@ const HeroSection = () => {
               <span>✓ AI brief sent to Sarah K.</span>
               <span className="vf-glass-badge__time">Just now</span>
             </div>
-          </div>
+          </div>}
         </div>
 
         {/* Sound toggle */}
