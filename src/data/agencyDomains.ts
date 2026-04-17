@@ -1,3 +1,5 @@
+import type { MockNavItem } from '../components/agency/mocks/SaaSBrowserMock';
+
 export interface AgencyMetric {
   value: string;
   label: string;
@@ -15,6 +17,11 @@ export interface AgencyDomain {
   metrics: AgencyMetric[];
   techStack: string[];
   frameId: string;
+  // SaaS mock fields
+  mockUrl: string;
+  appName: string;
+  navItems: MockNavItem[];
+  deviceMock?: 'ipad-healthcare' | 'iphone-finance';
 }
 
 export const agencyDomains: AgencyDomain[] = [
@@ -34,6 +41,17 @@ export const agencyDomains: AgencyDomain[] = [
     ],
     techStack: ['Epic Clarity', 'HL7/FHIR', 'Python', 'RAG', 'Azure Databricks'],
     frameId: 'frame-healthcare',
+    mockUrl: 'app.meridianhealth.io/rcm/claims',
+    appName: 'Meridian Health AI',
+    navItems: [
+      { iconName: 'LayoutDashboard', label: 'Dashboard',  active: true  },
+      { iconName: 'FileText',        label: 'Claims Mgmt'               },
+      { iconName: 'ShieldCheck',     label: 'Prior Auth'                },
+      { iconName: 'Activity',        label: 'Revenue Cycle'             },
+      { iconName: 'BarChart3',       label: 'CDS Analytics'             },
+      { iconName: 'Settings',        label: 'Configure →', configure: true },
+    ],
+    deviceMock: 'ipad-healthcare',
   },
   {
     id: 'finance',
@@ -51,6 +69,17 @@ export const agencyDomains: AgencyDomain[] = [
     ],
     techStack: ['PyTorch', 'LangChain', 'SOC 2', 'PCI DSS', 'Kubernetes'],
     frameId: 'frame-finance',
+    mockUrl: 'app.arcafinance.com/compliance',
+    appName: 'ArcaFinance Suite',
+    navItems: [
+      { iconName: 'LayoutDashboard', label: 'Overview',    active: true  },
+      { iconName: 'Activity',        label: 'Pipeline'                   },
+      { iconName: 'DollarSign',      label: 'Cost Analysis'              },
+      { iconName: 'ShieldCheck',     label: 'Compliance'                 },
+      { iconName: 'BarChart3',       label: 'Reporting'                  },
+      { iconName: 'Settings',        label: 'Configure →', configure: true },
+    ],
+    deviceMock: 'iphone-finance',
   },
   {
     id: 'platform',
@@ -72,5 +101,15 @@ export const agencyDomains: AgencyDomain[] = [
       'React', 'Next.js', 'Spark', 'Kubernetes',
     ],
     frameId: 'frame-platform',
+    mockUrl: 'ops.cloudstride.io/infra/dashboard',
+    appName: 'CloudStride Ops',
+    navItems: [
+      { iconName: 'Server',          label: 'Infrastructure', active: true },
+      { iconName: 'GitBranch',       label: 'CI/CD Pipelines'             },
+      { iconName: 'Cpu',             label: 'AI Model Hub'                },
+      { iconName: 'DollarSign',      label: 'Cost Management'             },
+      { iconName: 'Layers',          label: 'Platform'                    },
+      { iconName: 'Settings',        label: 'Configure →',  configure: true },
+    ],
   },
 ];

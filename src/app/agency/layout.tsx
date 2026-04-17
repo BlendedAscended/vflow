@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
+import { Playfair_Display } from 'next/font/google';
 import { VapiProvider } from '../../components/VapiContext';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-serif-display',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Verbaflow Agency — Enterprise AI & Data Solutions',
@@ -10,5 +17,9 @@ export const metadata: Metadata = {
 };
 
 export default function AgencyLayout({ children }: { children: React.ReactNode }) {
-  return <VapiProvider>{children}</VapiProvider>;
+  return (
+    <VapiProvider>
+      <div className={playfair.variable}>{children}</div>
+    </VapiProvider>
+  );
 }

@@ -78,12 +78,14 @@ const HeroSection = () => {
               <Link href="/growth-plan" className="vf-btn vf-btn--primary">
                 Get my growth plan →
               </Link>
-              <button
-                onClick={() => setIsQuoteOpen(true)}
-                className="vf-btn vf-btn--ghost"
-              >
-                Request Quote
-              </button>
+              {false && (
+                <button
+                  onClick={() => setIsQuoteOpen(true)}
+                  className="vf-btn vf-btn--ghost"
+                >
+                  Request Quote
+                </button>
+              )}
             </div>
 
             <span className="vf-hero__micro">No credit card required.</span>

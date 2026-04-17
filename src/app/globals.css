@@ -83,18 +83,51 @@ html.theme-dark {
   --accent-foreground: #000000;
 }
 
-/* Agency page — Warm Minimal (Studio White) scoped tokens */
+/* Agency page — Palantir/Civic × Studio White (fully isolated from global theme) */
 .agency-page {
-  --agency-bg: #FAFAF8;
-  --agency-bg-card: #FFFFFF;
-  --agency-text: #111111;
-  --agency-text-muted: #6B7280;
-  --agency-border: #E5E5E0;
-  --color-accent-health: #00c203;
+  /* Backgrounds */
+  --agency-bg:          #FAFAF8;
+  --agency-bg-card:     #FFFFFF;
+  --agency-bg-raised:   #F5F4F1;
+  --agency-bg-chrome:   #F0EFF0;
+
+  /* Text */
+  --agency-text:        #0F1923;
+  --agency-text-muted:  #4B5563;
+  --agency-text-faint:  #9CA3AF;
+
+  /* Borders */
+  --agency-border:      #D1D5DB;
+  --agency-border-dark: #6B7280;
+
+  /* CTA tokens */
+  --agency-cta-primary-bg:   #0F1923;
+  --agency-cta-primary-text: #FFFFFF;
+  --agency-cta-ghost-border: #0F1923;
+  --agency-cta-ghost-text:   #0F1923;
+  --agency-cta-meet-bg:      #1A73E8;
+  --agency-cta-meet-text:    #FFFFFF;
+
+  /* Domain accents (charts + badges only) */
+  --color-accent-health:  #00c203;
   --color-accent-finance: #2E75B6;
-  --color-accent-cloud: #7C3AED;
-  --color-accent-aiml: #F59E0B;
-  --color-accent-tech: #06B6D4;
+  --color-accent-cloud:   #7C3AED;
+}
+
+/* Social proof ticker animation */
+@keyframes agency-ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.agency-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: agency-ticker 22s linear infinite;
+}
+
+.agency-ticker-track:hover {
+  animation-play-state: paused;
 }
 
 * {

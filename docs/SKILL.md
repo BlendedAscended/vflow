@@ -1,11 +1,11 @@
 ---
 name: verbaflow-design-system
-description: Select and apply visual design matrices, UI component patterns, and CSS implementation strategies for VerbaFlow products. Trigger IMMEDIATELY when the user types /verbaflow-design-system, asks "Which design matrix should I use?", says "Design this like Aqwa" or "Design this like Galaxy Products", requests "Developer Dark Mode" or "Enterprise Authority" patterns, needs glassmorphism or Bento Box implementations, or wants psychological design principles applied to a product. Includes three rotating design frameworks (Enterprise Authority for compliance/enterprise, Developer Dark Mode for technical tools, Consumer Conversion for mobile/SaaS), layout patterns (Bento Box Grid, Split Screen Input/Output, Floating Ecosystem Showcase), React/CSS object-based patterns, and a 6-step design process.
+description: Select and apply visual design matrices, UI component patterns, and CSS implementation strategies for VerbaFlow products. Trigger IMMEDIATELY when the user types /verbaflow-design-system, asks "Which design matrix should I use?", says "Design this like Aqwa" or "Design this like MLLC", requests "Developer Dark Mode", "Enterprise Authority", or "Government Civic" patterns, needs glassmorphism or Bento Box implementations, or wants psychological design principles applied to a product. Includes four rotating design frameworks (Enterprise Authority for compliance/enterprise, Developer Dark Mode for technical tools, Consumer Conversion for mobile/SaaS, Government Civic for civic/government/corporate sites), layout patterns (Bento Box Grid, Split Screen Input/Output, Floating Ecosystem Showcase), React/CSS object-based patterns, and a 6-step design process. More frameworks will be added as the company grows.
 ---
 
 # VerbaFlow Design System Skill
 
-You are a Senior Product Design Strategist and Frontend Architect. This skill provides three design matrices, layout patterns, and implementation strategies for all VerbaFlow digital products.
+You are a Senior Product Design Strategist and Frontend Architect. This skill provides four design matrices, layout patterns, and implementation strategies for all VerbaFlow digital products. More frameworks will be added as the company grows.
 
 ## When This Skill Is Invoked
 
@@ -24,7 +24,7 @@ You are a Senior Product Design Strategist and Frontend Architect. This skill pr
 
 ---
 
-## The Three Design Matrices
+## The Design Matrices
 
 ### Framework A: Enterprise Authority Matrix
 
@@ -303,6 +303,7 @@ Follow this sequence when spinning up a new product or interface:
 - Is it enterprise, B2B, compliance-heavy? → **Framework A: Enterprise Authority**
 - Is it technical, developer-facing, internal tools? → **Framework B: Developer Dark Mode**
 - Is it consumer, mobile, SaaS, conversion-driven? → **Framework C: Consumer Conversion**
+- Is it a government agency, civic org, NGO, legislative site, or corporate site requiring authority + trust? → **Framework D: Government Civic**
 
 **Lock in the matrix. All downstream decisions follow from this choice.**
 
@@ -359,6 +360,7 @@ Examples:
 | **Aesthetic Usability Effect** | Developer Dark | Beautiful design → advanced capability |
 | **Fitts Law** | Consumer | Large buttons in thumb zones → reduced friction |
 | **Zeigarnik Effect** | Consumer | Progress indicators → completion drive |
+| **Institutional Trust** | Government Civic | Navy + gold + serif → civic authority signal |
 | **Miller Law** | All | 7±2 chunks max → Bento Box grouping |
 | **Visual Proof** | All | Input/Output demo → instant credibility |
 | **Progressive Disclosure** | All | Hide complexity → show only what's needed now |
@@ -374,5 +376,194 @@ Examples:
 1. Use `/frontend-blueprint` first → decide what to build and structure it
 2. Use `/verbaflow-design-system` → decide visual framework and component patterns
 3. Build with both in mind
+
+---
+
+### Framework D: Government Civic Matrix
+
+**Best For:** Government agencies, civic organizations, NGOs, legislative sites, public sector institutions, corporate sites requiring institutional authority and public trust. Reference project: MLLC (Maryland Legislative Latino Caucus).
+
+**Core Philosophy:**
+Public-facing civic and government sites must communicate institutional legitimacy before everything else. The visual language must feel permanent, trustworthy, and accessible — not trendy. Navy conveys authority, gold signals civic importance, serif headings communicate permanence, and glassmorphic cards modernize the experience without undermining credibility.
+
+**Visual DNA:**
+- **Color Palette:** Deep navy (`#002855`) as primary identity. Gold (`#FFD200`) as accent/CTA. Purple (`#6a41cf`) as secondary accent. Cool mist (`#F0F4F8`) as page background. Neutral slate scale for text and borders.
+- **Typography:** Merriweather (serif, 400/700) for all headings (h1–h6). Inter (sans, 400–700) for body, UI, and buttons. Golden ratio scale for harmonious sizing.
+- **Whitespace:** Generous section padding (`py-20`, 80px). Clean grid separations. No visual clutter.
+- **Glass effects:** `bg-white/60 backdrop-blur-md` for search results and member cards. Keeps modern feel without abandoning the civic trust signal.
+- **Decorative blobs:** `bg-gradient-to-br from-mllc-purple/20 to-mllc-yellow/20 blur-2xl` — soft, absolute-positioned depth elements, never intrusive.
+
+**Psychological Trigger:**
+**Institutional Trust + Civic Credibility** — Deep navy and gold have centuries of association with government authority. Serif fonts communicate permanence and institutional weight. Glassmorphic cards introduce just enough modernity to avoid feeling archaic while preserving the authority signal.
+
+**When to Use:**
+The product is a public-facing site for a government body, nonprofit, civic org, legislative caucus, or any corporate client where institutional trust must be communicated before conversion. Think city agencies, advocacy organizations, foundations, law firms, healthcare institutions.
+
+**Brand Color Palette (Tailwind tokens):**
+
+| Name | Token | Hex |
+|------|-------|-----|
+| Primary Navy | `mllc-blue` | `#002855` |
+| Navy Hover | `mllc-blue-light` | `#003B75` |
+| Gold Accent | `mllc-gold` | `#FFD200` |
+| Gold Secondary | `mllc-yellow` | `#d7a008` |
+| Brand Red | `mllc-red` | `#BF0D3E` |
+| Brand Purple | `mllc-purple` | `#6a41cf` |
+| Page Background | `mllc-cool-mist` | `#F0F4F8` |
+
+**Neutral Slate Scale:**
+- `slate-900` `#0f172a` — darkest text
+- `slate-800` `#1e293b` — dark headings
+- `slate-600` `#475569` — body text
+- `slate-200`/`slate-300` — borders
+- `slate-100` `#f1f5f9`, `slate-50` `#f8fafc` — subtle section backgrounds
+
+**Gradients:**
+- Hero overlay: `linear-gradient(to top, rgba(0,38,77,0.95) 0%, rgba(0,38,77,0.7) 40%, rgba(0,38,77,0.2) 70%, transparent 100%)`
+- Decorative blob: `bg-gradient-to-br from-mllc-purple/20 to-mllc-yellow/20 blur-2xl`
+- Connect section heading glow: `text-shadow: 0 0 40px rgba(255,210,0,0.3)`
+
+**Typography System:**
+
+```javascript
+// Tailwind fontFamily config
+fontFamily: {
+  serif: ['Merriweather', 'Times New Roman', 'serif'],
+  sans: ['Inter', 'sans-serif'],
+}
+
+// Golden ratio scale (custom Tailwind fontSize)
+fontSize: {
+  'grt-xs':   ['8px',  { lineHeight: '14px' }],
+  'grt-sm':   ['10px', { lineHeight: '17px' }],
+  'grt-base': ['13px', { lineHeight: '21px' }],
+  'grt-lg':   ['16px', { lineHeight: '25px' }],
+  'grt-xl':   ['21px', { lineHeight: '33px' }],
+  'grt-2xl':  ['26px', { lineHeight: '40px' }],
+}
+
+// Golden ratio spacing
+spacing: {
+  'grt-1': '4px',   // xs
+  'grt-2': '7px',   // sm
+  'grt-3': '11px',  // md
+  'grt-4': '17px',  // lg
+  'grt-5': '28px',  // xl
+}
+```
+
+**Heading scale:**
+- `h1`: `text-3xl lg:text-6xl font-serif font-bold uppercase tracking-wide drop-shadow-sm`
+- `h2`: `text-4xl lg:text-5xl font-serif font-bold tracking-tight mb-4`
+- `h3`: `text-3xl font-serif font-bold mb-4`
+- Body: `text-lg font-sans leading-relaxed`
+- Text shadows: `.text-shadow` → `0 2px 4px rgba(0,0,0,0.3)` / `.text-shadow-lg` → `0 4px 8px rgba(0,0,0,0.4)`
+
+**Navigation (Fixed Centered-Logo Style):**
+- Container: `fixed top-0 left-0 right-0 z-50`, height `80px`
+- Logo: `absolute left-1/2 transform -translate-x-1/2`, `w-[120px] h-[120px] rounded-full` (desktop) / `w-12 h-12` (mobile)
+- Curved SVG bottom edge: `M0,0 L0,24 Q720,72 1440,30 L1440,0 Z`
+- Desktop menu: `hidden lg:flex` — 3 sections: left nav links | center logo space | right nav links
+- Dropdown: `.nav-dropdown` — `opacity-0 invisible translate-y-2 transition-all duration-200` → hover: `opacity-100 visible translate-y-0`
+- CTA: `.btn-cta` — `bg-mllc-gold text-mllc-blue font-bold px-6 py-2 rounded hover:bg-yellow-400 transition-colors shadow-sm`
+- Language toggle: EN/ES switcher (Foundation mode only)
+- Mobile: hamburger → `fixed inset-0 top-[80px]` slide-out drawer with `animate-fadeIn`
+
+**Hero Section (Carousel):**
+- Height: `h-[70vh] min-h-[500px]`
+- Carousel: `useState(currentIndex)`, auto-rotate every `5000ms`, `opacity-100 ↔ opacity-0 duration-1000` transition
+- Overlay: `.hero-gradient` — navy-to-transparent bottom-up linear gradient
+- Text: `absolute bottom-6` centered, white, `text-shadow`
+
+**Card Variants:**
+
+```javascript
+// Standard card
+"bg-white rounded-2xl shadow-sm border border-slate-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+
+// Glassmorphic card (search results, member cards)
+"bg-white/60 backdrop-blur-md border border-white/40 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+
+// Dark CTA card (Connect section)
+"bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:-translate-y-2 hover:border-mllc-gold hover:shadow-xl hover:shadow-mllc-gold/10 transition-all duration-300"
+
+// Board member / person card
+"bg-white rounded-2xl shadow-sm p-8"
+// Image: "w-32 h-32 ring-4 ring-slate-50 hover:ring-mllc-yellow/30 transition-all"
+
+// Legislator card (FindRep)
+// Glassmorphic base + decorative gradient blob + headshot "w-24 h-24 rounded-full border-4 border-white"
+// Name: "font-serif font-bold text-2xl"
+// Gold accent divider: "w-12 h-1 bg-mllc-yellow rounded-full"
+```
+
+**Section Backgrounds:**
+- Standard: `bg-white`
+- Light alternate: `bg-slate-50` or `bg-mllc-cool-mist`
+- Feature: `bg-[#f8f9fa]` with decorative purple gradient overlay (top-right corner)
+- Dark CTA: `bg-slate-900`
+- Footer: `bg-mllc-blue` (deep navy)
+
+**Search Input Pattern:**
+```javascript
+// Container
+"relative max-w-lg mx-auto shadow-lg rounded-2xl group"
+
+// Input
+"block w-full pl-12 pr-4 py-4 rounded-2xl border-0 ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-inset focus:ring-mllc-purple text-lg bg-white/80 backdrop-blur-sm transition-all"
+
+// Icon
+"absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-mllc-purple transition-colors"
+```
+
+**Connect Section (Dark CTA):**
+- Background: `bg-slate-900`
+- Heading glow: `text-shadow: 0 0 40px rgba(255,210,0,0.3)`
+- Icon hover: `text-mllc-gold transition-colors`
+- Card button: `border-2 border-mllc-gold text-mllc-gold px-6 py-3 rounded-lg hover:bg-mllc-gold hover:text-slate-900 transition-all`
+
+**Footer (Navy):**
+- Background: `bg-mllc-blue py-12`
+- Logo: `w-16 h-16 rounded-full`
+- Social icons: `w-5 h-5 hover:text-mllc-gold transition-colors`
+- Links: `text-slate-300 text-sm hover:text-mllc-gold`
+- Copyright: `text-slate-400`
+
+**Grid Systems:**
+```
+Standard responsive:    grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8
+Two-column about:       md:grid-cols-2 gap-12 items-center
+Find rep results:       grid-cols-1 lg:grid-cols-2 gap-8
+CTA cards (Connect):    grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8
+```
+
+**Container Pattern:**
+`container mx-auto px-6 lg:px-8` / max-width: `max-w-6xl mx-auto` / centered: `max-w-4xl mx-auto`
+
+**Animation & Transitions:**
+- Fast (dropdowns, opacity): `duration-200`
+- Standard (card hovers, colors): `duration-300`
+- Blob drift (group hover): `duration-500 group-hover:translate-x-2 group-hover:translate-y-2`
+- Carousel (hero images): `duration-1000`
+- Card hover lifts: `hover:-translate-y-1` (standard) / `hover:-translate-y-2` (dark cards)
+- Decorative blobs: `absolute rounded-2xl blur-2xl z-0 pointer-events-none`
+
+**Responsive Breakpoints:**
+- Mobile default → `md:` 768px → `lg:` 1024px → `xl:` 1280px
+- Desktop nav triggers at `lg:` (1024px)
+- Mobile nav: hamburger → full-screen drawer
+
+**Multi-Tenant Context (Advanced):**
+- `legislative` mode (default): About, Resources, Priorities, Events, Connect
+- `foundation` mode: adds Donate CTA, board members, EN/ES language toggle
+- Mode detection via URL param `?site=foundation` or domain check
+- PHP passes `window.mllcSettings` with `siteContext`, `user`, REST `nonce`
+
+**Component Library (8 shared components):**
+`Navbar` (fixed centered-logo), `Hero` (image carousel), `AboutSection` (two-column + board members grid), `FindRepSection` (search + glassmorphic member cards), `ConnectSection` (dark navy CTA cards), `MissionResourcesSection`, `EventsSection`, `Footer` (navy multi-layer)
+
+---
+
+> **Note:** Framework E, F, and beyond will be added as VerbaFlow grows and takes on new client verticals. Each new client project that introduces a distinct design language should be captured here.
 
 They're complementary layers, not competing approaches.
