@@ -21,10 +21,11 @@ const TICKER_ITEMS = [
   'Cloud infra for 15M+ patient records',
 ];
 
-// Duplicate for seamless loop
-const TICKER_TEXT = [...TICKER_ITEMS, ...TICKER_ITEMS]
+// Duplicate for seamless loop (kept for future ticker use)
+const _TICKER_TEXT = [...TICKER_ITEMS, ...TICKER_ITEMS]
   .map((t) => `${t} ·`)
   .join('  ');
+void _TICKER_TEXT;
 
 export default function AgencyLeftPanel({ domains, activeDomain, onDomainSelect }: AgencyLeftPanelProps) {
   return (

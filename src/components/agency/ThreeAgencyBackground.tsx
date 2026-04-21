@@ -14,7 +14,7 @@ interface AgencyShapeProps {
 function AgencyShape({ color = '#A5D6A7', distort = 0.4, speed = 2 }: AgencyShapeProps) {
   const meshRef = useRef<THREE.Mesh>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.x += 0.005;
       meshRef.current.rotation.y += 0.005;

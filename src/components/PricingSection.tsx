@@ -2,10 +2,16 @@
 
 import { useState } from 'react';
 import QuoteOverlay from './QuoteOverlay';
+import AnimatedHeadline from './ui/AnimatedHeadline';
+import MagneticButton from './ui/MagneticButton';
+import { useReveal } from '../hooks/useReveal';
 
 const PricingSection = () => {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [selectedTier, setSelectedTier] = useState<string | undefined>(undefined);
+
+  const cardsRef = useReveal<HTMLDivElement>(0.15);
+
   const pricingPlans = [
     {
       name: "Coupe",
@@ -17,10 +23,10 @@ const PricingSection = () => {
         "Landing Page Design & Optimization",
         "Website Maintenance & Support Plans",
         "Google Business Profile",
-        "Portfolio Website Development"
+        "Portfolio Website Development",
       ],
       buttonText: "Start Winning",
-      isPopular: false
+      isPopular: false,
     },
     {
       name: "Muscle",
@@ -31,11 +37,11 @@ const PricingSection = () => {
         "Social Media Marketing & Campaigns",
         "Automated Lead Response & Appointment Scheduling",
         "Google Ads & SEO Optimization",
-        "Business Analytics & Custom Reporting"
+        "Business Analytics & Custom Reporting",
       ],
       buttonText: "Grow Right Now",
       isPopular: false,
-      badge: "Plus:"
+      badge: "Plus:",
     },
     {
       name: "Grand Tourer",
@@ -46,53 +52,48 @@ const PricingSection = () => {
         "AI Chatbot Development & Integration",
         "Voice Command Workflow Automation",
         "Robotics Process Automation (RPA) Consulting",
-        "Predictive Analytics & Large Language Model (LLM) Integration",
+        "Predictive Analytics & LLM Integration",
         "Blockchain & Crypto Application Development",
         "Data Architecture & Cybersecurity Compliance",
-        "Cloud Computing & Infrastructure Optimization"
+        "Cloud Computing & Infrastructure Optimization",
       ],
       buttonText: "Join the Club",
       isPopular: false,
-      badge: "Plus:"
-    }
+      badge: "Plus:",
+    },
   ];
-
-
 
   return (
     <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden">
-      {/* Next background pattern with conditional opacity */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
-        style={{
-          backgroundImage: 'url(/bg-section-next.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
-      <div className="absolute top-20 right-20 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
+        style={{ backgroundImage: 'url(/bg-section-next.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+      <div className="absolute top-20 right-20 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow" />
 
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
+        <div className="text-center mb-16">
+          <span className="vf-section-num">/ 02</span>
+          <AnimatedHeadline className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
             We work with winners.
-          </h2>
+          </AnimatedHeadline>
           <div className="text-[var(--text-accent)] text-lg sm:text-lg max-w-6xl mx-auto leading-relaxed text-center px-4 sm:px-8">
-            This membership acts as your retainer of intent: a low-barrier way to secure our expertise. The cost? It&apos;s pocket change compared to the upside. But it proves you&apos;re serious. Once you&apos;re in, we stop guessing, assess your needs, and plug you into the right network immediately. Stop standing on the sidelines. Pick a tier and let&apos;s get to work.
+            This membership acts as your retainer of intent: a low-barrier way to secure our expertise.
+            Pick a tier and let&apos;s get to work.
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4 max-w-6xl mx-auto items-start">
+        <div
+          ref={cardsRef}
+          className="vf-reveal grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4 max-w-6xl mx-auto items-start"
+        >
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 animate-fade-in-up will-change-transform ${index % 2 === 0
-                ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
-                : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
-                } ${index === 1 ? 'ring-2 ring-[var(--accent)]/70 shadow-glow scale-[1.02] hover:scale-[1.05]' : 'hover:scale-[1.02] hover:-rotate-[0.25deg]'}`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`vf-reveal-d${index + 1} group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 will-change-transform ${
+                index % 2 === 0
+                  ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
+                  : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
+              } ${index === 1 ? 'ring-2 ring-[var(--accent)]/70 shadow-glow scale-[1.02] hover:scale-[1.05]' : 'hover:scale-[1.02] hover:-rotate-[0.25deg]'}`}
             >
               <div className="mb-6">
                 <h3 className="text-3xl font-bold text-[var(--text-secondary)] mb-4">{plan.name}</h3>
@@ -105,22 +106,22 @@ const PricingSection = () => {
                   </div>
                 </div>
 
-                <button
-                  onClick={() => {
-                    setSelectedTier(plan.name);
-                    setIsQuoteOpen(true);
-                  }}
-                  className={`relative w-full font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform mb-6 text-lg overflow-hidden ${index === 1
-                    ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow hover:scale-[1.03]'
-                    : index === 0
-                      ? 'border-2 border-[var(--accent)] text-[var(--text-accent)] bg-transparent hover:bg-[var(--accent)]/10 hover:scale-[1.03]'
-                      : 'bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03]'
-                    }`}>
-                  <span className="relative z-10">{plan.buttonText}</span>
-                  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
-                    background: 'radial-gradient(120% 120% at 0% 0%, rgba(255,255,255,0.25) 0%, transparent 40%)'
-                  }} />
-                </button>
+                <MagneticButton
+                  onClick={() => { setSelectedTier(plan.name); setIsQuoteOpen(true); }}
+                  className={`relative w-full font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform mb-6 text-lg overflow-hidden ${
+                    index === 1
+                      ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow hover:scale-[1.03]'
+                      : index === 0
+                        ? 'border-2 border-[var(--accent)] text-[var(--text-accent)] bg-transparent hover:bg-[var(--accent)]/10 hover:scale-[1.03]'
+                        : 'bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03]'
+                  }`}
+                >
+                  <span className="relative z-10">
+                    {plan.buttonText} <span className="vf-arrow">→</span>
+                  </span>
+                  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: 'radial-gradient(120% 120% at 0% 0%, rgba(255,255,255,0.25) 0%, transparent 40%)' }} />
+                </MagneticButton>
               </div>
 
               <div className="space-y-3">
@@ -133,6 +134,7 @@ const PricingSection = () => {
                   </div>
                 ))}
               </div>
+
               {index > 0 && (
                 <div className="mt-4 pt-3 border-t border-[var(--border)] text-[var(--text-accent)] text-xs tracking-wide">
                   ✨ Includes everything in <strong>{pricingPlans[index - 1].name}</strong>, plus these additional capabilities.
@@ -147,9 +149,13 @@ const PricingSection = () => {
         isOpen={isQuoteOpen}
         onClose={() => setIsQuoteOpen(false)}
         initialTier={selectedTier}
-        initialPrice={pricingPlans.find(p => p.name === selectedTier)?.price ? `${pricingPlans.find(p => p.name === selectedTier)?.price}${pricingPlans.find(p => p.name === selectedTier)?.period}` : undefined}
+        initialPrice={
+          pricingPlans.find(p => p.name === selectedTier)?.price
+            ? `${pricingPlans.find(p => p.name === selectedTier)?.price}${pricingPlans.find(p => p.name === selectedTier)?.period}`
+            : undefined
+        }
       />
-    </section >
+    </section>
   );
 };
 

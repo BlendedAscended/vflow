@@ -4,21 +4,30 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useLocationValue } from './LocationContext';
 import QuoteOverlay from './QuoteOverlay';
+import Marquee from './ui/Marquee';
 
-/* ─────────────────────────────────────────────
-   Healthie-style hero:
-   • Full-viewport video background (existing /hero-video-v2.mp4)
-   • Dark tint overlay for legibility
-   • Left column: location badge → headline → sub → dual pill CTAs
-   • Right column: glassmorphism product snippet card
-   • Trust bar immediately below
-   ───────────────────────────────────────────── */
+const rotatingWords = ["best customers.", "high-intent leads.", "loyal advocates."];
+const sectors = ['Healthcare', 'Finance', 'Real Estate', 'E-Commerce', 'SaaS'];
+
+function useMagneticRef<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  const onMove = (e: React.PointerEvent) => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const r = el.getBoundingClientRect();
+    el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.3}px, ${(e.clientY - r.top - r.height / 2) * 0.3}px)`;
+  };
+  const onLeave = () => { if (ref.current) ref.current.style.transform = ""; };
+  return { ref, onPointerMove: onMove, onPointerLeave: onLeave };
+}
 
 const HeroSection = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const { location } = useLocationValue();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const heroCTA = useMagneticRef<HTMLAnchorElement>();
 
   useEffect(() => {
     if (videoRef.current) {
@@ -48,7 +57,7 @@ const HeroSection = () => {
         {/* Dark tint + subtle vignette */}
         <div className="vf-hero__overlay" />
 
-        {/* Soft radial glow behind content (brand accent) */}
+        {/* Soft radial glow behind content */}
         <div className="vf-hero__glow" />
 
         {/* Content grid */}
@@ -63,71 +72,38 @@ const HeroSection = () => {
               Serving clients in {location}
             </div>
 
+            {/* Kinetic headline */}
             <h1 className="vf-hero__headline">
-              Connect with more<br />
-              of your <span className="vf-hero__headline-accent">best customers.</span>
+              Connect with more of your<br />
+              <span className="vf-word-mask">
+                {rotatingWords.map((w, i) => (
+                  <span key={i} className={`vf-word vf-word--${i + 1}`}>{w}</span>
+                ))}
+              </span>
             </h1>
 
             <p className="vf-hero__sub">
-              We unify your entire customer journey on one intelligent platform.
-              Every stage—from marketing to operations—engineered to make you
-              the premier choice.
+              One intelligent platform for your entire customer journey—engineered
+              to make you the premier choice in your market.
             </p>
 
             <div className="vf-hero__ctas">
-              <Link href="/growth-plan" className="vf-btn vf-btn--primary">
-                Get my growth plan →
+              <Link
+                ref={heroCTA.ref}
+                onPointerMove={heroCTA.onPointerMove}
+                onPointerLeave={heroCTA.onPointerLeave}
+                href="/growth-plan"
+                className="vf-btn vf-btn--primary vf-btn-magnetic"
+              >
+                Get my growth plan <span className="vf-arrow">→</span>
               </Link>
-              {false && (
-                <button
-                  onClick={() => setIsQuoteOpen(true)}
-                  className="vf-btn vf-btn--ghost"
-                >
-                  Request Quote
-                </button>
-              )}
             </div>
 
             {false && <span className="vf-hero__micro">No credit card required.</span>}
           </div>
 
-          {/* ── RIGHT: Glass product card ────────── */}
-          {false && <div className="vf-hero__visual animate-slide-in-right">
-            {/* Main glass card */}
-            <div className="vf-glass-card">
-              <div className="vf-glass-card__header">
-                <span className="vf-glass-card__status">● Live</span>
-                <span className="vf-glass-card__tag">Growth Dashboard</span>
-              </div>
-
-              <div className="vf-glass-card__metric">
-                <span className="vf-glass-card__metric-label">Leads this month</span>
-                <span className="vf-glass-card__metric-value">+247</span>
-                <span className="vf-glass-card__metric-delta">↑ 34% vs last month</span>
-              </div>
-
-              <div className="vf-glass-card__divider" />
-
-              <div className="vf-glass-card__row">
-                <span className="vf-glass-card__row-label">Campaigns active</span>
-                <span className="vf-glass-card__row-val">8</span>
-              </div>
-              <div className="vf-glass-card__row">
-                <span className="vf-glass-card__row-label">Avg. response rate</span>
-                <span className="vf-glass-card__row-val vf-glass-card__row-val--green">68%</span>
-              </div>
-              <div className="vf-glass-card__row">
-                <span className="vf-glass-card__row-label">Tasks automated</span>
-                <span className="vf-glass-card__row-val">1,204</span>
-              </div>
-            </div>
-
-            {/* Floating mini badge */}
-            <div className="vf-glass-badge">
-              <span>✓ AI brief sent to Sarah K.</span>
-              <span className="vf-glass-badge__time">Just now</span>
-            </div>
-          </div>}
+          {/* ── RIGHT: Glass product card (hidden) ── */}
+          {false && <div className="vf-hero__visual animate-slide-in-right" />}
         </div>
 
         {/* Sound toggle */}
@@ -151,14 +127,14 @@ const HeroSection = () => {
         </button>
       </section>
 
-      {/* ── TRUST BAR ────────────────────────────────── */}
+      {/* ── TRUST BAR — Marquee ────────────────────────── */}
       <div className="vf-trust-bar">
         <p className="vf-trust-bar__label">Trusted by growth-minded businesses</p>
-        <div className="vf-trust-bar__logos">
-          {['Healthcare', 'Finance', 'Real Estate', 'E-Commerce', 'SaaS'].map((sector) => (
+        <Marquee variant="logo" speed={28}>
+          {sectors.map((sector) => (
             <span key={sector} className="vf-trust-bar__pill">{sector}</span>
           ))}
-        </div>
+        </Marquee>
       </div>
 
       <QuoteOverlay isOpen={isQuoteOpen} onClose={() => setIsQuoteOpen(false)} />
