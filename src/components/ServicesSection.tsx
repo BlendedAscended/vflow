@@ -2,6 +2,7 @@
 
 import { useState, useRef, useMemo, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { services as defaultServiceDefs, serviceCategories, type ServiceCategory } from '../data/services';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Service {
@@ -16,6 +17,8 @@ interface Service {
   featured?: boolean;
   active?: boolean;
   slug?: string;
+  category?: string;
+  shortLabel?: string;
 }
 interface ServicesSectionProps { services?: Service[] }
 
@@ -88,8 +91,15 @@ const TIME_MULT: Record<string, number> = {
 };
 const SLUG_TO_SVC: Record<string, string> = {
   'website-development': 'Website / App Dev',
+  'software-development':'Website / App Dev',
+  'mobile-apps':         'Website / App Dev',
+  'ecommerce':           'Website / App Dev',
   'digital-marketing':   'Marketing Campaigns',
   'ai-automation':       'AI & Automation',
+  'insurance-agents':    'AI & Automation',
+  'hiring-agents':       'AI & Automation',
+  'ai-architecture':     'AI & Automation',
+  'compliance':          'Cloud & IT',
   'cloud-solutions':     'Cloud & IT',
 };
 const ICON_TO_PRICE: Record<string, string> = {
@@ -269,7 +279,7 @@ function HelixVisualization({ services, amplitude, onProteinClick }: HelixProps)
   const proteins = services.slice(0, proteinCount).map((svc, i) => ({
     svc,
     cy: SVG_H * ((i + 1) / (proteinCount + 1)),
-    label: TITLE_TO_SHORT[svc.title] ?? ICON_TO_SHORT[svc.icon ?? ''] ?? svc.title.split(' ').slice(0, 2).join(' '),
+    label: svc.shortLabel ?? TITLE_TO_SHORT[svc.title] ?? ICON_TO_SHORT[svc.icon ?? ''] ?? svc.title.split(' ').slice(0, 2).join(' '),
   }));
 
   return (
@@ -673,65 +683,24 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
     else setPanelResult(true);
   }
 
-  const defaultServices: Service[] = [
-    {
-      _id: 'f1', title: 'AI Agents & Agentic Automation', icon: 'ai', slug: 'ai-automation',
-      description: 'Deploy a full agent crew — architect, CEO, designer, compliance officer — built on OpenClaw with Telegram human-in-the-loop. Your operations run 24/7 with humans on call.',
-      features: ['OpenClaw Multi-Agent Stack', 'Telegram HITL Bridge', 'Gemini + OpenCodeGo Pipeline'],
-    },
-    {
-      _id: 'f2', title: 'Custom Software & SaaS Development', icon: 'website', slug: 'software-development',
-      description: 'Replace legacy software with bespoke SaaS your team actually wants to use. From TMS and government portals to internal tooling — we build, ship and maintain.',
-      features: ['TMS & Logistics Software', 'Government & Public-Sector Portals', 'Internal Tooling & APIs'],
-    },
-    {
-      _id: 'f3', title: 'iOS & Mobile App Development', icon: 'website', slug: 'mobile-apps',
-      description: 'Native iOS and cross-platform mobile apps for customer-facing brands and field operations.',
-      features: ['Native iOS (Swift)', 'React Native / Expo', 'App Store Submission & Maintenance'],
-    },
-    {
-      _id: 'f4', title: 'Compliance Training & Compliance Automation', icon: 'cloud', slug: 'compliance',
-      description: 'HIPAA, DOT/FMCSA, AML, SOC 2 — automated training, audit trails, and a compliance officer agent that flags issues before auditors do.',
-      features: ['HIPAA / DOT / AML Training', 'Audit Trail Automation', 'Compliance Officer Agent'],
-    },
-    {
-      _id: 'f5', title: 'Insurance Claims, Appeals & Underwriting', icon: 'ai', slug: 'insurance-agents',
-      description: 'Agents that file, track, and appeal claims; underwriting copilots that 10× analyst throughput.',
-      features: ['Claims Filing Agents', 'Appeals & Denial Automation', 'Underwriting Copilots'],
-    },
-    {
-      _id: 'f6', title: 'Marketing & Lead-Gen Agents', icon: 'marketing', slug: 'digital-marketing',
-      description: 'Multi-channel campaigns plus agentic lead-gen — outreach, qualification and SEO content that compounds.',
-      features: ['Lead-Gen Agents', 'PPC & Retargeting', 'SEO Content Engine'],
-    },
-    {
-      _id: 'f7', title: 'Hiring & Recruiting Automation', icon: 'ai', slug: 'hiring-agents',
-      description: 'Sourcing, screening and scheduling agents that fill roles without 10 hours of a recruiter\'s week.',
-      features: ['Sourcing Agents', 'Screening Workflows', 'Interview Scheduling'],
-    },
-    {
-      _id: 'f8', title: 'E-commerce & Supply-Chain Platforms', icon: 'website', slug: 'ecommerce',
-      description: 'Custom storefronts, inventory automation and supply-chain visibility — Shopify, headless or fully bespoke.',
-      features: ['Shopify / Headless Storefronts', 'Inventory Automation', 'Supply-Chain Visibility'],
-    },
-    {
-      _id: 'f9', title: 'AI Architecture: Blueprints & 3D Models', icon: 'ai', slug: 'ai-architecture',
-      description: 'Generate building blueprints, floor plans and 3D massing models from a brief — augment or replace expensive design cycles.',
-      features: ['AI-Generated Blueprints', '3D Massing & Walkthroughs', 'AEC Design Augmentation'],
-    },
-    {
-      _id: 'f10', title: 'Websites & Web Apps', icon: 'website', slug: 'website-development',
-      description: 'Marketing sites, web apps and customer portals — fast, indexable and conversion-tuned.',
-      features: ['Marketing Sites', 'Customer Portals', 'Conversion Optimization'],
-    },
-    {
-      _id: 'f11', title: 'Cloud, IT & Cybersecurity', icon: 'cloud', slug: 'cloud-solutions',
-      description: 'Cloud architecture, cybersecurity audits and ongoing IT operations — the unbreachable foundation.',
-      features: ['Cloud Architecture', 'Security Audits', 'Managed Operations'],
-    },
-  ];
+  const defaultServices: Service[] = defaultServiceDefs.map(s => ({
+    _id: s._id,
+    title: s.title,
+    icon: s.icon,
+    slug: s.slug,
+    description: s.description,
+    features: s.features.slice(0, 3),
+    price: s.price,
+    category: s.category,
+    shortLabel: s.shortLabel,
+  }));
 
-  const displayServices = services && services.length > 0 ? services : defaultServices;
+  const allServices = services && services.length > 0 ? services : defaultServices;
+
+  const [activeCategory, setActiveCategory] = useState<ServiceCategory | 'All'>('All');
+  const displayServices = activeCategory === 'All'
+    ? allServices
+    : allServices.filter(s => s.category === activeCategory);
 
   function openQuiz(svc: Service) {
     // On mobile → open drawer modal
@@ -811,8 +780,30 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
               </button>
             </div>
 
+            {/* Category filter chips */}
+            <div className="flex flex-wrap gap-1.5 mb-3 px-1">
+              {(['All', ...serviceCategories] as const).map(cat => {
+                const active = activeCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className="text-[11px] font-semibold px-3 py-1.5 rounded-full border transition-all duration-200"
+                    style={{
+                      borderColor: active ? ACCENT_HX : 'var(--border)',
+                      background: active ? `${ACCENT_HX}1f` : 'transparent',
+                      color: active ? ACCENT_HX : 'var(--text-accent)',
+                      opacity: active ? 1 : 0.7,
+                    }}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+
             {displayServices.map((svc, i) => {
-              const category = ICON_TO_CATEGORY[svc.icon ?? ''] ?? 'SERVICES';
+              const category = (svc.category ?? ICON_TO_CATEGORY[svc.icon ?? ''] ?? 'SERVICES').toUpperCase();
               const displayPrice = svc.price ?? ICON_TO_PRICE[svc.icon ?? ''] ?? '';
               return (
                 <motion.div
