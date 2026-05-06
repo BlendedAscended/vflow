@@ -183,9 +183,10 @@ const Navigation = () => {
             </div>
 
             {[
+              { href: '/virtual-office', label: 'Virtual Office' },
+              { href: '/agency', label: 'Agency' },
               { href: '/about', label: 'About' },
               { href: '/blog', label: 'Blog' },
-              { href: '/agency', label: 'Agency' },
               { href: hasContactSection ? '#contact' : '/#contact', label: 'Contact' },
             ].map((link) => (
               <Link
@@ -279,9 +280,10 @@ const Navigation = () => {
               )}
             </div>
 
+            <Link href="/virtual-office" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Virtual Office</Link>
+            <Link href="/agency" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Agency</Link>
             <Link href="/about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">About</Link>
             <Link href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Blog</Link>
-            <Link href="/agency" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Agency</Link>
             <Link href={hasContactSection ? "#contact" : "/#contact"} className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Contact</Link>
 
             <button className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Support</button>
