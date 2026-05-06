@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { industries, getIndustry } from '../data/industries';
 
-// Define the structure of our wizard data
 interface WizardData {
     industry: string;
     stage: string;
@@ -15,6 +15,8 @@ interface WizardData {
     email: string;
     name: string;
     subNiches: string[];
+    currentStack: string[];
+    legacyPain: string;
 }
 
 const initialData: WizardData = {
@@ -27,37 +29,16 @@ const initialData: WizardData = {
     timeline: '',
     email: '',
     name: '',
-    subNiches: []
+    subNiches: [],
+    currentStack: [],
+    legacyPain: '',
 };
-
-const constructionSubServices = [
-    'Roofing',
-    'Plumbing',
-    'HVAC',
-    'Electrical',
-    'Landscaping',
-    'General Contracting',
-    'Remodeling',
-    'Painting',
-    'Flooring',
-    'Other'
-];
-
-const industries = [
-    { id: 'retail', label: 'Retail & E-commerce', icon: '🛍️' },
-    { id: 'service', label: 'Service Business', icon: '🔧' },
-    { id: 'healthcare', label: 'Healthcare & Wellness', icon: '⚕️' },
-    { id: 'tech', label: 'Technology & SaaS', icon: '💻' },
-    { id: 'realestate', label: 'Real Estate', icon: '🏠' },
-    { id: 'construction', label: 'Construction', icon: '🏗️' },
-    { id: 'other', label: 'Other', icon: '🌐' }
-];
 
 const stages = [
     { id: 'idea', label: 'Idea Phase', description: 'Just getting started' },
     { id: 'startup', label: 'Startup', description: 'Early traction, < $100k rev' },
     { id: 'scaling', label: 'Scaling', description: 'Growing fast, > $100k rev' },
-    { id: 'established', label: 'Established', description: 'Optimizing operations' }
+    { id: 'established', label: 'Established', description: 'Optimizing operations' },
 ];
 
 const challengesList = [
@@ -65,33 +46,58 @@ const challengesList = [
     'Sales Conversion',
     'Operational Efficiency',
     'Hiring & Team',
-    'Technology & Automation',
-    'Brand Awareness'
+    'Replacing Legacy Software',
+    'Compliance & Audits',
+    'AI / Automation Strategy',
+    'Brand Awareness',
+];
+
+const stackOptions = [
+    'Spreadsheets / Manual',
+    'Salesforce / HubSpot',
+    'Custom in-house app',
+    'Legacy on-prem system',
+    'No software yet',
+    'Shopify / WooCommerce',
+    'QuickBooks / Xero',
+    'Other',
 ];
 
 const teamSizes = [
     { id: '1', label: 'Just me (Solopreneur)' },
     { id: '2-5', label: '2-5 Employees' },
     { id: '6-20', label: '6-20 Employees' },
-    { id: '20+', label: '20+ Employees' }
+    { id: '20+', label: '20+ Employees' },
 ];
 
 const budgets = [
     { id: 'low', label: 'Under $1k' },
     { id: 'medium', label: '$1k - $5k' },
     { id: 'high', label: '$5k - $10k' },
-    { id: 'enterprise', label: '$10k+' }
+    { id: 'enterprise', label: '$10k+' },
 ];
 
 const timelines = [
     { id: 'asap', label: 'ASAP (This month)' },
     { id: 'short', label: '3-6 Months' },
-    { id: 'long', label: '12 Months+' }
+    { id: 'long', label: '12 Months+' },
 ];
+
+interface GrowthPlan {
+    executive_summary: string;
+    phases: { title: string; duration: string; actions: string[] }[];
+    recommended_services: string[];
+    estimated_investment: string;
+    wireframe_url?: string;
+    tech_stack?: { layer: string; tools: string[] }[];
+}
 
 export default function GrowthPlanWizard() {
     const [step, setStep] = useState(0);
     const [data, setData] = useState<WizardData>(initialData);
+    const [isGenerating, setIsGenerating] = useState(false);
+    const [generatedPlan, setGeneratedPlan] = useState<GrowthPlan | null>(null);
+    const [isPaid, setIsPaid] = useState(false);
 
     useEffect(() => {
         const stored = localStorage.getItem('vflow_growth_plan_partial');
@@ -101,11 +107,8 @@ export default function GrowthPlanWizard() {
                 setData(prev => ({
                     ...prev,
                     subNiches: parsed.goals || [],
-                    // Map the free text details to 'goals' since it is sent to API but unused in Wizard UI
-                    goals: parsed.details ? [parsed.details] : []
+                    goals: parsed.details ? [parsed.details] : [],
                 }));
-                // Optional: Clear it so it doesn't persist forever, or keep it? 
-                // Better to clear to avoid confusion on refresh if they want to start over.
                 localStorage.removeItem('vflow_growth_plan_partial');
             } catch (e) {
                 console.error('Failed to parse stored growth plan data', e);
@@ -113,94 +116,84 @@ export default function GrowthPlanWizard() {
         }
     }, []);
 
-    const [isGenerating, setIsGenerating] = useState(false);
-
-    interface GrowthPlan {
-        executive_summary: string;
-        phases: {
-            title: string;
-            duration: string;
-            actions: string[];
-        }[];
-        recommended_services: string[];
-        estimated_investment: string;
-    }
-
-    const [generatedPlan, setGeneratedPlan] = useState<GrowthPlan | null>(null);
-
-    const totalSteps = 6;
+    const totalSteps = 7;
+    const selectedIndustry = useMemo(() => getIndustry(data.industry), [data.industry]);
 
     const handleNext = () => {
-        console.log(`📍 handleNext called. Current step: ${step}, totalSteps: ${totalSteps}`);
-        // Step 5 is the last form step (Timeline & Contact), so we need to generate the plan
-        if (step < 5) {
-            console.log('→ Moving to next step (not final)');
+        if (step < 6) {
             setStep(step + 1);
         } else {
-            console.log('→ Final step! Calling generatePlan()');
-            setStep(step + 1); // Move to step 6 (loading/results)
+            setStep(step + 1);
             generatePlan();
         }
     };
 
     const handleBack = () => {
-        if (step > 0) {
-            setStep(step - 1);
-        }
+        if (step > 0) setStep(step - 1);
     };
 
     const updateData = (field: keyof WizardData, value: WizardData[keyof WizardData]) => {
         setData(prev => ({ ...prev, [field]: value }));
     };
 
-    const toggleChallenge = (challenge: string) => {
-        const current = data.challenges;
-        if (current.includes(challenge)) {
-            updateData('challenges', current.filter(c => c !== challenge));
+    const toggleInArray = (field: 'challenges' | 'subNiches' | 'currentStack', value: string) => {
+        const current = data[field];
+        if (current.includes(value)) {
+            updateData(field, current.filter(c => c !== value));
         } else {
-            updateData('challenges', [...current, challenge]);
-        }
-    };
-
-    const toggleSubNiche = (niche: string) => {
-        const current = data.subNiches;
-        if (current.includes(niche)) {
-            updateData('subNiches', current.filter(n => n !== niche));
-        } else {
-            updateData('subNiches', [...current, niche]);
+            updateData(field, [...current, value]);
         }
     };
 
     const generatePlan = async () => {
-        console.log('🚀 generatePlan called with data:', data);
         setIsGenerating(true);
         try {
-            console.log('→ Sending request to /api/generate-strategy...');
             const response = await fetch('/api/generate-strategy', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...data, paid: isPaid }),
             });
-
-            console.log('→ Response received. Status:', response.status, 'OK:', response.ok);
 
             if (!response.ok) {
                 const errorText = await response.text();
-                console.error('✗ API returned error:', errorText);
+                console.error('API returned error:', errorText);
                 alert(`Error: ${response.status} - ${errorText}`);
                 throw new Error('Failed to generate plan');
             }
 
             const result = await response.json();
-            console.log('✓ Plan generated successfully:', result);
             setGeneratedPlan(result.plan);
         } catch (error) {
-            console.error('✗✗✗ Error generating plan:', error);
+            console.error('Error generating plan:', error);
             alert(`Failed to generate plan: ${error instanceof Error ? error.message : 'Unknown error'}`);
         } finally {
             setIsGenerating(false);
+        }
+    };
+
+    const startCheckout = async () => {
+        try {
+            const response = await fetch('/api/checkout-growth-plan', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: data.email, name: data.name, leadData: data }),
+            });
+            if (!response.ok) {
+                alert('Checkout is not configured yet. Skipping to preview.');
+                setIsPaid(false);
+                handleNext();
+                return;
+            }
+            const { url } = await response.json();
+            if (url) {
+                window.location.href = url;
+                return;
+            }
+            setIsPaid(false);
+            handleNext();
+        } catch {
+            setIsPaid(false);
+            handleNext();
         }
     };
 
@@ -219,12 +212,9 @@ export default function GrowthPlanWizard() {
             <div className="flex-1 p-8 lg:p-12 flex flex-col">
                 <AnimatePresence mode="wait">
                     {step === 0 && (
-                        <motion.div
-                            key="step0"
-                            className="flex-1 flex flex-col"
-                        >
+                        <motion.div key="step0" className="flex-1 flex flex-col">
                             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-2">What industry are you in?</h2>
-                            <p className="text-[var(--muted-foreground)] mb-8">This helps us tailor the strategy to your market.</p>
+                            <p className="text-[var(--muted-foreground)] mb-8">This helps our agents tailor the wireframe and tech stack to your market.</p>
 
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                                 {industries.map((ind) => (
@@ -232,15 +222,16 @@ export default function GrowthPlanWizard() {
                                         key={ind.id}
                                         onClick={() => {
                                             updateData('industry', ind.id);
-                                            handleNext();
+                                            updateData('subNiches', []);
+                                            setStep(1);
                                         }}
-                                        className={`p-6 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center justify-center gap-3 hover:scale-105 ${data.industry === ind.id
+                                        className={`p-5 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center justify-center gap-2 hover:scale-105 ${data.industry === ind.id
                                             ? 'border-[var(--accent)] bg-[var(--accent)]/10'
                                             : 'border-[var(--border)] hover:border-[var(--accent)]'
                                             }`}
                                     >
-                                        <span className="text-4xl">{ind.icon}</span>
-                                        <span className="font-semibold text-[var(--text-primary)]">{ind.label}</span>
+                                        <span className="text-3xl">{ind.icon}</span>
+                                        <span className="font-semibold text-[var(--text-primary)] text-sm text-center leading-tight">{ind.label}</span>
                                     </button>
                                 ))}
                             </div>
@@ -256,30 +247,13 @@ export default function GrowthPlanWizard() {
                             className="flex-1 flex flex-col"
                         >
                             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-2">
-                                {data.industry === 'construction' ? 'What services do you offer?' : 'Specific Focus'}
+                                {selectedIndustry?.freeText ? 'Tell us what you do' : 'Which area is your focus?'}
                             </h2>
                             <p className="text-[var(--muted-foreground)] mb-8">
-                                {data.industry === 'construction'
-                                    ? 'Select all that apply (Multi-select)'
-                                    : 'Tell us more about your specific niche (e.g., Pediatric Dentistry)'}
+                                {selectedIndustry?.tagline ?? 'Select all that apply, or describe it in your own words.'}
                             </p>
 
-                            {data.industry === 'construction' ? (
-                                <div className="grid grid-cols-2 gap-4 mb-8">
-                                    {constructionSubServices.map((service) => (
-                                        <button
-                                            key={service}
-                                            onClick={() => toggleSubNiche(service)}
-                                            className={`p-4 rounded-xl border-2 transition-all duration-300 text-left ${data.subNiches.includes(service)
-                                                ? 'border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--text-primary)]'
-                                                : 'border-[var(--border)] text-[var(--muted-foreground)] hover:border-[var(--accent)]'
-                                                }`}
-                                        >
-                                            {service}
-                                        </button>
-                                    ))}
-                                </div>
-                            ) : (
+                            {selectedIndustry?.freeText || (selectedIndustry?.subNiches.length ?? 0) === 0 ? (
                                 <div className="mb-8">
                                     <input
                                         type="text"
@@ -289,11 +263,26 @@ export default function GrowthPlanWizard() {
                                         placeholder="e.g. Pediatric Dentistry, Commercial Real Estate, etc."
                                     />
                                 </div>
+                            ) : (
+                                <div className="grid grid-cols-2 gap-3 mb-8">
+                                    {selectedIndustry!.subNiches.map((niche) => (
+                                        <button
+                                            key={niche}
+                                            onClick={() => toggleInArray('subNiches', niche)}
+                                            className={`p-4 rounded-xl border-2 transition-all duration-300 text-left ${data.subNiches.includes(niche)
+                                                ? 'border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--text-primary)]'
+                                                : 'border-[var(--border)] text-[var(--muted-foreground)] hover:border-[var(--accent)]'
+                                                }`}
+                                        >
+                                            {niche}
+                                        </button>
+                                    ))}
+                                </div>
                             )}
 
                             <button
                                 onClick={handleNext}
-                                disabled={data.subNiches.length === 0}
+                                disabled={data.subNiches.length === 0 || (data.subNiches.length === 1 && !data.subNiches[0])}
                                 className="self-end bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-8 py-3 rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-glow transition-all"
                             >
                                 Continue
@@ -348,13 +337,13 @@ export default function GrowthPlanWizard() {
                             className="flex-1 flex flex-col"
                         >
                             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-2">Top Challenges</h2>
-                            <p className="text-[var(--muted-foreground)] mb-8">Select all that apply (Multi-select)</p>
+                            <p className="text-[var(--muted-foreground)] mb-8">Select all that apply (multi-select).</p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                                 {challengesList.map((challenge) => (
                                     <button
                                         key={challenge}
-                                        onClick={() => toggleChallenge(challenge)}
+                                        onClick={() => toggleInArray('challenges', challenge)}
                                         className={`p-4 rounded-xl border-2 transition-all duration-300 text-left ${data.challenges.includes(challenge)
                                             ? 'border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--text-primary)]'
                                             : 'border-[var(--border)] text-[var(--muted-foreground)] hover:border-[var(--accent)]'
@@ -377,7 +366,54 @@ export default function GrowthPlanWizard() {
 
                     {step === 4 && (
                         <motion.div
-                            key="step4-team"
+                            key="step4-stack"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            className="flex-1 flex flex-col"
+                        >
+                            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-2">Current Stack & Gaps</h2>
+                            <p className="text-[var(--muted-foreground)] mb-8">What are you running today, and where does it hurt? This drives the wireframe and tech stack we generate.</p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                                {stackOptions.map((opt) => (
+                                    <button
+                                        key={opt}
+                                        onClick={() => toggleInArray('currentStack', opt)}
+                                        className={`p-3 rounded-xl border-2 transition-all duration-300 text-left text-sm ${data.currentStack.includes(opt)
+                                            ? 'border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--text-primary)]'
+                                            : 'border-[var(--border)] text-[var(--muted-foreground)] hover:border-[var(--accent)]'
+                                            }`}
+                                    >
+                                        {opt}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <div className="mb-6">
+                                <label className="block text-[var(--text-primary)] font-semibold mb-2">Where does the legacy software hurt?</label>
+                                <textarea
+                                    value={data.legacyPain}
+                                    onChange={(e) => updateData('legacyPain', e.target.value)}
+                                    rows={3}
+                                    className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none transition-colors"
+                                    placeholder="e.g. Dispatch is on whiteboards, claims appeals take 3 weeks, no API for our TMS…"
+                                />
+                            </div>
+
+                            <button
+                                onClick={handleNext}
+                                disabled={data.currentStack.length === 0}
+                                className="self-end bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-8 py-3 rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-glow transition-all"
+                            >
+                                Continue
+                            </button>
+                        </motion.div>
+                    )}
+
+                    {step === 5 && (
+                        <motion.div
+                            key="step5-team"
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
@@ -426,7 +462,7 @@ export default function GrowthPlanWizard() {
                                 <button
                                     onClick={handleNext}
                                     disabled={!data.teamSize || !data.budget}
-                                    className="self-end bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-8 py-3 rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-glow transition-all w-full mt-4"
+                                    className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-8 py-3 rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-glow transition-all w-full mt-4"
                                 >
                                     Continue
                                 </button>
@@ -434,9 +470,9 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 5 && (
+                    {step === 6 && (
                         <motion.div
-                            key="step5-timeline"
+                            key="step6-timeline"
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
@@ -448,7 +484,7 @@ export default function GrowthPlanWizard() {
                             <div className="space-y-6 max-w-md mx-auto w-full">
                                 <div>
                                     <label className="block text-[var(--text-primary)] font-semibold mb-3">Timeline</label>
-                                    <div className="grid grid-cols-3 gap-3 mb-6">
+                                    <div className="grid grid-cols-3 gap-3 mb-2">
                                         {timelines.map((time) => (
                                             <button
                                                 key={time.id}
@@ -485,20 +521,32 @@ export default function GrowthPlanWizard() {
                                     />
                                 </div>
 
-                                <button
-                                    onClick={handleNext}
-                                    disabled={!data.name || !data.email || !data.timeline}
-                                    className="w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-8 py-4 rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-glow transition-all mt-4"
-                                >
-                                    Generate My Growth Plan
-                                </button>
+                                <div className="space-y-3 pt-2">
+                                    <button
+                                        onClick={() => { setIsPaid(true); startCheckout(); }}
+                                        disabled={!data.name || !data.email || !data.timeline}
+                                        className="w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-8 py-4 rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-glow transition-all"
+                                    >
+                                        Unlock Full Plan — $19
+                                    </button>
+                                    <button
+                                        onClick={() => { setIsPaid(false); handleNext(); }}
+                                        disabled={!data.name || !data.email || !data.timeline}
+                                        className="w-full bg-transparent border-2 border-[var(--border)] text-[var(--text-primary)] font-semibold px-8 py-3 rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:border-[var(--accent)] transition-all"
+                                    >
+                                        Get the Free Preview First
+                                    </button>
+                                    <p className="text-xs text-[var(--muted-foreground)] text-center">
+                                        $19 unlocks the wireframe (Gemini) + tech-stack diagram (OpenClaw agents). Refundable in 24h.
+                                    </p>
+                                </div>
                             </div>
                         </motion.div>
                     )}
 
-                    {step === 6 && (
+                    {step === 7 && (
                         <motion.div
-                            key="step6"
+                            key="step7"
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             className="flex-1 flex flex-col items-center justify-center text-center w-full"
@@ -506,8 +554,8 @@ export default function GrowthPlanWizard() {
                             {isGenerating ? (
                                 <div className="space-y-6 py-12">
                                     <div className="w-20 h-20 border-4 border-[var(--accent)] border-t-transparent rounded-full animate-spin mx-auto" />
-                                    <h2 className="text-2xl font-bold text-[var(--text-primary)]">Analyzing your business profile...</h2>
-                                    <p className="text-[var(--muted-foreground)]">Our AI is crafting your custom strategy.</p>
+                                    <h2 className="text-2xl font-bold text-[var(--text-primary)]">Spinning up the agent crew…</h2>
+                                    <p className="text-[var(--muted-foreground)]">Architect, CEO, designer and compliance officer are drafting your plan.</p>
                                 </div>
                             ) : generatedPlan ? (
                                 <div className="space-y-8 w-full text-left">
@@ -515,15 +563,14 @@ export default function GrowthPlanWizard() {
                                         <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-3xl">
                                             ✅
                                         </div>
-                                        <h2 className="text-3xl font-bold text-[var(--text-primary)]">Your Growth Strategy</h2>
+                                        <h2 className="text-3xl font-bold text-[var(--text-primary)]">Your Growth Plan</h2>
                                         <p className="text-[var(--muted-foreground)]">
-                                            A tailored plan for your {data.industry} business.
+                                            A tailored plan for your {selectedIndustry?.label ?? data.industry} business.
                                         </p>
                                     </div>
 
                                     <div className="bg-[var(--section-bg-1)] p-6 lg:p-8 rounded-2xl border border-[var(--border)] space-y-8">
 
-                                        {/* Executive Summary */}
                                         <div className="bg-[var(--card-background)] p-6 rounded-xl border border-[var(--border)] shadow-sm">
                                             <h3 className="text-xl font-bold text-[var(--accent)] mb-3 flex items-center gap-2">
                                                 <span>🚀</span> Executive Summary
@@ -533,16 +580,43 @@ export default function GrowthPlanWizard() {
                                             </p>
                                         </div>
 
-                                        {/* Phases */}
+                                        {isPaid && generatedPlan.wireframe_url && (
+                                            <div className="bg-[var(--card-background)] p-6 rounded-xl border border-[var(--border)]">
+                                                <h3 className="text-xl font-bold text-[var(--accent)] mb-3 flex items-center gap-2">
+                                                    <span>🖼️</span> Wireframe
+                                                </h3>
+                                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                <img src={generatedPlan.wireframe_url} alt="Generated wireframe" className="w-full rounded-lg border border-[var(--border)]" />
+                                            </div>
+                                        )}
+
+                                        {isPaid && generatedPlan.tech_stack && generatedPlan.tech_stack.length > 0 && (
+                                            <div className="bg-[var(--card-background)] p-6 rounded-xl border border-[var(--border)]">
+                                                <h3 className="text-xl font-bold text-[var(--accent)] mb-3 flex items-center gap-2">
+                                                    <span>🧩</span> Recommended Tech Stack
+                                                </h3>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                    {generatedPlan.tech_stack.map((layer, idx) => (
+                                                        <div key={idx} className="border border-[var(--border)] rounded-lg p-4">
+                                                            <p className="font-semibold text-[var(--text-primary)] mb-2">{layer.layer}</p>
+                                                            <div className="flex flex-wrap gap-1.5">
+                                                                {layer.tools.map((t, i) => (
+                                                                    <span key={i} className="text-xs bg-[var(--section-bg-2)] border border-[var(--border)] px-2 py-1 rounded-full">{t}</span>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+
                                         <div className="space-y-6">
                                             <h3 className="text-2xl font-bold text-[var(--text-primary)] border-b border-[var(--border)] pb-2">Action Plan</h3>
                                             <div className="relative space-y-8 pl-4 lg:pl-0">
-                                                {/* Vertical Line for Desktop */}
                                                 <div className="hidden lg:block absolute left-[19px] top-4 bottom-4 w-0.5 bg-[var(--border)]" />
 
                                                 {generatedPlan.phases.map((phase, idx) => (
                                                     <div key={idx} className="relative lg:pl-12">
-                                                        {/* Timeline Dot */}
                                                         <div className="hidden lg:flex absolute left-0 top-0 w-10 h-10 rounded-full bg-[var(--card-background)] border-2 border-[var(--accent)] items-center justify-center z-10">
                                                             <span className="text-[var(--accent)] font-bold">{idx + 1}</span>
                                                         </div>
@@ -568,7 +642,6 @@ export default function GrowthPlanWizard() {
                                             </div>
                                         </div>
 
-                                        {/* Services & Investment */}
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                                             <div className="bg-[var(--card-background)] p-6 rounded-xl border border-[var(--border)]">
                                                 <h3 className="text-lg font-bold text-[var(--text-primary)] mb-4 flex items-center gap-2">
@@ -595,13 +668,33 @@ export default function GrowthPlanWizard() {
 
                                     </div>
 
-                                    <div className="text-center">
-                                        <p className="text-sm text-[var(--muted-foreground)] mb-4">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        <a
+                                            href="/club"
+                                            className="text-center bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-4 rounded-full hover:shadow-glow transition-all"
+                                        >
+                                            Join the Growth Club →
+                                        </a>
+                                        <a
+                                            href="https://cal.com/sandeep-singh/30min"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-center border-2 border-[var(--border)] text-[var(--text-primary)] font-bold px-6 py-4 rounded-full hover:border-[var(--accent)] transition-all"
+                                        >
+                                            Book a Call
+                                        </a>
+                                    </div>
+
+                                    <div className="text-center space-y-2">
+                                        <p className="text-sm text-[var(--muted-foreground)]">
                                             Sent to <strong>{data.email}</strong>
+                                        </p>
+                                        <p className="text-xs text-[var(--muted-foreground)]">
+                                            Looking for à-la-carte pricing instead? <a href="/services" className="text-[var(--accent)] hover:underline">View individual services →</a>
                                         </p>
                                         <button
                                             onClick={() => window.location.reload()}
-                                            className="text-[var(--accent)] font-semibold hover:underline"
+                                            className="text-[var(--accent)] font-semibold hover:underline text-sm"
                                         >
                                             Start Over
                                         </button>
@@ -618,8 +711,7 @@ export default function GrowthPlanWizard() {
                 </AnimatePresence>
             </div>
 
-            {/* Navigation Buttons (Back) */}
-            {step > 0 && step < 6 && !isGenerating && (
+            {step > 0 && step < 7 && !isGenerating && (
                 <div className="p-6 border-t border-[var(--border)] flex justify-start">
                     <button
                         onClick={handleBack}

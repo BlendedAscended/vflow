@@ -675,24 +675,59 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
 
   const defaultServices: Service[] = [
     {
-      _id: 'f1', title: 'AI Assistants & Automation', icon: 'ai', slug: 'ai-automation',
-      description: 'Deploy an intelligent, autonomous workforce. AI Assistants and automated workflows that handle routine tasks 24/7, freeing you to lead and innovate.',
-      features: ['Chatbot & LLM Integration', 'n8n Workflow Automation', 'Data Processing Pipelines'],
+      _id: 'f1', title: 'AI Agents & Agentic Automation', icon: 'ai', slug: 'ai-automation',
+      description: 'Deploy a full agent crew — architect, CEO, designer, compliance officer — built on OpenClaw with Telegram human-in-the-loop. Your operations run 24/7 with humans on call.',
+      features: ['OpenClaw Multi-Agent Stack', 'Telegram HITL Bridge', 'Gemini + OpenCodeGo Pipeline'],
     },
     {
-      _id: 'f2', title: 'Marketing & social campaigns', icon: 'marketing', slug: 'digital-marketing',
-      description: 'Execute targeted marketing campaigns designed for maximum impact. We turn digital noise into measurable signals for business growth.',
-      features: ['Social Media Strategy', 'PPC Advertising & Retargeting', 'Content Marketing & SEO'],
+      _id: 'f2', title: 'Custom Software & SaaS Development', icon: 'website', slug: 'software-development',
+      description: 'Replace legacy software with bespoke SaaS your team actually wants to use. From TMS and government portals to internal tooling — we build, ship and maintain.',
+      features: ['TMS & Logistics Software', 'Government & Public-Sector Portals', 'Internal Tooling & APIs'],
     },
     {
-      _id: 'f3', title: 'Website & app development', icon: 'website', slug: 'website-development',
-      description: 'Develop the central hub for your customer universe. A seamless website or app experience that forms the core of your brand\'s digital anatomy.',
-      features: ['Custom Website Development', 'Landing Page Optimization', 'Maintenance & Support Plans'],
+      _id: 'f3', title: 'iOS & Mobile App Development', icon: 'website', slug: 'mobile-apps',
+      description: 'Native iOS and cross-platform mobile apps for customer-facing brands and field operations.',
+      features: ['Native iOS (Swift)', 'React Native / Expo', 'App Store Submission & Maintenance'],
     },
     {
-      _id: 'f4', title: 'Cloud, IT & Compliance', icon: 'cloud', slug: 'cloud-solutions',
-      description: 'Build the unbreachable foundation for your growth. A secure, compliant cloud architecture that ensures your digital ecosystem is stable and protected.',
-      features: ['Cloud Migration & Architecture', 'Cybersecurity Audit', 'Compliance Management'],
+      _id: 'f4', title: 'Compliance Training & Compliance Automation', icon: 'cloud', slug: 'compliance',
+      description: 'HIPAA, DOT/FMCSA, AML, SOC 2 — automated training, audit trails, and a compliance officer agent that flags issues before auditors do.',
+      features: ['HIPAA / DOT / AML Training', 'Audit Trail Automation', 'Compliance Officer Agent'],
+    },
+    {
+      _id: 'f5', title: 'Insurance Claims, Appeals & Underwriting', icon: 'ai', slug: 'insurance-agents',
+      description: 'Agents that file, track, and appeal claims; underwriting copilots that 10× analyst throughput.',
+      features: ['Claims Filing Agents', 'Appeals & Denial Automation', 'Underwriting Copilots'],
+    },
+    {
+      _id: 'f6', title: 'Marketing & Lead-Gen Agents', icon: 'marketing', slug: 'digital-marketing',
+      description: 'Multi-channel campaigns plus agentic lead-gen — outreach, qualification and SEO content that compounds.',
+      features: ['Lead-Gen Agents', 'PPC & Retargeting', 'SEO Content Engine'],
+    },
+    {
+      _id: 'f7', title: 'Hiring & Recruiting Automation', icon: 'ai', slug: 'hiring-agents',
+      description: 'Sourcing, screening and scheduling agents that fill roles without 10 hours of a recruiter\'s week.',
+      features: ['Sourcing Agents', 'Screening Workflows', 'Interview Scheduling'],
+    },
+    {
+      _id: 'f8', title: 'E-commerce & Supply-Chain Platforms', icon: 'website', slug: 'ecommerce',
+      description: 'Custom storefronts, inventory automation and supply-chain visibility — Shopify, headless or fully bespoke.',
+      features: ['Shopify / Headless Storefronts', 'Inventory Automation', 'Supply-Chain Visibility'],
+    },
+    {
+      _id: 'f9', title: 'AI Architecture: Blueprints & 3D Models', icon: 'ai', slug: 'ai-architecture',
+      description: 'Generate building blueprints, floor plans and 3D massing models from a brief — augment or replace expensive design cycles.',
+      features: ['AI-Generated Blueprints', '3D Massing & Walkthroughs', 'AEC Design Augmentation'],
+    },
+    {
+      _id: 'f10', title: 'Websites & Web Apps', icon: 'website', slug: 'website-development',
+      description: 'Marketing sites, web apps and customer portals — fast, indexable and conversion-tuned.',
+      features: ['Marketing Sites', 'Customer Portals', 'Conversion Optimization'],
+    },
+    {
+      _id: 'f11', title: 'Cloud, IT & Cybersecurity', icon: 'cloud', slug: 'cloud-solutions',
+      description: 'Cloud architecture, cybersecurity audits and ongoing IT operations — the unbreachable foundation.',
+      features: ['Cloud Architecture', 'Security Audits', 'Managed Operations'],
     },
   ];
 
@@ -739,9 +774,19 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-4 leading-tight">
             Build a Smarter, <span className="gradient-text"> Stronger Brand.</span>
           </h2>
-          <p className="text-[var(--text-accent)] opacity-70 text-lg max-w-xl mx-auto">
+          <p className="text-[var(--text-accent)] opacity-70 text-lg max-w-xl mx-auto mb-6">
             Click any node on the helix or a service card to get your custom price estimate.
           </p>
+          <div className="inline-flex flex-col sm:flex-row items-stretch gap-2 max-w-2xl mx-auto text-xs">
+            <div className="flex-1 px-4 py-2.5 rounded-xl border border-[var(--border)] bg-[var(--section-bg-3)]">
+              <span className="font-bold uppercase tracking-widest opacity-60" style={{ color: ACCENT_HX }}>À-la-carte · this page</span>
+              <span className="block opacity-70 mt-0.5" style={{ color: 'var(--text-accent)' }}>Pick one service. Per-project pricing from $195.</span>
+            </div>
+            <a href="/growth-plan" className="flex-1 px-4 py-2.5 rounded-xl border-2 border-[var(--accent)]/60 bg-[var(--accent)]/10 hover:bg-[var(--accent)]/20 transition-all">
+              <span className="font-bold uppercase tracking-widest" style={{ color: ACCENT_HX }}>Growth Plan · $19 →</span>
+              <span className="block opacity-80 mt-0.5" style={{ color: 'var(--text-accent)' }}>Funded transformation track · wireframe + tech stack.</span>
+            </a>
+          </div>
         </div>
 
         {/* Two-column layout: services left, helix right */}
