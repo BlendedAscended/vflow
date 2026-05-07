@@ -2,6 +2,7 @@
 
 import { useState, useRef, useMemo, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { services as defaultServiceDefs, serviceCategories, type ServiceCategory } from '../data/services';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Service {
@@ -16,6 +17,8 @@ interface Service {
   featured?: boolean;
   active?: boolean;
   slug?: string;
+  category?: string;
+  shortLabel?: string;
 }
 interface ServicesSectionProps { services?: Service[] }
 
@@ -88,8 +91,15 @@ const TIME_MULT: Record<string, number> = {
 };
 const SLUG_TO_SVC: Record<string, string> = {
   'website-development': 'Website / App Dev',
+  'software-development':'Website / App Dev',
+  'mobile-apps':         'Website / App Dev',
+  'ecommerce':           'Website / App Dev',
   'digital-marketing':   'Marketing Campaigns',
   'ai-automation':       'AI & Automation',
+  'insurance-agents':    'AI & Automation',
+  'hiring-agents':       'AI & Automation',
+  'ai-architecture':     'AI & Automation',
+  'compliance':          'Cloud & IT',
   'cloud-solutions':     'Cloud & IT',
 };
 const ICON_TO_PRICE: Record<string, string> = {
@@ -269,7 +279,7 @@ function HelixVisualization({ services, amplitude, onProteinClick }: HelixProps)
   const proteins = services.slice(0, proteinCount).map((svc, i) => ({
     svc,
     cy: SVG_H * ((i + 1) / (proteinCount + 1)),
-    label: TITLE_TO_SHORT[svc.title] ?? ICON_TO_SHORT[svc.icon ?? ''] ?? svc.title.split(' ').slice(0, 2).join(' '),
+    label: svc.shortLabel ?? TITLE_TO_SHORT[svc.title] ?? ICON_TO_SHORT[svc.icon ?? ''] ?? svc.title.split(' ').slice(0, 2).join(' '),
   }));
 
   return (
@@ -673,30 +683,24 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
     else setPanelResult(true);
   }
 
-  const defaultServices: Service[] = [
-    {
-      _id: 'f1', title: 'AI Assistants & Automation', icon: 'ai', slug: 'ai-automation',
-      description: 'Deploy an intelligent, autonomous workforce. AI Assistants and automated workflows that handle routine tasks 24/7, freeing you to lead and innovate.',
-      features: ['Chatbot & LLM Integration', 'n8n Workflow Automation', 'Data Processing Pipelines'],
-    },
-    {
-      _id: 'f2', title: 'Marketing & social campaigns', icon: 'marketing', slug: 'digital-marketing',
-      description: 'Execute targeted marketing campaigns designed for maximum impact. We turn digital noise into measurable signals for business growth.',
-      features: ['Social Media Strategy', 'PPC Advertising & Retargeting', 'Content Marketing & SEO'],
-    },
-    {
-      _id: 'f3', title: 'Website & app development', icon: 'website', slug: 'website-development',
-      description: 'Develop the central hub for your customer universe. A seamless website or app experience that forms the core of your brand\'s digital anatomy.',
-      features: ['Custom Website Development', 'Landing Page Optimization', 'Maintenance & Support Plans'],
-    },
-    {
-      _id: 'f4', title: 'Cloud, IT & Compliance', icon: 'cloud', slug: 'cloud-solutions',
-      description: 'Build the unbreachable foundation for your growth. A secure, compliant cloud architecture that ensures your digital ecosystem is stable and protected.',
-      features: ['Cloud Migration & Architecture', 'Cybersecurity Audit', 'Compliance Management'],
-    },
-  ];
+  const defaultServices: Service[] = defaultServiceDefs.map(s => ({
+    _id: s._id,
+    title: s.title,
+    icon: s.icon,
+    slug: s.slug,
+    description: s.description,
+    features: s.features.slice(0, 3),
+    price: s.price,
+    category: s.category,
+    shortLabel: s.shortLabel,
+  }));
 
-  const displayServices = services && services.length > 0 ? services : defaultServices;
+  const allServices = services && services.length > 0 ? services : defaultServices;
+
+  const [activeCategory, setActiveCategory] = useState<ServiceCategory | 'All'>('All');
+  const displayServices = activeCategory === 'All'
+    ? allServices
+    : allServices.filter(s => s.category === activeCategory);
 
   function openQuiz(svc: Service) {
     // On mobile → open drawer modal
@@ -739,9 +743,19 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-4 leading-tight">
             Build a Smarter, <span className="gradient-text"> Stronger Brand.</span>
           </h2>
-          <p className="text-[var(--text-accent)] opacity-70 text-lg max-w-xl mx-auto">
+          <p className="text-[var(--text-accent)] opacity-70 text-lg max-w-xl mx-auto mb-6">
             Click any node on the helix or a service card to get your custom price estimate.
           </p>
+          <div className="inline-flex flex-col sm:flex-row items-stretch gap-2 max-w-2xl mx-auto text-xs">
+            <div className="flex-1 px-4 py-2.5 rounded-xl border border-[var(--border)] bg-[var(--section-bg-3)]">
+              <span className="font-bold uppercase tracking-widest opacity-60" style={{ color: ACCENT_HX }}>À-la-carte · this page</span>
+              <span className="block opacity-70 mt-0.5" style={{ color: 'var(--text-accent)' }}>Pick one service. Per-project pricing from $195.</span>
+            </div>
+            <a href="/growth-plan" className="flex-1 px-4 py-2.5 rounded-xl border-2 border-[var(--accent)]/60 bg-[var(--accent)]/10 hover:bg-[var(--accent)]/20 transition-all">
+              <span className="font-bold uppercase tracking-widest" style={{ color: ACCENT_HX }}>Growth Plan · $19 →</span>
+              <span className="block opacity-80 mt-0.5" style={{ color: 'var(--text-accent)' }}>Funded transformation track · wireframe + tech stack.</span>
+            </a>
+          </div>
         </div>
 
         {/* Two-column layout: services left, helix right */}
@@ -766,8 +780,30 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
               </button>
             </div>
 
+            {/* Category filter chips */}
+            <div className="flex flex-wrap gap-1.5 mb-3 px-1">
+              {(['All', ...serviceCategories] as const).map(cat => {
+                const active = activeCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className="text-[11px] font-semibold px-3 py-1.5 rounded-full border transition-all duration-200"
+                    style={{
+                      borderColor: active ? ACCENT_HX : 'var(--border)',
+                      background: active ? `${ACCENT_HX}1f` : 'transparent',
+                      color: active ? ACCENT_HX : 'var(--text-accent)',
+                      opacity: active ? 1 : 0.7,
+                    }}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+
             {displayServices.map((svc, i) => {
-              const category = ICON_TO_CATEGORY[svc.icon ?? ''] ?? 'SERVICES';
+              const category = (svc.category ?? ICON_TO_CATEGORY[svc.icon ?? ''] ?? 'SERVICES').toUpperCase();
               const displayPrice = svc.price ?? ICON_TO_PRICE[svc.icon ?? ''] ?? '';
               return (
                 <motion.div

@@ -23,16 +23,43 @@ export const serviceType = defineType({
       type: 'string',
       options: {
         list: [
-          {title: 'Website Development', value: 'website'},
+          {title: 'Website / Software', value: 'website'},
           {title: 'Marketing', value: 'marketing'},
           {title: 'AI & Automation', value: 'ai'},
           {title: 'Cloud & IT', value: 'cloud'},
+          {title: 'Mobile', value: 'mobile'},
+          {title: 'Compliance', value: 'compliance'},
+          {title: 'Architecture / Design', value: 'architecture'},
           {title: 'Analytics', value: 'analytics'},
           {title: 'Support', value: 'support'},
           {title: 'Custom', value: 'custom'}
         ]
       },
       initialValue: 'website'
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      description: 'Used for filtering on the services page.',
+      options: {
+        list: [
+          {title: 'AI Agents', value: 'AI Agents'},
+          {title: 'Software', value: 'Software'},
+          {title: 'Mobile', value: 'Mobile'},
+          {title: 'Compliance', value: 'Compliance'},
+          {title: 'Marketing', value: 'Marketing'},
+          {title: 'E-commerce', value: 'E-commerce'},
+          {title: 'Cloud', value: 'Cloud'}
+        ]
+      },
+      initialValue: 'Software'
+    }),
+    defineField({
+      name: 'shortLabel',
+      title: 'Short Label',
+      type: 'string',
+      description: 'Compact label used on the helix and chips (e.g. "AI Agents").'
     }),
     defineField({
       name: 'price',

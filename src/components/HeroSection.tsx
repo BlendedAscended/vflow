@@ -64,19 +64,23 @@ const HeroSection = () => {
             </div>
 
             <h1 className="vf-hero__headline">
-              Connect with more<br />
-              of your <span className="vf-hero__headline-accent">best customers.</span>
+              An agentic agency,<br />
+              built for your <span className="vf-hero__headline-accent">2027 business.</span>
             </h1>
 
             <p className="vf-hero__sub">
-              We unify your entire customer journey on one intelligent platform.
-              Every stage—from marketing to operations—engineered to make you
-              the premier choice.
+              AI architects, a CEO agent, designers and compliance officers — orchestrated
+              on OpenClaw with humans on call via Telegram. From TMS and government portals
+              to claims, hiring and AI blueprints. Pick a service, or get a $19 plan tailored
+              to your business.
             </p>
 
             <div className="vf-hero__ctas">
               <Link href="/growth-plan" className="vf-btn vf-btn--primary">
-                Get my growth plan →
+                Build my $19 plan →
+              </Link>
+              <Link href="/virtual-office" className="vf-btn vf-btn--ghost">
+                Visit the Virtual Office
               </Link>
               {false && (
                 <button
@@ -153,9 +157,9 @@ const HeroSection = () => {
 
       {/* ── TRUST BAR ────────────────────────────────── */}
       <div className="vf-trust-bar">
-        <p className="vf-trust-bar__label">Trusted by growth-minded businesses</p>
+        <p className="vf-trust-bar__label">Verticals we already serve</p>
         <div className="vf-trust-bar__logos">
-          {['Healthcare', 'Finance', 'Real Estate', 'E-Commerce', 'SaaS'].map((sector) => (
+          {['Healthcare', 'Finance', 'Trucking', 'Insurance', 'Government', 'AEC', 'E-Commerce', 'SaaS'].map((sector) => (
             <span key={sector} className="vf-trust-bar__pill">{sector}</span>
           ))}
         </div>

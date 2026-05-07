@@ -20,6 +20,8 @@ interface Service {
   featured?: boolean;
   active?: boolean;
   slug?: string;
+  category?: string;
+  shortLabel?: string;
 }
 
 export default function ServicesPage() {
@@ -41,6 +43,8 @@ export default function ServicesPage() {
             ctaLink,
             featured,
             active,
+            category,
+            shortLabel,
             "slug": slug.current
           }
         `;
@@ -71,11 +75,17 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-[var(--section-bg-1)]">
         <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
-          <h1 className="text-5xl lg:text-8xl font-extrabold text-[var(--text-primary)] mb-8 animate-fade-in-up">
-            Our <span className="gradient-text">Services</span>
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-bold uppercase tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
+            À-la-carte Services · From $195
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-extrabold text-[var(--text-primary)] mb-6 animate-fade-in-up leading-tight">
+            Pick a <span className="gradient-text">Service.</span>
           </h1>
-          <p className="text-xl lg:text-2xl text-[var(--muted-foreground)] mb-12 max-w-4xl mx-auto animate-fade-in-up">
-            Comprehensive digital solutions designed to help your business grow, automate, and succeed in the modern era.
+          <p className="text-lg lg:text-xl text-[var(--muted-foreground)] mb-6 max-w-3xl mx-auto animate-fade-in-up">
+            Single-project work — agents, software, mobile, compliance, marketing, cloud.
+            For a bundled transformation roadmap, try the{' '}
+            <a href="/growth-plan" className="text-[var(--accent)] underline-offset-4 hover:underline">$19 Growth Plan</a>.
           </p>
         </div>
       </section>

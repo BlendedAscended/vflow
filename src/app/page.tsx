@@ -43,14 +43,17 @@ async function getServices() {
       *[_type == "service" && active == true] | order(order asc, _createdAt desc) {
         _id,
         title,
-        description,
+        "description": coalesce(shortDescription, description),
         icon,
         price,
         features,
         ctaText,
         ctaLink,
         featured,
-        active
+        active,
+        category,
+        shortLabel,
+        "slug": slug.current
       }
     `);
     return services;
