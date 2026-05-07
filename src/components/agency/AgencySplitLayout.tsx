@@ -28,7 +28,7 @@ export default function AgencySplitLayout() {
       <div
         className="hidden lg:flex agency-page"
         style={{
-          height: 'calc(100vh - 64px)',
+          height: 'calc(100svh - 64px)',
           background: 'var(--agency-bg)',
           overflow: 'hidden',
         }}
@@ -64,7 +64,7 @@ export default function AgencySplitLayout() {
       {/* Mobile: stacked layout */}
       <div
         className="flex flex-col lg:hidden agency-page"
-        style={{ background: 'var(--agency-bg)', minHeight: 'calc(100vh - 64px)' }}
+        style={{ background: 'var(--agency-bg)', minHeight: 'calc(100svh - 64px)' }}
       >
         <div className="border-b" style={{ borderColor: 'var(--agency-border)' }}>
           <AgencyLeftPanel
