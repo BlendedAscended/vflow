@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { industries, getIndustry } from '../data/industries';
 
 interface WizardData {
@@ -690,7 +691,7 @@ export default function GrowthPlanWizard() {
                                             Sent to <strong>{data.email}</strong>
                                         </p>
                                         <p className="text-xs text-[var(--muted-foreground)]">
-                                            Looking for à-la-carte pricing instead? <a href="/services" className="text-[var(--accent)] hover:underline">View individual services →</a>
+                                            Looking for à-la-carte pricing instead? <Link href="/services" className="text-[var(--accent)] hover:underline">View individual services →</Link>
                                         </p>
                                         <button
                                             onClick={() => window.location.reload()}
