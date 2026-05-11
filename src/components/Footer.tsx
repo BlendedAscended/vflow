@@ -70,7 +70,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full bg-[var(--surface-100)] text-[var(--green-500)] py-20 lg:py-24 relative overflow-hidden">
+    <footer className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-20 lg:py-24 relative overflow-hidden">
       {/* Next background pattern with conditional opacity */}
       <div
         className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
@@ -81,13 +81,13 @@ const Footer = () => {
           backgroundRepeat: 'no-repeat'
         }}
       />
-      <div className="absolute top-6 right-12 w-64 h-64 bg-[var(--green-500)]/15 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-6 left-12 w-80 h-80 bg-[var(--green-500)]/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-6 right-12 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-6 left-12 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl"></div>
 
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-16">
           {/* Logo and Company Name */}
-          <div className="flex items-center space-x-4 animate-fade-in tile-in bento-tile depth-sm !p-6">
+          <div className="flex items-center space-x-4 animate-fade-in">
             <div className="w-16 h-12 relative">
               <Image
                 src="/logo.png"
@@ -98,13 +98,13 @@ const Footer = () => {
               />
             </div>
             <div>
-              <h3 className="text-[var(--green-500)] font-bold text-2xl tracking-tight">VERBAFLOW</h3>
-              <p className="text-[var(--text-90)] text-lg font-medium">LLC</p>
+              <h3 className="text-[var(--text-secondary)] font-bold text-2xl tracking-tight">VERBAFLOW</h3>
+              <p className="text-[var(--text-accent)] text-lg font-medium">LLC</p>
             </div>
           </div>
 
           {/* Navigation Links */}
-          <div className="flex flex-wrap gap-10 lg:gap-16 tile-in bento-tile depth-sm !p-6">
+          <div className="flex flex-wrap gap-10 lg:gap-16">
             {navigationLinks.map((link, index) => (
               <a
                 key={index}
@@ -114,9 +114,9 @@ const Footer = () => {
                     link.onClick();
                   }
                 }}
-                className={`micro-lift ${link.isButton
+                className={`${link.isButton
                   ? `bg-[var(--accent)] text-[var(--accent-foreground)] px-6 py-2.5 rounded-full hover:shadow-glow hover:scale-105 transition-all duration-300 text-sm font-bold ${isSessionActive ? 'animate-pulse bg-red-500' : ''}`
-                  : "text-[var(--text-90)] hover:opacity-90 transition-colors text-sm font-medium micro-lift"
+                  : "text-[var(--text-accent)] hover:opacity-90 transition-colors text-sm font-medium"
                   }`}
               >
                 {link.isButton && isSessionActive ? 'End Call' : link.name}
@@ -125,17 +125,17 @@ const Footer = () => {
           </div>
 
           {/* Social Media Icons */}
-          <div className="flex space-x-8 tile-in bento-tile depth-sm !p-6">
+          <div className="flex space-x-8">
             {socialLinks.map((social, index) => (
               <a
                 key={index}
                 href={social.href}
-                className={`micro-lift hover:opacity-90 transition-colors ${social.name === 'LinkedIn' ? 'text-[#0A66C2]' :
+                className={`hover:opacity-90 transition-colors ${social.name === 'LinkedIn' ? 'text-[#0A66C2]' :
                   social.name === 'Twitter' ? 'text-[#1DA1F2]' :
                     social.name === 'Facebook' ? 'text-[#1877F2]' :
                       social.name === 'Instagram' ? 'text-[#E4405F]' :
                         social.name === 'YouTube' ? 'text-[#FF0000]' :
-                          'text-[var(--text-90)]'
+                          'text-[var(--text-accent)]'
                   }`}
                 aria-label={social.name}
               >
@@ -146,8 +146,8 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="mt-16 pt-10 border-t border-[var(--border-80)] text-center tile-in bento-tile depth-sm !p-6">
-          <p className="text-[var(--text-90)] text-lg">
+        <div className="mt-16 pt-10 border-t border-[var(--border)] text-center">
+          <p className="text-[var(--text-accent)] text-lg">
             © 2024 Verbaflow LLC. All rights reserved.
           </p>
         </div>

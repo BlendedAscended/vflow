@@ -108,7 +108,7 @@ const Navigation = () => {
           ? scrolled
             ? 'bg-[rgba(250,250,248,0.9)] backdrop-blur-md'
             : 'bg-transparent'
-          : 'bg-[var(--surface-70)] backdrop-blur-xl'
+          : 'backdrop-blur-md bg-[var(--section-bg-1)]'
       }`}
       style={isAgency ? { color: '#111111' } : { color: 'var(--text-primary)' }}
     >
@@ -117,7 +117,7 @@ const Navigation = () => {
         <div className={`flex items-center justify-between px-8 py-4 mx-auto max-w-4xl ${
           isAgency
             ? 'bg-transparent border-transparent'
-            : 'bento-tile depth-sm bg-[var(--surface-80)] border border-[var(--border-80)] rounded-full shadow-elegant'
+            : 'bg-[var(--card-background)] border border-[var(--border)] rounded-full shadow-elegant'
         }`}>
           {/* Logo */}
           <Link href="/" className="flex items-center animate-slide-in-left pl-1">
@@ -144,7 +144,7 @@ const Navigation = () => {
               <button className={`flex items-center space-x-1 font-medium transition-all duration-300 px-3 py-1.5 rounded-full ${
                 isAgency
                   ? 'text-[#111111] hover:text-[#6B7280] hover:bg-[#E5E5E0]'
-                  : 'text-[var(--text-100)] hover:text-[var(--ink-100)] hover:bg-[var(--green-100)]'
+                  : 'text-[var(--text-primary)] hover:text-[var(--accent-foreground)] hover:bg-[var(--accent)]'
               }`}>
                 <span>Services</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,7 +154,7 @@ const Navigation = () => {
 
               {/* Dropdown Menu */}
               {isServicesOpen && (
-                <div className={`absolute left-0 top-full bento-tile depth-md bg-[var(--surface-80)] rounded-3xl shadow-xl border border-[var(--border-80)] py-4 z-50 ${services.length <= 6 ? 'w-96' :
+                <div className={`absolute left-0 top-full bg-[var(--card-background)] rounded-3xl shadow-xl border border-[var(--border)] py-4 z-50 ${services.length <= 6 ? 'w-96' :
                   services.length <= 12 ? 'w-[32rem]' :
                     'w-[56rem]'
                   }`}>
@@ -167,7 +167,7 @@ const Navigation = () => {
                         <a
                           key={service.slug}
                           href={`/services/${service.slug}`}
-                          className="block px-4 py-3 text-[var(--card-foreground)] hover:bg-[var(--green-100)] hover:text-[var(--ink-100)] transition-colors duration-200 rounded-2xl"
+                          className="block px-4 py-3 text-[var(--card-foreground)] hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] transition-colors duration-200 rounded-2xl"
                         >
                           <span className="font-medium">{service.title}</span>
                         </a>
@@ -195,7 +195,7 @@ const Navigation = () => {
                 className={`font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full ${
                   isAgency
                     ? 'text-[#111111] hover:text-[#6B7280] hover:bg-[#E5E5E0]'
-                    : 'text-[var(--text-100)] hover:text-[var(--ink-100)] hover:bg-[var(--green-100)]'
+                    : 'text-[var(--text-primary)] hover:text-[var(--accent-foreground)] hover:bg-[var(--accent)]'
                 }`}
               >
                 {link.label}
@@ -207,7 +207,7 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center animate-slide-in-right">
-            <Link href="/growth-plan" className={`font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 micro-lift ${
+            <Link href="/growth-plan" className={`font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 ${
               isAgency
                 ? 'bg-[#111111] text-white hover:bg-[#333333]'
                 : 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-hover hover:shadow-glow'
@@ -219,7 +219,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[var(--surface-80)] border border-[var(--border-80)]"
+            className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[var(--card-background)] border border-[var(--border)]"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
@@ -235,20 +235,20 @@ const Navigation = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden mt-4 pb-4">
-          <div className="flex flex-col space-y-4 bento-tile depth-lg bg-[var(--surface-80)] rounded-3xl p-6 border border-[var(--border-80)] shadow-xl">
+          <div className="flex flex-col space-y-4 bg-[var(--card-background)] rounded-3xl p-6 border border-[var(--border)] shadow-xl">
             {/* Mobile theme toggle (visible here only on small screens) */}
             <button
               aria-label="Toggle theme"
               aria-pressed={isDark}
               onClick={toggleTheme}
-              className="self-start flex items-center justify-center w-10 h-10 rounded-full border border-[var(--border-80)] bg-[var(--surface-70)] hover:bg-[var(--green-100)] transition-colors"
+              className="self-start flex items-center justify-center w-10 h-10 rounded-full border border-[var(--border)] bg-[var(--section-bg-1)] hover:bg-[var(--accent)] transition-colors"
             >
               {isDark ? (
-                <svg className="h-5 w-5 text-[var(--text-100)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <svg className="h-5 w-5 text-[var(--text-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" strokeWidth="1.5" />
                 </svg>
               ) : (
-                <svg className="h-5 w-5 text-[var(--text-100)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <svg className="h-5 w-5 text-[var(--text-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <circle cx="12" cy="12" r="4" strokeWidth="1.5" />
                   <path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M8.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M8.05 7.05L6.636 5.636" strokeWidth="1.5" />
                 </svg>
@@ -258,7 +258,7 @@ const Navigation = () => {
             <div>
               <button
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className="text-left text-[var(--text-100)] hover:text-[var(--ink-100)] font-medium w-full flex items-center justify-between py-2 px-3 rounded-2xl hover:bg-[var(--green-100)] transition-all duration-300"
+                className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium w-full flex items-center justify-between py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300"
               >
                 <span>Services</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -271,7 +271,7 @@ const Navigation = () => {
                     <a
                       key={service.slug}
                       href={`/services/${service.slug}`}
-                      className="block text-[var(--text-accent)] hover:text-[var(--ink-100)] py-2 px-3 rounded-2xl hover:bg-[var(--green-100)] transition-all duration-300"
+                      className="block text-[var(--text-accent)] hover:text-[var(--accent-foreground)] py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300"
                     >
                       {service.title}
                     </a>
@@ -280,14 +280,14 @@ const Navigation = () => {
               )}
             </div>
 
-            <Link href="/virtual-office" className="text-[var(--text-100)] hover:text-[var(--ink-100)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--green-100)] transition-all duration-300">Virtual Office</Link>
-            <Link href="/agency" className="text-[var(--text-100)] hover:text-[var(--ink-100)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--green-100)] transition-all duration-300">Agency</Link>
-            <Link href="/about" className="text-[var(--text-100)] hover:text-[var(--ink-100)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--green-100)] transition-all duration-300">About</Link>
-            <Link href="/blog" className="text-[var(--text-100)] hover:text-[var(--ink-100)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--green-100)] transition-all duration-300">Blog</Link>
-            <Link href={hasContactSection ? "#contact" : "/#contact"} className="text-[var(--text-100)] hover:text-[var(--ink-100)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--green-100)] transition-all duration-300">Contact</Link>
+            <Link href="/virtual-office" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Virtual Office</Link>
+            <Link href="/agency" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Agency</Link>
+            <Link href="/about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">About</Link>
+            <Link href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Blog</Link>
+            <Link href={hasContactSection ? "#contact" : "/#contact"} className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Contact</Link>
 
-            <button className="text-left text-[var(--text-100)] hover:text-[var(--ink-100)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--green-100)] transition-all duration-300">Support</button>
-            <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-hover hover:shadow-glow micro-lift w-fit">
+            <button className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Support</button>
+            <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-hover hover:shadow-glow w-fit">
               Get started
             </Link>
           </div>
