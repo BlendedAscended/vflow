@@ -1,3 +1,15 @@
+## 2026-05-11 17:00 (UTC) — Cybergrowth funnel implementation plan published
+
+**Changes:**
+- Created [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md): full 16 section spec for the VerbaFlow 2.0 funnel revamp.
+- Architecture decisions locked: floor plan moves from /agency to /virtual-office, /agency becomes portfolio + book a call, /homepage carries three door CTAs, wireframe delivery via Supabase Storage signed URLs.
+- Hermes pipeline `cybergrowth-wireframe` defined: 6 agents (architect, designer, backend, validator, marketing, booking) with kanban + tasks + spaces reflection in webui.
+- New Prisma models proposed: GrowthPlan, Abandonment, AgentRun, NewsletterSubscriber.
+- 10 new API routes specced. 7 new components specced. 6 new Hermes agent SOUL.md files specced.
+- Week 1 rollout schedule: 2026-05-11 through 2026-05-18.
+- Breaking changes: replaces `/api/generate-strategy` with `/api/growth-plan/submit` (kept old route as legacy for week 1).
+- No code shipped yet. Plan only.
+
 ## 2026-04-17 - Hide glass card visual panel and "No credit card required" text
 
 **Changes:**

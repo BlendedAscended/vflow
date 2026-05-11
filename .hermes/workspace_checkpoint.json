@@ -1,0 +1,490 @@
+{
+  "created": "2026-05-10T15:20:35.638237",
+  "description": "Workspace checkpoint \u2014 all spaces + kanban state",
+  "last_workspace": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+  "settings": {
+    "default_workspace": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+    "onboarding_completed": true,
+    "send_key": "enter",
+    "show_token_usage": false,
+    "show_tps": false,
+    "show_cli_sessions": false,
+    "sync_to_insights": false,
+    "check_for_updates": true,
+    "theme": "dark",
+    "skin": "charizard",
+    "font_size": "default",
+    "session_jump_buttons": false,
+    "session_endless_scroll": false,
+    "language": "en",
+    "bot_name": "Hermes",
+    "sound_enabled": false,
+    "notifications_enabled": false,
+    "show_thinking": true,
+    "simplified_tool_calling": true,
+    "api_redact_enabled": true,
+    "sidebar_density": "compact",
+    "auto_title_refresh_every": "0",
+    "busy_input_mode": "queue",
+    "password_hash": null
+  },
+  "workspaces": [
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+      "name": "VerbaFlow 2.0",
+      "icon": "\ud83c\udf10",
+      "last_opened": "2026-05-10T15:05:20.358893"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy",
+      "name": "Galaxy (OpenClaw)",
+      "icon": "\ud83c\udf0c"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/priorzap",
+      "name": "Aegis/PriorZap",
+      "icon": "\u2695\ufe0f"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/samurai",
+      "name": "Samurai",
+      "icon": "\u2694\ufe0f"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/RT",
+      "name": "RT/Artizen",
+      "icon": "\ud83c\udfa8"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Refree",
+      "name": "Refree/Nexus Health",
+      "icon": "\ud83c\udfe5"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/mllc",
+      "name": "MLLC Foundation",
+      "icon": "\ud83c\udfdb\ufe0f"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Sanctuary",
+      "name": "Sanctuary Church",
+      "icon": "\u26ea"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/jack",
+      "name": "Jack/Titan",
+      "icon": "\ud83e\udd16"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Gibby",
+      "name": "Gibby/OpenClaw",
+      "icon": "\ud83d\uded2"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Zenith",
+      "name": "Zenith 3.0",
+      "icon": "\ud83d\udcca"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/DonPortfolio",
+      "name": "DonPortfolio",
+      "icon": "\ud83d\udcbc"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/TrustOneServices",
+      "name": "TrustOne Services",
+      "icon": "\ud83d\udd27"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Verbaflow_lake",
+      "name": "VerbaFlow Lake (Docs)",
+      "icon": "\ud83d\udcc1"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/ai-config-transfer",
+      "name": "AI Config Transfer",
+      "icon": "\u2699\ufe0f"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/aqwa",
+      "name": "Aqwa",
+      "icon": "\ud83c\udf0a"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy-Personal",
+      "name": "Galaxy Personal",
+      "icon": "\ud83c\udf1f"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy-products",
+      "name": "Galaxy Products",
+      "icon": "\ud83e\uddea"
+    },
+    {
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/RalphFree",
+      "name": "RalphFree",
+      "icon": "\ud83e\udd16"
+    }
+  ],
+  "projects": {
+    "projects": [
+      {
+        "id": "vflow2",
+        "name": "VerbaFlow 2.0",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+        "description": "VerbaFlow LLC company website \u2014 Next.js 15, TypeScript, Tailwind, Sanity CMS, Prisma, Spline 3D, GSAP animations",
+        "tech_stack": [
+          "next.js",
+          "typescript",
+          "tailwind",
+          "sanity",
+          "prisma",
+          "react-three-fiber",
+          "gsap"
+        ],
+        "icon": "\ud83c\udf10"
+      },
+      {
+        "id": "galaxy",
+        "name": "Galaxy (OpenClaw)",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy",
+        "description": "Galaxy multi-agent AI platform \u2014 n8n workflows, Prometheus monitoring, OpenClaw agents, Discord bot",
+        "tech_stack": [
+          "n8n",
+          "prometheus",
+          "docker",
+          "discord",
+          "python"
+        ],
+        "icon": "\ud83c\udf0c"
+      },
+      {
+        "id": "priorzap",
+        "name": "Aegis/PriorZap",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/priorzap",
+        "description": "Real-time denial prevention at point of care \u2014 healthcare insurance claim defense, Aegis mesh architecture",
+        "tech_stack": [
+          "python",
+          "fastapi",
+          "airtable",
+          "docker"
+        ],
+        "icon": "\u2695\ufe0f"
+      },
+      {
+        "id": "samurai",
+        "name": "Samurai",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/samurai",
+        "description": "Samurai browser extension \u2014 Discord bot, vision analysis, MCP server, auto-research, Airtable integration",
+        "tech_stack": [
+          "discord.js",
+          "python",
+          "extension",
+          "mcp",
+          "airtable"
+        ],
+        "icon": "\u2694\ufe0f"
+      },
+      {
+        "id": "rt",
+        "name": "RT/Artizen",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/RT",
+        "description": "Artizen content app \u2014 Expo/React Native, Supabase backend, social platform for art content",
+        "tech_stack": [
+          "expo",
+          "react-native",
+          "supabase",
+          "typescript"
+        ],
+        "icon": "\ud83c\udfa8"
+      },
+      {
+        "id": "refree",
+        "name": "Refree/Nexus Health",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Refree",
+        "description": "Nexus Health \u2014 Closed-loop referral completion engine for healthcare, Radix UI + Next.js",
+        "tech_stack": [
+          "next.js",
+          "typescript",
+          "radix-ui",
+          "tailwind",
+          "prisma"
+        ],
+        "icon": "\ud83c\udfe5"
+      },
+      {
+        "id": "mllc",
+        "name": "MLLC Foundation",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/mllc",
+        "description": "MLLC nonprofit foundation website \u2014 community events, policy advocacy, action platform",
+        "tech_stack": [
+          "next.js",
+          "tailwind",
+          "sanity"
+        ],
+        "icon": "\ud83c\udfdb\ufe0f"
+      },
+      {
+        "id": "sanctuary",
+        "name": "Sanctuary Church",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Sanctuary",
+        "description": "Cross-platform church app \u2014 dual database (Firestore + Postgres), community features",
+        "tech_stack": [
+          "react-native",
+          "firebase",
+          "postgres",
+          "typescript"
+        ],
+        "icon": "\u26ea"
+      },
+      {
+        "id": "jack",
+        "name": "Jack/Titan",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/jack",
+        "description": "Titan (Jack) AI agent \u2014 persistent soul architecture, auto-messaging, Discord integration",
+        "tech_stack": [
+          "discord.js",
+          "python",
+          "agents"
+        ],
+        "icon": "\ud83e\udd16"
+      },
+      {
+        "id": "gibby",
+        "name": "Gibby/OpenClaw",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Gibby",
+        "description": "OpenClaw grocery demand forecasting agent \u2014 Discord bot, Gemini AI, Mongoose",
+        "tech_stack": [
+          "discord.js",
+          "gemini",
+          "mongoose",
+          "python"
+        ],
+        "icon": "\ud83d\uded2"
+      },
+      {
+        "id": "zenith",
+        "name": "Zenith 3.0",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Zenith",
+        "description": "Zenith business plan dashboard \u2014 stitch SDK, analytics, data visualization",
+        "tech_stack": [
+          "javascript",
+          "stitch-sdk",
+          "dashboard"
+        ],
+        "icon": "\ud83d\udcca"
+      },
+      {
+        "id": "donportfolio",
+        "name": "DonPortfolio",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/DonPortfolio",
+        "description": "Portfolio website project",
+        "tech_stack": [],
+        "icon": "\ud83d\udcbc"
+      },
+      {
+        "id": "trustone",
+        "name": "TrustOne Services",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/TrustOneServices",
+        "description": "TrustOne services project",
+        "tech_stack": [],
+        "icon": "\ud83d\udd27"
+      },
+      {
+        "id": "verbaflow-lake",
+        "name": "VerbaFlow Lake (Docs)",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Verbaflow_lake",
+        "description": "VerbaFlow company documents, guides, invoices, design assets, and strategy files",
+        "tech_stack": [],
+        "icon": "\ud83d\udcc1"
+      },
+      {
+        "id": "ai-config",
+        "name": "AI Config Transfer",
+        "path": "/Users/sandeepsingh/Desktop/Project26/ai-config-transfer",
+        "description": "AI tool configuration transfer scripts \u2014 setup automation for multi-tool stack",
+        "tech_stack": [
+          "bash",
+          "python"
+        ],
+        "icon": "\u2699\ufe0f"
+      },
+      {
+        "id": "aqwa",
+        "name": "Aqwa",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/aqwa",
+        "description": "Aqwa \u2014 React Native app with iOS/Android, training pipeline, Jest tests",
+        "tech_stack": [
+          "react-native",
+          "typescript",
+          "jest"
+        ],
+        "icon": "\ud83c\udf0a"
+      },
+      {
+        "id": "galaxy-personal",
+        "name": "Galaxy Personal",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy-Personal",
+        "description": "Galaxy personal instance \u2014 local OpenClaw setup",
+        "tech_stack": [
+          "python",
+          "docker"
+        ],
+        "icon": "\ud83c\udf1f"
+      },
+      {
+        "id": "galaxy-products",
+        "name": "Galaxy Products",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy-products",
+        "description": "Galaxy products \u2014 multi-tenant setup, Apollo agent, dispatcher, shared libs",
+        "tech_stack": [
+          "python",
+          "docker",
+          "sql"
+        ],
+        "icon": "\ud83e\uddea"
+      },
+      {
+        "id": "ralphfree",
+        "name": "RalphFree",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/RalphFree",
+        "description": "RalphFree project",
+        "tech_stack": [],
+        "icon": "\ud83e\udd16"
+      }
+    ],
+    "last_opened": "vflow2"
+  },
+  "kanban_snapshot": "[\n  {\n    \"id\": \"t_9ca03228\",\n    \"title\": \"Audit current build \u2014 run npm run build, fix any errors\",\n    \"body\": null,\n    \"assignee\": \"frontend-eng\",\n    \"status\": \"ready\",\n    \"priority\": 0,\n    \"tenant\": null,\n    \"workspace_kind\": \"scratch\",\n    \"workspace_path\": null,\n    \"created_by\": \"user\",\n    \"created_at\": 1778438626,\n    \"started_at\": null,\n    \"completed_at\": null,\n    \"result\": null,\n    \"skills\": [],\n    \"max_retries\": null\n  },\n  {\n    \"id\": \"t_b6ffea8a\",\n    \"title\": \"Review Sanity CMS config and schema \u2014 verify content pipeline works\",\n    \"body\": null,\n    \"assignee\": \"backend-eng\",\n    \"status\": \"ready\",\n    \"priority\": 0,\n    \"tenant\": null,\n    \"workspace_kind\": \"scratch\",\n    \"workspace_path\": null,\n    \"created_by\": \"user\",\n    \"created_at\": 1778438632,\n    \"started_at\": null,\n    \"completed_at\": null,\n    \"result\": null,\n    \"skills\": [],\n    \"max_retries\": null\n  },\n  {\n    \"id\": \"t_dc07b3ef\",\n    \"title\": \"Review Prisma schema and DB connection\",\n    \"body\": null,\n    \"assignee\": \"backend-eng\",\n    \"status\": \"ready\",\n    \"priority\": 0,\n    \"tenant\": null,\n    \"workspace_kind\": \"scratch\",\n    \"workspace_path\": null,\n    \"created_by\": \"user\",\n    \"created_at\": 1778438632,\n    \"started_at\": null,\n    \"completed_at\": null,\n    \"result\": null,\n    \"skills\": [],\n    \"max_retries\": null\n  },\n  {\n    \"id\": \"t_b2e0761c\",\n    \"title\": \"Check all env vars and API keys are configured (.env.local)\",\n    \"body\": null,\n    \"assignee\": \"backend-eng\",\n    \"status\": \"ready\",\n    \"priority\": 0,\n    \"tenant\": null,\n    \"workspace_kind\": \"scratch\",\n    \"workspace_path\": null,\n    \"created_by\": \"user\",\n    \"created_at\": 1778438633,\n    \"started_at\": null,\n    \"completed_at\": null,\n    \"result\": null,\n    \"skills\": [],\n    \"max_retries\": null\n  },\n  {\n    \"id\": \"t_d5e7566b\",\n    \"title\": \"Review component structure and identify missing pages\",\n    \"body\": null,\n    \"assignee\": \"frontend-eng\",\n    \"status\": \"ready\",\n    \"priority\": 0,\n    \"tenant\": null,\n    \"workspace_kind\": \"scratch\",\n    \"workspace_path\": null,\n    \"created_by\": \"user\",\n    \"created_at\": 1778438633,\n    \"started_at\": null,\n    \"completed_at\": null,\n    \"result\": null,\n    \"skills\": [],\n    \"max_retries\": null\n  }\n]",
+  "workspace_count": 19,
+  "project_count": 2,
+  "kanban_tasks": [
+    {
+      "id": "t_72012843",
+      "title": "Audit build pipeline",
+      "body": "Run npm run build. Document all errors, warnings, deprecations. Fix critical build errors. Report findings with file paths and line numbers.",
+      "assignee": "default",
+      "status": "ready",
+      "priority": 0,
+      "tenant": null,
+      "workspace_kind": "dir",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+      "created_by": "user",
+      "created_at": 1778441514,
+      "started_at": null,
+      "completed_at": null,
+      "result": null,
+      "skills": [],
+      "max_retries": null
+    },
+    {
+      "id": "t_b7f8dd33",
+      "title": "Check env vars and API keys",
+      "body": "Verify .env.local has all required vars for: Sanity (projectId, dataset, apiVersion), Prisma (DATABASE_URL), Supabase (url, anonKey), Stripe, Gemini API key. List missing vars.",
+      "assignee": "default",
+      "status": "ready",
+      "priority": 0,
+      "tenant": null,
+      "workspace_kind": "dir",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+      "created_by": "user",
+      "created_at": 1778441519,
+      "started_at": null,
+      "completed_at": null,
+      "result": null,
+      "skills": [],
+      "max_retries": null
+    },
+    {
+      "id": "t_33faaf55",
+      "title": "Review Sanity CMS config and schema",
+      "body": "Review sanity.config.ts, all schema files in sanity/, verify studio route at /studio, check GROQ queries, validate content pipeline end-to-end.",
+      "assignee": "default",
+      "status": "ready",
+      "priority": 0,
+      "tenant": null,
+      "workspace_kind": "dir",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+      "created_by": "user",
+      "created_at": 1778441524,
+      "started_at": null,
+      "completed_at": null,
+      "result": null,
+      "skills": [],
+      "max_retries": null
+    },
+    {
+      "id": "t_2bf80329",
+      "title": "Review Prisma schema and DB connection",
+      "body": "Review prisma/schema.prisma, check migrations, verify Supabase connection, run npx prisma validate.",
+      "assignee": "default",
+      "status": "ready",
+      "priority": 0,
+      "tenant": null,
+      "workspace_kind": "dir",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+      "created_by": "user",
+      "created_at": 1778441528,
+      "started_at": null,
+      "completed_at": null,
+      "result": null,
+      "skills": [],
+      "max_retries": null
+    },
+    {
+      "id": "t_4045542e",
+      "title": "Audit component structure and route map",
+      "body": "Map all Next.js routes in src/app/, list components, identify missing pages, check Spline 3D and GSAP integrations, document site architecture.",
+      "assignee": "default",
+      "status": "ready",
+      "priority": 0,
+      "tenant": null,
+      "workspace_kind": "dir",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+      "created_by": "user",
+      "created_at": 1778441533,
+      "started_at": null,
+      "completed_at": null,
+      "result": null,
+      "skills": [],
+      "max_retries": null
+    },
+    {
+      "id": "t_f669d83f",
+      "title": "Synthesize audit findings and create action plan",
+      "body": "Read all Phase 1 audit outputs. Compile findings into a prioritized action plan: critical (blocks build), high (broken features), medium (missing config), low (improvements).",
+      "assignee": "default",
+      "status": "todo",
+      "priority": 0,
+      "tenant": null,
+      "workspace_kind": "dir",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+      "created_by": "user",
+      "created_at": 1778441539,
+      "started_at": null,
+      "completed_at": null,
+      "result": null,
+      "skills": [],
+      "max_retries": null
+    }
+  ],
+  "kanban_summary": {
+    "total": 6,
+    "ready": 5,
+    "todo": 1,
+    "assignee": "default",
+    "workspace": "dir:/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
+    "phases": {
+      "phase_1_audit": [
+        "t_72012843",
+        "t_b7f8dd33",
+        "t_33faaf55",
+        "t_2bf80329",
+        "t_4045542e"
+      ],
+      "phase_2_synthesis": [
+        "t_f669d83f"
+      ]
+    }
+  }
+}

@@ -5,13 +5,12 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../node_modules/.prisma/client"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -21,6 +20,7 @@ model User {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   customer  Customer?
+  growthPlans GrowthPlan[]
 }
 
 model Customer {
@@ -32,4 +32,97 @@ model Customer {
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
   user             User     @relation(fields: [userId], references: [id])
+}
+
+enum PlanStatus {
+  queued
+  drafting
+  designing
+  backend
+  validating
+  marketing
+  delivery
+  wireframe_ready
+  paid
+  expired
+  moved_forward
+  abandoned
+  failed
+}
+
+enum AgentStatus {
+  pending
+  running
+  succeeded
+  failed
+  skipped
+}
+
+model GrowthPlan {
+  id                String          @id @default(cuid())
+  userId            String?
+  email             String
+  name              String?
+  status            PlanStatus      @default(queued)
+  wizardData        Json            // industry, stage, challenges, goals, teamSize, budget, timeline, subNiches, currentStack, legacyPain
+  implementationMd  String?         // architect output, markdown
+  wireframeUrl      String?         // signed Supabase URL
+  paidAt            DateTime?
+  stripeSessionId   String?
+  hermesJobId       String?
+  agentLog          Json?           // each agent's contribution and timestamps
+  movedForward      Boolean         @default(false)
+  customization     Json?           // post-wireframe questionnaire answers
+  calendlyEventUri  String?
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  user              User?           @relation(fields: [userId], references: [id])
+  abandonments      Abandonment[]
+  agentRuns         AgentRun[]
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Abandonment {
+  id           String     @id @default(cuid())
+  planId       String?
+  email        String
+  stepReached  Int        // 0 to 6
+  wizardData   Json
+  followUpSent Boolean    @default(false)
+  followUpAt   DateTime?
+  createdAt    DateTime   @default(now())
+  plan         GrowthPlan? @relation(fields: [planId], references: [id])
+
+  @@index([email])
+  @@index([followUpSent])
+}
+
+model AgentRun {
+  id             String       @id @default(cuid())
+  planId         String
+  agent          String       // architect | designer | backend | validator | marketing | booking
+  model          String       // mimo-v2.5-pro | kimi-k2.6 | qwen3.6-plus | deepseek-v4-pro | minimax-m2.5
+  status         AgentStatus  @default(pending)
+  inputTokens    Int?
+  outputTokens   Int?
+  artifactPath   String?      // Supabase Storage key
+  errorMessage   String?
+  startedAt      DateTime?
+  finishedAt     DateTime?
+  createdAt      DateTime     @default(now())
+  plan           GrowthPlan   @relation(fields: [planId], references: [id])
+
+  @@index([planId, agent])
+  @@index([status])
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String?  // homepage_footer | virtual_office | agency
+  tags      String[] // service_interests, plan_id refs, etc.
+  createdAt DateTime @default(now())
 }

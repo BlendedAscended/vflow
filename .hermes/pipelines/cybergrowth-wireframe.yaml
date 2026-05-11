@@ -1,0 +1,189 @@
+name: cybergrowth-wireframe
+description: VerbaFlow Growth Plan customer journey. Takes wizard data, produces implementation plan plus wireframe, delivers via email.
+version: 1
+owner: san@verbaflowllc.com
+created: 2026-05-11
+
+trigger:
+  type: webhook
+  endpoint: /jobs/growth-plan
+  auth: bearer
+  secret_env: VFLOW_HERMES_TOKEN
+
+inputs:
+  plan_id:
+    type: string
+    required: true
+    description: cuid from Postgres growth_plans row
+  wizard_data:
+    type: object
+    required: true
+    description: industry, stage, challenges, goals, teamSize, budget, timeline, email, name, subNiches, currentStack, legacyPain
+  services_catalog:
+    type: array
+    required: true
+    description: ServiceDef objects loaded from src/data/services.ts plus Supabase services table
+  industries_catalog:
+    type: array
+    required: true
+    description: Industry objects from src/data/industries.ts
+  callback_url:
+    type: string
+    required: true
+    description: URL Hermes pings after each stage transition
+
+context_budget: 8000
+compression_threshold: 0.4
+compression_target: 0.2
+
+stages:
+  - name: architect
+    agent: architect-agent
+    model: opencode-go/mimo-v2.5-pro
+    fallback: opencode-go/kimi-k2.5
+    timeout: 180
+    inputs:
+      - wizard_data
+      - services_catalog
+      - industries_catalog
+    outputs:
+      - implementation_plan.md
+      - architecture.json
+    on_start: status_update(queued -> drafting)
+    on_success: status_update(drafting -> designing)
+    on_failure: status_update(drafting -> failed)
+
+  - name: designer
+    agent: designer-agent
+    model: opencode-go/kimi-k2.6
+    fallback: deepseek/deepseek-chat
+    timeout: 240
+    inputs:
+      - implementation_plan.md
+      - architecture.json
+      - wizard_data
+    outputs:
+      - wireframe_components.jsx
+      - design_tokens.json
+    on_success: status_update(designing -> backend)
+
+  - name: backend
+    agent: backend-agent
+    model: opencode-go/qwen3.6-plus
+    fallback: deepseek/deepseek-chat
+    timeout: 180
+    inputs:
+      - architecture.json
+    outputs:
+      - integration_notes.md
+    on_success: status_update(backend -> validating)
+
+  - name: validator
+    agent: validator-agent
+    model: opencode-go/deepseek-v4-pro
+    fallback: opencode-go/kimi-k2.5
+    timeout: 90
+    inputs:
+      - implementation_plan.md
+      - wireframe_components.jsx
+      - integration_notes.md
+    outputs:
+      - validation_report.json
+    gate:
+      score_field: validation_report.json.overall_score
+      score_min: 0.7
+      on_fail: retry_stage(designer, max_retries=1)
+    on_success: status_update(validating -> marketing)
+
+  - name: marketing
+    agent: marketing-agent
+    model: opencode-go/minimax-m2.7
+    fallback: deepseek/deepseek-chat
+    timeout: 120
+    inputs:
+      - implementation_plan.md
+      - wireframe_components.jsx
+      - validation_report.json
+    outputs:
+      - upsell_pamphlet.md
+      - email_body.html
+    on_success: status_update(marketing -> delivery)
+
+  - name: delivery
+    type: deterministic
+    inputs:
+      - wireframe_components.jsx
+      - design_tokens.json
+      - email_body.html
+    actions:
+      - render_jsx_to_static_html:
+          template: src/lib/wireframe-template.html
+          output: index.html
+      - upload_to_supabase:
+          bucket: wireframes
+          key: "{plan_id}/index.html"
+      - generate_signed_url:
+          expiry_days: 90
+          out_var: wireframe_signed_url
+      - send_email_via_resend:
+          template: wireframe_ready
+          to: "{wizard_data.email}"
+          from: plans@verbaflowllc.com
+          variables:
+            name: "{wizard_data.name}"
+            wireframe_url: "{wireframe_signed_url}"
+            plan_id: "{plan_id}"
+      - callback:
+          method: POST
+          url: "{callback_url}"
+          headers:
+            Authorization: "Bearer {VFLOW_HERMES_TOKEN}"
+          body:
+            plan_id: "{plan_id}"
+            status: wireframe_ready
+            wireframe_url: "{wireframe_signed_url}"
+    on_success: status_update(delivery -> wireframe_ready)
+
+artifacts:
+  storage: supabase
+  bucket: wireframes
+  prefix: "{plan_id}/"
+
+webui:
+  kanban:
+    board: "Growth Plans"
+    columns:
+      - Queued
+      - Drafting
+      - Designing
+      - Backend
+      - Validating
+      - Marketing
+      - Delivery
+      - Delivered
+      - Failed
+    card_template:
+      title: "Plan {plan_id} - {wizard_data.industry}"
+      labels:
+        - "{wizard_data.stage}"
+        - "{wizard_data.budget}"
+        - "{wizard_data.timeline}"
+      body: |
+        Email: {wizard_data.email}
+        Name: {wizard_data.name}
+        Challenges: {wizard_data.challenges | join(', ')}
+        Stack: {wizard_data.currentStack | join(', ')}
+        SubNiches: {wizard_data.subNiches | join(', ')}
+
+  tasks:
+    auto_create_per_stage: true
+    task_template:
+      title: "Plan {plan_id} - {stage_name}"
+      assignee: "{agent_name}"
+      due_at: "{stage_started_at + stage_timeout}"
+
+  space:
+    auto_create_per_plan: true
+    space_template:
+      name: "plan-{plan_id}"
+      auto_attach_artifacts: true
