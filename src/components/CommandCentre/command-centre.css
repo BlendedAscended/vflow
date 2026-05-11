@@ -1,19 +1,19 @@
 /* ── CommandCentre Design Tokens ─────────────────────────────────────────── */
 .command-centre-root {
   /* Page */
-  --dd-bg-page: #0A0A0B;
-  --dd-bg-surface: #111113;
-  --dd-bg-elevated: #18181B;
+  --dd-bg-page: var(--surface-100);
+  --dd-bg-surface: var(--surface-90);
+  --dd-bg-elevated: var(--surface-80);
 
   /* Text */
-  --dd-text-primary: #FAFAFA;
-  --dd-text-secondary: #A1A1AA;
-  --dd-text-muted: #71717A;
+  --dd-text-primary: var(--text-100);
+  --dd-text-secondary: var(--text-80);
+  --dd-text-muted: var(--text-70);
 
   /* Borders */
-  --dd-border-default: rgba(255, 255, 255, 0.08);
-  --dd-border-subtle: rgba(255, 255, 255, 0.04);
-  --dd-border-strong: rgba(255, 255, 255, 0.15);
+  --dd-border-default: var(--border-80);
+  --dd-border-subtle: var(--border-60);
+  --dd-border-strong: var(--border-100);
 
   /* Metric: Revenue (teal ramp) */
   --metric-revenue-fill: #085041;
@@ -62,7 +62,7 @@
   --helix-connector: rgba(255, 255, 255, 0.06);
 
   /* Typography */
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Spacing */
@@ -90,7 +90,7 @@
 .command-centre {
   position: relative;
   width: 100%;
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   height: 800px;
   padding: 64px 0;
@@ -127,7 +127,8 @@
   gap: 0;
   border-width: 0.5px;
   border-style: solid;
-  border-radius: var(--radius-md);
+  border-radius: 18px;
+  box-shadow: var(--depth-sm);
   transition: border-color var(--duration-default) var(--easing-default);
 }
 

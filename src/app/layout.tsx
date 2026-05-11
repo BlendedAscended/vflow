@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import ChatWidget from "../components/ChatWidget";
 import { VapiProvider } from "../components/VapiContext";
@@ -26,6 +26,12 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400"],
 });
 
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Verbaflow LLC - Grow Your Business with AI",
   description: "Modern websites, marketing, and AI Solutions for local businesses. Streamline operations, boost leads, and automate your workflow with expert support in Montgomery County.",
@@ -46,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${jetbrainsMono.variable} ${plusJakarta.variable} antialiased`}
       >
         <VapiProvider>
           {children}

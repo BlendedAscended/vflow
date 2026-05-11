@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import type { MetricData } from './types'
 import HelixBackbone from './HelixBackbone'
 import MetricCard from './MetricCard'
+import { useMouseLight } from "../../hooks/useMouseLight";
 import './command-centre.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -103,6 +104,8 @@ const CARD_POSITIONS: Record<string, React.CSSProperties> = {
 
 export default function CommandCentre() {
   const containerRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  useMouseLight(sectionRef)
 
   useGSAP(
     () => {
@@ -170,19 +173,21 @@ export default function CommandCentre() {
   )
 
   return (
-    <section className="command-centre command-centre-root" ref={containerRef}>
-      <HelixBackbone />
+    <div ref={sectionRef} className="mouse-light relative bento-tile depth-lg tile-in">
+      <section className="command-centre command-centre-root" ref={containerRef}>
+        <HelixBackbone />
 
-      <div className="metric-layer">
-        {METRICS.map((metric) => (
-          <MetricCard
-            key={metric.id}
-            data={metric}
-            style={CARD_POSITIONS[metric.id]}
-            data-gsap={metric.position === 'left' ? 'card-left' : 'card-right'}
-          />
-        ))}
-      </div>
-    </section>
+        <div className="metric-layer">
+          {METRICS.map((metric) => (
+            <MetricCard
+              key={metric.id}
+              data={metric}
+              style={CARD_POSITIONS[metric.id]}
+              data-gsap={metric.position === 'left' ? 'card-left' : 'card-right'}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
   )
 }
