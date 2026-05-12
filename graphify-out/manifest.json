@@ -92,12 +92,12 @@
     "hash": "e794a77e0efa9611dd754459c3159b28"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/layout.tsx": {
-    "mtime": 1774042465.8277485,
-    "hash": "3dd4018f770ab76042385f12296f2b0f"
+    "mtime": 1778563632.6960711,
+    "hash": "a8d850d900edf44edd073ee4d03ff2b3"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/page.tsx": {
-    "mtime": 1778138072.3839965,
-    "hash": "6471ca5a428a7a9fd0aacee2346028c7"
+    "mtime": 1778564640.2448065,
+    "hash": "a325efce4687d7c002fb49eeb34b9907"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/studio/[[...tool]]/page.tsx": {
     "mtime": 1758127905.229047,
@@ -228,8 +228,8 @@
     "hash": "a1c361efacbf27a0caa2eca146d79230"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/hermes/state/route.ts": {
-    "mtime": 1778559765.1726558,
-    "hash": "43618d0652f823a9408a1f7ad05bee5a"
+    "mtime": 1778562455.3810952,
+    "hash": "cd27f861817675509ecd219860df9cba"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/hermes/callback/route.ts": {
     "mtime": 1778552424.7128894,
@@ -352,52 +352,72 @@
     "hash": "b38e30a9a15593db3cd8397d322c3732"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/GrowthPlanWizard.tsx": {
-    "mtime": 1778552424.7200046,
-    "hash": "64404da09eca60b05ee60f2435604f28"
+    "mtime": 1778563323.2904234,
+    "hash": "7167142ebc9b7896471b65b2e490ed34"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/StatsBand.tsx": {
+    "mtime": 1778564579.143411,
+    "hash": "b6a53d7b70497c2e6ad6ed0f5e734629"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/LocationContext.tsx": {
     "mtime": 1766495121.3949103,
     "hash": "ed2da62b88b2c7721548e4f43fdb404f"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/FAQSection.tsx": {
-    "mtime": 1766490782.5538774,
-    "hash": "d34e04724b40f5775f19cec1ff137b4c"
+    "mtime": 1778564579.1345568,
+    "hash": "519f405e65625417e2985a73f8dd6a89"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/Footer.tsx": {
     "mtime": 1764486629.256439,
     "hash": "80ebc9db179250951595f0b30964c042"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ServicesSection.tsx": {
-    "mtime": 1778138072.391232,
-    "hash": "8588e04c30545321811fc02020fba30b"
+    "mtime": 1778564640.247137,
+    "hash": "2278dfe32cc57cd1a72736d2f6b5573d"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/SplineHelix.tsx": {
-    "mtime": 1774026473.6780744,
-    "hash": "5967e3f46d6aefeda88c7aa5f396c749"
+    "mtime": 1778564579.1426616,
+    "hash": "261ec0d9470726315b0d2492fd844f69"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ThemeToggle.tsx": {
     "mtime": 1758670629.1365862,
     "hash": "c236f5ceb22462cc84b16d6a94574f0d"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/TestimonialsSection.tsx": {
-    "mtime": 1758689695.8150098,
-    "hash": "8ba09be21852dab7ac77c928ea963e8a"
+    "mtime": 1778564579.1457376,
+    "hash": "82071db42a798c758e8784db6fc5758c"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/HeroSection.tsx": {
-    "mtime": 1778138072.3897464,
-    "hash": "1b7d273876ef7984a6c6b57879e1538e"
+    "mtime": 1778564640.2462015,
+    "hash": "46a9d86546ed95ccaeee8eecbb5bfa5e"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/PricingSection.tsx": {
-    "mtime": 1766499849.8755937,
-    "hash": "0193e1ccfb1ca1334c5f76e633192b16"
+    "mtime": 1778564579.1392298,
+    "hash": "08e7ab133a493fcefae6ff4dab0daf43"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ContactSection.tsx": {
-    "mtime": 1764038220.246484,
-    "hash": "b94ce05daa69f5f5a88ceafcfd4f3a16"
+    "mtime": 1778564579.1325817,
+    "hash": "b4889970a120ede2ffb786704cc90844"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/Navigation.tsx": {
     "mtime": 1778138072.390351,
     "hash": "7eb4055ae15c57ba95e810ef932c9f37"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ui/MagneticButton.tsx": {
+    "mtime": 1778564579.1590104,
+    "hash": "bc5f730b58858963e4b808978384449c"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ui/AnimatedHeadline.tsx": {
+    "mtime": 1778564579.157555,
+    "hash": "23bfde22f148d762f8de66b44961ad7a"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ui/Marquee.tsx": {
+    "mtime": 1778564579.1595588,
+    "hash": "3d53a9ff0356874e558f575dce8e1764"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ui/CursorDot.tsx": {
+    "mtime": 1778564579.1582613,
+    "hash": "410a284d1e7708f5280f071993998d03"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/payment/ComplianceModal.tsx": {
     "mtime": 1764535050.7670107,
@@ -420,12 +440,12 @@
     "hash": "555d523590503689aaa5cc4fb4e17902"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/AgencyLeftPanel.tsx": {
-    "mtime": 1775317108.7894623,
-    "hash": "38363e9c8985b01c5253a2ef170d720b"
+    "mtime": 1778564579.1492383,
+    "hash": "cb176f69eb206995e540028f285f7b4e"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/ThreeAgencyBackground.tsx": {
-    "mtime": 1774025648.722456,
-    "hash": "869c07fdb2fe844fe2e4b402d4f71517"
+    "mtime": 1778564579.1508842,
+    "hash": "93593c7ce08297d8f8960bc798aabe33"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/AgencyRightPanel.tsx": {
     "mtime": 1773605524.6626623,
@@ -444,16 +464,16 @@
     "hash": "28edb65a5db5771ce1220815f8cff27d"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/infographics/FinanceCharts.tsx": {
-    "mtime": 1774059901.7870705,
-    "hash": "a0c8db8da78489afa0a59e596fa98378"
+    "mtime": 1778564579.1529186,
+    "hash": "18ab7a4088c9bba9f1e687826ab4e606"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/infographics/HealthcareCharts.tsx": {
-    "mtime": 1774059844.9304242,
-    "hash": "ebbccbff90f0a239ac708e61b080b8fb"
+    "mtime": 1778564579.1549108,
+    "hash": "4523ca14371ec06b43dc075d3841f84a"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/infographics/PlatformCharts.tsx": {
-    "mtime": 1774059925.909214,
-    "hash": "31323efc49cdaba27dc8a057ec147765"
+    "mtime": 1778564579.1565666,
+    "hash": "4a36aaf76456f2d2dd40bae690114b98"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/HelixBackbone.tsx": {
     "mtime": 1774042358.589492,
@@ -504,8 +524,8 @@
     "hash": "49e0648aae2e685062f5ad5091c5e0fb"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-05-iso-floor/index.tsx": {
-    "mtime": 1778559765.106899,
-    "hash": "cea9cbf1c707fd6551512ae8d4a9c536"
+    "mtime": 1778562455.3816335,
+    "hash": "384abde5fd26238f677bc7f2757b83f6"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-05-iso-floor/AgentZoneModal.tsx": {
     "mtime": 1778552424.7204845,
@@ -518,6 +538,10 @@
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-04-wireframe-v2/index.tsx": {
     "mtime": 1777184574.3252902,
     "hash": "c3605b7c53866494a60d0b168efc741d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/hooks/useReveal.ts": {
+    "mtime": 1778564579.1601746,
+    "hash": "4f82d078a7cdffc85da5027f83192056"
   },
   "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/hooks/useHermesState.ts": {
     "mtime": 1778552424.7234535,
