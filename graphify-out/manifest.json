@@ -1,0 +1,822 @@
+{
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/postcss.config.mjs": {
+    "mtime": 1757988171.4991856,
+    "hash": "675899342e765a4d16acd75a53389101"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/next-env.d.ts": {
+    "mtime": 1757988171.4979424,
+    "hash": "ba64ff7d54714a8f64db89b1003207d8"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/sanity.cli.ts": {
+    "mtime": 1758127905.2341003,
+    "hash": "a45cea67df40efde1d7540c82138ffdd"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/tailwind.config.ts": {
+    "mtime": 1757992831.1821656,
+    "hash": "0f1c3ea0581b2b5a9879ba977dac96aa"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/sanity.config.ts": {
+    "mtime": 1758127905.2317414,
+    "hash": "63c33dec082f1da8e59322c7bc56dd03"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/ecosystem.config.js": {
+    "mtime": 1773635763.9425237,
+    "hash": "596c3e512ced635d87e6491c4229295c"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/eslint.config.mjs": {
+    "mtime": 1757988171.4989197,
+    "hash": "f1e80e839db34357a0e228efe227e759"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/next.config.ts": {
+    "mtime": 1774026649.693017,
+    "hash": "eebfc55f695deabafcb8e1039e21463b"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/palette_swatch.py": {
+    "mtime": 1778552424.6244648,
+    "hash": "e872466df78a66a6950e03756bb5e53f"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/seed-sanity-services.ts": {
+    "mtime": 1766491397.9172022,
+    "hash": "b0c5f043c999d6e2b198d11389d50f1b"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/seed-supabase.ts": {
+    "mtime": 1766426890.425278,
+    "hash": "a9d7fae78f1fba6f890a252c4b5b919c"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/apply-migration.ts": {
+    "mtime": 1778552424.7071657,
+    "hash": "93b3bfb90ed7d4e8b078f38fe21af4ed"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/middleware.ts": {
+    "mtime": 1773622751.8966076,
+    "hash": "0c654257daa457a9992f9fd0900cf65a"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/browser.ts": {
+    "mtime": 1764535380.445215,
+    "hash": "44da0864d084bcc216f912ee0591808b"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/client.ts": {
+    "mtime": 1764535380.445106,
+    "hash": "03e60357e1d5a48063a17d30e29c5021"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/models.ts": {
+    "mtime": 1764535380.4452603,
+    "hash": "8f1f9f0b2a81c2720a2ad44305e728f9"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/commonInputTypes.ts": {
+    "mtime": 1764535380.4453077,
+    "hash": "07df011f7ee363b50479f4d7cdabcac1"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/enums.ts": {
+    "mtime": 1764535380.4451191,
+    "hash": "fa6c58ad2d5526df3ff4f7e351d5f2f2"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/internal/class.ts": {
+    "mtime": 1764535380.4462693,
+    "hash": "51461297bb219edfe02c24e0a6f6b010"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/internal/prismaNamespace.ts": {
+    "mtime": 1764535380.446395,
+    "hash": "983b25d709bdfe528000238361f76148"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/internal/prismaNamespaceBrowser.ts": {
+    "mtime": 1764535380.4462266,
+    "hash": "7095e2d02ee064d84ac54e94085c67fc"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/models/Customer.ts": {
+    "mtime": 1764535380.4460196,
+    "hash": "9ac60f95041f19ffd7ade7bacb7503d5"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/models/User.ts": {
+    "mtime": 1764535380.4459817,
+    "hash": "e794a77e0efa9611dd754459c3159b28"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/layout.tsx": {
+    "mtime": 1774042465.8277485,
+    "hash": "3dd4018f770ab76042385f12296f2b0f"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/page.tsx": {
+    "mtime": 1778138072.3839965,
+    "hash": "6471ca5a428a7a9fd0aacee2346028c7"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/studio/[[...tool]]/page.tsx": {
+    "mtime": 1758127905.229047,
+    "hash": "6fa539b6cad86c5233773198a87810af"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/virtual-office/page.tsx": {
+    "mtime": 1778138072.3876102,
+    "hash": "a99b4aceecac504feb2765ecfd708d2f"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/plan/[id]/PlanStatusClient.tsx": {
+    "mtime": 1778552424.717251,
+    "hash": "0f7f32b9aa20d50afd7e7ff453be6a83"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/plan/[id]/page.tsx": {
+    "mtime": 1778552424.7177882,
+    "hash": "a397d202564fa5c15b2a76934cb103f1"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/plan/[id]/preview/page.tsx": {
+    "mtime": 1778552424.7182827,
+    "hash": "afbcc09e6530f49e6e2dd88e0bbe632e"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/agency/layout.tsx": {
+    "mtime": 1775316919.1839507,
+    "hash": "2426c20aa1a34579c0fea27f155f49dd"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/agency/page.tsx": {
+    "mtime": 1778138079.4152849,
+    "hash": "aa8f6498bf235c7a1bfaf2e9b04e2c18"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/admin/invoice/[userId]/page.tsx": {
+    "mtime": 1764535334.9443219,
+    "hash": "107d75e62359eda44a96ec6013b3bda6"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/about/page.tsx": {
+    "mtime": 1766499847.4812708,
+    "hash": "690974ccf46c495da1d207447a4a1da1"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/layout.tsx": {
+    "mtime": 1758854079.2597418,
+    "hash": "76944c6dfc859308866585c92cd39775"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/page.tsx": {
+    "mtime": 1764206995.4097044,
+    "hash": "74745d192be77110f074f27f78fa8c6e"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/faq/page.tsx": {
+    "mtime": 1764042260.6512544,
+    "hash": "41fc17521826508a53b4f7c3e505ef55"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/setup/page.tsx": {
+    "mtime": 1764040426.3153422,
+    "hash": "8f0d2cbb7da565c65f7ac374a9486ea1"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/portfolio/page.tsx": {
+    "mtime": 1764137846.0462248,
+    "hash": "a1084acb1d920c109ef24be031b90744"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/[slug]/page.tsx": {
+    "mtime": 1764471953.1598387,
+    "hash": "699988831c86edf1dd8a5562719614b7"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/debug/page.tsx": {
+    "mtime": 1764041524.0770805,
+    "hash": "17a3ab706b99ddc3f3045ca1b199fcc4"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/growth-plan/page.tsx": {
+    "mtime": 1778138072.3823857,
+    "hash": "b294b5b7075006f66a4b2b2c41253944"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/actions/payment.ts": {
+    "mtime": 1766500257.285875,
+    "hash": "e05fdbdde09658839d49e3fe94b9eb5d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/actions/submitContact.ts": {
+    "mtime": 1764200863.6287284,
+    "hash": "9928142ca0c732d555ba450490699461"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/actions/user.ts": {
+    "mtime": 1764537737.8836308,
+    "hash": "f82cc1eaffe289633c2a1b20f158b52a"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/generate-strategy/route.ts": {
+    "mtime": 1766498599.8416083,
+    "hash": "1c1248dc8bb645f0d230ebb6d5865bbe"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/checkout-growth-plan/route.ts": {
+    "mtime": 1778552424.7114992,
+    "hash": "f2cf740268a448b5ac027ca01340e022"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/send-quote/route.ts": {
+    "mtime": 1766454969.4845655,
+    "hash": "6285c19c64987fa2312f14b6a7cc5d94"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/chat/route.ts": {
+    "mtime": 1766452585.3146217,
+    "hash": "0fdcc0501046a758e27a7b94bbeac625"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/status/route.ts": {
+    "mtime": 1778552424.7147288,
+    "hash": "1f75be9bc7953eefeada395f276af60d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/move-forward/route.ts": {
+    "mtime": 1778552424.7143018,
+    "hash": "848d8f82377c4e37f2e6a365bd7b82ec"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/preview/route.ts": {
+    "mtime": 1778552424.714523,
+    "hash": "f9ed48140f006cf77601cc85cc70612d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/checkout/route.ts": {
+    "mtime": 1766500072.8231275,
+    "hash": "daeefdc91c2bc85eb5df4d95e05437e9"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/growth-plan/submit/route.ts": {
+    "mtime": 1778552424.7125375,
+    "hash": "0602bee5366eb57d7b70f21852b03873"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/growth-plan/progress/route.ts": {
+    "mtime": 1778552424.7118773,
+    "hash": "65bb8fd1886a5658164f2f327140759a"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/growth-plan/start/route.ts": {
+    "mtime": 1778552424.7121341,
+    "hash": "20b8241b2a546e5293a5be20bd54e615"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/request-quote/route.ts": {
+    "mtime": 1764486526.511811,
+    "hash": "a1c361efacbf27a0caa2eca146d79230"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/hermes/state/route.ts": {
+    "mtime": 1778559765.1726558,
+    "hash": "43618d0652f823a9408a1f7ad05bee5a"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/hermes/callback/route.ts": {
+    "mtime": 1778552424.7128894,
+    "hash": "c39e47d2f7221d6c5c19a555c2917d43"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/newsletter/subscribe/route.ts": {
+    "mtime": 1778552424.713672,
+    "hash": "45081841daeaf43e9fc1843a82733270"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/webhooks/stripe/route.ts": {
+    "mtime": 1778552424.7165306,
+    "hash": "61ac0d42123aadb72acffb421b028e8c"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/page.tsx": {
+    "mtime": 1778138072.3870544,
+    "hash": "dbea334dad9ba0aa24dd45e0ae9facfa"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/[slug]/page.tsx": {
+    "mtime": 1778138072.3859186,
+    "hash": "4f502297b11f05bad881d3aeb3ff53ed"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/structure.ts": {
+    "mtime": 1758127926.2078707,
+    "hash": "becf47858c8f085ada4bb826870f582f"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/env.ts": {
+    "mtime": 1778552424.725318,
+    "hash": "9f464157ff5be561ce7321f8d919d006"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/categoryType.ts": {
+    "mtime": 1758127926.2017713,
+    "hash": "6273b82563c9b46c3969c6ecb094abcf"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/faqType.ts": {
+    "mtime": 1758615940.6886177,
+    "hash": "bb18a892060aa3eaf6b34075d47de5bd"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/blockContentType.ts": {
+    "mtime": 1758127926.1992724,
+    "hash": "5385834cd96392acc75b43e479e32818"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/chatLogType.ts": {
+    "mtime": 1764472413.8936248,
+    "hash": "45e77e4f54514d1d63f880a33bb998bc"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/testimonialType.ts": {
+    "mtime": 1758133213.5726435,
+    "hash": "071cecbfb97031aa0fe8bd96739261ea"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/authorType.ts": {
+    "mtime": 1758127926.19695,
+    "hash": "9158a01a7a3cc5f469bad8b7e846f5d2"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/contactType.ts": {
+    "mtime": 1764201620.0225325,
+    "hash": "abdd17ec1848b7f1a0d88bdaaa3aea0e"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/systemContextType.ts": {
+    "mtime": 1764472415.9410052,
+    "hash": "909d1ec8daaff9103d5542026a4db58d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/postType.ts": {
+    "mtime": 1758127926.2037435,
+    "hash": "8bddc06c148a6e95b5863c1e57cf7618"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/blogType.ts": {
+    "mtime": 1758854062.834681,
+    "hash": "4148818df1ab22f448c015bb1727ae79"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/index.ts": {
+    "mtime": 1764472417.8452191,
+    "hash": "8043a0a307e7b457bae7905e272db918"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/serviceType.ts": {
+    "mtime": 1778138072.3970919,
+    "hash": "b21304a8f0851cbcffae8e80b2e11ac5"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/lib/image.ts": {
+    "mtime": 1758127926.1941247,
+    "hash": "a3977f08bd8338148d6f6ecad8db8392"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/lib/live.ts": {
+    "mtime": 1758127926.1921756,
+    "hash": "23a060414de984b25bad60297d09b8cb"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/lib/types.ts": {
+    "mtime": 1758610684.1393983,
+    "hash": "850c44eba97aec3e3f082c9c6c625667"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/lib/client.ts": {
+    "mtime": 1778552424.7262886,
+    "hash": "069c4ae70159fbb9215c9821e0ff755a"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/VapiContext.tsx": {
+    "mtime": 1764486500.9474986,
+    "hash": "3780a3c6e51467455ca2779b93ee0b00"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/BusinessInfoSection.tsx": {
+    "mtime": 1764203187.48291,
+    "hash": "e0f2329406b99b4a51216157c53e956a"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ChatWidget.tsx": {
+    "mtime": 1773605640.262513,
+    "hash": "8d902774829c370ea5eeb74be2368363"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/QuoteOverlay.tsx": {
+    "mtime": 1766497155.7712934,
+    "hash": "f20673b4f7015bbfa72b861ce5544f59"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/AIToolsSection.tsx": {
+    "mtime": 1764471876.3708181,
+    "hash": "cc5142b80c2ffebca0880ed8892e8684"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/QuoteRequestSection.tsx": {
+    "mtime": 1764486610.4972143,
+    "hash": "8b6cc4f845803f2a914b44bca116f0b9"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/VirtualOffice.tsx": {
+    "mtime": 1778138072.3919325,
+    "hash": "b38e30a9a15593db3cd8397d322c3732"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/GrowthPlanWizard.tsx": {
+    "mtime": 1778552424.7200046,
+    "hash": "64404da09eca60b05ee60f2435604f28"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/LocationContext.tsx": {
+    "mtime": 1766495121.3949103,
+    "hash": "ed2da62b88b2c7721548e4f43fdb404f"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/FAQSection.tsx": {
+    "mtime": 1766490782.5538774,
+    "hash": "d34e04724b40f5775f19cec1ff137b4c"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/Footer.tsx": {
+    "mtime": 1764486629.256439,
+    "hash": "80ebc9db179250951595f0b30964c042"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ServicesSection.tsx": {
+    "mtime": 1778138072.391232,
+    "hash": "8588e04c30545321811fc02020fba30b"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/SplineHelix.tsx": {
+    "mtime": 1774026473.6780744,
+    "hash": "5967e3f46d6aefeda88c7aa5f396c749"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ThemeToggle.tsx": {
+    "mtime": 1758670629.1365862,
+    "hash": "c236f5ceb22462cc84b16d6a94574f0d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/TestimonialsSection.tsx": {
+    "mtime": 1758689695.8150098,
+    "hash": "8ba09be21852dab7ac77c928ea963e8a"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/HeroSection.tsx": {
+    "mtime": 1778138072.3897464,
+    "hash": "1b7d273876ef7984a6c6b57879e1538e"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/PricingSection.tsx": {
+    "mtime": 1766499849.8755937,
+    "hash": "0193e1ccfb1ca1334c5f76e633192b16"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ContactSection.tsx": {
+    "mtime": 1764038220.246484,
+    "hash": "b94ce05daa69f5f5a88ceafcfd4f3a16"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/Navigation.tsx": {
+    "mtime": 1778138072.390351,
+    "hash": "7eb4055ae15c57ba95e810ef932c9f37"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/payment/ComplianceModal.tsx": {
+    "mtime": 1764535050.7670107,
+    "hash": "640e92833b8798f0e92b7e8a0db3535c"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/DomainToggle.tsx": {
+    "mtime": 1774059771.7950008,
+    "hash": "43da4de6e1cf731b9e93551e84cab333"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/AgencyProjectsStrip.tsx": {
+    "mtime": 1778138072.3925064,
+    "hash": "bc714d19f7762f6122085dd537f1b8be"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/ProjectFrame.tsx": {
+    "mtime": 1775317313.4808755,
+    "hash": "a61d2652f957fd08e8e20f338e256f06"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/AgencySplitLayout.tsx": {
+    "mtime": 1777183067.0388412,
+    "hash": "555d523590503689aaa5cc4fb4e17902"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/AgencyLeftPanel.tsx": {
+    "mtime": 1775317108.7894623,
+    "hash": "38363e9c8985b01c5253a2ef170d720b"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/ThreeAgencyBackground.tsx": {
+    "mtime": 1774025648.722456,
+    "hash": "869c07fdb2fe844fe2e4b402d4f71517"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/AgencyRightPanel.tsx": {
+    "mtime": 1773605524.6626623,
+    "hash": "15662f988be15ee1e08007fc22636e3f"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/mocks/IPadMock.tsx": {
+    "mtime": 1775317201.341071,
+    "hash": "b64dcbb552b530abe72c0973910bc996"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/mocks/SaaSBrowserMock.tsx": {
+    "mtime": 1775317159.834479,
+    "hash": "6f9ef79fe99ec2e70bd40b217aa2304f"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/mocks/IPhoneMock.tsx": {
+    "mtime": 1775317231.3052418,
+    "hash": "28edb65a5db5771ce1220815f8cff27d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/infographics/FinanceCharts.tsx": {
+    "mtime": 1774059901.7870705,
+    "hash": "a0c8db8da78489afa0a59e596fa98378"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/infographics/HealthcareCharts.tsx": {
+    "mtime": 1774059844.9304242,
+    "hash": "ebbccbff90f0a239ac708e61b080b8fb"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/infographics/PlatformCharts.tsx": {
+    "mtime": 1774059925.909214,
+    "hash": "31323efc49cdaba27dc8a057ec147765"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/HelixBackbone.tsx": {
+    "mtime": 1774042358.589492,
+    "hash": "047bca52d6f2d87eba229901af843ae9"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/ActionButton.tsx": {
+    "mtime": 1774042377.0332854,
+    "hash": "924d19492bb91d4cad121843f882b2ca"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/types.ts": {
+    "mtime": 1774042285.6248193,
+    "hash": "ca7182f284a65c597dfb851d2e777fb2"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/MetricCard.tsx": {
+    "mtime": 1774042396.5690925,
+    "hash": "c7f42586e411436356beb970a0ee78a9"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/CommandCentre.tsx": {
+    "mtime": 1774042430.364617,
+    "hash": "e3a9b132de9e07798c929a30dc606415"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/registry.ts": {
+    "mtime": 1778552424.7229064,
+    "hash": "e872656c1f4f72b4908bbb0988caa45a"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/ProtoNav.tsx": {
+    "mtime": 1777183054.679481,
+    "hash": "23990fb3293b02b4fa9630b36f618cf4"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/ProtoFrame.tsx": {
+    "mtime": 1777200612.9747345,
+    "hash": "d62a6baa8d8ae7f4142dc812aa2a207b"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-02-split-screen/index.tsx": {
+    "mtime": 1777183069.6752982,
+    "hash": "3e5de9425b051ae1cee046b96ec1f7c1"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx": {
+    "mtime": 1777184706.8600607,
+    "hash": "eb7c2e7beee506f667e295f4b9f6935d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx": {
+    "mtime": 1777183806.6502092,
+    "hash": "be8f67c61230d4babcae72927fb2ef00"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-03-wireframe-v1/index.tsx": {
+    "mtime": 1777183769.7772112,
+    "hash": "49e0648aae2e685062f5ad5091c5e0fb"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-05-iso-floor/index.tsx": {
+    "mtime": 1778559765.106899,
+    "hash": "cea9cbf1c707fd6551512ae8d4a9c536"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-05-iso-floor/AgentZoneModal.tsx": {
+    "mtime": 1778552424.7204845,
+    "hash": "bad550bd58743112d6bf9c8853965301"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-05-iso-floor/BookCallModal.tsx": {
+    "mtime": 1778552424.7207491,
+    "hash": "b42d671e1bfdd4b557c53adcad009719"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-04-wireframe-v2/index.tsx": {
+    "mtime": 1777184574.3252902,
+    "hash": "c3605b7c53866494a60d0b168efc741d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/hooks/useHermesState.ts": {
+    "mtime": 1778552424.7234535,
+    "hash": "2806350453d076e7e29021a79d76f302"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/prisma.ts": {
+    "mtime": 1778552424.7241604,
+    "hash": "bd409bbc98b0c011e38702958b320e71"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/email.ts": {
+    "mtime": 1778552424.7239633,
+    "hash": "a4c9cadec17a5f853f68597d321bc438"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/facta.ts": {
+    "mtime": 1764535076.3012156,
+    "hash": "313cea25a80c5b0d17c9800ab926a348"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/knowledge-base.ts": {
+    "mtime": 1766499854.4033787,
+    "hash": "fe779486667ae0846c13a3d9abbfe0eb"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/supabase.ts": {
+    "mtime": 1766462060.2851856,
+    "hash": "4a4fef5c81e8a2f08ef12afefe26c5c4"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/data/industries.ts": {
+    "mtime": 1778138072.3938391,
+    "hash": "06e8adaacec73def0704ff83bd33b27d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/data/agencyProjects.ts": {
+    "mtime": 1778138072.3930244,
+    "hash": "32f6e8a90ae5bc844b3ced4577691ad7"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/data/agencyDomains.ts": {
+    "mtime": 1775317274.2550478,
+    "hash": "e5254adb757c051e3fffedafe6c9a6a1"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/data/services.ts": {
+    "mtime": 1778138072.3946464,
+    "hash": "044b4eb8b307d48bb284037906e14968"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/README.md": {
+    "mtime": 1773619445.60761,
+    "hash": "c328d254270ee07afa54e67e524a82b4"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/mempalace.yaml": {
+    "mtime": 1778376902.7922802,
+    "hash": "86c352e258ce00e2bf447bd2fc9e59aa"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/Pasted markdown (2).md": {
+    "mtime": 1778284450.1867573,
+    "hash": "ab717df73a0d172e7735e655db599368"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/Pasted markdown.md": {
+    "mtime": 1778284447.8291435,
+    "hash": "3c38e2364eb80b0df7d1e02731447bca"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/AGENT_REGISTRY.md": {
+    "mtime": 1778559765.1675959,
+    "hash": "09ea22097a71815d60639c5852a81a2c"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/CHANGES.md": {
+    "mtime": 1778552424.5080378,
+    "hash": "55f0891afe2eb27675e64c509a915b3e"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/AGENTS.md": {
+    "mtime": 1778552424.5074189,
+    "hash": "cfea53941da1afbac3ab7f4b32209f50"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/CLAUDE.md": {
+    "mtime": 1778361426.6878865,
+    "hash": "da79aa9343cd2b362206f03762160abc"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/phase1-audit-action-plan.md": {
+    "mtime": 1778552424.672407,
+    "hash": "5239139a16da7dba5df2bf507f4196b3"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/frontend-blueprint-ref-04-saas_webapp_patterns.md": {
+    "mtime": 1773616720.0,
+    "hash": "0269e6e94236b28acde2d302d997f679"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/frontend-blueprint-ref-01-chrome_extension_guide.md": {
+    "mtime": 1773616720.0,
+    "hash": "4f1c77cde43ea3ecec5b31d83c4a1ee8"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/master-design-system.md": {
+    "mtime": 1773616720.0,
+    "hash": "5025fa621ae1ffef205419d27abc86c3"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/frontend-blueprint-ref-03-portfolio_implementation_plan.md": {
+    "mtime": 1773616720.0,
+    "hash": "557c94378bf63e64498aa8b8f8455459"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/SKILL.md": {
+    "mtime": 1775295839.731635,
+    "hash": "59feff44c6c8f5c106aad924585ef876"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/00-READ-ME-FIRST.txt": {
+    "mtime": 1773616720.0,
+    "hash": "bd09b6fd521693ac3c13ca60b3aad7af"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/DOWNLOAD-SUMMARY.md": {
+    "mtime": 1773616720.0,
+    "hash": "77c0c7e8604f0742b7484884177358a6"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/frontend-blueprint-ref-02-design_system.md": {
+    "mtime": 1773616720.0,
+    "hash": "206d1e72a5dbe19ad96b604dbab8e794"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/site-architecture-audit.md": {
+    "mtime": 1778552424.6726158,
+    "hash": "b036ceb57fad3538896fa2b6845030b3"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/MASTER-PACKAGE-OVERVIEW.md": {
+    "mtime": 1773616720.0,
+    "hash": "ea4a7978cb421f7478e342b72f9d4e45"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-v2-hermes-brief.md": {
+    "mtime": 1778552424.6722233,
+    "hash": "b7c1af37cc31a1a523f69bc0c07793f5"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/FRONTEND-BLUEPRINT-INDEX.md": {
+    "mtime": 1773616720.0,
+    "hash": "35e3eb2469e0d04dbb3883defc52beb0"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/INSTALLATION_GUIDE.md": {
+    "mtime": 1773616720.0,
+    "hash": "3adfadaa0fb84b301e80bbf1f6cfde8f"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/INFRASTRUCTURE.md": {
+    "mtime": 1773721070.7890944,
+    "hash": "e1ab9b20ec3b99c19740ece8e574c9a6"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/IMPLEMENTATION_PLAN.md": {
+    "mtime": 1778552424.508349,
+    "hash": "631b062d804ac53b68a23942f56eb01d"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/frontend-blueprint-SKILL.md": {
+    "mtime": 1773616720.0,
+    "hash": "917d9094ac6720ddb14ac973afbb155e"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/website-revamp.md": {
+    "mtime": 1778138072.3789194,
+    "hash": "837f9a98f69893674a50174f617548f2"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/01-cloudflare-setup.md": {
+    "mtime": 1773721070.791707,
+    "hash": "7d69afe438ac28c3afb9b45b1114f305"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/06-dns-migration-godaddy-cloudflare.md": {
+    "mtime": 1773721070.7976294,
+    "hash": "af792e457822478e84dd43d5dd6a57f7"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/05-email-resend-config.md": {
+    "mtime": 1773721070.7965608,
+    "hash": "d9854396b52262563dd1763502f513e1"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/03-github-actions-cicd.md": {
+    "mtime": 1773721070.7938929,
+    "hash": "6cbf5e0361fa0ee84837c444406f2bd8"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/07-server-migration-troubleshooting.md": {
+    "mtime": 1773784062.63456,
+    "hash": "a5d6c5d1eed7953a172f917bcc589416"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/02-hetzner-deploy.md": {
+    "mtime": 1773721070.7925508,
+    "hash": "d03ae766d68beee755afcc37f94cff57"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/00-donportfolio-analysis.md": {
+    "mtime": 1773700649.4035213,
+    "hash": "9873876de9a77bdb291ba06fb9586799"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/04-portfolio-migration.md": {
+    "mtime": 1773721070.7955067,
+    "hash": "f782ba992cc623b8db5bb8785bf15bed"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/cloudflare-tunnel-config.yml": {
+    "mtime": 1773721070.79061,
+    "hash": "200696045b8d8df15177adfb1c7b1fc8"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/GITHUB_SECRETS_SETUP.md": {
+    "mtime": 1773721070.786862,
+    "hash": "629679ae63fc046fc17d20f3f14ed987"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/README.md": {
+    "mtime": 1777183841.179171,
+    "hash": "8cdaed5bb0af47159b39c37a2d8172c3"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/Slice 2.png": {
+    "mtime": 1773589932.1865783,
+    "hash": "605dfdfefacf0ec67984faf83734c001"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/Slice 1.png": {
+    "mtime": 1773589895.1376593,
+    "hash": "9aa7ef8dbc28c1db8efc2b65352eeab7"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/palette-swatch.png": {
+    "mtime": 1778552424.6242673,
+    "hash": "a06fc7a980b4dd53809e5201c4f0a7ce"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/floor-layout.png": {
+    "mtime": 1778552424.57301,
+    "hash": "faa9e6c35533bd7ee46d55ed54190741"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/verbaflow-logo.png": {
+    "mtime": 1778552424.6718824,
+    "hash": "dffb2e24ea025397f26591f4c242d7ba"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/floor-still-LOCKED.png": {
+    "mtime": 1778552424.6234958,
+    "hash": "4a1cf310bc2e3021554a4473c5eba641"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/style-reference.jpg": {
+    "mtime": 1778552424.6688678,
+    "hash": "e7b8da7dd63d4f880526dda29ccb0282"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/pictogram-poses.png": {
+    "mtime": 1778552424.6666906,
+    "hash": "78ee21633897079a34da9d0d67fa6fd7"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/file.svg": {
+    "mtime": 1757988171.4979753,
+    "hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/Style-reference.jpg": {
+    "mtime": 1778552424.679402,
+    "hash": "e7b8da7dd63d4f880526dda29ccb0282"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/Business-1.png": {
+    "mtime": 1758671041.0672765,
+    "hash": "6fe13d3c1025f07dc7fc63e06fce63dc"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/Business-2.png": {
+    "mtime": 1758671041.1325839,
+    "hash": "2cf5e28965c6cc63ab710037b294f823"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/bg-section-last.png": {
+    "mtime": 1758686148.4301891,
+    "hash": "cc0baa05436e99d8bf10cf07f7260743"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/logo.png": {
+    "mtime": 1757966731.4636045,
+    "hash": "dffb2e24ea025397f26591f4c242d7ba"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/vercel.svg": {
+    "mtime": 1757988171.5006678,
+    "hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/next.svg": {
+    "mtime": 1757988171.5002708,
+    "hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/globe.svg": {
+    "mtime": 1757988171.5006504,
+    "hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/window.svg": {
+    "mtime": 1757988171.5009334,
+    "hash": "a2760511c65806022ad20adf74370ff3"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/bg-section-gemini.png": {
+    "mtime": 1758685183.7897036,
+    "hash": "a9a426a8ad85c2a6b8c5e8f0a5f2182f"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/bg-section-next.png": {
+    "mtime": 1758685629.0060077,
+    "hash": "cf24bce5371a2b0c1ce787f0bcd5973c"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/hero-image.png": {
+    "mtime": 1758618045.1679204,
+    "hash": "13c67aa3c5ef0e9bdcf140616599ce08"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/agency/iso-floor.png": {
+    "mtime": 1778552424.7066092,
+    "hash": "4a1cf310bc2e3021554a4473c5eba641"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/agency-prototypes/proto-01/logo.png": {
+    "mtime": 1777182979.2189918,
+    "hash": "dffb2e24ea025397f26591f4c242d7ba"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/Futuristic_Robotic_Surgery_Scene_Generated.mp4": {
+    "mtime": 1774046783.7929618,
+    "hash": "878ec1c8f3411912cba5e41bc7f6d40c"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/hero-video-v2.mp4": {
+    "mtime": 1774046909.4084089,
+    "hash": "878ec1c8f3411912cba5e41bc7f6d40c"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/bg-video-2.mp4": {
+    "mtime": 1758688555.5725098,
+    "hash": "2136f65a8c4a2c65ea6cbac62c96eb66"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/hero-video.mp4": {
+    "mtime": 1758620842.7421243,
+    "hash": "043227838c3168bb46f6ab93b1ce3550"
+  },
+  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/bg-video-section.mp4": {
+    "mtime": 1758688555.6292539,
+    "hash": "e68c55d39acc2e71badbf37a1e94d2fc"
+  }
+}

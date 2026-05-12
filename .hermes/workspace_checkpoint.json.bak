@@ -1,9 +1,9 @@
 {
   "created": "2026-05-10T15:20:35.638237",
   "description": "Workspace checkpoint \u2014 all spaces + kanban state",
-  "last_workspace": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+  "last_workspace": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
   "settings": {
-    "default_workspace": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+    "default_workspace": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
     "onboarding_completed": true,
     "send_key": "enter",
     "show_token_usage": false,
@@ -30,98 +30,98 @@
   },
   "workspaces": [
     {
-      "path": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
       "name": "VerbaFlow 2.0",
       "icon": "\ud83c\udf10",
       "last_opened": "2026-05-10T15:05:20.358893"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/galaxy",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy",
       "name": "Galaxy (OpenClaw)",
       "icon": "\ud83c\udf0c"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/priorzap",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/priorzap",
       "name": "Aegis/PriorZap",
       "icon": "\u2695\ufe0f"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/samurai",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/samurai",
       "name": "Samurai",
       "icon": "\u2694\ufe0f"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/RT",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/RT",
       "name": "RT/Artizen",
       "icon": "\ud83c\udfa8"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/Refree",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Refree",
       "name": "Refree/Nexus Health",
       "icon": "\ud83c\udfe5"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/mllc",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/mllc",
       "name": "MLLC Foundation",
       "icon": "\ud83c\udfdb\ufe0f"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/Sanctuary",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Sanctuary",
       "name": "Sanctuary Church",
       "icon": "\u26ea"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/jack",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/jack",
       "name": "Jack/Titan",
       "icon": "\ud83e\udd16"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/Gibby",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Gibby",
       "name": "Gibby/OpenClaw",
       "icon": "\ud83d\uded2"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/Zenith",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Zenith",
       "name": "Zenith 3.0",
       "icon": "\ud83d\udcca"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/DonPortfolio",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/DonPortfolio",
       "name": "DonPortfolio",
       "icon": "\ud83d\udcbc"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/TrustOneServices",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/TrustOneServices",
       "name": "TrustOne Services",
       "icon": "\ud83d\udd27"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Verbaflow_lake",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Verbaflow_lake",
       "name": "VerbaFlow Lake (Docs)",
       "icon": "\ud83d\udcc1"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/ai-config-transfer",
+      "path": "/Users/sandeepsingh/Desktop/Project26/ai-config-transfer",
       "name": "AI Config Transfer",
       "icon": "\u2699\ufe0f"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/aqwa",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/aqwa",
       "name": "Aqwa",
       "icon": "\ud83c\udf0a"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/galaxy-Personal",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy-Personal",
       "name": "Galaxy Personal",
       "icon": "\ud83c\udf1f"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/galaxy-products",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy-products",
       "name": "Galaxy Products",
       "icon": "\ud83e\uddea"
     },
     {
-      "path": "/Users/sandeep/Desktop/Project25/Agents/RalphFree",
+      "path": "/Users/sandeepsingh/Desktop/Project26/Agents/RalphFree",
       "name": "RalphFree",
       "icon": "\ud83e\udd16"
     }
@@ -131,7 +131,7 @@
       {
         "id": "vflow2",
         "name": "VerbaFlow 2.0",
-        "path": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
         "description": "VerbaFlow LLC company website \u2014 Next.js 15, TypeScript, Tailwind, Sanity CMS, Prisma, Spline 3D, GSAP animations",
         "tech_stack": [
           "next.js",
@@ -147,7 +147,7 @@
       {
         "id": "galaxy",
         "name": "Galaxy (OpenClaw)",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/galaxy",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy",
         "description": "Galaxy multi-agent AI platform \u2014 n8n workflows, Prometheus monitoring, OpenClaw agents, Discord bot",
         "tech_stack": [
           "n8n",
@@ -161,7 +161,7 @@
       {
         "id": "priorzap",
         "name": "Aegis/PriorZap",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/priorzap",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/priorzap",
         "description": "Real-time denial prevention at point of care \u2014 healthcare insurance claim defense, Aegis mesh architecture",
         "tech_stack": [
           "python",
@@ -174,7 +174,7 @@
       {
         "id": "samurai",
         "name": "Samurai",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/samurai",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/samurai",
         "description": "Samurai browser extension \u2014 Discord bot, vision analysis, MCP server, auto-research, Airtable integration",
         "tech_stack": [
           "discord.js",
@@ -188,7 +188,7 @@
       {
         "id": "rt",
         "name": "RT/Artizen",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/RT",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/RT",
         "description": "Artizen content app \u2014 Expo/React Native, Supabase backend, social platform for art content",
         "tech_stack": [
           "expo",
@@ -201,7 +201,7 @@
       {
         "id": "refree",
         "name": "Refree/Nexus Health",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/Refree",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Refree",
         "description": "Nexus Health \u2014 Closed-loop referral completion engine for healthcare, Radix UI + Next.js",
         "tech_stack": [
           "next.js",
@@ -215,7 +215,7 @@
       {
         "id": "mllc",
         "name": "MLLC Foundation",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/mllc",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/mllc",
         "description": "MLLC nonprofit foundation website \u2014 community events, policy advocacy, action platform",
         "tech_stack": [
           "next.js",
@@ -227,7 +227,7 @@
       {
         "id": "sanctuary",
         "name": "Sanctuary Church",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/Sanctuary",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Sanctuary",
         "description": "Cross-platform church app \u2014 dual database (Firestore + Postgres), community features",
         "tech_stack": [
           "react-native",
@@ -240,7 +240,7 @@
       {
         "id": "jack",
         "name": "Jack/Titan",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/jack",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/jack",
         "description": "Titan (Jack) AI agent \u2014 persistent soul architecture, auto-messaging, Discord integration",
         "tech_stack": [
           "discord.js",
@@ -252,7 +252,7 @@
       {
         "id": "gibby",
         "name": "Gibby/OpenClaw",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/Gibby",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Gibby",
         "description": "OpenClaw grocery demand forecasting agent \u2014 Discord bot, Gemini AI, Mongoose",
         "tech_stack": [
           "discord.js",
@@ -265,7 +265,7 @@
       {
         "id": "zenith",
         "name": "Zenith 3.0",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/Zenith",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/Zenith",
         "description": "Zenith business plan dashboard \u2014 stitch SDK, analytics, data visualization",
         "tech_stack": [
           "javascript",
@@ -277,7 +277,7 @@
       {
         "id": "donportfolio",
         "name": "DonPortfolio",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/DonPortfolio",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/DonPortfolio",
         "description": "Portfolio website project",
         "tech_stack": [],
         "icon": "\ud83d\udcbc"
@@ -285,7 +285,7 @@
       {
         "id": "trustone",
         "name": "TrustOne Services",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/TrustOneServices",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/TrustOneServices",
         "description": "TrustOne services project",
         "tech_stack": [],
         "icon": "\ud83d\udd27"
@@ -293,7 +293,7 @@
       {
         "id": "verbaflow-lake",
         "name": "VerbaFlow Lake (Docs)",
-        "path": "/Users/sandeep/Desktop/Project25/Verbaflow_lake",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Verbaflow_lake",
         "description": "VerbaFlow company documents, guides, invoices, design assets, and strategy files",
         "tech_stack": [],
         "icon": "\ud83d\udcc1"
@@ -301,7 +301,7 @@
       {
         "id": "ai-config",
         "name": "AI Config Transfer",
-        "path": "/Users/sandeep/Desktop/Project25/ai-config-transfer",
+        "path": "/Users/sandeepsingh/Desktop/Project26/ai-config-transfer",
         "description": "AI tool configuration transfer scripts \u2014 setup automation for multi-tool stack",
         "tech_stack": [
           "bash",
@@ -312,7 +312,7 @@
       {
         "id": "aqwa",
         "name": "Aqwa",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/aqwa",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/aqwa",
         "description": "Aqwa \u2014 React Native app with iOS/Android, training pipeline, Jest tests",
         "tech_stack": [
           "react-native",
@@ -324,7 +324,7 @@
       {
         "id": "galaxy-personal",
         "name": "Galaxy Personal",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/galaxy-Personal",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy-Personal",
         "description": "Galaxy personal instance \u2014 local OpenClaw setup",
         "tech_stack": [
           "python",
@@ -335,7 +335,7 @@
       {
         "id": "galaxy-products",
         "name": "Galaxy Products",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/galaxy-products",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/galaxy-products",
         "description": "Galaxy products \u2014 multi-tenant setup, Apollo agent, dispatcher, shared libs",
         "tech_stack": [
           "python",
@@ -347,7 +347,7 @@
       {
         "id": "ralphfree",
         "name": "RalphFree",
-        "path": "/Users/sandeep/Desktop/Project25/Agents/RalphFree",
+        "path": "/Users/sandeepsingh/Desktop/Project26/Agents/RalphFree",
         "description": "RalphFree project",
         "tech_stack": [],
         "icon": "\ud83e\udd16"
@@ -368,7 +368,7 @@
       "priority": 0,
       "tenant": null,
       "workspace_kind": "dir",
-      "workspace_path": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
       "created_by": "user",
       "created_at": 1778441514,
       "started_at": null,
@@ -386,7 +386,7 @@
       "priority": 0,
       "tenant": null,
       "workspace_kind": "dir",
-      "workspace_path": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
       "created_by": "user",
       "created_at": 1778441519,
       "started_at": null,
@@ -404,7 +404,7 @@
       "priority": 0,
       "tenant": null,
       "workspace_kind": "dir",
-      "workspace_path": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
       "created_by": "user",
       "created_at": 1778441524,
       "started_at": null,
@@ -422,7 +422,7 @@
       "priority": 0,
       "tenant": null,
       "workspace_kind": "dir",
-      "workspace_path": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
       "created_by": "user",
       "created_at": 1778441528,
       "started_at": null,
@@ -440,7 +440,7 @@
       "priority": 0,
       "tenant": null,
       "workspace_kind": "dir",
-      "workspace_path": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
       "created_by": "user",
       "created_at": 1778441533,
       "started_at": null,
@@ -458,7 +458,7 @@
       "priority": 0,
       "tenant": null,
       "workspace_kind": "dir",
-      "workspace_path": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+      "workspace_path": "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
       "created_by": "user",
       "created_at": 1778441539,
       "started_at": null,
@@ -473,7 +473,7 @@
     "ready": 5,
     "todo": 1,
     "assignee": "default",
-    "workspace": "dir:/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0",
+    "workspace": "dir:/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0",
     "phases": {
       "phase_1_audit": [
         "t_72012843",
