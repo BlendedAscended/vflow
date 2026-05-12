@@ -44,7 +44,7 @@ export default function SplineHelix({
           onError={(e) => {
             console.error('Spline error:', e);
           }}
-          onLoad={(spline) => {
+          onLoad={() => {
             console.log('Spline scene loaded');
           }}
         />

@@ -8,7 +8,7 @@ const ACCENT_DIM = 'rgba(0,194,3,0.10)';
 const BORDER = '#E5E5E0';
 const TEXT = '#111111';
 const MUTED = '#6B7280';
-const TRACK = '#F0F0EC';
+const _TRACK = '#F0F0EC'; void _TRACK;
 
 // ─── TOP: Denial Rate Before/After Bar Chart ─────────────────────────────────
 
