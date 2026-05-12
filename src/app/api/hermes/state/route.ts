@@ -43,7 +43,9 @@ export async function GET() {
       };
 
       await emitCurrent();
-      watcher = watch(CHECKPOINT, { persistent: false }, () => { emitCurrent(); });
+      if (existsSync(CHECKPOINT)) {
+        watcher = watch(CHECKPOINT, { persistent: false }, () => { emitCurrent(); });
+      }
       keepAlive = setInterval(() => { ping(controller); }, 15000);
     },
     cancel() {
