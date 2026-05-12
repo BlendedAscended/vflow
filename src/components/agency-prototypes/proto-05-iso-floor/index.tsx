@@ -94,7 +94,17 @@ export default function IsoFloor() {
   const [activeZoneId, setActiveZoneId] = useState<string | null>(null);
   const [hoveredZoneId, setHoveredZoneId] = useState<string | null>(null);
   const [activeWalks, setActiveWalks] = useState<string[]>([]);
+  const [originPoint, setOriginPoint] = useState<{ x: number; y: number } | null>(null);
   const agents = useHermesState();
+
+  const openZone = (zoneId: string, e: React.MouseEvent<SVGPolygonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setOriginPoint({
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2,
+    });
+    setActiveZoneId(zoneId);
+  };
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -121,7 +131,10 @@ export default function IsoFloor() {
       ? { ...AGENT_DETAILS[activeZone.id], state: (agents[activeZone.id] ?? 'idle') as AgentState }
       : null;
 
-  const handleClose = () => setActiveZoneId(null);
+  const handleClose = () => {
+    setActiveZoneId(null);
+    setOriginPoint(null);
+  };
 
   return (
     <section className={styles.stage}>
@@ -229,7 +242,7 @@ export default function IsoFloor() {
               key={zone.id}
               points={zone.points}
               className={styles.zone}
-              onClick={() => setActiveZoneId(zone.id)}
+              onClick={(e) => openZone(zone.id, e)}
               onMouseEnter={() => setHoveredZoneId(zone.id)}
               onMouseLeave={() =>
                 setHoveredZoneId((prev) => (prev === zone.id ? null : prev))
@@ -241,6 +254,11 @@ export default function IsoFloor() {
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
+                  const rect = (e.currentTarget as SVGPolygonElement).getBoundingClientRect();
+                  setOriginPoint({
+                    x: rect.left + rect.width / 2,
+                    y: rect.top + rect.height / 2,
+                  });
                   setActiveZoneId(zone.id);
                 }
               }}
@@ -263,8 +281,8 @@ export default function IsoFloor() {
         </div>
       </div>
 
-      <BookCallModal open={activeZoneId === 'reception'} onClose={handleClose} />
-      <AgentZoneModal open={!!activeAgent} agent={activeAgent} onClose={handleClose} />
+      <BookCallModal open={activeZoneId === 'reception'} onClose={handleClose} originPoint={originPoint} />
+      <AgentZoneModal open={!!activeAgent} agent={activeAgent} onClose={handleClose} originPoint={originPoint} />
     </section>
   );
 }

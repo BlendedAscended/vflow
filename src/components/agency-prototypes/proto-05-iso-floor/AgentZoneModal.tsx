@@ -16,6 +16,7 @@ interface AgentZoneModalProps {
   open: boolean;
   agent: AgentDetail | null;
   onClose: () => void;
+  originPoint: { x: number; y: number } | null;
 }
 
 const STATE_LABEL: Record<AgentDetail['state'], string> = {
@@ -25,7 +26,7 @@ const STATE_LABEL: Record<AgentDetail['state'], string> = {
   away: 'Off shift.',
 };
 
-export default function AgentZoneModal({ open, agent, onClose }: AgentZoneModalProps) {
+export default function AgentZoneModal({ open, agent, onClose, originPoint }: AgentZoneModalProps) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -49,7 +50,15 @@ export default function AgentZoneModal({ open, agent, onClose }: AgentZoneModalP
       aria-modal="true"
       aria-labelledby={`agent-${agent.id}-title`}
     >
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={styles.modal}
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          transformOrigin: originPoint
+            ? `${originPoint.x}px ${originPoint.y}px`
+            : '50% 50%',
+        }}
+      >
         <button
           className={styles.modalClose}
           onClick={onClose}

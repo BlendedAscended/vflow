@@ -6,9 +6,10 @@ import styles from './styles.module.css';
 interface BookCallModalProps {
   open: boolean;
   onClose: () => void;
+  originPoint: { x: number; y: number } | null;
 }
 
-export default function BookCallModal({ open, onClose }: BookCallModalProps) {
+export default function BookCallModal({ open, onClose, originPoint }: BookCallModalProps) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -32,7 +33,15 @@ export default function BookCallModal({ open, onClose }: BookCallModalProps) {
       aria-modal="true"
       aria-labelledby="book-call-title"
     >
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={styles.modal}
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          transformOrigin: originPoint
+            ? `${originPoint.x}px ${originPoint.y}px`
+            : '50% 50%',
+        }}
+      >
         <button
           className={styles.modalClose}
           onClick={onClose}
