@@ -1,0 +1,285 @@
+/* Iso Floor — interactive agency floor section */
+
+.stage {
+  position: relative;
+  width: 100%;
+  background: #0a0e19;
+  padding: 4rem 1.5rem;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #dfe2f2;
+}
+
+.header {
+  max-width: 1440px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #859490;
+  margin-bottom: 0.75rem;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4fdbc8;
+  box-shadow: 0 0 8px #4fdbc8;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.hint {
+  font-size: 0.95rem;
+  color: #bbcac6;
+  max-width: 28rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.canvas {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  aspect-ratio: 2752 / 1536;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: #0a0e19;
+  box-shadow:
+    0 24px 60px rgba(79, 219, 200, 0.08),
+    0 0 0 1px rgba(191, 201, 196, 0.12);
+}
+
+.still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hitmap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.zone {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 3;
+  cursor: pointer;
+  transition: fill 0.25s ease, stroke 0.25s ease;
+}
+
+.zone:hover,
+.zone:focus-visible {
+  fill: rgba(79, 219, 200, 0.10);
+  stroke: rgba(113, 248, 228, 0.8);
+  outline: none;
+}
+
+.zone:focus-visible {
+  stroke-dasharray: 8 4;
+}
+
+.zoneLabel {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 14, 25, 0.85);
+  backdrop-filter: blur(8px);
+  color: #dfe2f2;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1px solid rgba(113, 248, 228, 0.3);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.zoneLabel[data-visible='true'] {
+  opacity: 1;
+}
+
+/* ──── Modals ──── */
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 14, 25, 0.75);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  background: #171b27;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  max-width: 32rem;
+  width: 100%;
+  position: relative;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(113, 248, 228, 0.12);
+  animation: slideUp 0.3s ease;
+}
+
+.modalClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: transparent;
+  color: #bbcac6;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modalClose:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #dfe2f2;
+}
+
+.modalNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: #4fdbc8;
+  color: #003731;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.modalTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #dfe2f2;
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.modalSubtitle {
+  font-size: 0.85rem;
+  color: #859490;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.modalBody {
+  color: #bbcac6;
+  margin: 0.75rem 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.modalKey {
+  color: #dfe2f2;
+  font-weight: 600;
+}
+
+.modalCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.5rem;
+  background: #4fdbc8;
+  color: #003731;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modalCta:hover {
+  background: #71f8e4;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(79, 219, 200, 0.25);
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(79, 219, 200, 0.08);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(113, 248, 228, 0.15);
+  font-size: 0.85rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4fdbc8;
+  box-shadow: 0 0 8px #4fdbc8;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrowDot, .statusDot { animation: none; }
+  .modal { animation: none; }
+}

@@ -34,6 +34,12 @@ const registry: ProtoEntry[] = [
     index: 4,
     component: lazy(() => import('./proto-04-wireframe-v2')),
   },
+  {
+    id: 'proto-05-iso-floor',
+    label: 'Iso Floor — Interactive',
+    index: 5,
+    component: lazy(() => import('./proto-05-iso-floor')),
+  },
 ];
 
 registry.sort((a, b) => a.index - b.index);
