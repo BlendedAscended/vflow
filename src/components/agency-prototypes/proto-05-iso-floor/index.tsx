@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
-import Image from 'next/image';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import styles from './styles.module.css';
 import BookCallModal from './BookCallModal';
 import AgentZoneModal, { type AgentDetail } from './AgentZoneModal';
@@ -101,6 +100,31 @@ export default function IsoFloor() {
   const [activeWalks, setActiveWalks] = useState<string[]>([]);
   const [originPoint, setOriginPoint] = useState<{ x: number; y: number } | null>(null);
   const { agents } = useHermesState();
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduceMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReduceMotion(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) v.play().catch(() => {});
+        else v.pause();
+      },
+      { threshold: 0.15 },
+    );
+    obs.observe(v);
+    return () => obs.disconnect();
+  }, [reduceMotion]);
 
   const openZone = (zoneId: string, e: React.MouseEvent<SVGPolygonElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -175,14 +199,30 @@ export default function IsoFloor() {
       <HeadlineStrip />
 
       <div className={styles.canvas}>
-        <Image
-          src="/agency/iso-floor.png"
-          alt="Verbaflow Agency isometric floor map showing nine zones: reception, task delegation, sales, and six numbered agent rooms"
-          fill
-          priority
-          className={styles.still}
-          sizes="(max-width: 1920px) 100vw, 1920px"
-        />
+        {reduceMotion ? (
+          // Reduced-motion: serve the static poster, no autoplay
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src="/agency/iso-floor.png"
+            alt="Verbaflow Agency isometric floor map showing nine zones: reception, task delegation, sales, and six numbered agent rooms"
+            className={styles.still}
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            className={styles.still}
+            poster="/agency/iso-floor.png"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label="Verbaflow Agency isometric floor — animated parallax loop"
+          >
+            {/* AV1/WebM source not generated — only MP4 present */}
+            <source src="/agency/iso-floor.mp4" type="video/mp4" />
+          </video>
+        )}
 
         {/* Ambient glow pulses over six hot features */}
         <div
