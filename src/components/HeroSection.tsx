@@ -63,8 +63,8 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 pt-1">
-              <Link href="/agency" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
-                See what we build
+              <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
+                Get my growth plan
               </Link>
               <button
                 onClick={() => setIsQuoteOpen(true)}
