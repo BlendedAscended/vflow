@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './styles.module.css';
 import BookCallModal from './BookCallModal';
@@ -81,10 +81,38 @@ const AGENT_DETAILS: Record<string, Omit<AgentDetail, 'state'>> = {
   },
 };
 
+const WALKING_PATHS: Array<{ id: string; from: string; to: string; d: string }> = [
+  { id: 'p-conference-architect', from: 'conference', to: 'architect',  d: 'M 1180 350 Q 1400 300 1700 350' },
+  { id: 'p-architect-designer',   from: 'architect',  to: 'designer',   d: 'M 1810 600 Q 1900 700 2400 900' },
+  { id: 'p-backend-designer',     from: 'backend',    to: 'designer',   d: 'M 2440 700 Q 2400 800 2400 900' },
+  { id: 'p-sales-delivery',       from: 'sales',      to: 'delivery',   d: 'M 1240 980 Q 1400 1100 1620 1200' },
+  { id: 'p-marketing-validator',  from: 'marketing',  to: 'validator',  d: 'M 350 1200 Q 500 1300 900 1300' },
+  { id: 'p-validator-delivery',   from: 'validator',  to: 'delivery',   d: 'M 940 1300 Q 1100 1300 1620 1300' },
+];
+
 export default function IsoFloor() {
   const [activeZoneId, setActiveZoneId] = useState<string | null>(null);
   const [hoveredZoneId, setHoveredZoneId] = useState<string | null>(null);
+  const [activeWalks, setActiveWalks] = useState<string[]>([]);
   const agents = useHermesState();
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let alive = true;
+    const tick = () => {
+      if (!alive) return;
+      const path = WALKING_PATHS[Math.floor(Math.random() * WALKING_PATHS.length)];
+      const walkId = `${path.id}::${Date.now()}`;
+      setActiveWalks((w) => [...w, walkId]);
+      setTimeout(() => setActiveWalks((w) => w.filter((id) => id !== walkId)), 2600);
+      const next = 8000 + Math.random() * 4000;
+      setTimeout(tick, next);
+    };
+    const initial = setTimeout(tick, 3000);
+    return () => { alive = false; clearTimeout(initial); };
+  }, []);
+
+  const removeWalk = (id: string) => setActiveWalks((w) => w.filter((x) => x !== id));
 
   const activeZone = ZONES.find((z) => z.id === activeZoneId) ?? null;
   const hoveredZone = ZONES.find((z) => z.id === hoveredZoneId) ?? null;
@@ -161,6 +189,42 @@ export default function IsoFloor() {
           className={styles.hitmap}
           aria-label="Interactive zones overlay"
         >
+          <defs>
+            {WALKING_PATHS.map((p) => (
+              <path key={p.id} id={p.id} d={p.d} fill="none" />
+            ))}
+          </defs>
+          {/* Always-visible faint dashed path tracks */}
+          {WALKING_PATHS.map((p) => (
+            <path
+              key={`track-${p.id}`}
+              d={p.d}
+              fill="none"
+              stroke="rgba(79, 219, 200, 0.15)"
+              strokeWidth="3"
+              strokeDasharray="10 8"
+            />
+          ))}
+          {/* Walking dots — one per active animation */}
+          {activeWalks.map((walkId) => (
+            <circle key={walkId} r="9" fill="#71f8e4" opacity="0.95">
+              <animateMotion
+                dur="2.5s"
+                repeatCount="1"
+                onEnd={() => removeWalk(walkId)}
+              >
+                <mpath href={`#${walkId.split('::')[0]}`} />
+              </animateMotion>
+              <animate
+                attributeName="opacity"
+                values="0;0.95;0.95;0"
+                keyTimes="0;0.15;0.85;1"
+                dur="2.5s"
+                repeatCount="1"
+              />
+            </circle>
+          ))}
+
           {ZONES.map((zone) => (
             <polygon
               key={zone.id}
