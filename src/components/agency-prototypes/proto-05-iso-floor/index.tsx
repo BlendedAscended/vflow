@@ -211,7 +211,6 @@ export default function IsoFloor() {
               <animateMotion
                 dur="2.5s"
                 repeatCount="1"
-                onEnd={() => removeWalk(walkId)}
               >
                 <mpath href={`#${walkId.split('::')[0]}`} />
               </animateMotion>
