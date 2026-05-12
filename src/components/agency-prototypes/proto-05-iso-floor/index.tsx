@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from './styles.module.css';
 import BookCallModal from './BookCallModal';
 import AgentZoneModal, { type AgentDetail } from './AgentZoneModal';
+import { useHermesState, type AgentState } from '@/hooks/useHermesState';
 
 type ZoneType = 'support' | 'agent';
 
@@ -83,12 +84,13 @@ const AGENT_DETAILS: Record<string, Omit<AgentDetail, 'state'>> = {
 export default function IsoFloor() {
   const [activeZoneId, setActiveZoneId] = useState<string | null>(null);
   const [hoveredZoneId, setHoveredZoneId] = useState<string | null>(null);
+  const agents = useHermesState();
 
   const activeZone = ZONES.find((z) => z.id === activeZoneId) ?? null;
   const hoveredZone = ZONES.find((z) => z.id === hoveredZoneId) ?? null;
   const activeAgent =
     activeZone?.type === 'agent' && activeZone.id in AGENT_DETAILS
-      ? { ...AGENT_DETAILS[activeZone.id], state: 'idle' as const }
+      ? { ...AGENT_DETAILS[activeZone.id], state: (agents[activeZone.id] ?? 'idle') as AgentState }
       : null;
 
   const handleClose = () => setActiveZoneId(null);

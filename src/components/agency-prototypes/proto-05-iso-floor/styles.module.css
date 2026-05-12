@@ -255,6 +255,29 @@
   font-size: 0.85rem;
 }
 
+.statusRow--busy {
+  background: rgba(79, 219, 200, 0.18);
+}
+
+.statusRow--blocked {
+  background: rgba(255, 182, 147, 0.18);
+}
+
+.statusRow--blocked .statusDot {
+  background: #ffb693;
+  box-shadow: 0 0 8px #ffb693;
+}
+
+.statusRow--away {
+  background: rgba(133, 148, 144, 0.18);
+}
+
+.statusRow--away .statusDot {
+  background: #859490;
+  box-shadow: none;
+  animation: none;
+}
+
 .statusDot {
   width: 8px;
   height: 8px;

@@ -67,7 +67,7 @@ export default function AgentZoneModal({ open, agent, onClose }: AgentZoneModalP
         <p className={styles.modalBody}>
           <span className={styles.modalKey}>Stack:</span> {agent.stack}
         </p>
-        <div className={styles.statusRow}>
+        <div className={`${styles.statusRow} ${styles[`statusRow--${agent.state}`]}`}>
           <span className={styles.statusDot} />
           <span>{STATE_LABEL[agent.state]}</span>
         </div>
