@@ -154,32 +154,32 @@ export default function IsoFloor() {
         {/* Ambient glow pulses over six hot features */}
         <div
           className={styles.ambientGlow}
-          style={{ top: '22%', left: '6%', width: 60, height: 40, animationDelay: '0s' }}
+          style={{ top: '18%', left: '4%', width: 140, height: 140, animationDelay: '0s' }}
           aria-hidden="true"
         />
         <div
           className={styles.ambientGlow}
-          style={{ top: '12%', left: '30%', width: 80, height: 40, animationDelay: '0.4s' }}
+          style={{ top: '8%', left: '28%', width: 160, height: 160, animationDelay: '0.5s' }}
           aria-hidden="true"
         />
         <div
           className={styles.ambientGlow}
-          style={{ top: '42%', left: '40%', width: 70, height: 60, animationDelay: '0.8s' }}
+          style={{ top: '38%', left: '38%', width: 150, height: 150, animationDelay: '1.0s' }}
           aria-hidden="true"
         />
         <div
           className={styles.ambientGlow}
-          style={{ top: '18%', left: '60%', width: 100, height: 60, animationDelay: '1.2s' }}
+          style={{ top: '14%', left: '58%', width: 180, height: 180, animationDelay: '1.5s' }}
           aria-hidden="true"
         />
         <div
           className={styles.ambientGlow}
-          style={{ top: '22%', left: '88%', width: 30, height: 50, animationDelay: '1.6s' }}
+          style={{ top: '18%', left: '86%', width: 120, height: 120, animationDelay: '2.0s' }}
           aria-hidden="true"
         />
         <div
           className={styles.ambientGlow}
-          style={{ top: '50%', left: '80%', width: 80, height: 80, animationDelay: '2.0s' }}
+          style={{ top: '46%', left: '78%', width: 170, height: 170, animationDelay: '2.5s' }}
           aria-hidden="true"
         />
 

@@ -303,15 +303,18 @@
 }
 
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 8px rgba(113, 248, 228, 0.4); }
-  50%      { box-shadow: 0 0 20px rgba(113, 248, 228, 0.9); }
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%      { opacity: 0.75; transform: scale(1.25); }
 }
 
 .ambientGlow {
   position: absolute;
   pointer-events: none;
   border-radius: 50%;
-  animation: glowPulse 2.4s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(113, 248, 228, 0.28) 0%, transparent 65%);
+  animation: glowPulse 3s ease-in-out infinite;
+  mix-blend-mode: screen;
+  will-change: opacity, transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
