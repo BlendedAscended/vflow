@@ -8,7 +8,7 @@ const NEXT_SLOT_LABEL = 'Today · 14:00 EST';
 const NEXT_SLOT_URL = 'https://cal.com/verbaflow';
 
 export default function StatStrip() {
-  const agents = useHermesState(); // OLD signature
+  const { agents } = useHermesState();
   const busyCount = Object.values(agents).filter((s) => s === 'busy').length;
   return (
     <div className={styles.statStrip}>

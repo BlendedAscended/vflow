@@ -541,3 +541,135 @@
 @media (max-width: 720px) {
   .statStrip { grid-template-columns: 1fr; }
 }
+
+.dashboardGrid {
+  max-width: 1920px;
+  margin: 1rem auto 0;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.rosterPanel, .activityFeed {
+  background: #171b27;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(191, 201, 196, 0.12);
+  padding: 1.25rem;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(191, 201, 196, 0.08);
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #dfe2f2;
+  letter-spacing: -0.01em;
+}
+
+.panelMeta {
+  font-size: 0.72rem;
+  color: #859490;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.rosterList {
+  display: flex;
+  flex-direction: column;
+}
+
+.rosterRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(191, 201, 196, 0.06);
+}
+.rosterRow:last-child { border-bottom: none; }
+
+.rosterDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #859490;
+}
+.rosterDot--idle    { background: #859490; }
+.rosterDot--busy    { background: #4fdbc8; box-shadow: 0 0 6px #4fdbc8; animation: pulse 2s ease-in-out infinite; }
+.rosterDot--blocked { background: #ffb693; box-shadow: 0 0 6px #ffb693; animation: pulse 1.5s ease-in-out infinite; }
+.rosterDot--away    { background: #3c4947; }
+
+.rosterMain { flex: 1; min-width: 0; }
+.rosterName { font-size: 0.9rem; font-weight: 600; color: #dfe2f2; }
+.rosterRole { font-size: 0.72rem; color: #859490; margin-top: 0.1rem; }
+
+.rosterState {
+  font-size: 0.72rem;
+  color: #bbcac6;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.activityEmpty {
+  color: #859490;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 24rem;
+  overflow-y: auto;
+}
+
+.activityRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+}
+
+.activityDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4fdbc8;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+.activity--success .activityDot { background: #A5D6A7; }
+.activity--warn .activityDot    { background: #ffb693; }
+.activity--info .activityDot    { background: #4fdbc8; }
+
+.activityMain { flex: 1; min-width: 0; }
+.activityMessage { font-size: 0.85rem; color: #dfe2f2; line-height: 1.4; }
+.activityAgent { color: #4fdbc8; font-weight: 600; }
+.activityTime {
+  font-size: 0.7rem;
+  color: #859490;
+  margin-top: 0.15rem;
+  letter-spacing: 0.03em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rosterDot--busy, .rosterDot--blocked { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .dashboardGrid { grid-template-columns: 1fr; }
+  .activityList  { max-height: 16rem; }
+}

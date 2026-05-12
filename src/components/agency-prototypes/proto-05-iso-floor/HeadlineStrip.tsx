@@ -5,7 +5,7 @@ import { useHermesState } from '@/hooks/useHermesState';
 const TOTAL_AGENTS = 6;
 
 export default function HeadlineStrip() {
-  const agents = useHermesState(); // OLD signature — Record<string, AgentState>
+  const { agents } = useHermesState(); // OLD signature — Record<string, AgentState>
   const activeCount = Object.values(agents).filter((s) => s === 'busy' || s === 'blocked').length;
   const blockedCount = Object.values(agents).filter((s) => s === 'blocked').length;
 

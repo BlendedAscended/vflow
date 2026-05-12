@@ -8,6 +8,8 @@ import AgentZoneModal, { type AgentDetail } from './AgentZoneModal';
 import StatusBar from './StatusBar';
 import HeadlineStrip from './HeadlineStrip';
 import StatStrip from './StatStrip';
+import RosterPanel from './RosterPanel';
+import ActivityFeed from './ActivityFeed';
 import { useHermesState, type AgentState } from '@/hooks/useHermesState';
 
 type ZoneType = 'support' | 'agent';
@@ -98,7 +100,7 @@ export default function IsoFloor() {
   const [hoveredZoneId, setHoveredZoneId] = useState<string | null>(null);
   const [activeWalks, setActiveWalks] = useState<string[]>([]);
   const [originPoint, setOriginPoint] = useState<{ x: number; y: number } | null>(null);
-  const agents = useHermesState();
+  const { agents } = useHermesState();
 
   const openZone = (zoneId: string, e: React.MouseEvent<SVGPolygonElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -300,6 +302,11 @@ export default function IsoFloor() {
       </div>
 
       <StatStrip />
+
+      <div className={styles.dashboardGrid}>
+        <RosterPanel />
+        <ActivityFeed />
+      </div>
 
       <BookCallModal open={activeZoneId === 'reception'} onClose={handleClose} originPoint={originPoint} />
       <AgentZoneModal open={!!activeAgent} agent={activeAgent} onClose={handleClose} originPoint={originPoint} />
