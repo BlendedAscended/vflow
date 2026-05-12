@@ -666,6 +666,81 @@ html.theme-light .waterfall-gradient {
   transform: translateY(-1px);
 }
 
+/* ── 13g.fr-inspired CTA pill (used by primary navbar Get-started) ── */
+.vf-cta-13g {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 9px 8px 9px 24px;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: #0f1f10;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  box-shadow:
+    inset 1px 2px 5px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: background 320ms cubic-bezier(.22,1,.36,1),
+              transform 320ms cubic-bezier(.22,1,.36,1),
+              box-shadow 320ms cubic-bezier(.22,1,.36,1),
+              color 320ms cubic-bezier(.22,1,.36,1);
+}
+
+.vf-cta-13g__circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #131313;
+  color: #ffffff;
+  box-shadow: inset 1px -1px 3px rgba(0, 0, 0, 0.6),
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 320ms cubic-bezier(.22,1,.36,1),
+              background 320ms cubic-bezier(.22,1,.36,1);
+}
+
+.vf-cta-13g__circle svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 320ms cubic-bezier(.22,1,.36,1);
+}
+
+.vf-cta-13g:hover {
+  background: #b8e0ba;
+  transform: translateY(-1px);
+  box-shadow:
+    inset 1px 2px 5px rgba(0, 0, 0, 0.55),
+    0 8px 24px rgba(165, 214, 167, 0.45);
+  color: #000000;
+}
+
+.vf-cta-13g:hover .vf-cta-13g__circle {
+  background: #0a0a0a;
+  transform: scale(1.06);
+}
+
+.vf-cta-13g:hover .vf-cta-13g__circle svg {
+  transform: translate(2px, -2px);
+}
+
+.vf-cta-13g:active {
+  transform: translateY(0);
+  box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.55);
+}
+
+.vf-cta-13g__shell {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 /* ── RIGHT: Glass card ── */
 .vf-hero__visual {
   display: flex;

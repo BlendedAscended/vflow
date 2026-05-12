@@ -206,12 +206,21 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center animate-slide-in-right">
-            <Link href="/growth-plan" className={`font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 ${
-              isAgency
-                ? 'bg-[#111111] text-white hover:bg-[#333333]'
-                : 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-hover hover:shadow-glow'
-            }`}>
-              Get started
+            <Link
+              href="/growth-plan"
+              className={isAgency
+                ? 'font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 bg-[#111111] text-white hover:bg-[#333333]'
+                : 'vf-cta-13g'
+              }
+            >
+              <span>Get started</span>
+              {!isAgency && (
+                <span className="vf-cta-13g__circle" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
+              )}
             </Link>
           </div>
 
@@ -285,8 +294,13 @@ const Navigation = () => {
             <Link href={hasContactSection ? "#contact" : "/#contact"} className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Contact</Link>
 
             <button className="text-left text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium py-2 px-3 rounded-2xl hover:bg-[var(--accent)] transition-all duration-300">Support</button>
-            <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-hover hover:shadow-glow w-fit">
-              Get started
+            <Link href="/growth-plan" className="vf-cta-13g w-fit">
+              <span>Get started</span>
+              <span className="vf-cta-13g__circle" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
             </Link>
           </div>
         </div>

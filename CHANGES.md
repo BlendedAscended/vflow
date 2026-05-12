@@ -1,3 +1,17 @@
+## 2026-04-19 20:38 (UTC) - Added AI customization portability guide for Claude, Copilot, and Antigravity
+
+**Changes:**
+- Added `docs/AI-CUSTOMIZATION-PORTABILITY.md` with a practical migration plan for instructions, skills, MCP servers, and plugin-style customizations
+- Documented how Copilot combines multiple instruction files and how to avoid conflicting or duplicated always-on context
+- Added step-by-step guidance for porting Claude skills and a customized sales plugin into Copilot and Antigravity
+
+## 2026-04-19 05:21 (UTC) - Unified all agent instruction files to the master Claude context
+
+**Changes:**
+- Replaced `AGENT.md`, `ANTIGRAVITY.md`, `KIRO.md`, `.github/copilot-instructions.md`, and `docs/ai/CODE-STANDARDS.md` with the same master instruction body from `CLAUDE.md`
+- Replaced `.cursor/rules/agent.mdc` with the same master instruction body while preserving Cursor frontmatter
+- Removed the prior split adapter model so the repository now uses one mirrored instruction context across supported agent surfaces
+
 ## 2026-04-17 - Hide glass card visual panel and "No credit card required" text
 
 **Changes:**
