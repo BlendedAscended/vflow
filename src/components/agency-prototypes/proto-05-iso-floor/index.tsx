@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import styles from './styles.module.css';
 import BookCallModal from './BookCallModal';
@@ -106,6 +106,17 @@ export default function IsoFloor() {
     setActiveZoneId(zoneId);
   };
 
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 30 }, () => ({
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+        delay: Math.random() * 4,
+        size: 2 + Math.random() * 2,
+      })),
+    [],
+  );
+
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let alive = true;
@@ -138,6 +149,22 @@ export default function IsoFloor() {
 
   return (
     <section className={styles.stage}>
+      <div className={styles.particleLayer} aria-hidden="true">
+        {particles.map((p, i) => (
+          <span
+            key={i}
+            className={styles.particle}
+            style={{
+              top: `${p.top}%`,
+              left: `${p.left}%`,
+              width: p.size,
+              height: p.size,
+              animationDelay: `${p.delay}s`,
+            }}
+          />
+        ))}
+      </div>
+
       <header className={styles.header}>
         <div>
           <div className={styles.eyebrow}>

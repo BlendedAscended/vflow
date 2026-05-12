@@ -10,6 +10,8 @@
 }
 
 .header {
+  position: relative;
+  z-index: 1;
   max-width: 1440px;
   margin: 0 auto 2rem;
   display: flex;
@@ -65,6 +67,7 @@
   border-radius: 1.5rem;
   overflow: hidden;
   background: #0a0e19;
+  z-index: 1;
   box-shadow:
     /* outer ambient glow */
     0 24px 80px rgba(79, 219, 200, 0.10),
@@ -323,8 +326,32 @@
   will-change: opacity, transform;
 }
 
+/* ──── Twinkle particles ──── */
+
+.particleLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #4fdbc8;
+  opacity: 0;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; }
+  50%      { opacity: 0.4; box-shadow: 0 0 4px #4fdbc8; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .eyebrowDot, .statusDot { animation: none; }
   .modal { animation: none; }
   .ambientGlow { animation: none; opacity: 0.5; }
+  .particle { animation: none; opacity: 0.2; box-shadow: none; }
 }
