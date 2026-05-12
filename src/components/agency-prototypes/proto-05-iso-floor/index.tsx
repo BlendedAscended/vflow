@@ -6,6 +6,7 @@ import styles from './styles.module.css';
 import BookCallModal from './BookCallModal';
 import AgentZoneModal, { type AgentDetail } from './AgentZoneModal';
 import StatusBar from './StatusBar';
+import HeadlineStrip from './HeadlineStrip';
 import { useHermesState, type AgentState } from '@/hooks/useHermesState';
 
 type ZoneType = 'support' | 'agent';
@@ -168,21 +169,7 @@ export default function IsoFloor() {
 
       <StatusBar />
 
-      <header className={styles.header}>
-        <div>
-          <div className={styles.eyebrow}>
-            <span className={styles.eyebrowDot} />
-            <span>The agency floor · live</span>
-          </div>
-          <h2 className={styles.title}>
-            Step inside the agency.
-          </h2>
-        </div>
-        <p className={styles.hint}>
-          Click any zone. Book a discovery call at reception, or open an agent room to see who is
-          running what right now.
-        </p>
-      </header>
+      <HeadlineStrip />
 
       <div className={styles.canvas}>
         <Image
