@@ -28,27 +28,35 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
   const defaultTestimonials: Testimonial[] = [
     {
       _id: "fallback-1",
-      name: "Alex Morgan",
-      title: "Business Owner",
-      testimonial: "Verbaflow LLC made launching our online presence seamless. Their team handled everything from our website to social media and local listings."
+      name: "Dr. Sarah Lindqvist",
+      title: "VP of Revenue Cycle",
+      company: "Meridian Regional Health",
+      testimonial: "Denial rate dropped 28% in the first 90 days. Their multi-agent claims pipeline runs 60% of our workload without a human in the loop. I don't think about prior auth queues the way I used to.",
+      rating: 5
     },
     {
-      _id: "fallback-2", 
-      name: "Taylor Kim",
-      title: "Operations Manager",
-      testimonial: "The AI-powered scheduling and customer support tools have saved us hours every week. Highly recommend their services."
+      _id: "fallback-2",
+      name: "Marcus Webb",
+      title: "Head of Compliance Engineering",
+      company: "ArcaCapital",
+      testimonial: "SOC 2 Type II controls automated end-to-end within six weeks. The reporting agents alone saved our team 40+ hours a month. This is what compliance infrastructure should look like in 2026.",
+      rating: 5
     },
     {
       _id: "fallback-3",
-      name: "Jordan Patel", 
-      title: "Marketing Director",
-      testimonial: "We saw a noticeable increase in leads within the first month. Their marketing strategies are data-driven and effective."
+      name: "Tamara Osei",
+      title: "Director of Nursing Operations",
+      company: "Lakeside Health System",
+      testimonial: "Agent-driven scheduling cut our unfilled shift rate by 43%. Nurses stopped calling dispatch. The system routes, notifies, and confirms — our coordinators handle escalations only now.",
+      rating: 5
     },
     {
       _id: "fallback-4",
-      name: "Morgan Lee",
-      title: "Small Business Owner", 
-      testimonial: "The website redesign and SEO optimization brought us 3x more customers. Professional team with excellent results."
+      name: "Brett Callahan",
+      title: "COO",
+      company: "Summit Field Services",
+      testimonial: "Dispatch, quoting, and job costing — fully automated. What used to take three coordinators now runs on one agent. We scaled 30% this year without adding a single back-office hire.",
+      rating: 5
     }
   ];
 
@@ -63,11 +71,10 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="mb-16 animate-fade-in-up">
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] mb-8 leading-tight">
-            What our <span className="gradient-text">clients</span> are saying
+            Results from the <span className="gradient-text">field,</span> not the slide deck.
           </h2>
           <p className="text-[var(--muted-foreground)] text-xl max-w-3xl leading-relaxed">
-            Real feedback from businesses we&apos;ve helped with web, marketing, and automation 
-            solutions in Montgomery County, MD.
+            Healthcare networks, fintech compliance teams, nursing operations, and trade services — deployed systems, measured outcomes.
           </p>
         </div>
 

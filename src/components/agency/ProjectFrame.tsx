@@ -6,7 +6,9 @@ import type { AgencyDomain } from '../../data/agencyDomains';
 import { HealthcareTopChartV2, HealthcareBottomChart } from './infographics/HealthcareCharts';
 import { FinanceTopChart, FinanceBottomChart, UMDChart, CDSChart } from './infographics/FinanceCharts';
 import { PlatformTopChart, PlatformBottomChart } from './infographics/PlatformCharts';
-import ThreeAgencyBackground from './ThreeAgencyBackground';
+import SaaSBrowserMock from './mocks/SaaSBrowserMock';
+import IPadMock from './mocks/IPadMock';
+import IPhoneMock from './mocks/IPhoneMock';
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; style?: React.CSSProperties }>> = {
   Heart,
@@ -14,13 +16,11 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number; style?: Reac
   Layers,
 };
 
-// Which domain IDs get infographic treatment
 const TOP_CHART: Record<string, React.ComponentType> = {
   healthcare: HealthcareTopChartV2,
   finance:    FinanceTopChart,
   platform:   PlatformTopChart,
 };
-// Extra charts rendered between metrics grid and bottom chart
 const MID_CHARTS: Record<string, React.ComponentType[]> = {
   finance: [UMDChart, CDSChart],
 };
@@ -50,28 +50,17 @@ export default function ProjectFrame({ domain, isActive }: ProjectFrameProps) {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className="rounded-2xl overflow-hidden transition-all duration-300"
       style={{
-        border: isActive ? `1px solid ${domain.accent}40` : '1px solid var(--agency-border)',
+        border:     isActive ? `1px solid ${domain.accent}30` : '1px solid var(--agency-border)',
         background: 'var(--agency-bg-card)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        boxShadow: isActive
-          ? `0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px ${domain.accent}20`
-          : '0 8px 32px rgba(0,0,0,0.4)',
         borderLeft: isActive ? `4px solid ${domain.accent}` : '4px solid transparent',
       }}
     >
-      {/* Accent top bar */}
-      <div
-        className="h-1 w-full"
-        style={{ background: `linear-gradient(90deg, ${domain.accent}, ${domain.accent}40)` }}
-      />
-
       <div className="p-6">
         {/* Header */}
         <div className="flex items-start gap-3 mb-5">
           <div
             className="p-2.5 rounded-xl flex-shrink-0"
-            style={{ backgroundColor: `${domain.accent}18`, border: `1px solid ${domain.accent}30` }}
+            style={{ backgroundColor: `${domain.accent}10`, border: `1px solid ${domain.accent}20` }}
           >
             <Icon size={20} style={{ color: domain.accent }} />
           </div>
@@ -87,9 +76,9 @@ export default function ProjectFrame({ domain, isActive }: ProjectFrameProps) {
             <div
               className="ml-auto text-xs font-semibold px-2.5 py-1 rounded-full flex-shrink-0"
               style={{
-                color: domain.accent,
-                backgroundColor: `${domain.accent}18`,
-                border: `1px solid ${domain.accent}40`,
+                color:           domain.accent,
+                backgroundColor: `${domain.accent}08`,
+                border:          `1px solid ${domain.accent}30`,
               }}
             >
               Active
@@ -97,10 +86,55 @@ export default function ProjectFrame({ domain, isActive }: ProjectFrameProps) {
           )}
         </div>
 
-        {/* ── TOP INFOGRAPHIC (Healthcare / Finance only) ─────────────── */}
-        {TopChart && (
+        {/* SaaS Browser Mock wrapping all charts */}
+        <div className="mb-5">
+          <SaaSBrowserMock
+            url={domain.mockUrl}
+            appName={domain.appName}
+            navItems={domain.navItems}
+            accentColor={domain.accent}
+          >
+            {TopChart && (
+              <div className="mb-3">
+                <TopChart />
+              </div>
+            )}
+            {midCharts.map((MidChart, i) => (
+              <div key={i} className="mb-3">
+                <MidChart />
+              </div>
+            ))}
+            {BottomChart && (
+              <div className="mb-1">
+                <BottomChart />
+              </div>
+            )}
+          </SaaSBrowserMock>
+        </div>
+
+        {/* iPad mock — Healthcare only */}
+        {domain.deviceMock === 'ipad-healthcare' && (
           <div className="mb-5">
-            <TopChart />
+            <p
+              className="text-xs font-semibold uppercase tracking-widest mb-3"
+              style={{ color: 'var(--agency-text-muted)' }}
+            >
+              iPad Claims App
+            </p>
+            <IPadMock />
+          </div>
+        )}
+
+        {/* iPhone mock — Finance only */}
+        {domain.deviceMock === 'iphone-finance' && (
+          <div className="mb-5">
+            <p
+              className="text-xs font-semibold uppercase tracking-widest mb-3"
+              style={{ color: 'var(--agency-text-muted)' }}
+            >
+              Mobile Compliance App
+            </p>
+            <IPhoneMock />
           </div>
         )}
 
@@ -126,13 +160,13 @@ export default function ProjectFrame({ domain, isActive }: ProjectFrameProps) {
               }}
               className="rounded-xl p-4 text-center"
               style={{
-                border: '1px solid var(--agency-border)',
-                background: 'rgba(255,255,255,0.02)',
+                border:     '1px solid var(--agency-border)',
+                background: 'var(--agency-bg-raised, #FAFAF8)',
               }}
             >
               <p
                 className="text-2xl font-bold font-mono leading-tight mb-1"
-                style={{ color: domain.accent }}
+                style={{ color: 'var(--agency-text)' }}
               >
                 {metric.value}
               </p>
@@ -145,32 +179,6 @@ export default function ProjectFrame({ domain, isActive }: ProjectFrameProps) {
             </motion.div>
           ))}
         </div>
-
-        {/* ── MID INFOGRAPHICS (Finance: UMD + CDS) ──────────────────── */}
-        {midCharts.map((MidChart, i) => (
-          <div key={i} className="mb-5">
-            <MidChart />
-          </div>
-        ))}
-
-        {/* ── BOTTOM INFOGRAPHIC (Healthcare / Finance only) ──────────── */}
-        {BottomChart && (
-          <div className="mb-5">
-            <BottomChart />
-          </div>
-        )}
-
-        {/* 3D Visual Analysis */}
-        {isActive && (
-          <div className="mb-6 h-48 rounded-xl overflow-hidden border border-[var(--agency-border)] bg-black/20">
-            <div className="absolute top-3 left-4 z-10">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--agency-text-muted)] opacity-60">
-                3D Performance Model
-              </p>
-            </div>
-            <ThreeAgencyBackground activeDomain={domain.id} />
-          </div>
-        )}
 
         {/* Tech stack */}
         <div>
@@ -186,9 +194,9 @@ export default function ProjectFrame({ domain, isActive }: ProjectFrameProps) {
                 key={tech}
                 className="text-xs px-2.5 py-1 rounded-full"
                 style={{
-                  border: '1px solid var(--agency-border)',
-                  color: 'var(--agency-text-muted)',
-                  background: 'rgba(255,255,255,0.03)',
+                  border:     '1px solid var(--agency-border)',
+                  color:      'var(--agency-text-muted)',
+                  background: 'var(--agency-bg-raised, #FAFAF8)',
                 }}
               >
                 {tech}

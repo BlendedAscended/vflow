@@ -21,10 +21,20 @@ const Navigation = () => {
   const [isDark, setIsDark] = useState(false);
   const [services, setServices] = useState<NavigationService[]>([]);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const isAgency = pathname === '/agency';
   // Pages that have their own contact section
   const hasContactSection = isHome || pathname === '/about' || pathname === '/blog' || pathname.startsWith('/services/');
+
+  // Scroll listener for agency transparent nav
+  useEffect(() => {
+    if (!isAgency) return;
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isAgency]);
 
   // Fetch services for navigation dropdown
   useEffect(() => {
@@ -92,10 +102,23 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="w-full px-4 lg:px-8 py-2 sticky top-0 z-50 backdrop-blur-md animate-fade-in bg-[var(--section-bg-1)] text-[var(--text-primary)]">
+    <nav
+      className={`w-full px-4 lg:px-8 py-2 sticky top-0 z-50 animate-fade-in transition-all duration-300 ${
+        isAgency
+          ? scrolled
+            ? 'bg-[rgba(250,250,248,0.9)] backdrop-blur-md'
+            : 'bg-transparent'
+          : 'backdrop-blur-md bg-[var(--section-bg-1)]'
+      }`}
+      style={isAgency ? { color: '#111111' } : { color: 'var(--text-primary)' }}
+    >
       <div className="max-w-6xl mx-auto">
-        {/* Floating pill container */}
-        <div className="flex items-center justify-between bg-[var(--card-background)] border border-[var(--border)] rounded-full shadow-elegant px-8 py-4 mx-auto max-w-4xl">
+        {/* Floating pill container — transparent on /agency */}
+        <div className={`flex items-center justify-between px-8 py-4 mx-auto max-w-4xl ${
+          isAgency
+            ? 'bg-transparent border-transparent'
+            : 'bg-[var(--card-background)] border border-[var(--border)] rounded-full shadow-elegant'
+        }`}>
           {/* Logo */}
           <Link href="/" className="flex items-center animate-slide-in-left pl-1">
             <div className="w-8 h-8 relative mr-2">
@@ -107,7 +130,7 @@ const Navigation = () => {
                 priority
               />
             </div>
-            <span className="text-[var(--muted-foreground)] font-bold text-xl tracking-tight">Verbaflow LLC</span>
+            <span className={`font-bold text-xl tracking-tight ${isAgency ? 'text-[#111111]' : 'text-[var(--muted-foreground)]'}`}>Verbaflow LLC</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -118,7 +141,11 @@ const Navigation = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button className="flex items-center space-x-1 text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
+              <button className={`flex items-center space-x-1 font-medium transition-all duration-300 px-3 py-1.5 rounded-full ${
+                isAgency
+                  ? 'text-[#111111] hover:text-[#6B7280] hover:bg-[#E5E5E0]'
+                  : 'text-[var(--text-primary)] hover:text-[var(--accent-foreground)] hover:bg-[var(--accent)]'
+              }`}>
                 <span>Services</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -155,28 +182,35 @@ const Navigation = () => {
               )}
             </div>
 
-            <Link href="/about" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
-              About
-            </Link>
-
-            <Link href="/blog" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
-              Blog
-            </Link>
-
-            <Link href="/agency" className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
-              Agency
-            </Link>
-
-            <Link href={hasContactSection ? "#contact" : "/#contact"} className="text-[var(--text-primary)] hover:text-[var(--accent-foreground)] font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full hover:bg-[var(--accent)]">
-              Contact
-            </Link>
+            {[
+              { href: '/about', label: 'About' },
+              { href: '/blog', label: 'Blog' },
+              { href: '/agency', label: 'Agency' },
+              { href: hasContactSection ? '#contact' : '/#contact', label: 'Contact' },
+            ].map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`font-medium transition-all duration-300 relative px-3 py-1.5 rounded-full ${
+                  isAgency
+                    ? 'text-[#111111] hover:text-[#6B7280] hover:bg-[#E5E5E0]'
+                    : 'text-[var(--text-primary)] hover:text-[var(--accent-foreground)] hover:bg-[var(--accent)]'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
 
 
           </div>
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center animate-slide-in-right">
-            <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105">
+            <Link href="/growth-plan" className={`font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 ${
+              isAgency
+                ? 'bg-[#111111] text-white hover:bg-[#333333]'
+                : 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-hover hover:shadow-glow'
+            }`}>
               Get started
             </Link>
           </div>

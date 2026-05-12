@@ -35,11 +35,11 @@ const ContactSection = () => {
           <div className="space-y-8 animate-slide-in-left">
             <div>
               <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] mb-8 leading-tight">
-                Connect with our <span className="gradient-text">experts</span>
+                Ship your first <span className="gradient-text">agent system.</span>
               </h2>
               <p className="text-[var(--muted-foreground)] text-xl leading-relaxed">
-                Ready to grow your business online? Reach out for website design, marketing, AI Solutions, and IT
-                consulting. Our team is here to help you streamline operations and boost your digital presence.
+                We scope, architect, and deploy agentic systems for healthcare, finance, nursing, and trade operations.
+                Tell us what you&apos;re working on — we&apos;ll respond with a system map, not a sales deck.
               </p>
             </div>
           </div>

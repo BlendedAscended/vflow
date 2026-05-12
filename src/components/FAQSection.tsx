@@ -31,58 +31,58 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
   const defaultFaqs: FAQ[] = [
     {
       _id: "fallback-1",
-      question: "What solutions do you provide?",
+      question: "What kinds of companies do you build agentic systems for?",
       answer:
-        "We offer comprehensive digital solutions including custom website development, AI-powered automation tools, marketing campaigns, SEO optimization, cloud migration services, and IT consulting for local businesses in Montgomery County.",
+        "Mid-scale companies — typically $10M to $500M in revenue — in healthcare, finance, nursing operations, and trade services (HVAC, construction, field dispatch). Too complex for off-the-shelf tools, too fast-moving for big-vendor timelines. We're built for that gap.",
       category: "services"
     },
     {
       _id: "fallback-2",
-      question: "How do you boost my leads?",
+      question: "What does a typical engagement look like?",
       answer:
-        "We use a multi-channel approach including SEO optimization, social media marketing, Google Business profile optimization, targeted advertising campaigns, lead generation funnels, and conversion optimization to increase your business leads and customer acquisition.",
+        "We start with a 30-minute scoping call to map your operations and identify the highest-ROI automation path. From there: architecture review, proof-of-concept in 2 weeks, production deployment in 4–6 weeks. We don't do discovery phases that stretch into quarters.",
       category: "services"
     },
     {
       _id: "fallback-3",
-      question: "Can you handle system migrations?",
+      question: "Can your systems integrate with our existing EHR, ERP, or CRM?",
       answer:
-        "Yes, we specialize in secure cloud migrations, data transfers, system integrations, and ensuring compliance with industry standards like HIPAA and SOC. Our team handles the entire migration process with minimal downtime.",
+        "Yes. We integrate with Epic, Salesforce, NetSuite, QuickBooks, and most major platforms via API or FHIR/HL7 where applicable. If a native integration doesn't exist, we build one. No rip-and-replace required.",
       category: "technical"
     },
     {
       _id: "fallback-4",
-      question: "Is ongoing support available?",
+      question: "Is HIPAA and SOC 2 compliance built in?",
       answer:
-        "Absolutely! We provide 24/7 technical support, regular system maintenance, performance monitoring, security updates, and ongoing optimization to ensure your digital infrastructure runs smoothly and efficiently.",
-      category: "support"
+        "Every system we ship for healthcare includes a HIPAA-compliant data layer. Finance and platform systems include SOC 2 controls as standard. We don't bolt compliance on at the end — it's in the architecture from day one.",
+      category: "technical"
     },
     {
       _id: "fallback-5",
-      question: "What's your pricing model?",
+      question: "How is your pricing structured?",
       answer:
-        "We offer flexible pricing options including project-based pricing, monthly retainers, and custom packages. Contact us for a free consultation and personalized quote.",
+        "Project-based, not retainer-first. We scope a system, agree on deliverables, and price from there. Ranges are listed on the site. If your needs don't fit a tier, we'll scope a custom engagement. We're transparent about cost before you commit.",
       category: "pricing"
     },
     {
       _id: "fallback-6",
-      question: "How long does a typical project take?",
+      question: "How long does a full deployment take?",
       answer:
-        "Project timelines vary based on complexity. Simple websites take 2-4 weeks, while comprehensive digital transformations can take 2-6 months. We provide detailed timelines during consultation.",
+        "Proof-of-concept in 2 weeks. Production system in 4–8 weeks depending on integration complexity. We work in sprints, ship incrementally, and hand off running systems — not documentation packages.",
       category: "general"
     },
     {
       _id: "fallback-7",
-      question: "Do you work with small businesses?",
+      question: "What happens after the system goes live?",
       answer:
-        "Yes! We specialize in helping small and medium businesses in Montgomery County grow their digital presence. Our solutions are designed to be scalable and cost-effective.",
-      category: "general"
+        "Every deployment includes 30–90 days of post-launch monitoring. For clients who want ongoing infrastructure management, our Operate tier provides a dedicated engineering pod, continuous model optimization, and 24/7 incident response.",
+      category: "support"
     },
     {
       _id: "fallback-8",
-      question: "What makes your approach different?",
+      question: "What makes Verbaflow different from other AI agencies?",
       answer:
-        "We combine local market knowledge with cutting-edge technology. Our AI-powered tools and personalized strategies are specifically designed for Montgomery County businesses.",
+        "We don't sell strategies — we ship systems. Every engagement ends with production code running in your environment, not a report. We specialize in the domains where agents have measurable ROI: revenue cycle, compliance automation, workforce scheduling, and field operations.",
       category: "general"
     }
   ];
@@ -131,10 +131,10 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
-            Your business questions, <span className="gradient-text">answered fast</span>
+            Straight answers <span className="gradient-text">on how we work.</span>
           </h2>
           <div className="text-[var(--text-accent)] text-xl max-w-3xl mx-auto leading-relaxed text-center">
-            Get clear info on our web, marketing, and automation services.
+            No marketing speak. How we scope, build, and ship agentic systems for mid-scale companies.
           </div>
         </div>
 

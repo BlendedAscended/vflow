@@ -1,10 +1,17 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import { Zap } from 'lucide-react';
+import { Video, Zap } from 'lucide-react';
 import type { AgencyDomain } from '../../data/agencyDomains';
 import DomainToggle from './DomainToggle';
+
+const TICKER_ITEMS = [
+  'Multi-agent claims automation — zero manual reviews',
+  'Fintech compliance engine — SOC 2 ready',
+  'Revenue cycle AI deployed in 6 weeks',
+  'Self-healing infrastructure pipeline',
+  'Denial prevention across 15M+ records',
+  'Agentic system for a regional health network',
+];
 
 interface AgencyLeftPanelProps {
   domains: AgencyDomain[];
@@ -13,66 +20,140 @@ interface AgencyLeftPanelProps {
 }
 
 export default function AgencyLeftPanel({ domains, activeDomain, onDomainSelect }: AgencyLeftPanelProps) {
-  const activeDomainData = domains.find((d) => d.id === activeDomain) ?? domains[0];
+  const tickerText = TICKER_ITEMS.join(' · ') + ' · ';
 
   return (
-    <div className="flex flex-col h-full px-8 py-10" style={{ color: 'var(--agency-text)' }}>
+    <div className="flex flex-col h-full" style={{ color: 'var(--agency-text)' }}>
       {/* Brand block */}
-      <div className="mb-8">
+      <div className="px-5 pt-8 pb-5">
         <div className="flex items-center gap-2 mb-3">
           <div
             className="p-1.5 rounded-lg"
-            style={{ background: 'linear-gradient(135deg, #A78BFA20, #06B6D420)', border: '1px solid rgba(167,139,250,0.2)' }}
+            style={{ backgroundColor: '#7C3AED10', border: '1px solid #7C3AED20' }}
           >
-            <Zap size={14} style={{ color: '#A78BFA' }} />
+            <Zap size={12} style={{ color: '#7C3AED' }} />
           </div>
-          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#A78BFA' }}>
+          <span className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--agency-text-faint)' }}>
             Verbaflow Agency
           </span>
         </div>
 
-        <h1 className="text-3xl font-bold leading-tight mb-2" style={{ letterSpacing: '-0.02em' }}>
-          We build production
+        <h1
+          className="text-2xl font-bold leading-tight mb-2"
+          style={{
+            color: 'var(--agency-text)',
+            fontFamily: 'var(--font-serif-display, Georgia, serif)',
+            letterSpacing: '-0.02em',
+          }}
+        >
+          Agentic systems
           <br />
-          <span style={{ background: 'linear-gradient(90deg, #A78BFA, #06B6D4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            systems that work.
-          </span>
+          for the companies
+          <br />
+          that actually build.
         </h1>
-        <p className="text-sm leading-relaxed" style={{ color: 'var(--agency-text-muted)' }}>
-          Cross-industry AI engineering and data architecture — healthcare, finance, cloud, and beyond.
+        <p className="text-xs leading-relaxed" style={{ color: 'var(--agency-text-muted)' }}>
+          Mid-scale · Healthcare · Finance · Infrastructure
         </p>
+      </div>
+
+      {/* Social proof ticker */}
+      <div
+        style={{
+          borderTop: '1px solid var(--agency-border)',
+          borderBottom: '1px solid var(--agency-border)',
+          background: 'var(--agency-bg-raised)',
+          height: '28px',
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <div className="agency-ticker-track">
+          <span
+            style={{
+              fontSize: '9px',
+              color: 'var(--agency-text-muted)',
+              fontFamily: 'var(--font-geist-mono, monospace)',
+              whiteSpace: 'nowrap',
+              paddingRight: '0',
+            }}
+          >
+            {tickerText}{tickerText}
+          </span>
+        </div>
       </div>
 
       {/* Stats strip */}
-      <div
-        className="flex gap-4 mb-8 p-4 rounded-xl"
-        style={{ border: '1px solid var(--agency-border)', background: 'var(--agency-bg-card)' }}
-      >
-        {[
-          { value: '297', label: 'Resumes' },
-          { value: '6', label: 'Domains' },
-          { value: '18', label: 'Specializations' },
-        ].map((stat) => (
-          <div key={stat.label} className="flex-1 text-center">
-            <p className="text-xl font-bold font-mono" style={{ color: 'var(--agency-text)' }}>
-              {stat.value}
-            </p>
-            <p className="text-xs" style={{ color: 'var(--agency-text-muted)' }}>
-              {stat.label}
-            </p>
-          </div>
-        ))}
+      <div className="px-5 py-5">
+        <div className="flex gap-5">
+          {[
+            { value: '24+', label: 'Agents Shipped' },
+            { value: '$4.2M', label: 'Revenue Impact' },
+            { value: '6wk', label: 'Avg Deploy' },
+          ].map((stat) => (
+            <div key={stat.label} className="flex flex-col gap-0.5">
+              <span className="text-lg font-bold font-mono" style={{ color: 'var(--agency-text)' }}>
+                {stat.value}
+              </span>
+              <span className="text-[10px] leading-tight" style={{ color: 'var(--agency-text-muted)' }}>
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Domain toggles */}
-      <div className="mb-6">
-        <p
-          className="text-xs font-semibold uppercase tracking-widest mb-3"
-          style={{ color: 'var(--agency-text-muted)' }}
+      {/* CTA block */}
+      <div className="px-5 pb-5 space-y-2">
+        <a
+          href="https://cal.com/sandeep-singh/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-full py-2.5 px-4 rounded-lg font-semibold text-sm transition-all duration-200 hover:opacity-90"
+          style={{
+            background: 'var(--agency-cta-primary-bg)',
+            color: 'var(--agency-cta-primary-text)',
+          }}
         >
-          Select a Domain
+          Book 30 min
+        </a>
+
+        <a
+          href="https://meet.google.com/PLACEHOLDER"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg font-semibold text-sm transition-all duration-200 hover:bg-blue-50"
+          style={{
+            border: '1.5px solid #1A73E8',
+            color: '#1A73E8',
+            background: 'transparent',
+          }}
+        >
+          <Video size={14} />
+          Open Google Meet
+        </a>
+
+        <p
+          className="text-center text-[10px] leading-relaxed"
+          style={{ color: 'var(--agency-text-faint)' }}
+        >
+          No prep needed · 30 minutes · Async option available
         </p>
-        <div className="space-y-2">
+      </div>
+
+      {/* Divider */}
+      <div style={{ borderTop: '1px solid var(--agency-border)', marginBottom: '16px' }} />
+
+      {/* Domain toggles */}
+      <div className="px-5 flex-1">
+        <p
+          className="text-[10px] font-semibold uppercase tracking-widest mb-2"
+          style={{ color: 'var(--agency-text-faint)' }}
+        >
+          Domains
+        </p>
+        <div className="space-y-1.5">
           {domains.map((domain) => (
             <DomainToggle
               key={domain.id}
@@ -82,71 +163,6 @@ export default function AgencyLeftPanel({ domains, activeDomain, onDomainSelect 
             />
           ))}
         </div>
-      </div>
-
-      {/* Animated pitch text */}
-      <div
-        className="flex-1 mb-8 p-5 rounded-xl"
-        style={{ border: `1px solid ${activeDomainData.accent}25`, background: `${activeDomainData.accent}08` }}
-      >
-        <p
-          className="text-xs font-semibold uppercase tracking-widest mb-2"
-          style={{ color: activeDomainData.accent }}
-        >
-          {activeDomainData.name} · {activeDomainData.tagline}
-        </p>
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={activeDomain}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25 }}
-            className="text-sm leading-relaxed"
-            style={{ color: 'var(--agency-text-muted)' }}
-          >
-            {activeDomainData.pitchHook}
-          </motion.p>
-        </AnimatePresence>
-      </div>
-
-      {/* CTA */}
-      <div className="space-y-3">
-        <Link
-          href="/growth-plan"
-          className="block w-full text-center py-3 px-6 rounded-xl font-semibold text-sm text-white transition-all duration-300"
-          style={{
-            background: 'linear-gradient(90deg, #A78BFA, #06B6D4)',
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.boxShadow = '0 0 24px rgba(167,139,250,0.4)';
-            (e.currentTarget as HTMLElement).style.opacity = '0.92';
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.boxShadow = 'none';
-            (e.currentTarget as HTMLElement).style.opacity = '1';
-          }}
-        >
-          Work With Us
-        </Link>
-        <Link
-          href="/services"
-          className="block w-full text-center py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300"
-          style={{
-            border: '1px solid var(--agency-border)',
-            color: 'var(--agency-text-muted)',
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.2)';
-            (e.currentTarget as HTMLElement).style.color = 'var(--agency-text)';
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.borderColor = 'var(--agency-border)';
-            (e.currentTarget as HTMLElement).style.color = 'var(--agency-text-muted)';
-          }}
-        >
-          View Services
-        </Link>
       </div>
     </div>
   );

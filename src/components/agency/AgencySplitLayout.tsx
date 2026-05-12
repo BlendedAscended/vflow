@@ -33,13 +33,12 @@ export default function AgencySplitLayout() {
           overflow: 'hidden',
         }}
       >
-        {/* Left panel */}
+        {/* Left panel — narrow sidebar */}
         <div
           className="flex-shrink-0 overflow-y-auto"
           style={{
-            width: '55%',
+            width: '20%',
             height: '100%',
-            borderRight: '1px solid var(--agency-border)',
             scrollbarWidth: 'thin',
             scrollbarColor: 'var(--agency-border) transparent',
           }}
@@ -51,8 +50,8 @@ export default function AgencySplitLayout() {
           />
         </div>
 
-        {/* Right panel */}
-        <div className="flex-shrink-0" style={{ width: '45%', height: '100%' }}>
+        {/* Right panel — wide showcase */}
+        <div className="flex-shrink-0" style={{ width: '80%', height: '100%' }}>
           <AgencyRightPanel
             domains={agencyDomains}
             activeDomain={activeDomain}

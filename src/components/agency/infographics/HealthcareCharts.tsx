@@ -4,10 +4,11 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const ACCENT = '#00c203';
-const ACCENT_DIM = 'rgba(0,194,3,0.15)';
-const BORDER = 'rgba(255,255,255,0.08)';
-const TEXT = '#F3F4F6';
-const MUTED = '#64748B';
+const ACCENT_DIM = 'rgba(0,194,3,0.10)';
+const BORDER = '#E5E5E0';
+const TEXT = '#111111';
+const MUTED = '#6B7280';
+const TRACK = '#F0F0EC';
 
 // ─── TOP: Denial Rate Before/After Bar Chart ─────────────────────────────────
 
@@ -24,7 +25,7 @@ export function HealthcareTopChart() {
     <div
       ref={ref}
       className="rounded-xl p-4"
-      style={{ border: `1px solid ${BORDER}`, background: 'rgba(0,194,3,0.04)' }}
+      style={{ border: `1px solid ${BORDER}`, background: 'rgba(0,194,3,0.05)' }}
     >
       <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: ACCENT }}>
         Denial Rate Reduction
@@ -42,7 +43,7 @@ export function HealthcareTopChart() {
                 </span>
               </div>
               {/* Track */}
-              <div className="h-2.5 rounded-full w-full" style={{ background: 'rgba(255,255,255,0.06)' }}>
+              <div className="h-2.5 rounded-full w-full" style={{ background: '${TRACK}' }}>
                 <motion.div
                   className="h-full rounded-full"
                   style={{ background: bar.color, originX: 0 }}
@@ -97,7 +98,7 @@ export function HealthcareTopChartV2() {
     <div
       ref={ref}
       className="rounded-xl p-4"
-      style={{ border: `1px solid ${BORDER}`, background: 'rgba(0,194,3,0.04)' }}
+      style={{ border: `1px solid ${BORDER}`, background: 'rgba(0,194,3,0.05)' }}
     >
       <div className="flex items-center justify-between mb-4">
         <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: ACCENT }}>
@@ -118,10 +119,10 @@ export function HealthcareTopChartV2() {
               <span className="text-xs font-medium" style={{ color: TEXT }}>{bar.label}</span>
               <span className="text-base font-bold font-mono" style={{ color: bar.color }}>{bar.value}%</span>
             </div>
-            <div className="h-3 w-full rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+            <div className="h-3 w-full rounded-full overflow-hidden" style={{ background: '${TRACK}' }}>
               <motion.div
                 className="h-full rounded-full"
-                style={{ background: bar.color, boxShadow: i === 1 ? `0 0 8px ${ACCENT}60` : 'none' }}
+                style={{ background: bar.color }}
                 initial={{ width: '0%' }}
                 animate={inView ? { width: `${(bar.value / maxVal) * 100}%` } : { width: '0%' }}
                 transition={{ duration: 1.0, delay: i * 0.25, ease: [0.25, 0.1, 0.25, 1] }}
@@ -231,7 +232,7 @@ export function HealthcareBottomChart() {
           <span>Manual workload</span>
           <span>AI-handled</span>
         </div>
-        <div className="h-2 w-full rounded-full flex overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+        <div className="h-2 w-full rounded-full flex overflow-hidden" style={{ background: '${TRACK}' }}>
           <motion.div
             style={{ background: '#475569', height: '100%' }}
             initial={{ width: '100%' }}
@@ -239,7 +240,7 @@ export function HealthcareBottomChart() {
             transition={{ duration: 1.2, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           />
           <motion.div
-            style={{ background: ACCENT, height: '100%', boxShadow: `0 0 6px ${ACCENT}80` }}
+            style={{ background: ACCENT, height: '100%' }}
             initial={{ width: '0%' }}
             animate={inView ? { width: '60%' } : { width: '0%' }}
             transition={{ duration: 1.2, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}

@@ -148,7 +148,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-16 pt-10 border-t border-[var(--border)] text-center">
           <p className="text-[var(--text-accent)] text-lg">
-            © 2024 Verbaflow LLC. All rights reserved.
+            © 2026 Verbaflow LLC. All rights reserved.
           </p>
         </div>
       </div>

@@ -37,11 +37,11 @@ const HeroSection = () => {
           <div className="space-y-4 animate-slide-in-left">
             <div className="space-y-4">
               <h1 className="text-3xl lg:text-5xl xl:text-6xl font-extrabold text-[var(--text-primary)] leading-tight">
-                Connect With More of Your Best Customers{' '}
+                Autonomous Systems That Run Your Operations.{' '}
                 <span
                   className="animate-pulse-medium waterfall-gradient"
                 >
-                  Automate Your Business Growth
+                  Without Scaling Your Team.
                 </span>
               </h1>
 
@@ -53,23 +53,24 @@ const HeroSection = () => {
                       clipPath: 'polygon(1.2rem 50%, 0 0, 100% 0, 100% 100%, 0 100%)'
                     }}
                   >
-                    Serving clients in {location}
+                    Deploying for mid-scale companies in {location}
                   </div>
                 </div>
                 <p className="text-[var(--muted-foreground)] text-xl lg:text-2xl leading-relaxed max-w-3xl font-medium">
-                  We unify your entire customer journey on one intelligent platform. Every stage, from marketing to operations, is engineered to make you the premier choice for customers.              </p>
+                  We design and ship multi-agent AI systems for mid-scale companies. Healthcare, finance, and cloud-native teams — autonomous workflows in weeks, not quarters.
+                </p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 pt-1">
-              <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
-                Get my growth plan
+              <Link href="/agency" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
+                See what we build
               </Link>
               <button
                 onClick={() => setIsQuoteOpen(true)}
                 className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg text-center"
               >
-                Request Quote
+                Start a project
               </button>
             </div>
           </div>

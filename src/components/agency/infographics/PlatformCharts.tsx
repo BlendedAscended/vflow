@@ -4,10 +4,11 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const PURPLE     = '#7C3AED';
-const PURPLE_DIM = 'rgba(124,58,237,0.10)';
-const BORDER     = 'rgba(255,255,255,0.08)';
-const TEXT       = '#F3F4F6';
-const MUTED      = '#64748B';
+const PURPLE_DIM = 'rgba(124,58,237,0.06)';
+const BORDER     = '#E5E5E0';
+const TEXT       = '#111111';
+const MUTED      = '#6B7280';
+const TRACK      = '#F0F0EC';
 
 // per-category palette
 const CAT_COLORS = {
@@ -76,7 +77,7 @@ export function PlatformTopChart() {
         <div className="flex items-center gap-1.5">
           <span
             className="inline-block w-2 h-2 rounded-full animate-pulse"
-            style={{ background: '#00c203', boxShadow: '0 0 6px #00c20380' }}
+            style={{ background: '#00c203' }}
           />
           <span className="text-xs font-mono" style={{ color: MUTED }}>5 LAYERS · LIVE</span>
         </div>
@@ -230,7 +231,7 @@ export function PlatformBottomChart() {
     <div
       ref={ref}
       className="rounded-xl p-4"
-      style={{ border: `1px solid ${BORDER}`, background: 'rgba(124,58,237,0.03)' }}
+      style={{ border: `1px solid ${BORDER}`, background: PURPLE_DIM }}
     >
       <div className="flex items-center justify-between mb-4">
         <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: PURPLE }}>
@@ -262,7 +263,7 @@ export function PlatformBottomChart() {
             <div className="flex items-center gap-1.5 mb-1.5">
               <span
                 className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                style={{ background: m.color, boxShadow: `0 0 4px ${m.color}` }}
+                style={{ background: m.color }}
               />
               <span className="text-xs" style={{ color: MUTED }}>{m.label}</span>
             </div>
@@ -278,7 +279,7 @@ export function PlatformBottomChart() {
             {/* Bar */}
             <div
               className="h-1 w-full rounded-full overflow-hidden mb-1.5"
-              style={{ background: 'rgba(255,255,255,0.06)' }}
+              style={{ background: '${TRACK}' }}
             >
               <motion.div
                 className="h-full rounded-full"

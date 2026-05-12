@@ -8,50 +8,51 @@ const PricingSection = () => {
   const [selectedTier, setSelectedTier] = useState<string | undefined>(undefined);
   const pricingPlans = [
     {
-      name: "Coupe",
-      description: "Essential website and online presence setup for new businesses.",
-      price: "$49",
-      period: "/mo",
+      name: "Scope",
+      description: "System scoping, architecture, and a working proof-of-concept. Know exactly what to build before you commit.",
+      price: "$895",
+      period: " – $2,495",
       features: [
-        "Custom Website Development",
-        "Landing Page Design & Optimization",
-        "Website Maintenance & Support Plans",
-        "Google Business Profile",
-        "Portfolio Website Development"
+        "Agentic system scoping & architecture map",
+        "Use-case prioritization for your domain",
+        "Proof-of-concept deployment",
+        "Integration assessment (EHR, ERP, CRM)",
+        "30-day monitoring & documented handoff"
       ],
-      buttonText: "Start Winning",
+      buttonText: "Start scoping",
       isPopular: false
     },
     {
-      name: "Muscle",
-      description: "Advanced marketing and automation tools for growing teams.",
-      price: "$99",
-      period: "/mo",
+      name: "Deploy",
+      description: "Full production-grade agentic system. Built, tested, and handed off running in your environment.",
+      price: "$2,495",
+      period: " – $5,995",
       features: [
-        "Social Media Marketing & Campaigns",
-        "Automated Lead Response & Appointment Scheduling",
-        "Google Ads & SEO Optimization",
-        "Business Analytics & Custom Reporting"
+        "Production multi-agent system build",
+        "Custom LLM fine-tuning or RAG pipeline",
+        "HIPAA / SOC 2 compliance layer",
+        "Live observability dashboard",
+        "90-day post-deploy support"
       ],
-      buttonText: "Grow Right Now",
+      buttonText: "Get deployed",
       isPopular: false,
       badge: "Plus:"
     },
     {
-      name: "Grand Tourer",
-      description: "Full-service automation, analytics, and compliance for scaling operations.",
-      price: "$199",
-      period: "/mo",
+      name: "Operate",
+      description: "Ongoing agentic infrastructure management, multi-system orchestration, and engineering pod access.",
+      price: "$5,995",
+      period: " – $14,995",
       features: [
-        "AI Chatbot Development & Integration",
-        "Voice Command Workflow Automation",
-        "Robotics Process Automation (RPA) Consulting",
-        "Predictive Analytics & Large Language Model (LLM) Integration",
-        "Blockchain & Crypto Application Development",
-        "Data Architecture & Cybersecurity Compliance",
-        "Cloud Computing & Infrastructure Optimization"
+        "Multi-agent infrastructure management",
+        "Cross-domain agentic orchestration",
+        "Continuous model optimization",
+        "Dedicated engineering pod access",
+        "Compliance audit support (SOC 2, HIPAA, PCI DSS)",
+        "Infrastructure scaling & cost optimization",
+        "24/7 incident response SLA"
       ],
-      buttonText: "Join the Club",
+      buttonText: "Scale operations",
       isPopular: false,
       badge: "Plus:"
     }
@@ -77,10 +78,10 @@ const PricingSection = () => {
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
-            We work with winners.
+            Every engagement ships something real.
           </h2>
           <div className="text-[var(--text-accent)] text-lg sm:text-lg max-w-6xl mx-auto leading-relaxed text-center px-4 sm:px-8">
-            This membership acts as your retainer of intent: a low-barrier way to secure our expertise. The cost? It&apos;s pocket change compared to the upside. But it proves you&apos;re serious. Once you&apos;re in, we stop guessing, assess your needs, and plug you into the right network immediately. Stop standing on the sidelines. Pick a tier and let&apos;s get to work.
+            Every tier starts with a 30-minute scoping call. We map your operations, identify the highest-ROI automation paths, and build production systems — not slide decks. If we can&apos;t justify the build, we tell you before you pay for it.
           </div>
         </div>
 
@@ -135,7 +136,7 @@ const PricingSection = () => {
               </div>
               {index > 0 && (
                 <div className="mt-4 pt-3 border-t border-[var(--border)] text-[var(--text-accent)] text-xs tracking-wide">
-                  ✨ Includes everything in <strong>{pricingPlans[index - 1].name}</strong>, plus these additional capabilities.
+                  Includes everything in <strong>{pricingPlans[index - 1].name}</strong>, plus these additional capabilities.
                 </div>
               )}
             </div>
