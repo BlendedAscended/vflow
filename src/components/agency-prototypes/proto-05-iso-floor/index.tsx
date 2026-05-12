@@ -121,6 +121,38 @@ export default function IsoFloor() {
           sizes="(max-width: 1920px) 100vw, 1920px"
         />
 
+        {/* Ambient glow pulses over six hot features */}
+        <div
+          className={styles.ambientGlow}
+          style={{ top: '22%', left: '6%', width: 60, height: 40, animationDelay: '0s' }}
+          aria-hidden="true"
+        />
+        <div
+          className={styles.ambientGlow}
+          style={{ top: '12%', left: '30%', width: 80, height: 40, animationDelay: '0.4s' }}
+          aria-hidden="true"
+        />
+        <div
+          className={styles.ambientGlow}
+          style={{ top: '42%', left: '40%', width: 70, height: 60, animationDelay: '0.8s' }}
+          aria-hidden="true"
+        />
+        <div
+          className={styles.ambientGlow}
+          style={{ top: '18%', left: '60%', width: 100, height: 60, animationDelay: '1.2s' }}
+          aria-hidden="true"
+        />
+        <div
+          className={styles.ambientGlow}
+          style={{ top: '22%', left: '88%', width: 30, height: 50, animationDelay: '1.6s' }}
+          aria-hidden="true"
+        />
+        <div
+          className={styles.ambientGlow}
+          style={{ top: '50%', left: '80%', width: 80, height: 80, animationDelay: '2.0s' }}
+          aria-hidden="true"
+        />
+
         <svg
           viewBox="0 0 2752 1536"
           preserveAspectRatio="xMidYMid slice"

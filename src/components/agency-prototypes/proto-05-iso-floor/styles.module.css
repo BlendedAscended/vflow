@@ -279,7 +279,20 @@
   50%      { opacity: 0.55; }
 }
 
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(113, 248, 228, 0.4); }
+  50%      { box-shadow: 0 0 20px rgba(113, 248, 228, 0.9); }
+}
+
+.ambientGlow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: glowPulse 2.4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .eyebrowDot, .statusDot { animation: none; }
   .modal { animation: none; }
+  .ambientGlow { animation: none; opacity: 0.5; }
 }
