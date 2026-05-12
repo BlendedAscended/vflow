@@ -1,14 +1,16 @@
-## 2026-05-11 17:00 (UTC) — Cybergrowth funnel implementation plan published
+## 2026-04-19 20:38 (UTC) - Added AI customization portability guide for Claude, Copilot, and Antigravity
 
 **Changes:**
-- Created [docs/IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md): full 16 section spec for the VerbaFlow 2.0 funnel revamp.
-- Architecture decisions locked: floor plan moves from /agency to /virtual-office, /agency becomes portfolio + book a call, /homepage carries three door CTAs, wireframe delivery via Supabase Storage signed URLs.
-- Hermes pipeline `cybergrowth-wireframe` defined: 6 agents (architect, designer, backend, validator, marketing, booking) with kanban + tasks + spaces reflection in webui.
-- New Prisma models proposed: GrowthPlan, Abandonment, AgentRun, NewsletterSubscriber.
-- 10 new API routes specced. 7 new components specced. 6 new Hermes agent SOUL.md files specced.
-- Week 1 rollout schedule: 2026-05-11 through 2026-05-18.
-- Breaking changes: replaces `/api/generate-strategy` with `/api/growth-plan/submit` (kept old route as legacy for week 1).
-- No code shipped yet. Plan only.
+- Added `docs/AI-CUSTOMIZATION-PORTABILITY.md` with a practical migration plan for instructions, skills, MCP servers, and plugin-style customizations
+- Documented how Copilot combines multiple instruction files and how to avoid conflicting or duplicated always-on context
+- Added step-by-step guidance for porting Claude skills and a customized sales plugin into Copilot and Antigravity
+
+## 2026-04-19 05:21 (UTC) - Unified all agent instruction files to the master Claude context
+
+**Changes:**
+- Replaced `AGENT.md`, `ANTIGRAVITY.md`, `KIRO.md`, `.github/copilot-instructions.md`, and `docs/ai/CODE-STANDARDS.md` with the same master instruction body from `CLAUDE.md`
+- Replaced `.cursor/rules/agent.mdc` with the same master instruction body while preserving Cursor frontmatter
+- Removed the prior split adapter model so the repository now uses one mirrored instruction context across supported agent surfaces
 
 ## 2026-04-17 - Hide glass card visual panel and "No credit card required" text
 

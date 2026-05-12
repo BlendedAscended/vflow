@@ -1,3 +1,9 @@
+---
+description: Universal repository coding instructions
+globs:
+alwaysApply: true
+---
+
 # === GLOBAL CLAUDE WORKFLOW RULES (Applies to EVERY project) ===
 
 ## 1. Automatic Changelog Maintenance (CHANGES.md)
