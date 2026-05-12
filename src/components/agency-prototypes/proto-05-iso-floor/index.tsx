@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from './styles.module.css';
 import BookCallModal from './BookCallModal';
 import AgentZoneModal, { type AgentDetail } from './AgentZoneModal';
+import StatusBar from './StatusBar';
 import { useHermesState, type AgentState } from '@/hooks/useHermesState';
 
 type ZoneType = 'support' | 'agent';
@@ -164,6 +165,8 @@ export default function IsoFloor() {
           />
         ))}
       </div>
+
+      <StatusBar />
 
       <header className={styles.header}>
         <div>
