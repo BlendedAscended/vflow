@@ -4,7 +4,7 @@ import type { NextConfig } from "next";
 const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: https://js.stripe.com https://cdn.sanity.io https://*.sanity.io https://*.sanity-cdn.com https://vercel.live https://*.spline.design;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
     img-src 'self' blob: data: https://cdn.sanity.io https://*.sanity.io https://*.sanity-cdn.com https://*.stripe.com https://*.spline.design https://raw.githack.com;
     font-src 'self' https://fonts.gstatic.com;
     object-src 'none';
