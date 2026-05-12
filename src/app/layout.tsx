@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   description: "Modern websites, marketing, and AI Solutions for local businesses. Streamline operations, boost leads, and automate your workflow with expert support in Montgomery County.",
   keywords: "web development, AI Automation, digital marketing, Montgomery County, business growth",
   authors: [{ name: "Verbaflow LLC" }],
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export const viewport = {
