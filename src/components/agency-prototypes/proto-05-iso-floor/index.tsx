@@ -7,6 +7,7 @@ import BookCallModal from './BookCallModal';
 import AgentZoneModal, { type AgentDetail } from './AgentZoneModal';
 import StatusBar from './StatusBar';
 import HeadlineStrip from './HeadlineStrip';
+import StatStrip from './StatStrip';
 import { useHermesState, type AgentState } from '@/hooks/useHermesState';
 
 type ZoneType = 'support' | 'agent';
@@ -297,6 +298,8 @@ export default function IsoFloor() {
           {hoveredZone?.label ?? ''}
         </div>
       </div>
+
+      <StatStrip />
 
       <BookCallModal open={activeZoneId === 'reception'} onClose={handleClose} originPoint={originPoint} />
       <AgentZoneModal open={!!activeAgent} agent={activeAgent} onClose={handleClose} originPoint={originPoint} />

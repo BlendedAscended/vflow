@@ -476,3 +476,68 @@
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(113, 248, 228, 0.4);
 }
+
+.statStrip {
+  max-width: 1920px;
+  margin: 1.5rem auto 0;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.statCard {
+  background: #171b27;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(191, 201, 196, 0.12);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #859490;
+  font-weight: 600;
+}
+
+.statValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #dfe2f2;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.25rem;
+}
+
+.statValueAccent { color: #4fdbc8; }
+
+.statValueSmall {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #dfe2f2;
+  line-height: 1.2;
+  margin-top: 0.25rem;
+}
+
+.statSub {
+  font-size: 0.8rem;
+  color: #bbcac6;
+  margin-top: 0.5rem;
+}
+
+.statLink {
+  color: #4fdbc8;
+  text-decoration: none;
+  font-weight: 600;
+}
+.statLink:hover { color: #71f8e4; }
+
+@media (max-width: 720px) {
+  .statStrip { grid-template-columns: 1fr; }
+}
