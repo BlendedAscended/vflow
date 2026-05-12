@@ -13,7 +13,7 @@ const TEAL_DIM    = 'rgba(13,148,136,0.06)';
 const AMBER       = '#D97706';
 const AMBER_DIM   = 'rgba(217,119,6,0.06)';
 const SLATE       = '#CBD5E1';
-const _TRACK       = '#F0F0EC'; void _TRACK;
+const TRACK       = '#F0F0EC';
 
 // ─── TOP: 99.9% Reliability Arc Gauge ────────────────────────────────────────
 

@@ -21,21 +21,22 @@ const AIToolsSection = () => {
           <div className="space-y-12">
             <div className="space-y-8">
               <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] leading-tight">
-                <span className="gradient-text">AI-powered</span> customer support tools
+                <span className="gradient-text">Agents that work</span> while your team sleeps.
               </h2>
 
               <p className="text-[var(--muted-foreground)] text-xl leading-relaxed">
-                Automate scheduling, lead capture, and support with advanced AI Technology
-                designed for local businesses in Montgomery County.
+                Multi-agent systems for scheduling, intake, dispatch, and compliance — built for
+                healthcare networks, nursing operations, fintech teams, and trade service companies.
+                Not demos. Production infrastructure.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-8">
-              <Link href="/growth-plan" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
-                Get started
+              <Link href="/agency" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg text-center">
+                See live systems
               </Link>
               <Link href="/services" className="bg-[var(--card-background)] border border-[var(--border)] hover:border-[var(--accent)] text-[var(--text-primary)] font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:bg-[var(--card-background)]/20 backdrop-blur-sm text-lg text-center">
-                Learn more
+                How we build
               </Link>
             </div>
           </div>

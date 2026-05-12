@@ -61,10 +61,10 @@ export default function AgencyRightPanel({
         {/* Intro text above frames */}
         <div className="mb-2">
           <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--agency-text-muted)' }}>
-            Domain Capabilities
+            Systems Portfolio
           </p>
           <p className="text-sm mt-1" style={{ color: 'var(--agency-text-muted)' }}>
-            Scroll to explore each practice area ↓
+            Each system is live. Scroll to inspect ↓
           </p>
         </div>
 

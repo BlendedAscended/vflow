@@ -2,98 +2,98 @@
 
 import { useState } from 'react';
 import QuoteOverlay from './QuoteOverlay';
-import AnimatedHeadline from './ui/AnimatedHeadline';
-import MagneticButton from './ui/MagneticButton';
-import { useReveal } from '../hooks/useReveal';
 
 const PricingSection = () => {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [selectedTier, setSelectedTier] = useState<string | undefined>(undefined);
-
-  const cardsRef = useReveal<HTMLDivElement>(0.15);
-
   const pricingPlans = [
     {
-      name: "Coupe",
-      description: "Essential website and online presence setup for new businesses.",
-      price: "$49",
-      period: "/mo",
+      name: "Scope",
+      description: "System scoping, architecture, and a working proof-of-concept. Know exactly what to build before you commit.",
+      price: "$895",
+      period: " – $2,495",
       features: [
-        "Custom Website Development",
-        "Landing Page Design & Optimization",
-        "Website Maintenance & Support Plans",
-        "Google Business Profile",
-        "Portfolio Website Development",
+        "Agentic system scoping & architecture map",
+        "Use-case prioritization for your domain",
+        "Proof-of-concept deployment",
+        "Integration assessment (EHR, ERP, CRM)",
+        "30-day monitoring & documented handoff"
       ],
-      buttonText: "Start Winning",
-      isPopular: false,
+      buttonText: "Start scoping",
+      isPopular: false
     },
     {
-      name: "Muscle",
-      description: "Advanced marketing and automation tools for growing teams.",
-      price: "$99",
-      period: "/mo",
+      name: "Deploy",
+      description: "Full production-grade agentic system. Built, tested, and handed off running in your environment.",
+      price: "$2,495",
+      period: " – $5,995",
       features: [
-        "Social Media Marketing & Campaigns",
-        "Automated Lead Response & Appointment Scheduling",
-        "Google Ads & SEO Optimization",
-        "Business Analytics & Custom Reporting",
+        "Production multi-agent system build",
+        "Custom LLM fine-tuning or RAG pipeline",
+        "HIPAA / SOC 2 compliance layer",
+        "Live observability dashboard",
+        "90-day post-deploy support"
       ],
-      buttonText: "Grow Right Now",
+      buttonText: "Get deployed",
       isPopular: false,
-      badge: "Plus:",
+      badge: "Plus:"
     },
     {
-      name: "Grand Tourer",
-      description: "Full-service automation, analytics, and compliance for scaling operations.",
-      price: "$199",
-      period: "/mo",
+      name: "Operate",
+      description: "Ongoing agentic infrastructure management, multi-system orchestration, and engineering pod access.",
+      price: "$5,995",
+      period: " – $14,995",
       features: [
-        "AI Chatbot Development & Integration",
-        "Voice Command Workflow Automation",
-        "Robotics Process Automation (RPA) Consulting",
-        "Predictive Analytics & LLM Integration",
-        "Blockchain & Crypto Application Development",
-        "Data Architecture & Cybersecurity Compliance",
-        "Cloud Computing & Infrastructure Optimization",
+        "Multi-agent infrastructure management",
+        "Cross-domain agentic orchestration",
+        "Continuous model optimization",
+        "Dedicated engineering pod access",
+        "Compliance audit support (SOC 2, HIPAA, PCI DSS)",
+        "Infrastructure scaling & cost optimization",
+        "24/7 incident response SLA"
       ],
-      buttonText: "Join the Club",
+      buttonText: "Scale operations",
       isPopular: false,
-      badge: "Plus:",
-    },
+      badge: "Plus:"
+    }
   ];
+
+
 
   return (
     <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
-        style={{ backgroundImage: 'url(/bg-section-next.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
-      <div className="absolute top-20 right-20 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow" />
+      {/* Next background pattern with conditional opacity */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
+        style={{
+          backgroundImage: 'url(/bg-section-next.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      <div className="absolute top-20 right-20 w-64 h-64 bg-[var(--accent)]/15 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow"></div>
 
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-16">
-          <span className="vf-section-num">/ 02</span>
-          <AnimatedHeadline className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
-            We work with winners.
-          </AnimatedHeadline>
+        <div className="text-center mb-16 animate-fade-in-up">
+          <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-8 leading-tight">
+            Every engagement ships something real.
+          </h2>
           <div className="text-[var(--text-accent)] text-lg sm:text-lg max-w-6xl mx-auto leading-relaxed text-center px-4 sm:px-8">
-            This membership acts as your retainer of intent: a low-barrier way to secure our expertise.
-            Pick a tier and let&apos;s get to work.
+            Every tier starts with a 30-minute scoping call. We map your operations, identify the highest-ROI automation paths, and build production systems — not slide decks. If we can&apos;t justify the build, we tell you before you pay for it.
           </div>
         </div>
 
-        <div
-          ref={cardsRef}
-          className="vf-reveal grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4 max-w-6xl mx-auto items-start"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4 max-w-6xl mx-auto items-start">
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`vf-reveal-d${index + 1} group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 will-change-transform ${
-                index % 2 === 0
-                  ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
-                  : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
-              } ${index === 1 ? 'ring-2 ring-[var(--accent)]/70 shadow-glow scale-[1.02] hover:scale-[1.05]' : 'hover:scale-[1.02] hover:-rotate-[0.25deg]'}`}
+              className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 animate-fade-in-up will-change-transform ${index % 2 === 0
+                ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
+                : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
+                } ${index === 1 ? 'ring-2 ring-[var(--accent)]/70 shadow-glow scale-[1.02] hover:scale-[1.05]' : 'hover:scale-[1.02] hover:-rotate-[0.25deg]'}`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="mb-6">
                 <h3 className="text-3xl font-bold text-[var(--text-secondary)] mb-4">{plan.name}</h3>
@@ -106,22 +106,22 @@ const PricingSection = () => {
                   </div>
                 </div>
 
-                <MagneticButton
-                  onClick={() => { setSelectedTier(plan.name); setIsQuoteOpen(true); }}
-                  className={`relative w-full font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform mb-6 text-lg overflow-hidden ${
-                    index === 1
-                      ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow hover:scale-[1.03]'
-                      : index === 0
-                        ? 'border-2 border-[var(--accent)] text-[var(--text-accent)] bg-transparent hover:bg-[var(--accent)]/10 hover:scale-[1.03]'
-                        : 'bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03]'
-                  }`}
-                >
-                  <span className="relative z-10">
-                    {plan.buttonText} <span className="vf-arrow">→</span>
-                  </span>
-                  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ background: 'radial-gradient(120% 120% at 0% 0%, rgba(255,255,255,0.25) 0%, transparent 40%)' }} />
-                </MagneticButton>
+                <button
+                  onClick={() => {
+                    setSelectedTier(plan.name);
+                    setIsQuoteOpen(true);
+                  }}
+                  className={`relative w-full font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform mb-6 text-lg overflow-hidden ${index === 1
+                    ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-glow hover:scale-[1.03]'
+                    : index === 0
+                      ? 'border-2 border-[var(--accent)] text-[var(--text-accent)] bg-transparent hover:bg-[var(--accent)]/10 hover:scale-[1.03]'
+                      : 'bg-[var(--muted-foreground)] text-[var(--section-bg-1)] hover:scale-[1.03]'
+                    }`}>
+                  <span className="relative z-10">{plan.buttonText}</span>
+                  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
+                    background: 'radial-gradient(120% 120% at 0% 0%, rgba(255,255,255,0.25) 0%, transparent 40%)'
+                  }} />
+                </button>
               </div>
 
               <div className="space-y-3">
@@ -134,10 +134,9 @@ const PricingSection = () => {
                   </div>
                 ))}
               </div>
-
               {index > 0 && (
                 <div className="mt-4 pt-3 border-t border-[var(--border)] text-[var(--text-accent)] text-xs tracking-wide">
-                  ✨ Includes everything in <strong>{pricingPlans[index - 1].name}</strong>, plus these additional capabilities.
+                  Includes everything in <strong>{pricingPlans[index - 1].name}</strong>, plus these additional capabilities.
                 </div>
               )}
             </div>
@@ -149,13 +148,9 @@ const PricingSection = () => {
         isOpen={isQuoteOpen}
         onClose={() => setIsQuoteOpen(false)}
         initialTier={selectedTier}
-        initialPrice={
-          pricingPlans.find(p => p.name === selectedTier)?.price
-            ? `${pricingPlans.find(p => p.name === selectedTier)?.price}${pricingPlans.find(p => p.name === selectedTier)?.period}`
-            : undefined
-        }
+        initialPrice={pricingPlans.find(p => p.name === selectedTier)?.price ? `${pricingPlans.find(p => p.name === selectedTier)?.price}${pricingPlans.find(p => p.name === selectedTier)?.period}` : undefined}
       />
-    </section>
+    </section >
   );
 };
 

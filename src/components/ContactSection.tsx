@@ -2,47 +2,50 @@
 
 import { useState } from 'react';
 import { submitContact } from '../app/actions/submitContact';
-import AnimatedHeadline from './ui/AnimatedHeadline';
-import { useReveal } from '../hooks/useReveal';
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{ success: boolean; message: string } | null>(null);
-  const formRef = useReveal<HTMLDivElement>(0.15);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus(null);
+
     const formData = new FormData(e.currentTarget);
     const result = await submitContact(formData);
+
     setIsSubmitting(false);
     setStatus(result);
-    if (result.success) (e.target as HTMLFormElement).reset();
+
+    if (result.success) {
+      (e.target as HTMLFormElement).reset();
+    }
   };
 
   return (
-    <section id="contact" className="vf-ambient w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-16 lg:py-24 relative overflow-hidden">
+    <section id="contact" className="w-full bg-[var(--section-bg-1)] text-[var(--text-primary)] py-16 lg:py-24 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-10 left-10 w-64 h-64 bg-[var(--accent)]/20 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-[var(--accent)]/15 rounded-full blur-3xl animate-pulse-slow"></div>
+
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-
-          {/* Left Column */}
+          {/* Left Column - Content */}
           <div className="space-y-8 animate-slide-in-left">
-            <span className="vf-section-num">/ 05</span>
-            <AnimatedHeadline className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] mb-8 leading-tight">
-              Connect with our experts
-            </AnimatedHeadline>
-            <p className="text-[var(--muted-foreground)] text-xl leading-relaxed">
-              Ready to grow your business online? Reach out for website design, marketing, AI Solutions, and IT consulting.
-              Our team is here to streamline your operations and boost your digital presence.
-            </p>
+            <div>
+              <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] mb-8 leading-tight">
+                Ship your first <span className="gradient-text">agent system.</span>
+              </h2>
+              <p className="text-[var(--muted-foreground)] text-xl leading-relaxed">
+                We scope, architect, and deploy agentic systems for healthcare, finance, nursing, and trade operations.
+                Tell us what you&apos;re working on — we&apos;ll respond with a system map, not a sales deck.
+              </p>
+            </div>
           </div>
 
-          {/* Right Column — Contact Form */}
-          <div
-            ref={formRef}
-            className="vf-reveal bg-[var(--card-background)] rounded-3xl p-12 shadow-elegant hover:shadow-glow transition-all duration-500 border border-[var(--border)]"
-          >
+          {/* Right Column - Contact Form */}
+          <div className="bg-[var(--card-background)] rounded-3xl p-12 shadow-elegant hover:shadow-glow transition-all duration-500 border border-[var(--border)] animate-slide-in-right">
             <form onSubmit={handleSubmit} className="space-y-8">
               <div>
                 <input
@@ -56,7 +59,9 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[var(--muted-foreground)] mb-2">EMAIL ADDRESS</label>
+                <label className="block text-sm font-medium text-[var(--muted-foreground)] mb-2">
+                  EMAIL ADDRESS
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -68,7 +73,9 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-[var(--muted-foreground)] mb-2">YOUR MESSAGE</label>
+                <label className="block text-sm font-medium text-[var(--muted-foreground)] mb-2">
+                  YOUR MESSAGE
+                </label>
                 <textarea
                   name="message"
                   placeholder="Type your message..."
@@ -88,9 +95,9 @@ const ContactSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="vf-btn-magnetic w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold py-4 px-8 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold py-4 px-8 rounded-full shadow-hover hover:shadow-glow transition-all duration-300 transform hover:scale-105 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Sending...' : <>Submit <span className="vf-arrow">→</span></>}
+                {isSubmitting ? 'Sending...' : 'Submit'}
               </button>
             </form>
           </div>

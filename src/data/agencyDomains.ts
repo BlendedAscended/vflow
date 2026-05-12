@@ -28,12 +28,12 @@ export const agencyDomains: AgencyDomain[] = [
   {
     id: 'healthcare',
     name: 'Healthcare',
-    tagline: 'Clinical Floor to Balance Sheet',
+    tagline: 'Autonomous Revenue Cycle & Clinical AI',
     accent: '#00c203',
     accentVar: 'var(--color-accent-health)',
     iconName: 'Heart',
     pitchHook:
-      'We understand healthcare data from the clinical floor to the balance sheet. We build the pipelines, optimize revenue cycles, ensure compliance, and deploy AI systems that process millions of patient records at scale.',
+      'Multi-agent systems that prevent denials before they happen, close prior auth loops without human queues, and process millions of patient records with full HIPAA coverage. Deployed for regional health networks — not pilots, production.',
     metrics: [
       { value: '28%', label: 'Denial Rate Reduction', subtext: 'Automated root cause analysis' },
       { value: '60%', label: 'Claims Processing', subtext: 'Workload reduction via multi-agent AI' },
@@ -56,12 +56,12 @@ export const agencyDomains: AgencyDomain[] = [
   {
     id: 'finance',
     name: 'Finance',
-    tagline: 'Compliance-Grade AI at Scale',
+    tagline: 'Compliance-Grade Agentic Infrastructure',
     accent: '#2E75B6',
     accentVar: 'var(--color-accent-finance)',
     iconName: 'TrendingUp',
     pitchHook:
-      'Financial services need builders who understand that every line of code has compliance implications. We bring AI engineering capability combined with the discipline that regulated environments demand — SOC 2, PCI DSS, and production-ready.',
+      'Agentic pipelines built for regulated environments. SOC 2 controls automated end-to-end, real-time cost and compliance monitoring, AI-driven audit-ready reporting. Every system ships with the discipline that fintech and financial services demand.',
     metrics: [
       { value: '99.9%', label: 'CI/CD Success Rate', subtext: 'Deployment pipeline reliability' },
       { value: '35%', label: 'Cost Reduction', subtext: 'Through Gen AI agent automation' },
@@ -84,12 +84,12 @@ export const agencyDomains: AgencyDomain[] = [
   {
     id: 'platform',
     name: 'Intelligent Engineering',
-    tagline: 'Cloud · AI · Data · Platform',
+    tagline: 'Full-Stack Agentic Platform Engineering',
     accent: '#7C3AED',
     accentVar: 'var(--color-accent-cloud)',
     iconName: 'Layers',
     pitchHook:
-      'We build the complete stack — cloud infrastructure that never sleeps, AI systems that ship to production, and full-stack platforms at enterprise scale. From Terraform IaC and Databricks Lakehouse to vLLM inference and clinical superintelligence. One engineering discipline, every layer.',
+      'We architect and ship the full agent stack — self-healing Terraform infrastructure, multi-model inference layers, and zero-downtime CI/CD pipelines. From Databricks Lakehouse to vLLM serving. One engineering team, every layer, no handoffs.',
     metrics: [
       { value: '8hr→45min', label: 'Deploy Speed',        subtext: 'Terraform CI/CD pipeline'          },
       { value: '95%',       label: 'AI Accuracy',         subtext: 'RAG document processing'            },

@@ -64,7 +64,7 @@ const BusinessInfoSection = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-6xl font-extrabold text-[var(--text-primary)] leading-tight">
-                Future-Proofing Your  <span className="gradient-text">Brand, Today.</span>
+                Your operations, <span className="gradient-text">running on their own.</span>
               </h2>
 
               <div className="space-y-6">
@@ -75,7 +75,7 @@ const BusinessInfoSection = () => {
                       clipPath: 'polygon(1.2rem 50%, 0 0, 100% 0, 100% 100%, 0 100%)'
                     }}
                   >
-                    Intelligent Strategies for Market Dominance.
+                    Agentic infrastructure for companies that build things.
                   </div>
                 </div>
                 {/* <div className="inline-block">
@@ -88,29 +88,28 @@ const BusinessInfoSection = () => {
 
             <div className="bg-[var(--card-background)] rounded-3xl p-10 lg:p-12 shadow-elegant border border-[var(--border)] flex flex-col h-full">
               <h3 className="text-3xl font-bold text-[var(--card-foreground)] mb-6" style={{ marginTop: '-5%', marginBottom: '2%' }}>
-                Unleash Exponential Online Opportunity
+                Map your first automated system.
               </h3>
               <p className="text-[var(--muted-foreground)] mr-6 mb-4 text-lg leading-tight flex-grow font-semibold">
-                Get a custom website, marketing, and AI-powered tools to boost your leads and automate your workflow.
-                Serving {location} businesses with expert digital solutions.
+                We scope, design, and ship production agentic systems for healthcare, nursing, finance, and trade operations
+                across {location}. Drop your email — we&apos;ll outline your highest-ROI automation path before the first call.
               </p>
 
               <form action={async (formData) => {
                 formData.append('name', 'Newsletter Subscriber');
                 formData.append('subject', 'Newsletter Signup');
                 await submitContact(formData);
-                // We might want to add some UI feedback here, but for now keeping it simple as per original design
-                alert('Thank you for subscribing!');
+                alert('Thank you! We\'ll send your system map shortly.');
               }} className="flex flex-col sm:flex-row gap-6 mt-8">
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email"
+                  placeholder="Work email"
                   required
                   className="flex-1 px-6 py-4 border-2 border-[var(--border)] rounded-full focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:border-[var(--accent)] transition-all duration-300 text-lg bg-[var(--card-background)] text-[var(--card-foreground)]"
                 />
                 <button type="submit" className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-10 py-4 rounded-full transition-all duration-300 transform hover:scale-105 whitespace-nowrap text-lg shadow-hover hover:shadow-glow">
-                  Submit
+                  Get my system map
                 </button>
               </form>
             </div>

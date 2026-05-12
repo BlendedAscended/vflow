@@ -8,7 +8,7 @@ const PURPLE_DIM = 'rgba(124,58,237,0.06)';
 const BORDER     = '#E5E5E0';
 const TEXT       = '#111111';
 const MUTED      = '#6B7280';
-const _TRACK      = '#F0F0EC'; void _TRACK;
+const TRACK      = '#F0F0EC';
 
 // per-category palette
 const CAT_COLORS = {
