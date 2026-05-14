@@ -2,7 +2,6 @@ import Navigation from '../components/Navigation';
 import ThemeToggle from '../components/ThemeToggle';
 import { LocationProvider } from '../components/LocationContext';
 import HeroSection from '../components/HeroSection';
-import StatsBand from '../components/StatsBand';
 import ServicesSection from '../components/ServicesSection';
 import CommandCentre from '../components/CommandCentre/CommandCentre';
 import BusinessInfoSection from '../components/BusinessInfoSection';
@@ -73,9 +72,6 @@ export default async function Home() {
 
         {/* Hero */}
         <HeroSection />
-
-        {/* Stats proof band */}
-        <StatsBand />
 
         {/* Services — 3-pillar layout */}
         <ServicesSection services={services} />

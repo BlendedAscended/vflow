@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Verbaflow — Services (WebGL Hover Reveal)</title>
+<style>
+  :root{
+    --bg: #0b0f14;
+    --bg-2:#0e141b;
+    --card:#0d1620;
+    --card-2:#15182a;
+    --ink:#e8eef5;
+    --muted:#8b95a3;
+    --accent:#b9f178;       /* the green from the screenshot */
+    --accent-2:#85d24a;
+    --line: rgba(185,241,120,0.18);
+    --radius: 22px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#06090d;color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  body{min-height:100vh}
+
+  /* ===== Services section wrapper ===== */
+  .services-wrap{
+    position: relative;
+    isolation: isolate;
+    background: #0a0e13;
+    padding: 96px 48px 120px;
+    overflow: hidden;
+  }
+  /* The WebGL canvas sits as the BACKGROUND of the services wrap only */
+  .services-wrap > canvas.fx{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;       /* never block card interaction */
+    display:block;
+  }
+  /* A subtle static dark base behind the canvas, in case WebGL fails */
+  .services-wrap::before{
+    content:"";
+    position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(1200px 600px at 50% -10%, #0f1620 0%, #07090d 60%, #06080c 100%);
+  }
+
+  .services-inner{
+    position:relative;
+    z-index:1;
+    max-width:1240px;
+    margin:0 auto;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size:12px;letter-spacing:0.22em;text-transform:uppercase;
+    color: rgba(232,238,245,0.55);
+    margin: 0 0 18px 0;
+  }
+  .head-row{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+    margin-bottom: 44px;
+    flex-wrap:wrap;
+  }
+  .head-row h2{
+    margin:0;
+    font-size: clamp(34px, 4.2vw, 56px);
+    line-height:1.02;
+    letter-spacing:-0.02em;
+    font-weight:600;
+    max-width: 760px;
+  }
+  .head-row h2 em{font-style:normal;color:var(--accent)}
+  .head-cta{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:12px 18px;
+    border-radius:999px;
+    background: rgba(185,241,120,0.08);
+    border:1px solid rgba(185,241,120,0.35);
+    color:var(--accent);
+    font-size:14px;font-weight:500;
+    text-decoration:none;
+    transition: background .25s ease, transform .25s ease;
+  }
+  .head-cta:hover{background:rgba(185,241,120,0.16); transform:translateY(-1px)}
+  .head-cta .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+
+  /* ===== Card grid ===== */
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 22px;
+  }
+  @media (max-width: 880px){ .grid{grid-template-columns:1fr} }
+
+  .card{
+    position:relative;
+    border-radius: var(--radius);
+    padding: 28px 28px 26px;
+    background: linear-gradient(180deg, rgba(17,22,30,0.78), rgba(11,15,20,0.82));
+    border:1px solid rgba(185,241,120,0.10);
+    backdrop-filter: blur(8px) saturate(110%);
+    -webkit-backdrop-filter: blur(8px) saturate(110%);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s ease, background .35s ease;
+    overflow:hidden;
+  }
+  .card::after{
+    /* hairline highlight on top edge */
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent 30%);
+    mix-blend-mode:overlay;
+  }
+  .card:hover{
+    transform: translateY(-3px);
+    border-color: rgba(185,241,120,0.35);
+  }
+  .card .row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+  .icon{
+    width:42px;height:42px;border-radius:12px;
+    background: linear-gradient(180deg, rgba(185,241,120,0.18), rgba(185,241,120,0.06));
+    border:1px solid rgba(185,241,120,0.35);
+    display:flex;align-items:center;justify-content:center;color:var(--accent);
+  }
+  .icon svg{width:20px;height:20px}
+  .kicker{
+    flex:1;
+    font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    color: rgba(232,238,245,0.55);
+    margin-left:12px;
+  }
+  .price{
+    font-size:12px;font-weight:500;
+    padding:8px 12px;border-radius:999px;
+    background: rgba(185,241,120,0.06);
+    border:1px solid rgba(185,241,120,0.32);
+    color: var(--accent);
+    white-space:nowrap;
+  }
+  .card h3{
+    margin:6px 0 10px;
+    font-size: 26px;letter-spacing:-0.01em;font-weight:600;
+  }
+  .card p{
+    margin:0 0 18px;
+    color: rgba(232,238,245,0.72);
+    font-size:15px;line-height:1.55;
+    max-width: 46ch;
+  }
+  .checks{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:8px}
+  .checks li{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(232,238,245,0.82)}
+  .checks li svg{flex:0 0 auto;color:var(--accent)}
+  .actions{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{
+    appearance:none;border:0;cursor:pointer;
+    padding:11px 18px;border-radius:999px;font:inherit;font-size:14px;font-weight:500;
+    text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+    transition: transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .btn.primary{background:var(--accent);color:#0a1206}
+  .btn.primary:hover{transform:translateY(-1px);background:#cdf796}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(185,241,120,0.35)}
+  .btn.ghost:hover{background:rgba(185,241,120,0.08)}
+
+  /* purple variant matches the screenshot's "Digital Presence" card tint */
+  .card.tint-violet{
+    background: linear-gradient(180deg, rgba(38,29,58,0.78), rgba(22,18,36,0.82));
+    border-color: rgba(167,139,250,0.18);
+  }
+  .card.tint-violet .icon{
+    background: linear-gradient(180deg, rgba(167,139,250,0.20), rgba(167,139,250,0.06));
+    border-color: rgba(167,139,250,0.35);
+    color:#c4b5fd;
+  }
+
+  /* footer / debug strip */
+  .legend{
+    margin-top: 28px;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+    font-family:'JetBrains Mono', ui-monospace, monospace;
+    font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    color: rgba(232,238,245,0.4);
+  }
+  .legend .pill{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.08)}
+
+</style>
+</head>
+<body style="background-color: rgb(132, 114, 133)">
+
+<section class="services-wrap" id="servicesWrap" data-screen-label="Services">
+  <canvas class="fx" id="fxCanvas" aria-hidden="true"></canvas>
+
+  <div class="services-inner">
+    <p class="eyebrow">Services</p>
+    <div class="head-row">
+      <h2>Where strategy, technology &amp; <em>automation converge.</em></h2>
+      <a href="#" class="head-cta"><span class="dot"></span>Get My Price</a>
+    </div>
+
+    <div class="grid">
+      <!-- 1. AI Assistants -->
+      <article class="card">
+        <div class="row">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="kicker">Artificial Intelligence</div>
+          <div class="price">Starting at $295</div>
+        </div>
+        <h3>AI Assistants &amp; Automation</h3>
+        <p>Deploy an intelligent, autonomous workforce. AI Assistants and automated workflows that handle routine tasks 24/7, freeing you to lead and innovate.</p>
+        <ul class="checks">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Chatbot Integration</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Workflow Automation</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Data Processing</li>
+        </ul>
+        <div class="actions">
+          <a class="btn primary" href="#">Learn More →</a>
+          <a class="btn ghost" href="#">Get Started →</a>
+        </div>
+      </article>
+
+      <!-- 2. Website Development (purple tint) -->
+      <article class="card tint-violet">
+        <div class="row">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          </div>
+          <div class="kicker">Digital Presence</div>
+          <div class="price" style="color:#c4b5fd;border-color:rgba(167,139,250,0.32);background:rgba(167,139,250,0.06)">Starting at $195</div>
+        </div>
+        <h3>Website &amp; App Development</h3>
+        <p>Develop the central hub for your customer universe. A seamless, conversion-optimized site and app stack that scales as fast as your ambition.</p>
+        <ul class="checks">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom Web Builds</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Mobile Applications</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>SEO &amp; Performance</li>
+        </ul>
+        <div class="actions">
+          <a class="btn primary" href="#" style="background:#c4b5fd;color:#1a1230">Learn More →</a>
+          <a class="btn ghost" href="#" style="color:#c4b5fd;border-color:rgba(167,139,250,0.35)">Get Started →</a>
+        </div>
+      </article>
+
+      <!-- 3. Marketing -->
+      <article class="card">
+        <div class="row">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-7-3 18-6-6-9-5z"/><path d="M12 16l-3 5"/></svg>
+          </div>
+          <div class="kicker">Growth</div>
+          <div class="price">Starting at $345</div>
+        </div>
+        <h3>Marketing Campaigns</h3>
+        <p>Multi-channel campaigns that compound. Paid, organic, email and lifecycle — orchestrated, measured, and optimized for the metric that matters: revenue.</p>
+        <ul class="checks">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Paid Acquisition</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Lifecycle Email</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Attribution Modeling</li>
+        </ul>
+        <div class="actions">
+          <a class="btn primary" href="#">Learn More →</a>
+          <a class="btn ghost" href="#">Get Started →</a>
+        </div>
+      </article>
+
+      <!-- 4. Cloud IT -->
+      <article class="card">
+        <div class="row">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1.7-9.7A6 6 0 0 1 20 12.5 4.5 4.5 0 0 1 17.5 18H7z"/></svg>
+          </div>
+          <div class="kicker">Infrastructure</div>
+          <div class="price">Starting at $495</div>
+        </div>
+        <h3>Cloud &amp; IT Services</h3>
+        <p>The substrate beneath everything. Resilient cloud architecture, observability, and managed IT so your team builds — instead of firefighting at 2 a.m.</p>
+        <ul class="checks">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cloud Migration</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Managed Hosting</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Security &amp; Backups</li>
+        </ul>
+        <div class="actions">
+          <a class="btn primary" href="#">Learn More →</a>
+          <a class="btn ghost" href="#">Get Started →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="legend">
+      <span class="pill" id="cursorReadout">CURSOR · — , —</span>
+      <span class="pill" id="fxStatus">WEBGL · STANDBY</span>
+    </div>
+  </div>
+</section>
+
+<!-- Three.js -->
+<script src="https://unpkg.com/three@0.149.0/build/three.min.js"></script>
+<script>
+/* ============================================================
+   WebGL hover-reveal background for the Services section.
+   - Full-quad shader, single draw call, runs only when in-view.
+   - uMouse: cursor in normalized canvas coords (0..1)
+   - uTime:  seconds, drives pulse via sin()
+   - uHover: 0..1 smoothed presence inside section
+   - The cursor reveals a circuit grid through a dark base layer.
+   ------------------------------------------------------------ */
+(function(){
+  const wrap   = document.getElementById('servicesWrap');
+  const canvas = document.getElementById('fxCanvas');
+  const statusEl = document.getElementById('fxStatus');
+  const readEl   = document.getElementById('cursorReadout');
+
+  let renderer, scene, camera, mesh, mat;
+  const state = {
+    mouse: new THREE.Vector2(0.5, 0.5),
+    targetMouse: new THREE.Vector2(0.5, 0.5),
+    hover: 0,
+    targetHover: 0,
+    size: new THREE.Vector2(1,1),
+    dpr: Math.min(window.devicePixelRatio || 1, 2),
+    visible: true,
+    running: true,
+  };
+
+  const vert = /* glsl */`
+    varying vec2 vUv;
+    void main(){
+      vUv = uv;
+      gl_Position = vec4(position.xy, 0.0, 1.0);
+    }
+  `;
+
+  // Original shader: layered grid + circuit dots, revealed by a soft radial mask
+  // around uMouse with a sin() pulse on the intensity.
+  const frag = /* glsl */`
+    precision highp float;
+    varying vec2 vUv;
+
+    uniform vec2  uResolution;   // pixels
+    uniform vec2  uMouse;        // 0..1
+    uniform float uTime;         // seconds
+    uniform float uHover;        // 0..1
+    uniform float uRadiusPx;     // reveal radius in pixels
+
+    // hash & noise for subtle texture
+    float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+
+    // grid layer: thin lines at two scales
+    float gridLayer(vec2 uv, float cell, float thickness){
+      vec2 g = abs(fract(uv / cell - 0.5) - 0.5) / fwidth(uv / cell);
+      float line = min(g.x, g.y);
+      return 1.0 - smoothstep(0.0, thickness, line);
+    }
+
+    // circuit dots at integer intersections
+    float dots(vec2 uv, float cell, float radius){
+      vec2 id = floor(uv / cell);
+      vec2 c  = (id + 0.5) * cell;
+      float d = length(uv - c);
+      // randomly drop ~60% of nodes to feel circuit-ish
+      float keep = step(0.4, hash(id));
+      return keep * smoothstep(radius, radius*0.4, d);
+    }
+
+    // pseudo-traces: short horizontal/vertical segments
+    float traces(vec2 uv, float cell){
+      vec2 id = floor(uv / cell);
+      vec2 f  = fract(uv / cell) - 0.5;
+      float r = hash(id);
+      float seg;
+      if (r < 0.5) {
+        // horizontal trace through this cell
+        seg = (1.0 - smoothstep(0.0, 0.04, abs(f.y))) *
+              step(abs(f.x), 0.5);
+      } else {
+        seg = (1.0 - smoothstep(0.0, 0.04, abs(f.x))) *
+              step(abs(f.y), 0.5);
+      }
+      // gate by another random so not every cell has a trace
+      return seg * step(0.55, hash(id + 17.0));
+    }
+
+    void main(){
+      vec2 fragPx = vUv * uResolution;
+      vec2 mousePx = uMouse * uResolution;
+
+      // ---- BASE (dark, static) ----
+      vec3 base = vec3(0.035, 0.052, 0.072);
+      // very faint always-on grid so the section never looks totally flat
+      float baseGrid = gridLayer(fragPx, 56.0, 1.2) * 0.06;
+      base += vec3(0.20, 0.32, 0.40) * baseGrid;
+
+      // gentle vignette
+      vec2 cv = vUv - 0.5;
+      float vig = smoothstep(0.95, 0.2, length(cv));
+      base *= mix(0.55, 1.0, vig);
+
+      // ---- REVEAL LAYER (bright circuit pattern) ----
+      // Layered grid + finer grid + dots + traces.
+      float gA = gridLayer(fragPx, 56.0, 1.4);
+      float gB = gridLayer(fragPx, 14.0, 1.0) * 0.45;
+      float pts = dots(fragPx, 56.0, 3.0);
+      float trc = traces(fragPx, 56.0) * 0.55;
+
+      // Animate a faint scan along x for life
+      float scan = 0.5 + 0.5 * sin(uTime * 0.8 + fragPx.y * 0.01);
+      float revealField = gA + gB + pts * 1.4 + trc;
+      revealField *= mix(0.85, 1.15, scan);
+
+      // accent green (matches site)
+      vec3 hot   = vec3(0.725, 0.945, 0.470); // ~#b9f178
+      vec3 cool  = vec3(0.355, 0.760, 0.880); // cyan kicker
+      // mix accent toward cyan further from cursor for chromatic life
+      float dPx  = distance(fragPx, mousePx);
+      float chromMix = smoothstep(0.0, uRadiusPx, dPx);
+      vec3 revealColor = mix(hot, cool, chromMix * 0.55);
+
+      vec3 reveal = revealColor * revealField;
+
+      // ---- RADIAL MASK with pulse ----
+      // Pulse: small sine wobble on radius + on intensity
+      float pulseR = 1.0 + 0.06 * sin(uTime * 1.6);
+      float pulseI = 0.85 + 0.15 * sin(uTime * 2.2);
+
+      float r = uRadiusPx * pulseR;
+      // soft edge: bright at center, falls off smoothly to r
+      float mask = 1.0 - smoothstep(r * 0.15, r, dPx);
+      mask = pow(mask, 1.35);                  // tighter core
+      mask *= pulseI * uHover;                 // gated by section hover
+
+      // outer faint glow (much weaker, larger radius)
+      float halo = 1.0 - smoothstep(r * 0.4, r * 1.9, dPx);
+      halo = pow(halo, 2.5) * 0.25 * uHover;
+
+      vec3 col = base + reveal * mask + hot * halo * 0.35;
+
+      // subtle film grain to dissolve banding
+      float n = (hash(fragPx + uTime) - 0.5) * 0.025;
+      col += n;
+
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+  function init(){
+    try{
+      renderer = new THREE.WebGLRenderer({ canvas, antialias:false, alpha:false, powerPreference:'high-performance' });
+      renderer.setPixelRatio(state.dpr);
+    } catch(e){
+      statusEl.textContent = 'WEBGL · UNAVAILABLE';
+      return;
+    }
+    scene = new THREE.Scene();
+    camera = new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+
+    mat = new THREE.ShaderMaterial({
+      vertexShader: vert,
+      fragmentShader: frag,
+      uniforms: {
+        uResolution: { value: new THREE.Vector2(1,1) },
+        uMouse:      { value: new THREE.Vector2(0.5, 0.5) },
+        uTime:       { value: 0 },
+        uHover:      { value: 0 },
+        uRadiusPx:   { value: 240 },
+      }
+    });
+    const geom = new THREE.PlaneGeometry(2, 2);
+    mesh = new THREE.Mesh(geom, mat);
+    scene.add(mesh);
+
+    resize();
+    statusEl.textContent = 'WEBGL · ACTIVE';
+    requestAnimationFrame(loop);
+  }
+
+  function resize(){
+    if (!renderer || !mat) return; // observers may fire before init()
+    const r = wrap.getBoundingClientRect();
+    state.size.set(r.width, r.height);
+    renderer.setSize(r.width, r.height, false);
+    mat.uniforms.uResolution.value.set(r.width * state.dpr, r.height * state.dpr);
+    // radius scales gently with viewport
+    const radius = Math.max(180, Math.min(360, Math.min(r.width, r.height) * 0.28));
+    mat.uniforms.uRadiusPx.value = radius * state.dpr;
+  }
+
+  // ---- pointer tracking on the wrap (not the canvas) so card hover keeps working ----
+  function onMove(e){
+    const t = e.touches ? e.touches[0] : e;
+    const r = wrap.getBoundingClientRect();
+    const x = (t.clientX - r.left) / r.width;
+    const y = 1.0 - (t.clientY - r.top) / r.height;
+    state.targetMouse.set(x, y);
+    state.targetHover = 1;
+    readEl.textContent = `CURSOR · ${(x*100|0)} , ${((1-y)*100|0)}`;
+  }
+  function onLeave(){
+    state.targetHover = 0;
+  }
+  wrap.addEventListener('pointermove', onMove, { passive:true });
+  wrap.addEventListener('pointerleave', onLeave, { passive:true });
+  wrap.addEventListener('pointerenter', ()=>{ state.targetHover = 1; }, { passive:true });
+
+  // ---- pause when offscreen ----
+  const io = new IntersectionObserver(entries=>{
+    for (const en of entries) state.visible = en.isIntersecting;
+  }, { threshold: 0.01 });
+  io.observe(wrap);
+
+  const ro = new ResizeObserver(()=> resize());
+  ro.observe(wrap);
+
+  const t0 = performance.now();
+  function loop(){
+    if (!state.running) return;
+    requestAnimationFrame(loop);
+    if (!state.visible) return;
+
+    // smooth mouse + hover
+    state.mouse.lerp(state.targetMouse, 0.12);
+    state.hover += (state.targetHover - state.hover) * 0.07;
+
+    mat.uniforms.uMouse.value.copy(state.mouse);
+    mat.uniforms.uHover.value = state.hover;
+    mat.uniforms.uTime.value = (performance.now() - t0) / 1000;
+
+    renderer.render(scene, camera);
+  }
+
+  // boot after layout settles
+  if (document.readyState === 'complete') init();
+  else window.addEventListener('load', init);
+})();
+</script>
+</body>
+</html>

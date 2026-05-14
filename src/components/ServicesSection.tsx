@@ -3,6 +3,7 @@
 import { useState, useRef, useMemo, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { services as defaultServiceDefs, serviceCategories, type ServiceCategory } from '../data/services';
+import ServicesHoverReveal from './ui/ServicesHoverReveal';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Service {
@@ -725,6 +726,10 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
         className="pointer-events-none absolute inset-0 opacity-60 dark:opacity-30"
         style={{ backgroundImage: 'url(/bg-section-gemini.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
       />
+
+      {/* WebGL circuit-board hover reveal — z-0, behind all content */}
+      <ServicesHoverReveal className="absolute inset-0 z-[1]" />
+
       <div className="absolute top-10 right-16 w-72 h-72 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow pointer-events-none" />
       <div className="absolute bottom-10 left-8 w-64 h-64 bg-[var(--accent)]/8 rounded-full blur-3xl animate-float pointer-events-none" />
 

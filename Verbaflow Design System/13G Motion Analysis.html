@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>13G → Verbaflow · Motion Analysis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --bg: #102023;
+  --bg-surface: #1b2b2e;
+  --bg-elevated: #22363a;
+  --bg-alt: #2d2d4b;
+  --text-1: #ffffff;
+  --text-2: #bee3ba;
+  --text-3: #7fa88a;
+  --border: #2f4144;
+  --accent: #A5D6A7;
+  --accent-dim: rgba(165,214,167,.12);
+  --accent-border: rgba(165,214,167,.28);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ═══ Layout ═══════════════════ */
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+
+/* ═══ Header ═══════════════════ */
+.doc-head {
+  padding: 120px 40px 80px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.doc-head__glow {
+  position: absolute;
+  top: -200px; right: -100px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(165,214,167,.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+.doc-head__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  padding: 5px 14px; border-radius: 9999px;
+  margin-bottom: 28px;
+}
+.doc-head__eyebrow-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 6px var(--accent);
+}
+.doc-head__title {
+  font-size: clamp(44px, 6.5vw, 92px);
+  font-weight: 500;
+  letter-spacing: -.03em;
+  line-height: .98;
+  max-width: 1000px;
+  margin-bottom: 24px;
+}
+.accent-grad {
+  background: linear-gradient(135deg, #A5D6A7 0%, #6ec97a 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.doc-head__sub {
+  font-size: 18px; font-weight: 300; line-height: 1.6;
+  max-width: 620px; color: rgba(255,255,255,.68);
+}
+.doc-head__meta {
+  position: absolute; bottom: 32px; right: 40px;
+  display: flex; gap: 32px;
+  font-family: var(--font-mono); font-size: 11px;
+  color: rgba(255,255,255,.32);
+}
+.doc-head__meta span strong { color: var(--accent); }
+
+/* ═══ Section shell ═══════════════════ */
+section.study { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+.study-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 60px; flex-wrap: wrap; }
+.study-head__num {
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--accent); letter-spacing: .08em;
+}
+.study-head__title {
+  font-size: clamp(32px, 3.6vw, 48px);
+  font-weight: 700; letter-spacing: -.025em; line-height: 1.05;
+  margin-top: 8px;
+}
+.study-head__desc {
+  font-size: 15px; color: var(--text-3); line-height: 1.7;
+  max-width: 380px;
+}
+
+/* ═══ Primitive card ═══════════════════ */
+.primitive {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 36px;
+  margin-bottom: 28px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+@media(max-width:860px) { .primitive { grid-template-columns: 1fr; } }
+
+.primitive__demo {
+  min-height: 220px;
+  background: #0a1518;
+  border: 1px solid rgba(165,214,167,.15);
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.primitive__meta { display: flex; flex-direction: column; gap: 16px; }
+.primitive__tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  padding: 3px 10px; border-radius: 9999px;
+  align-self: flex-start;
+}
+.primitive__name {
+  font-size: 26px; font-weight: 700; letter-spacing: -.02em;
+  color: var(--text-1); line-height: 1.15;
+}
+.primitive__desc {
+  font-size: 14px; color: var(--text-2); line-height: 1.65;
+}
+.primitive__apply {
+  display: flex; gap: 12px; padding: 14px 16px;
+  background: rgba(165,214,167,.05);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+}
+.primitive__apply-icon {
+  flex-shrink: 0; width: 18px; height: 18px;
+  color: var(--accent); margin-top: 2px;
+}
+.primitive__apply-text {
+  font-size: 13px; color: var(--text-2); line-height: 1.55;
+}
+.primitive__apply-text strong { color: var(--text-1); font-weight: 600; }
+.primitive__specs {
+  font-family: var(--font-mono); font-size: 10.5px;
+  color: var(--text-3); line-height: 1.8;
+  padding-top: 12px; border-top: 1px dashed rgba(255,255,255,.08);
+}
+.primitive__specs strong { color: var(--accent); }
+
+/* ═══ PRIMITIVE 1 — Kinetic Headline Swap ═══════ */
+@keyframes k-slide-out-up {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+@keyframes k-slide-in-up {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.kinetic-swap {
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 500; letter-spacing: -.025em; line-height: 1.1;
+  color: #fff;
+}
+.kinetic-swap__mask {
+  display: inline-block; position: relative;
+  height: 1.15em; vertical-align: bottom;
+  overflow: hidden;
+}
+.kinetic-swap__word {
+  display: block; position: absolute;
+  left: 0; top: 0; white-space: nowrap;
+  transition: transform .9s var(--ease-out-expo), opacity .6s ease-out;
+}
+.kinetic-swap__word--1 { animation: rotate1 5s infinite; }
+.kinetic-swap__word--2 { animation: rotate2 5s infinite; }
+.kinetic-swap__word--3 { animation: rotate3 5s infinite; }
+@keyframes rotate1 {
+  0%, 28% { transform: translateY(0); opacity: 1; }
+  33%, 100% { transform: translateY(-110%); opacity: 0; }
+}
+@keyframes rotate2 {
+  0%, 28% { transform: translateY(110%); opacity: 0; }
+  33%, 61% { transform: translateY(0); opacity: 1; }
+  66%, 100% { transform: translateY(-110%); opacity: 0; }
+}
+@keyframes rotate3 {
+  0%, 61% { transform: translateY(110%); opacity: 0; }
+  66%, 94% { transform: translateY(0); opacity: 1; }
+  99%, 100% { transform: translateY(-110%); opacity: 0; }
+}
+
+/* ═══ PRIMITIVE 2 — Letter-by-letter rise ═══════ */
+.letter-rise { font-size: clamp(30px, 3.6vw, 46px); font-weight: 500; letter-spacing: -.025em; line-height: 1.1; }
+.letter-rise__mask { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.letter-rise__char {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: letter-rise-anim .9s var(--ease-out-expo) forwards;
+}
+@keyframes letter-rise-anim { to { transform: translateY(0); } }
+
+/* ═══ PRIMITIVE 3 — Marquee ═══════ */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee {
+  width: 100%; overflow: hidden; mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+.marquee__track {
+  display: flex; width: max-content;
+  animation: marquee 22s linear infinite;
+  gap: 64px; align-items: center;
+}
+.marquee__logo {
+  font-size: 24px; font-weight: 700; letter-spacing: -.02em;
+  color: rgba(255,255,255,.55);
+  white-space: nowrap;
+  transition: color .3s;
+}
+.marquee__logo:hover { color: var(--accent); }
+.marquee--big .marquee__item {
+  font-size: clamp(46px, 5.5vw, 80px);
+  font-weight: 700; letter-spacing: -.03em;
+  color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.4);
+  white-space: nowrap;
+  transition: color .3s, -webkit-text-stroke-color .3s;
+}
+.marquee--big .marquee__item:hover { color: var(--accent); -webkit-text-stroke-color: var(--accent); }
+.marquee--big .marquee__star {
+  color: var(--accent); font-size: clamp(36px, 4vw, 60px);
+  margin: 0 32px;
+}
+
+/* ═══ PRIMITIVE 4 — Scroll-triggered fade+rise ═══ */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+}
+.scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+.scroll-reveal--d1 { transition-delay: .08s; }
+.scroll-reveal--d2 { transition-delay: .16s; }
+.scroll-reveal--d3 { transition-delay: .24s; }
+
+.reveal-demo { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; width: 100%; }
+.reveal-tile {
+  aspect-ratio: 1;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--bg-elevated), var(--bg-surface));
+  border: 1px solid rgba(255,255,255,.08);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-3);
+}
+.reveal-tile--accent { border-color: var(--accent-border); background: var(--accent-dim); color: var(--accent); }
+
+/* ═══ PRIMITIVE 5 — Counter ═══ */
+.counter-row { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; width: 100%; }
+.counter {
+  display: flex; flex-direction: column; align-items: center;
+}
+.counter__num {
+  font-size: clamp(56px, 7vw, 88px);
+  font-weight: 600; letter-spacing: -.04em; line-height: 1;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.counter__sign { color: var(--accent); }
+.counter__label {
+  font-size: 12px; font-weight: 500; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--text-3); margin-top: 12px;
+}
+
+/* ═══ PRIMITIVE 6 — Magnetic / elastic CTA ═══ */
+.mag-wrap { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.mag-btn {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 18px 36px;
+  background: var(--accent); color: #000;
+  border-radius: 9999px; border: none;
+  font-family: var(--font-sans); font-size: 15px; font-weight: 600;
+  cursor: pointer;
+  transition: transform .5s var(--ease-out-expo), box-shadow .4s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.mag-btn__arrow { transition: transform .4s var(--ease-out-expo); display: inline-block; }
+.mag-btn:hover { box-shadow: 0 12px 32px rgba(165,214,167,.35); }
+.mag-btn:hover .mag-btn__arrow { transform: translateX(6px); }
+.mag-btn--ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.5); }
+.mag-btn--ghost:hover { border-color: var(--accent); color: var(--accent); background: rgba(165,214,167,.08); }
+
+/* ═══ PRIMITIVE 7 — Video card reveal ═══ */
+.video-stack { display: flex; gap: 16px; width: 100%; }
+.video-card {
+  flex: 1; aspect-ratio: 3/4;
+  border-radius: 20px; overflow: hidden; position: relative;
+  cursor: pointer;
+  transition: flex .7s var(--ease-out-expo);
+}
+.video-card:hover { flex: 1.6; }
+.video-card__bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #0a1628, #102023 50%, #0f2a30);
+  transition: transform .8s var(--ease-out-expo);
+}
+.video-card:nth-child(1) .video-card__bg { background: linear-gradient(135deg, #1d4d3a, #0d2a21); }
+.video-card:nth-child(2) .video-card__bg { background: linear-gradient(135deg, #2d2d4b, #16162a); }
+.video-card:nth-child(3) .video-card__bg { background: linear-gradient(135deg, #4b321d, #2a1a0d); }
+.video-card:hover .video-card__bg { transform: scale(1.08); }
+.video-card__label {
+  position: absolute;
+  bottom: 18px; left: 18px; right: 18px;
+  font-size: 18px; font-weight: 700; letter-spacing: -.01em;
+  color: #fff;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.video-card__play {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,.15); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: scale(.8);
+  transition: opacity .4s, transform .4s var(--ease-out-expo);
+}
+.video-card:hover .video-card__play { opacity: 1; transform: scale(1); }
+
+/* ═══ PRIMITIVE 8 — Smooth gradient/shimmer ═══ */
+@keyframes slow-drift {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(30px,-20px) scale(1.06); }
+  66% { transform: translate(-20px,25px) scale(.98); }
+}
+.gradient-field {
+  position: relative; width: 100%; height: 100%;
+  min-height: 160px; border-radius: 14px; overflow: hidden;
+  background: radial-gradient(circle at 20% 30%, rgba(165,214,167,.22), transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(110,201,122,.18), transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(45,45,75,.35), transparent 60%),
+              #0a1518;
+}
+.gradient-field::before, .gradient-field::after {
+  content: ''; position: absolute;
+  width: 280px; height: 280px; border-radius: 50%;
+  filter: blur(60px); opacity: .7;
+  animation: slow-drift 14s ease-in-out infinite;
+}
+.gradient-field::before {
+  background: radial-gradient(circle, rgba(165,214,167,.45), transparent);
+  top: -40px; left: 10%;
+}
+.gradient-field::after {
+  background: radial-gradient(circle, rgba(110,201,122,.35), transparent);
+  bottom: -40px; right: 10%;
+  animation-duration: 18s; animation-direction: reverse;
+}
+.gradient-field__label {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 500; letter-spacing: -.02em;
+  color: rgba(255,255,255,.85);
+}
+
+/* ═══ PRIMITIVE 9 — Custom cursor ═══ */
+.cursor-demo { display: flex; flex-direction: column; gap: 14px; align-items: center; }
+.cursor-area {
+  width: 100%; height: 140px;
+  border: 1px dashed var(--accent-border);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--text-3);
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+}
+.cursor-dot {
+  position: absolute;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: rgba(165,214,167,.2);
+  border: 1px solid var(--accent);
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform .35s var(--ease-out-expo), background .25s;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent);
+}
+.cursor-area:hover .cursor-dot { transform: translate(-50%, -50%) scale(1); }
+
+/* ═══ RECOMMENDATION MAP ═══ */
+.map-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media(max-width:800px) { .map-grid { grid-template-columns: 1fr; } }
+.map-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .4s var(--ease), border-color .3s;
+}
+.map-card:hover { transform: translateY(-4px); border-color: var(--accent-border); }
+.map-card__scene {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 4px;
+}
+.map-card__title {
+  font-size: 22px; font-weight: 700; letter-spacing: -.02em;
+  color: var(--text-1); margin-bottom: 14px;
+}
+.map-card__body {
+  font-size: 13.5px; line-height: 1.65;
+  color: var(--text-2);
+  margin-bottom: 16px;
+}
+.map-card__tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.map-card__tag {
+  font-size: 10px; font-weight: 600; letter-spacing: .05em;
+  color: var(--text-3);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 3px 10px; border-radius: 9999px;
+}
+
+/* ═══ Learnings ═══ */
+.learn-list {
+  display: flex; flex-direction: column; gap: 0;
+  border-top: 1px solid var(--border);
+}
+.learn-row {
+  display: grid;
+  grid-template-columns: 60px 220px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+@media(max-width:820px) { .learn-row { grid-template-columns: 1fr; gap: 10px; } }
+.learn-row__num {
+  font-family: var(--font-mono); font-size: 14px;
+  color: var(--accent);
+}
+.learn-row__name {
+  font-size: 20px; font-weight: 700; letter-spacing: -.02em;
+  color: var(--text-1);
+}
+.learn-row__body { font-size: 14.5px; color: var(--text-2); line-height: 1.7; }
+.learn-row__body strong { color: var(--accent); font-weight: 600; }
+
+/* ═══ Closing ═══ */
+.close {
+  padding: 100px 40px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.close__headline {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 500; letter-spacing: -.025em; line-height: 1.1;
+  max-width: 720px; margin: 0 auto 20px;
+}
+.close__sub {
+  font-size: 15px; color: var(--text-3); max-width: 500px; margin: 0 auto;
+}
+
+/* ═══ Pill / Link style ═══ */
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 10px;
+  font-size: 10.5px; font-weight: 600;
+  background: var(--accent-dim); border: 1px solid var(--accent-border);
+  color: var(--accent); border-radius: 9999px;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="doc-head">
+  <div class="doc-head__glow"></div>
+  <div class="wrap">
+    <span class="doc-head__eyebrow"><span class="doc-head__eyebrow-dot"></span>Motion Study · 13g.fr → Verbaflow</span>
+    <h1 class="doc-head__title">Subtle motion,<br/>delivered with <span class="accent-grad">weight.</span></h1>
+    <p class="doc-head__sub">A live breakdown of every motion primitive 13g (Treize grammes) uses to make their agency site feel premium — rebuilt in your brand, mapped to the exact places on Verbaflow where each one will do real work.</p>
+  </div>
+  <div class="doc-head__meta">
+    <span><strong>SOURCE</strong> 13g.fr</span>
+    <span><strong>TARGET</strong> verbaflowllc.com</span>
+    <span><strong>PRIMITIVES</strong> 9</span>
+  </div>
+</header>
+
+<!-- ═══════════ SECTION 1: PRIMITIVES ═══════════ -->
+<section class="study" id="primitives">
+  <div class="wrap">
+    <div class="study-head">
+      <div>
+        <div class="study-head__num">/ 01 — MOTION PRIMITIVES</div>
+        <h2 class="study-head__title">Nine ideas, worth stealing.</h2>
+      </div>
+      <p class="study-head__desc">13g's craft is in restraint. Text doesn't fly — it slides one letter at a time. Logos don't pop — they drift. Hover states aren't scale 1.05 — they're weight shifts. Here's each primitive, live.</p>
+    </div>
+
+    <!-- 1. Kinetic headline swap -->
+    <div class="primitive">
+      <div class="primitive__demo">
+        <div class="kinetic-swap">
+          Connect with more of your<br/>
+          <span class="kinetic-swap__mask" style="min-width:340px">
+            <span class="kinetic-swap__word accent-grad kinetic-swap__word--1">best customers.</span>
+            <span class="kinetic-swap__word accent-grad kinetic-swap__word--2">high-intent leads.</span>
+            <span class="kinetic-swap__word accent-grad kinetic-swap__word--3">loyal advocates.</span>
+          </span>
+        </div>
+      </div>
+      <div class="primitive__meta">
+        <span class="primitive__tag">01 · Kinetic Swap</span>
+        <h3 class="primitive__name">Headline word rotator</h3>
+        <p class="primitive__desc">A masked vertical crossfade that swaps the final word of a headline every ~1.7s. On 13g it's how they say "Réveillez votre marque / croissance / stratégie" in one breath.</p>
+        <div class="primitive__apply">
+          <svg class="primitive__apply-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <p class="primitive__apply-text">Apply to <strong>HeroSection.tsx</strong> — rotate the final word of your H1 between "<em>best customers</em>", "<em>high-intent leads</em>", "<em>loyal advocates</em>". Positions Verbaflow as breadth-of-outcome, not one feature.</p>
+        </div>
+        <div class="primitive__specs">
+          <strong>CSS</strong> ~40 lines · no JS<br/>
+          <strong>Timing</strong> 5s loop, <strong>ease-out-expo</strong><br/>
+          <strong>Risk</strong> Low — contained to 1 word
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Letter-by-letter rise -->
+    <div class="primitive">
+      <div class="primitive__demo">
+        <div class="letter-rise">
+          <span class="letter-rise__mask" id="letterRise"></span>
+        </div>
+      </div>
+      <div class="primitive__meta">
+        <span class="primitive__tag">02 · Type Reveal</span>
+        <h3 class="primitive__name">Letter rise on enter</h3>
+        <p class="primitive__desc">Each character sits below a mask and rises with a staggered delay (≈30ms). The effect reads as "typeset arriving" rather than "animation playing".</p>
+        <div class="primitive__apply">
+          <svg class="primitive__apply-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <p class="primitive__apply-text">Apply to <strong>every H2 section title</strong> — "We work with winners", "Trusted by growth-minded businesses", pricing headers. Fires once on scroll-into-view via IntersectionObserver.</p>
+        </div>
+        <div class="primitive__specs">
+          <strong>Stagger</strong> 30ms per char · <strong>Duration</strong> 900ms<br/>
+          <strong>Trigger</strong> IntersectionObserver at 0.3 threshold<br/>
+          <strong>Cost</strong> ~30 lines JS, reusable utility
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Marquee logo ticker + big text marquee -->
+    <div class="primitive">
+      <div class="primitive__demo" style="flex-direction:column;gap:18px;align-items:stretch">
+        <div class="marquee">
+          <div class="marquee__track">
+            <span class="marquee__logo">HEALTHCARE</span>
+            <span class="marquee__logo">FINANCE</span>
+            <span class="marquee__logo">REAL ESTATE</span>
+            <span class="marquee__logo">E-COMMERCE</span>
+            <span class="marquee__logo">SAAS</span>
+            <span class="marquee__logo">LOGISTICS</span>
+            <span class="marquee__logo">HEALTHCARE</span>
+            <span class="marquee__logo">FINANCE</span>
+            <span class="marquee__logo">REAL ESTATE</span>
+            <span class="marquee__logo">E-COMMERCE</span>
+            <span class="marquee__logo">SAAS</span>
+            <span class="marquee__logo">LOGISTICS</span>
+          </div>
+        </div>
+        <div class="marquee marquee--big">
+          <div class="marquee__track">
+            <span class="marquee__item">AI Automation</span>
+            <span class="marquee__star">✦</span>
+            <span class="marquee__item">Lead Response</span>
+            <span class="marquee__star">✦</span>
+            <span class="marquee__item">Voice Workflow</span>
+            <span class="marquee__star">✦</span>
+            <span class="marquee__item">AI Automation</span>
+            <span class="marquee__star">✦</span>
+            <span class="marquee__item">Lead Response</span>
+            <span class="marquee__star">✦</span>
+            <span class="marquee__item">Voice Workflow</span>
+            <span class="marquee__star">✦</span>
+          </div>
+        </div>
+      </div>
+      <div class="primitive__meta">
+        <span class="primitive__tag">03 · Marquee</span>
+        <h3 class="primitive__name">Infinite horizontal drift</h3>
+        <p class="primitive__desc">Two flavors 13g uses heavily: (a) a quiet client-logo marquee, and (b) a <em>huge outlined-text</em> marquee punctuated with ✦ glyphs that acts as a section divider. It adds kinetic energy without asking for attention.</p>
+        <div class="primitive__apply">
+          <svg class="primitive__apply-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <p class="primitive__apply-text">Upgrade your <strong>TrustBar</strong> from static pills → a drifting logo marquee. Add a <strong>big-text marquee divider</strong> between ServicesSection ↔ PricingSection with your service names.</p>
+        </div>
+        <div class="primitive__specs">
+          <strong>Duplication</strong> Content must appear twice for seamless loop<br/>
+          <strong>Speed</strong> 22–30s linear (never faster)<br/>
+          <strong>Mask</strong> linear-gradient fade on both edges — critical
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Scroll-reveal -->
+    <div class="primitive">
+      <div class="primitive__demo">
+        <div class="reveal-demo" id="revealDemo">
+          <div class="reveal-tile scroll-reveal scroll-reveal--d1">01</div>
+          <div class="reveal-tile reveal-tile--accent scroll-reveal scroll-reveal--d2">02</div>
+          <div class="reveal-tile scroll-reveal scroll-reveal--d3">03</div>
+        </div>
+      </div>
+      <div class="primitive__meta">
+        <span class="primitive__tag">04 · On-Scroll Reveal</span>
+        <h3 class="primitive__name">Fade + rise, cascaded</h3>
+        <p class="primitive__desc">Items enter from +40px below, fading in with a per-item delay (80ms / 160ms / 240ms). The key is the easing — <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent)">ease-out-expo</code> — which slows dramatically in the last 20% of motion. Feels mechanical on ease-out; premium on ease-out-expo.</p>
+        <div class="primitive__apply">
+          <svg class="primitive__apply-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <p class="primitive__apply-text">Replace your current <strong>animate-fade-in-up</strong> class. Apply to ServicesSection cards, PricingSection tiers, TestimonialsSection, FAQ rows. Replace <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent)">ease-out</code> everywhere with <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent)">cubic-bezier(0.19, 1, 0.22, 1)</code>.</p>
+        </div>
+        <div class="primitive__specs">
+          <strong>Duration</strong> 1000ms (long — that's the point)<br/>
+          <strong>Easing</strong> cubic-bezier(0.19, 1, 0.22, 1) <br/>
+          <strong>Stagger</strong> 80ms base, 3 steps max
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Counter -->
+    <div class="primitive">
+      <div class="primitive__demo">
+        <div class="counter-row">
+          <div class="counter">
+            <div class="counter__num"><span class="counter__sign">+</span><span class="js-count" data-target="247">0</span></div>
+            <div class="counter__label">Leads / month</div>
+          </div>
+          <div class="counter">
+            <div class="counter__num"><span class="js-count" data-target="68">0</span>%</div>
+            <div class="counter__label">Response rate</div>
+          </div>
+          <div class="counter">
+            <div class="counter__num"><span class="counter__sign">+</span><span class="js-count" data-target="1204">0</span></div>
+            <div class="counter__label">Tasks automated</div>
+          </div>
+        </div>
+      </div>
+      <div class="primitive__meta">
+        <span class="primitive__tag">05 · Counter</span>
+        <h3 class="primitive__name">Number ticks up on view</h3>
+        <p class="primitive__desc">On scroll-in, numbers animate from 0 to their target over ~1.6s with ease-out. 13g uses this for "+130 clients", "+76 awards", "+10 years". It converts abstract stats into something you <em>watch happen</em>.</p>
+        <div class="primitive__apply">
+          <svg class="primitive__apply-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <p class="primitive__apply-text">Add a <strong>stats band</strong> between HeroSection and ServicesSection: "+247 leads generated / 68% avg response rate / +1,204 tasks automated". Your glass card data becomes the hero proof point.</p>
+        </div>
+        <div class="primitive__specs">
+          <strong>Duration</strong> 1600ms · <strong>Easing</strong> ease-out<br/>
+          <strong>Trigger</strong> IntersectionObserver, once<br/>
+          <strong>Format</strong> tabular-nums — numbers don't jitter width
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Magnetic CTA -->
+    <div class="primitive">
+      <div class="primitive__demo">
+        <div class="mag-wrap">
+          <button class="mag-btn" data-mag>
+            Get my growth plan
+            <span class="mag-btn__arrow">→</span>
+          </button>
+          <button class="mag-btn mag-btn--ghost" data-mag>
+            Book a call
+            <span class="mag-btn__arrow">→</span>
+          </button>
+        </div>
+      </div>
+      <div class="primitive__meta">
+        <span class="primitive__tag">06 · Magnetic CTA</span>
+        <h3 class="primitive__name">Button bends toward cursor</h3>
+        <p class="primitive__desc">The button translates a small amount (~30% of cursor delta from center) as the cursor approaches. Combined with arrow-slide and glow-on-hover, it makes CTAs feel interactive before you click.</p>
+        <div class="primitive__apply">
+          <svg class="primitive__apply-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <p class="primitive__apply-text">Apply <em>only</em> to your hero <strong>"Get my growth plan"</strong> button and the pricing CTAs. Don't magnetize every button — it loses meaning. Add arrow-slide (→ moves 6px right) to every vf-btn--primary.</p>
+        </div>
+        <div class="primitive__specs">
+          <strong>Strength</strong> 0.3 of cursor delta<br/>
+          <strong>Easing</strong> .5s ease-out-expo on release<br/>
+          <strong>Detection</strong> pointer radius ~120px
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Video card reveal -->
+    <div class="primitive">
+      <div class="primitive__demo" style="padding:14px">
+        <div class="video-stack">
+          <div class="video-card">
+            <div class="video-card__bg"></div>
+            <div class="video-card__label">Be strong
+              <div class="video-card__play">▶</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-card__bg"></div>
+            <div class="video-card__label">Be bold
+              <div class="video-card__play">▶</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-card__bg"></div>
+            <div class="video-card__label">Be true
+              <div class="video-card__play">▶</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="primitive__meta">
+        <span class="primitive__tag">07 · Expand-on-hover</span>
+        <h3 class="primitive__name">Flexible-width card stack</h3>
+        <p class="primitive__desc">Three equal cards, but hovering one pushes its flex-grow from 1 → 1.6 while siblings compress. The inner media also scales slightly. This is 13g's signature "3 pillars" layout.</p>
+        <div class="primitive__apply">
+          <svg class="primitive__apply-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <p class="primitive__apply-text">Use for your <strong>AI Tools Section</strong> or to restructure ServicesSection into 3 pillars: "Attract / Convert / Automate". Hovering any pillar promotes it. Much stronger than a static 4-up grid.</p>
+        </div>
+        <div class="primitive__specs">
+          <strong>Transition</strong> flex .7s ease-out-expo<br/>
+          <strong>Bg scale</strong> 1 → 1.08 on hover<br/>
+          <strong>Min cards</strong> 3 — doesn't work with 4+
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Gradient drift / ambient -->
+    <div class="primitive">
+      <div class="primitive__demo" style="padding:0">
+        <div class="gradient-field">
+          <span class="gradient-field__label">Ambient gradient field</span>
+        </div>
+      </div>
+      <div class="primitive__meta">
+        <span class="primitive__tag">08 · Ambient drift</span>
+        <h3 class="primitive__name">Slow-drift radial gradients</h3>
+        <p class="primitive__desc">Two oversized blurred radials drift independently over 14–18s. Your hero already has one; 13g uses <em>two moving in opposition</em> to create a subtle parallax without any imagery.</p>
+        <div class="primitive__apply">
+          <svg class="primitive__apply-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <p class="primitive__apply-text">Use <em>between</em> sections (ContactSection, FAQ) where you currently have flat <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent)">bg-[var(--section-bg-1)]</code>. Add as a <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent)">::before</code>/<code style="font-family:var(--font-mono);font-size:12px;color:var(--accent)">::after</code> with <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent)">opacity:.4</code>. Replaces need for hero-video on interior pages.</p>
+        </div>
+        <div class="primitive__specs">
+          <strong>Blur</strong> 60px · <strong>Opacity</strong> .4–.7<br/>
+          <strong>Duration</strong> 14s + 18s (prime numbers, never sync)<br/>
+          <strong>prefers-reduced-motion</strong> → disable
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Custom cursor -->
+    <div class="primitive">
+      <div class="primitive__demo">
+        <div class="cursor-demo" style="width:100%">
+          <div class="cursor-area">
+            <span>Hover me</span>
+            <span class="cursor-dot" id="cursorDot">View →</span>
+          </div>
+        </div>
+      </div>
+      <div class="primitive__meta">
+        <span class="primitive__tag">09 · Cursor Affordance</span>
+        <h3 class="primitive__name">Contextual cursor dot</h3>
+        <p class="primitive__desc">Over interactive zones, the native cursor vanishes and a branded dot with a verb ("View", "Play", "Drag") appears. Scales from 0 → 1 with ease-out-expo. Strongest on portfolio / case-study cards.</p>
+        <div class="primitive__apply">
+          <svg class="primitive__apply-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <p class="primitive__apply-text">Use sparingly — only on the <strong>portfolio / case study grid</strong> (if you add one) and the <strong>Agency page</strong>. Don't ship globally; breaks accessibility and disorients form users.</p>
+        </div>
+        <div class="primitive__specs">
+          <strong>Scope</strong> scoped to <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent)">[data-cursor]</code> only<br/>
+          <strong>Size</strong> 80px · <strong>Blend</strong> difference (optional)<br/>
+          <strong>Accessibility</strong> Never hide cursor site-wide
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECTION 2: RECOMMENDATION MAP ═══════════ -->
+<section class="study" id="map">
+  <div class="wrap">
+    <div class="study-head">
+      <div>
+        <div class="study-head__num">/ 02 — RECOMMENDATION MAP</div>
+        <h2 class="study-head__title">Where to apply, page by page.</h2>
+      </div>
+      <p class="study-head__desc">Prioritized by impact ÷ effort. If you only ship 3 things, ship the top row: kinetic swap, counter band, and ease-out-expo on every existing reveal.</p>
+    </div>
+
+    <div class="map-grid">
+      <div class="map-card">
+        <div class="map-card__scene">Hero · HeroSection.tsx</div>
+        <div class="map-card__title">Kinetic headline + magnetic CTA</div>
+        <p class="map-card__body">Rotate final word of H1 ("best customers → high-intent leads → loyal advocates"). Magnetize the primary "Get my growth plan →" button only. Keep the video background — this stacks on top.</p>
+        <div class="map-card__tags">
+          <span class="map-card__tag">Primitive 01</span>
+          <span class="map-card__tag">Primitive 06</span>
+          <span class="map-card__tag">Impact: High</span>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card__scene">New · Stats Band</div>
+        <div class="map-card__title">Insert a counter strip after Hero</div>
+        <p class="map-card__body">Before ServicesSection, add a 3-counter row: "+247 leads / 68% response / +1,204 tasks". Pulls the data from your current glass card into a load-bearing proof section. Animated on scroll.</p>
+        <div class="map-card__tags">
+          <span class="map-card__tag">Primitive 05</span>
+          <span class="map-card__tag">New component</span>
+          <span class="map-card__tag">Impact: High</span>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card__scene">TrustBar · vf-trust-bar</div>
+        <div class="map-card__title">Convert pills → drifting marquee</div>
+        <p class="map-card__body">Your current 5 static sector pills are fine but passive. Turn them into a slow-drift horizontal marquee (duplicate content for seamless loop, mask the edges). Hover pauses.</p>
+        <div class="map-card__tags">
+          <span class="map-card__tag">Primitive 03</span>
+          <span class="map-card__tag">Effort: 15 min</span>
+          <span class="map-card__tag">Impact: Medium</span>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card__scene">Between ServicesSection ↔ Pricing</div>
+        <div class="map-card__title">Big-text marquee divider</div>
+        <p class="map-card__body">Drop a full-width outlined-text marquee with your 4 service verbs and ✦ glyphs. Acts as a section separator that currently doesn't exist — right now your dark sections run together.</p>
+        <div class="map-card__tags">
+          <span class="map-card__tag">Primitive 03</span>
+          <span class="map-card__tag">New component</span>
+          <span class="map-card__tag">Impact: Medium</span>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card__scene">Global · globals.css</div>
+        <div class="map-card__title">Replace all ease-out → ease-out-expo</div>
+        <p class="map-card__body">Find-replace in globals.css: every <code style="font-family:var(--font-mono);color:var(--accent)">ease-out</code> in animations becomes <code style="font-family:var(--font-mono);color:var(--accent)">cubic-bezier(0.19, 1, 0.22, 1)</code>. Bump durations 20% longer. This single change makes every existing animation feel premium.</p>
+        <div class="map-card__tags">
+          <span class="map-card__tag">Primitive 04</span>
+          <span class="map-card__tag">Effort: 5 min</span>
+          <span class="map-card__tag">Impact: High</span>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card__scene">ServicesSection.tsx</div>
+        <div class="map-card__title">Restructure 4-up → 3-pillar expand</div>
+        <p class="map-card__body">Collapse your 2×2 services grid into 3 horizontal pillars ("Attract / Convert / Automate"). Hover expands the active pillar from flex:1 → 1.6. 13g's strongest layout idea. Works on desktop; stacks on mobile.</p>
+        <div class="map-card__tags">
+          <span class="map-card__tag">Primitive 07</span>
+          <span class="map-card__tag">Refactor</span>
+          <span class="map-card__tag">Impact: High</span>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card__scene">Every Section Header</div>
+        <div class="map-card__title">Letter-rise on H2s</div>
+        <p class="map-card__body">Write a <code style="font-family:var(--font-mono);color:var(--accent)">&lt;AnimatedHeadline&gt;</code> component. Split text, wrap each char in a mask+inline-block, stagger transform:translateY(0). Fires once via IntersectionObserver at 0.3 threshold.</p>
+        <div class="map-card__tags">
+          <span class="map-card__tag">Primitive 02</span>
+          <span class="map-card__tag">Reusable utility</span>
+          <span class="map-card__tag">Impact: Medium</span>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card__scene">ContactSection & FAQ backgrounds</div>
+        <div class="map-card__title">Ambient drift behind flat sections</div>
+        <p class="map-card__body">Both sections currently have flat <code style="font-family:var(--font-mono);color:var(--accent)">section-bg-1</code> backgrounds. Add two drifting radial-gradient ::before/::after pseudos with opacity .35 to create life without imagery.</p>
+        <div class="map-card__tags">
+          <span class="map-card__tag">Primitive 08</span>
+          <span class="map-card__tag">CSS-only</span>
+          <span class="map-card__tag">Impact: Medium</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECTION 3: OTHER LEARNINGS ═══════════ -->
+<section class="study" id="learnings">
+  <div class="wrap">
+    <div class="study-head">
+      <div>
+        <div class="study-head__num">/ 03 — BEYOND MOTION</div>
+        <h2 class="study-head__title">Six other things 13g<br/>does right.</h2>
+      </div>
+      <p class="study-head__desc">Motion is half the story. These structural choices are why the site feels confident.</p>
+    </div>
+
+    <div class="learn-list">
+      <div class="learn-row">
+        <div class="learn-row__num">01</div>
+        <div class="learn-row__name">Oversized typography</div>
+        <div class="learn-row__body">13g's H1 is routinely <strong>120–160px</strong> on desktop. Yours is <code style="font-family:var(--font-mono);color:var(--accent)">clamp(44px, 5.2vw, 76px)</code> — reasonable but safe. Push your hero to <strong>clamp(56px, 7vw, 110px)</strong> and cut sub-copy by 30%. Big type is the new whitespace.</div>
+      </div>
+      <div class="learn-row">
+        <div class="learn-row__num">02</div>
+        <div class="learn-row__name">One-word positioning</div>
+        <div class="learn-row__body">Their section labels are single verbs in caps: <em>BRANDING · DIGITAL · CONTENT · STRATÉGIE</em>. You have "Services", "About", "Blog". Rewrite service titles as <strong>single verbs</strong>: "Attract / Convert / Automate / Scale". Stronger scent of action.</div>
+      </div>
+      <div class="learn-row">
+        <div class="learn-row__num">03</div>
+        <div class="learn-row__name">Case-study-first thinking</div>
+        <div class="learn-row__body">Their homepage leads with <strong>work</strong>, not features. Three big case-study tiles above the fold (Adobe, Lemlist, CMA CGM). You lead with a pricing-adjacent growth plan. Consider: add a <strong>"Recent wins" strip</strong> — 3 client logos with 1-line result ("+40% bookings for [client]") before pricing.</div>
+      </div>
+      <div class="learn-row">
+        <div class="learn-row__num">04</div>
+        <div class="learn-row__name">Numbered sections</div>
+        <div class="learn-row__body">Every section has a tiny mono-font counter — <em>/ 01</em>, <em>/ 02</em>, <em>/ 03</em> — in the corner. Free structure, feels editorial, earns the premium positioning. Cheap to ship; adopt immediately. (This doc uses it.)</div>
+      </div>
+      <div class="learn-row">
+        <div class="learn-row__num">05</div>
+        <div class="learn-row__name">Asymmetric grids</div>
+        <div class="learn-row__body">13g almost never uses symmetric layouts. Hero text is left-aligned with content at 60% width; case studies are 70/30 or 40/60 splits; image grids have one oversized hero + two small satellites. Your current 2×2 and 3×3 grids read as a template. <strong>Break one grid per page</strong> to regain craft.</div>
+      </div>
+      <div class="learn-row">
+        <div class="learn-row__num">06</div>
+        <div class="learn-row__name">Quiet color palette</div>
+        <div class="learn-row__body">Their palette is 95% <strong>near-black + one near-white</strong>, with <em>accent color used maybe 3 times per page</em>. You use accent green liberally (button, badge, glow, border, text-2). Try a rule: <strong>accent only on CTAs and one "key number" per section</strong>. The restraint will make the accent hit harder.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CLOSING ═══════════ -->
+<div class="close">
+  <div class="wrap">
+    <h2 class="close__headline">Ship the <span class="accent-grad">top three</span> next week.<br/>Consider the rest next month.</h2>
+    <p class="close__sub">The cheapest wins are the ease-out-expo swap, the counter band, and the kinetic headline. Each is under an hour. Each materially shifts perception.</p>
+  </div>
+</div>
+
+<script>
+/* ═══ Letter rise ═══ */
+(function(){
+  const target = document.getElementById('letterRise');
+  if(!target) return;
+  const text = 'We work with winners.';
+  target.innerHTML = '';
+  [...text].forEach((c,i) => {
+    const span = document.createElement('span');
+    span.className = 'letter-rise__char';
+    span.textContent = c === ' ' ? '\u00a0' : c;
+    span.style.animationDelay = (i*30)+'ms';
+    target.appendChild(span);
+  });
+  // replay on scroll into view
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        [...target.children].forEach((span,i) => {
+          span.style.animation = 'none';
+          span.offsetHeight;
+          span.style.animation = `letter-rise-anim .9s cubic-bezier(0.19, 1, 0.22, 1) ${i*30}ms forwards`;
+        });
+      }
+    });
+  }, {threshold: 0.4});
+  io.observe(target);
+})();
+
+/* ═══ Scroll reveal ═══ */
+(function(){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) e.target.classList.add('is-visible');
+    });
+  }, {threshold: 0.2});
+  document.querySelectorAll('.scroll-reveal').forEach(el => io.observe(el));
+})();
+
+/* ═══ Counters ═══ */
+(function(){
+  const run = (el) => {
+    const target = +el.dataset.target;
+    const dur = 1600;
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start)/dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target).toLocaleString();
+      if(p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.4});
+  document.querySelectorAll('.js-count').forEach(el => io.observe(el));
+})();
+
+/* ═══ Magnetic buttons ═══ */
+(function(){
+  document.querySelectorAll('[data-mag]').forEach(btn => {
+    btn.addEventListener('pointermove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width/2;
+      const y = e.clientY - r.top - r.height/2;
+      btn.style.transform = `translate(${x*0.3}px, ${y*0.3}px)`;
+    });
+    btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+  });
+})();
+
+/* ═══ Custom cursor ═══ */
+(function(){
+  const area = document.querySelector('.cursor-area');
+  const dot = document.getElementById('cursorDot');
+  if(!area || !dot) return;
+  area.addEventListener('pointermove', (e) => {
+    const r = area.getBoundingClientRect();
+    dot.style.left = (e.clientX - r.left) + 'px';
+    dot.style.top = (e.clientY - r.top) + 'px';
+  });
+})();
+</script>
+</body>
+</html>

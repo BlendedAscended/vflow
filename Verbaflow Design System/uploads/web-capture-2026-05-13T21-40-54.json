@@ -1,0 +1,52 @@
+[
+  {
+    "id": "cap_mp4l2ti5_5r5zsg",
+    "selector": "img.iFOUS5",
+    "label": "img.iFOUS5",
+    "tag": "img",
+    "url": "https://www.pinterest.com/pin/187814246956848321/",
+    "title": "Dreativ — AI Design Agency Landing Page",
+    "timestamp": "2026-05-13T21:40:36.701Z",
+    "innerText": "",
+    "outerHTML": "<img alt=\"Story pin image\" class=\"iFOUS5\" draggable=\"true\" fetchpriority=\"high\" loading=\"auto\" elementtiming=\"StoryPinImageBlock-MainPinImage\" src=\"https://i.pinimg.com/736x/76/8c/bc/768cbca03ced6cb82714bbdd946d2416.jpg\">",
+    "rect": {
+      "x": 274,
+      "y": 145,
+      "width": 319,
+      "height": 573
+    },
+    "computedStyles": {
+      "display": "block",
+      "position": "absolute",
+      "top": "0px",
+      "right": "0px",
+      "bottom": "0px",
+      "left": "0px",
+      "width": "318.758px",
+      "height": "572.984px",
+      "border": "0px none rgba(0, 0, 0, 0)",
+      "background": "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+      "color": "rgba(0, 0, 0, 0)",
+      "font-family": "\"Pin Sans\", -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Oxygen-Sans, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", Ubuntu, Cantarell, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", Helvetica, \"ヒラギノ角ゴ Pro W3\", メイリオ, Meiryo, \"ＭＳ Ｐゴシック\", Arial, sans-serif",
+      "font-size": "12px",
+      "text-decoration": "none",
+      "overflow": "clip",
+      "transition": "all"
+    },
+    "cssRules": [
+      {
+        "selector": ".iFOUS5",
+        "css": "display: block; position: absolute; width: 100%;"
+      },
+      {
+        "selector": ".iFOUS5[alt]",
+        "css": "color: transparent;"
+      },
+      {
+        "selector": ".ALBw9Q, .iFOUS5",
+        "css": "filter: invert(100%);",
+        "media": "(inverted-colors)"
+      }
+    ]
+  }
+]

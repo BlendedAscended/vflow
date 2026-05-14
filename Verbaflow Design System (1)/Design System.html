@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Verbaflow — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  /* Spacing scale */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+  --sp-12: 48px; --sp-16: 64px; --sp-20: 80px;
+
+  /* Radius scale */
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 20px;
+  --r-2xl: 24px; --r-3xl: 32px; --r-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,.18), 0 1px 2px rgba(0,0,0,.12);
+  --shadow-md:  0 4px 16px rgba(0,0,0,.22), 0 2px 6px rgba(0,0,0,.14);
+  --shadow-lg:  0 10px 40px rgba(0,0,0,.28), 0 4px 12px rgba(0,0,0,.18);
+  --shadow-glow: 0 0 24px rgba(165,214,167,.35);
+
+  /* Transition */
+  --ease: cubic-bezier(0.16,1,0.3,1);
+  --dur-fast: 120ms; --dur-default: 200ms; --dur-slow: 400ms;
+}
+
+/* Dark theme (default) */
+html.theme-dark {
+  --bg:              #102023;
+  --bg-surface:      #1b2b2e;
+  --bg-elevated:     #22363a;
+  --bg-section-alt:  #2d2d4b;
+  --text-1:          #ffffff;
+  --text-2:          #bee3ba;
+  --text-3:          #7fa88a;
+  --border:          #2f4144;
+  --border-subtle:   rgba(255,255,255,.06);
+  --accent:          #A5D6A7;
+  --accent-fg:       #000000;
+  --accent-dim:      rgba(165,214,167,.12);
+  --accent-border:   rgba(165,214,167,.28);
+  color-scheme: dark;
+}
+/* Light theme */
+html.theme-light {
+  --bg:              #f2f9f1;
+  --bg-surface:      #ffffff;
+  --bg-elevated:     #f4f7f5;
+  --bg-section-alt:  #222E3C;
+  --text-1:          #102023;
+  --text-2:          #2d2d4b;
+  --text-3:          #6b7280;
+  --border:          #dbe5d9;
+  --border-subtle:   rgba(0,0,0,.06);
+  --accent:          #A5D6A7;
+  --accent-fg:       #000000;
+  --accent-dim:      rgba(165,214,167,.18);
+  --accent-border:   rgba(165,214,167,.5);
+  color-scheme: light;
+}
+
+/* ═══════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text-1);
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--dur-slow) var(--ease), color var(--dur-slow) var(--ease);
+}
+a { color: inherit; text-decoration: none; }
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════ */
+.page-wrap { max-width: 1160px; margin: 0 auto; padding: 0 var(--sp-8); }
+
+.ds-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(16,32,35,.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  padding: var(--sp-4) var(--sp-8);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-6);
+  transition: background var(--dur-slow) var(--ease);
+}
+html.theme-light .ds-header {
+  background: rgba(242,249,241,.88);
+}
+.ds-header__logo {
+  display: flex; align-items: center; gap: var(--sp-3);
+  font-size: 16px; font-weight: 700; letter-spacing: -.02em;
+  color: var(--text-1);
+}
+.ds-header__logo img { width: 28px; height: 28px; object-fit: cover; border-radius: var(--r-md); }
+.ds-header__badge {
+  font-size: 10px; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent);
+  background: var(--accent-dim); border: 1px solid var(--accent-border);
+  padding: 3px 10px; border-radius: var(--r-full);
+}
+.ds-header__nav {
+  display: flex; align-items: center; gap: var(--sp-1);
+}
+.ds-header__nav a {
+  font-size: 13px; font-weight: 500; color: var(--text-3);
+  padding: var(--sp-2) var(--sp-3); border-radius: var(--r-full);
+  transition: color var(--dur-fast), background var(--dur-fast);
+}
+.ds-header__nav a:hover { color: var(--text-1); background: var(--bg-elevated); }
+.theme-toggle {
+  width: 36px; height: 36px; border-radius: var(--r-full);
+  border: 1px solid var(--border); background: var(--bg-surface);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background var(--dur-fast), transform var(--dur-fast);
+  color: var(--text-1);
+}
+.theme-toggle:hover { background: var(--bg-elevated); transform: scale(1.1); }
+
+/* Sections */
+.ds-section { padding: var(--sp-16) 0; border-bottom: 1px solid var(--border-subtle); }
+.ds-section:last-child { border-bottom: none; }
+.section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: var(--sp-3);
+}
+.section-title {
+  font-size: clamp(28px, 3vw, 40px); font-weight: 700; letter-spacing: -.025em;
+  color: var(--text-1); margin-bottom: var(--sp-2);
+}
+.section-sub {
+  font-size: 15px; color: var(--text-3); max-width: 540px;
+  line-height: 1.7; margin-bottom: var(--sp-10);
+}
+
+/* Token row */
+.token-grid { display: grid; gap: var(--sp-4); }
+.token-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.token-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.token-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.token-grid--5 { grid-template-columns: repeat(5, 1fr); }
+.token-grid--auto { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+@media(max-width:700px) {
+  .token-grid--2,.token-grid--3,.token-grid--4,.token-grid--5 { grid-template-columns: 1fr 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   HERO BANNER
+═══════════════════════════════════════════ */
+.ds-hero {
+  position: relative; overflow: hidden;
+  min-height: 340px;
+  display: flex; align-items: center;
+  background: linear-gradient(135deg, #0a1628 0%, #102023 45%, #0f2a30 100%);
+  border-bottom: 1px solid var(--border);
+}
+.ds-hero__glow {
+  position: absolute; top: -120px; right: 8%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(165,214,167,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ds-hero__content {
+  position: relative; z-index: 2;
+  padding: var(--sp-20) var(--sp-8);
+  max-width: 1160px; margin: 0 auto; width: 100%;
+}
+.ds-hero__eyebrow {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: #A5D6A7;
+  background: rgba(165,214,167,.1); border: 1px solid rgba(165,214,167,.22);
+  padding: 5px 14px; border-radius: var(--r-full); margin-bottom: var(--sp-5);
+}
+.ds-hero__eyebrow-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #A5D6A7; box-shadow: 0 0 6px rgba(165,214,167,.9);
+  flex-shrink: 0;
+}
+.ds-hero__title {
+  font-size: clamp(40px, 5vw, 72px); font-weight: 500; letter-spacing: -.025em;
+  line-height: 1.04; color: #fff; margin-bottom: var(--sp-4);
+}
+.ds-hero__title-accent {
+  background: linear-gradient(135deg, #A5D6A7 0%, #6ec97a 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ds-hero__sub {
+  font-size: 16px; font-weight: 300; line-height: 1.7;
+  color: rgba(255,255,255,.65); max-width: 440px;
+}
+.ds-hero__version {
+  position: absolute; bottom: var(--sp-6); right: var(--sp-8);
+  font-size: 11px; font-family: var(--font-mono); color: rgba(255,255,255,.22);
+}
+
+/* ═══════════════════════════════════════════
+   COLOR SWATCHES
+═══════════════════════════════════════════ */
+.swatch-group { }
+.swatch-group__label {
+  font-size: 11px; font-weight: 600; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--text-3);
+  margin-bottom: var(--sp-3);
+}
+.swatch-row { display: flex; gap: 0; border-radius: var(--r-lg); overflow: hidden; margin-bottom: var(--sp-4); }
+.swatch {
+  flex: 1; height: 72px; position: relative;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: var(--sp-2) var(--sp-3); cursor: default;
+  transition: flex var(--dur-default) var(--ease);
+}
+.swatch:hover { flex: 2; }
+.swatch__name {
+  font-size: 10px; font-weight: 600; letter-spacing: .04em;
+  line-height: 1.2; opacity: 0;
+  transition: opacity var(--dur-fast);
+}
+.swatch:hover .swatch__name { opacity: 1; }
+.swatch__hex {
+  font-size: 10px; font-family: var(--font-mono); letter-spacing: .02em;
+  opacity: 0; transition: opacity var(--dur-fast);
+}
+.swatch:hover .swatch__hex { opacity: 1; }
+
+/* Individual swatches for the palette grid */
+.color-card {
+  border-radius: var(--r-xl); overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+.color-card__swatch { height: 80px; }
+.color-card__info { padding: var(--sp-3) var(--sp-4); background: var(--bg-surface); }
+.color-card__name { font-size: 12px; font-weight: 600; color: var(--text-1); margin-bottom: 2px; }
+.color-card__hex { font-size: 11px; font-family: var(--font-mono); color: var(--text-3); }
+.color-card__usage { font-size: 10px; color: var(--text-3); margin-top: 2px; }
+
+/* ═══════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════ */
+.type-row {
+  padding: var(--sp-5) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex; align-items: baseline; gap: var(--sp-6); flex-wrap: wrap;
+}
+.type-row:last-child { border-bottom: none; }
+.type-row__meta {
+  flex-shrink: 0; min-width: 140px;
+  font-size: 11px; font-family: var(--font-mono); color: var(--text-3);
+  line-height: 1.5;
+}
+.type-row__meta strong { color: var(--accent); display: block; }
+.type-row__sample { flex: 1; min-width: 0; }
+
+/* ═══════════════════════════════════════════
+   COMPONENTS — BUTTONS
+═══════════════════════════════════════════ */
+.component-canvas {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2xl);
+  padding: var(--sp-8);
+  display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center;
+}
+.component-canvas--dark {
+  background: #0d1a1c;
+  border-color: #1e2f32;
+}
+.component-canvas--alt { background: #2d2d4b; border-color: #3a3a60; }
+
+/* Button styles */
+.vf-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 12px 26px; border-radius: var(--r-full);
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px;
+  cursor: pointer; border: none; white-space: nowrap;
+  transition: transform var(--dur-fast) var(--ease),
+              box-shadow var(--dur-fast) var(--ease),
+              background var(--dur-fast);
+  text-decoration: none;
+}
+.vf-btn--primary {
+  background: #A5D6A7; color: #000;
+  box-shadow: 0 4px 18px rgba(165,214,167,.3);
+}
+.vf-btn--primary:hover { background: #8fcc91; transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+.vf-btn--ghost {
+  background: transparent; color: #fff;
+  border: 1.5px solid rgba(255,255,255,.45);
+}
+.vf-btn--ghost:hover { border-color: rgba(255,255,255,.9); background: rgba(255,255,255,.07); transform: translateY(-1px); }
+.vf-btn--accent-outline {
+  background: transparent; color: #A5D6A7;
+  border: 2px solid #A5D6A7;
+}
+.vf-btn--accent-outline:hover { background: rgba(165,214,167,.1); transform: translateY(-1px); }
+.vf-btn--agency {
+  background: #0F1923; color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.vf-btn--agency:hover { background: #1e2d3a; transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.vf-btn--meet {
+  background: #1A73E8; color: #fff;
+  box-shadow: 0 4px 16px rgba(26,115,232,.3);
+}
+.vf-btn--meet:hover { background: #1558c7; transform: translateY(-1px); }
+.vf-btn--sm { padding: 8px 18px; font-size: 12px; }
+.vf-btn--lg { padding: 16px 36px; font-size: 16px; }
+
+/* ═══════════════════════════════════════════
+   COMPONENTS — BADGES
+═══════════════════════════════════════════ */
+.vf-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; padding: 4px 12px; border-radius: var(--r-full);
+}
+.vf-badge--accent { color: #A5D6A7; background: rgba(165,214,167,.12); border: 1px solid rgba(165,214,167,.28); }
+.vf-badge--live { color: #16a34a; background: rgba(22,163,74,.1); border: 1px solid rgba(22,163,74,.2); }
+.vf-badge--info { color: #60a5fa; background: rgba(96,165,250,.1); border: 1px solid rgba(96,165,250,.2); }
+.vf-badge--warning { color: #fbbf24; background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.2); }
+.vf-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; box-shadow: 0 0 5px currentColor; }
+
+/* ═══════════════════════════════════════════
+   COMPONENTS — CARDS
+═══════════════════════════════════════════ */
+.vf-card {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--r-3xl); padding: var(--sp-6);
+  transition: transform var(--dur-default) var(--ease),
+              box-shadow var(--dur-default) var(--ease);
+}
+.vf-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.vf-card--dark { background: #1b2b2e; border-color: #2f4144; }
+.vf-card--alt { background: #2d2d4b; border-color: #3a3a60; }
+
+/* Glass card */
+.vf-glass-card {
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: var(--r-xl); padding: var(--sp-6) var(--sp-8);
+  box-shadow: 0 8px 40px rgba(0,0,0,.22), 0 1px 0 rgba(255,255,255,.5) inset;
+  color: #0a1628;
+}
+
+/* Metric card (CommandCentre) */
+.vf-metric-card {
+  border-radius: var(--r-md); padding: 16px 20px;
+  border-width: 0.5px; border-style: solid;
+  display: flex; flex-direction: column; gap: 2px;
+  min-width: 190px;
+}
+.vf-metric-card--revenue { background: #085041; border-color: #1D9E75; }
+.vf-metric-card--clients  { background: #0C447C; border-color: #378ADD; }
+.vf-metric-card--conversion { background: #27500A; border-color: #639922; }
+.vf-metric-card--performance { background: #712B13; border-color: #D85A30; }
+.vf-metric-label { font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.vf-metric-value { font-size: 24px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+.vf-metric-delta { font-size: 11px; font-weight: 400; }
+.vf-metric-card--revenue .vf-metric-label { color: #9FE1CB; }
+.vf-metric-card--revenue .vf-metric-value { color: #E1F5EE; }
+.vf-metric-card--revenue .vf-metric-delta { color: #5DCAA5; }
+.vf-metric-card--clients .vf-metric-label { color: #B5D4F4; }
+.vf-metric-card--clients .vf-metric-value { color: #E6F1FB; }
+.vf-metric-card--clients .vf-metric-delta { color: #85B7EB; }
+.vf-metric-card--conversion .vf-metric-label { color: #C0DD97; }
+.vf-metric-card--conversion .vf-metric-value { color: #EAF3DE; }
+.vf-metric-card--conversion .vf-metric-delta { color: #97C459; }
+.vf-metric-card--performance .vf-metric-label { color: #F5C4B3; }
+.vf-metric-card--performance .vf-metric-value { color: #FAECE7; }
+.vf-metric-card--performance .vf-metric-delta { color: #F0997B; }
+
+/* Pricing card */
+.vf-pricing-card {
+  background: var(--bg-surface); border: 2px solid var(--border);
+  border-radius: var(--r-3xl); padding: var(--sp-8);
+  transition: transform var(--dur-default) var(--ease);
+}
+.vf-pricing-card:hover { transform: scale(1.02); }
+.vf-pricing-card--featured {
+  border-color: rgba(165,214,167,.7);
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.02);
+}
+.vf-pricing-card--featured:hover { transform: scale(1.04); }
+.vf-pricing-plan { font-size: 26px; font-weight: 700; color: var(--text-1); margin-bottom: var(--sp-2); }
+.vf-pricing-price { font-size: 42px; font-weight: 800; color: var(--text-1); letter-spacing: -.03em; line-height: 1; }
+.vf-pricing-period { font-size: 16px; font-weight: 400; color: var(--text-3); }
+.vf-pricing-desc { font-size: 14px; color: var(--text-3); line-height: 1.6; margin: var(--sp-3) 0 var(--sp-5); }
+.vf-pricing-features { list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); margin-bottom: var(--sp-6); }
+.vf-pricing-features li {
+  display: flex; align-items: flex-start; gap: var(--sp-2);
+  font-size: 13px; color: var(--text-2); line-height: 1.5;
+}
+.vf-check { color: #A5D6A7; flex-shrink: 0; margin-top: 1px; }
+
+/* ═══════════════════════════════════════════
+   COMPONENTS — INPUT
+═══════════════════════════════════════════ */
+.vf-input-wrap { display: flex; flex-direction: column; gap: var(--sp-2); }
+.vf-label { font-size: 12px; font-weight: 600; color: var(--text-2); letter-spacing: .02em; }
+.vf-input {
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 11px 16px;
+  font-family: var(--font-sans); font-size: 14px; color: var(--text-1);
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+  outline: none; width: 100%;
+}
+.vf-input:focus { border-color: #A5D6A7; box-shadow: 0 0 0 3px rgba(165,214,167,.15); }
+.vf-input::placeholder { color: var(--text-3); }
+.vf-textarea { resize: vertical; min-height: 100px; }
+
+/* ═══════════════════════════════════════════
+   COMPONENTS — NAV PILL
+═══════════════════════════════════════════ */
+.vf-nav {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--r-full); padding: var(--sp-3) var(--sp-8);
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  box-shadow: var(--shadow-md);
+}
+.vf-nav__logo { font-size: 15px; font-weight: 700; color: var(--text-1); margin-right: var(--sp-5); }
+.vf-nav__link {
+  font-size: 13px; font-weight: 500; color: var(--text-2);
+  padding: 6px 14px; border-radius: var(--r-full);
+  transition: color var(--dur-fast), background var(--dur-fast);
+  cursor: pointer;
+}
+.vf-nav__link:hover { color: #000; background: #A5D6A7; }
+.vf-nav__cta {
+  margin-left: var(--sp-4); background: #A5D6A7; color: #000;
+  font-size: 13px; font-weight: 700; padding: 8px 20px; border-radius: var(--r-full);
+  cursor: pointer; border: none; font-family: var(--font-sans);
+  transition: background var(--dur-fast), transform var(--dur-fast);
+}
+.vf-nav__cta:hover { background: #8fcc91; transform: scale(1.04); }
+
+/* Trust pills */
+.vf-trust-bar {
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: var(--r-2xl); padding: var(--sp-5) var(--sp-8);
+  display: flex; flex-direction: column; align-items: center; gap: var(--sp-4);
+}
+.vf-trust-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-3); }
+.vf-trust-pills { display: flex; gap: var(--sp-2); flex-wrap: wrap; justify-content: center; }
+.vf-trust-pill {
+  font-size: 12px; font-weight: 600; letter-spacing: .04em;
+  color: var(--text-3); background: var(--bg-surface);
+  border: 1px solid var(--border); padding: 6px 16px; border-radius: var(--r-full);
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS PREVIEW
+═══════════════════════════════════════════ */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes slideInLeft { from { opacity:0; transform:translateX(-24px); } to { opacity:1; transform:translateX(0); } }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes portalRotate { to { transform:rotate(360deg); } }
+@keyframes waterfallFlow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+@keyframes glow-pulse { 0%,100%{box-shadow:0 0 16px rgba(165,214,167,.3)} 50%{box-shadow:0 0 36px rgba(165,214,167,.7)} }
+
+.anim-box {
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--r-xl); padding: var(--sp-6);
+  display: flex; flex-direction: column; gap: var(--sp-3);
+  align-items: flex-start;
+}
+.anim-preview {
+  width: 48px; height: 48px; background: var(--accent-dim);
+  border: 1px solid var(--accent-border); border-radius: var(--r-lg);
+  display: flex; align-items: center; justify-content: center;
+  color: #A5D6A7; font-size: 20px;
+}
+.anim-preview--float { animation: float 4s ease-in-out infinite; }
+.anim-preview--glow { animation: glow-pulse 2.5s ease-in-out infinite; }
+.anim-preview--waterfall {
+  width: auto; height: auto; background: none; border: none; font-size: 22px;
+  font-weight: 700; letter-spacing: -.02em;
+  background: linear-gradient(45deg, #A5D6A7 0%, rgba(255,255,255,.8) 25%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.1) 75%, rgba(255,255,255,.5) 100%);
+  background-size: 400% 400%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: waterfallFlow 4s ease-in-out infinite;
+}
+.anim-name { font-size: 12px; font-weight: 700; color: var(--text-1); }
+.anim-desc { font-size: 11px; color: var(--text-3); font-family: var(--font-mono); }
+
+/* ═══════════════════════════════════════════
+   SPACING / RADIUS TOKENS
+═══════════════════════════════════════════ */
+.token-item {
+  display: flex; flex-direction: column; gap: var(--sp-2);
+}
+.token-item__visual {
+  background: var(--accent-dim); border: 1px solid var(--accent-border);
+}
+.token-item__name { font-size: 11px; font-weight: 600; color: var(--text-1); }
+.token-item__value { font-size: 10px; font-family: var(--font-mono); color: var(--text-3); }
+
+/* ═══════════════════════════════════════════
+   AGENCY PALETTE (isolated)
+═══════════════════════════════════════════ */
+.agency-canvas {
+  background: #FAFAF8; border-radius: var(--r-2xl);
+  padding: var(--sp-8); border: 1px solid #D1D5DB;
+  display: flex; flex-direction: column; gap: var(--sp-6);
+}
+.agency-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #9CA3AF; margin-bottom: var(--sp-3); }
+.agency-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600;
+  padding: 10px 22px; border-radius: var(--r-full);
+  cursor: pointer; border: none; transition: all var(--dur-fast);
+}
+.agency-btn--primary { background: #0F1923; color: #fff; }
+.agency-btn--primary:hover { background: #1e2d3a; }
+.agency-btn--ghost { background: transparent; border: 1.5px solid #0F1923; color: #0F1923; }
+.agency-btn--ghost:hover { background: rgba(15,25,35,.06); }
+.agency-btn--meet { background: #1A73E8; color: #fff; box-shadow: 0 4px 12px rgba(26,115,232,.25); }
+.agency-btn--meet:hover { background: #1558c7; }
+.domain-chips { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+.domain-chip {
+  font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: var(--r-full); color: #fff;
+}
+.chip-health { background: #00c203; }
+.chip-finance { background: #2E75B6; }
+.chip-cloud { background: #7C3AED; }
+
+/* ═══════════════════════════════════════════
+   SHADOWS DISPLAY
+═══════════════════════════════════════════ */
+.shadow-card {
+  background: var(--bg-surface); border-radius: var(--r-xl);
+  padding: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-2);
+  align-items: center;
+}
+.shadow-card__label { font-size: 11px; font-weight: 600; color: var(--text-3); }
+.shadow-card__sample { width: 48px; height: 48px; border-radius: var(--r-lg); background: var(--bg-elevated); }
+
+/* ═══════════════════════════════════════════
+   TWEAKS PANEL
+═══════════════════════════════════════════ */
+#tweaks-panel {
+  display: none;
+  position: fixed; bottom: var(--sp-6); right: var(--sp-6); z-index: 9999;
+  background: var(--bg-surface); border: 1px solid var(--border);
+  border-radius: var(--r-2xl); padding: var(--sp-6);
+  width: 240px; box-shadow: var(--shadow-lg);
+  flex-direction: column; gap: var(--sp-4);
+}
+#tweaks-panel.active { display: flex; }
+.tweaks-title { font-size: 12px; font-weight: 700; color: var(--text-1); letter-spacing: .05em; text-transform: uppercase; }
+.tweak-row { display: flex; flex-direction: column; gap: 6px; }
+.tweak-label { font-size: 11px; color: var(--text-3); }
+.tweak-select {
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 7px 10px;
+  font-family: var(--font-sans); font-size: 13px; color: var(--text-1);
+  outline: none; cursor: pointer; width: 100%;
+}
+.tweak-select:focus { border-color: #A5D6A7; }
+
+/* Divider */
+.ds-divider { height: 1px; background: var(--border-subtle); margin: var(--sp-8) 0; }
+
+/* Code snippet */
+.code-block {
+  background: #0a1628; border: 1px solid #1e2f40;
+  border-radius: var(--r-lg); padding: var(--sp-4) var(--sp-5);
+  font-family: var(--font-mono); font-size: 12px; color: #9FE1CB;
+  overflow-x: auto; line-height: 1.7;
+}
+.code-block .cm { color: #5a7a6a; }
+.code-block .kw { color: #6ec97a; }
+.code-block .vl { color: #bee3ba; }
+.code-block .st { color: #A5D6A7; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════════════════════════════════ -->
+<header class="ds-header">
+  <div class="ds-header__logo">
+    <img src="public/logo.png" alt="Verbaflow" />
+    Verbaflow LLC
+  </div>
+  <nav class="ds-header__nav">
+    <a href="#colors">Colors</a>
+    <a href="#typography">Type</a>
+    <a href="#components">Components</a>
+    <a href="#animations">Motion</a>
+    <a href="#spacing">Spacing</a>
+    <a href="#agency">Agency</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span class="ds-header__badge">v1.0</span>
+    <button class="theme-toggle" id="themeBtn" title="Toggle theme">
+      <svg id="themeIcon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke-width="1.5"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════════════════ -->
+<div class="ds-hero">
+  <div class="ds-hero__glow"></div>
+  <div class="ds-hero__content">
+    <div class="ds-hero__eyebrow">
+      <span class="ds-hero__eyebrow-dot"></span>
+      Design System · Verbaflow LLC
+    </div>
+    <h1 class="ds-hero__title">
+      Build with<br /><span class="ds-hero__title-accent">consistency.</span>
+    </h1>
+    <p class="ds-hero__sub">Color tokens, typography, components, and motion — the complete visual language for the Verbaflow platform.</p>
+  </div>
+  <span class="ds-hero__version">April 2026 · BlendedAscended/vflow@main</span>
+</div>
+
+<!-- ═══ MAIN ══════════════════════════════════════════════════════════════ -->
+<main class="page-wrap">
+
+  <!-- ── COLORS ────────────────────────────────────────────── -->
+  <section class="ds-section" id="colors">
+    <div class="section-label">01 — Colors</div>
+    <h2 class="section-title">Color System</h2>
+    <p class="section-sub">Two full themes (dark default, light) plus isolated agency and CommandCentre palettes. All values are CSS custom properties so switching themes is instant.</p>
+
+    <!-- Core palette: dark -->
+    <div class="swatch-group" style="margin-bottom:var(--sp-8)">
+      <div class="swatch-group__label">Core — Dark Theme</div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#102023"><span class="swatch__name" style="color:#bee3ba">BG</span><span class="swatch__hex" style="color:#bee3ba">#102023</span></div>
+        <div class="swatch" style="background:#1b2b2e"><span class="swatch__name" style="color:#bee3ba">Surface</span><span class="swatch__hex" style="color:#bee3ba">#1b2b2e</span></div>
+        <div class="swatch" style="background:#22363a"><span class="swatch__name" style="color:#bee3ba">Elevated</span><span class="swatch__hex" style="color:#bee3ba">#22363a</span></div>
+        <div class="swatch" style="background:#2d2d4b"><span class="swatch__name" style="color:#bee3ba">Alt Section</span><span class="swatch__hex" style="color:#bee3ba">#2d2d4b</span></div>
+        <div class="swatch" style="background:#2f4144"><span class="swatch__name" style="color:#bee3ba">Border</span><span class="swatch__hex" style="color:#bee3ba">#2f4144</span></div>
+      </div>
+    </div>
+
+    <div class="swatch-group" style="margin-bottom:var(--sp-8)">
+      <div class="swatch-group__label">Core — Light Theme</div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#f2f9f1"><span class="swatch__name" style="color:#102023">BG</span><span class="swatch__hex" style="color:#102023">#f2f9f1</span></div>
+        <div class="swatch" style="background:#ffffff;border:1px solid #ddd"><span class="swatch__name" style="color:#102023">Surface</span><span class="swatch__hex" style="color:#102023">#ffffff</span></div>
+        <div class="swatch" style="background:#f4f7f5"><span class="swatch__name" style="color:#102023">Elevated</span><span class="swatch__hex" style="color:#102023">#f4f7f5</span></div>
+        <div class="swatch" style="background:#BEE3BA"><span class="swatch__name" style="color:#102023">Alt Section</span><span class="swatch__hex" style="color:#102023">#BEE3BA</span></div>
+        <div class="swatch" style="background:#dbe5d9"><span class="swatch__name" style="color:#102023">Border</span><span class="swatch__hex" style="color:#102023">#dbe5d9</span></div>
+      </div>
+    </div>
+
+    <!-- Accent ramp -->
+    <div class="swatch-group" style="margin-bottom:var(--sp-8)">
+      <div class="swatch-group__label">Accent Green Ramp</div>
+      <div class="swatch-row">
+        <div class="swatch" style="background:#e5f3e3"><span class="swatch__name" style="color:#102023">Mint</span><span class="swatch__hex" style="color:#102023">#e5f3e3</span></div>
+        <div class="swatch" style="background:#bee3ba"><span class="swatch__name" style="color:#102023">Light</span><span class="swatch__hex" style="color:#102023">#bee3ba</span></div>
+        <div class="swatch" style="background:#A5D6A7"><span class="swatch__name" style="color:#000">Accent</span><span class="swatch__hex" style="color:#000">#A5D6A7</span></div>
+        <div class="swatch" style="background:#8BC34A"><span class="swatch__name" style="color:#fff">Strong</span><span class="swatch__hex" style="color:#fff">#8BC34A</span></div>
+        <div class="swatch" style="background:#6ec97a"><span class="swatch__name" style="color:#fff">Hover</span><span class="swatch__hex" style="color:#fff">#6ec97a</span></div>
+      </div>
+    </div>
+
+    <!-- Semantic / text -->
+    <div class="token-grid token-grid--4" style="margin-bottom:var(--sp-6)">
+      <div class="color-card">
+        <div class="color-card__swatch" style="background:#ffffff"></div>
+        <div class="color-card__info"><div class="color-card__name">Text-1</div><div class="color-card__hex">#ffffff (dark)</div><div class="color-card__usage">Primary body text</div></div>
+      </div>
+      <div class="color-card">
+        <div class="color-card__swatch" style="background:#bee3ba"></div>
+        <div class="color-card__info"><div class="color-card__name">Text-2</div><div class="color-card__hex">#bee3ba</div><div class="color-card__usage">Secondary text</div></div>
+      </div>
+      <div class="color-card">
+        <div class="color-card__swatch" style="background:#e5f3e3"></div>
+        <div class="color-card__info"><div class="color-card__name">Text-Accent</div><div class="color-card__hex">#e5f3e3</div><div class="color-card__usage">Subdued emphasis</div></div>
+      </div>
+      <div class="color-card">
+        <div class="color-card__swatch" style="background:#A5D6A7"></div>
+        <div class="color-card__info"><div class="color-card__name">Accent</div><div class="color-card__hex">#A5D6A7</div><div class="color-card__usage">CTAs, focus rings, glows</div></div>
+      </div>
+    </div>
+
+    <!-- Gradient showcases -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Named Gradients</div>
+    <div class="token-grid token-grid--3" style="margin-bottom:var(--sp-2)">
+      <div style="height:60px;border-radius:var(--r-lg);background:linear-gradient(135deg,#A5D6A7 0%,#8BC34A 100%);display:flex;align-items:flex-end;padding:var(--sp-2) var(--sp-3)"><span style="font-size:10px;font-weight:700;color:#000">.gradient-primary</span></div>
+      <div style="height:60px;border-radius:var(--r-lg);background:linear-gradient(135deg,#C8E6C9 0%,#A5D6A7 100%);display:flex;align-items:flex-end;padding:var(--sp-2) var(--sp-3)"><span style="font-size:10px;font-weight:700;color:#102023">.gradient-secondary</span></div>
+      <div style="height:60px;border-radius:var(--r-lg);background:linear-gradient(135deg,#0a1628 0%,#102023 45%,#0f2a30 100%);display:flex;align-items:flex-end;padding:var(--sp-2) var(--sp-3)"><span style="font-size:10px;font-weight:700;color:#bee3ba">Hero gradient</span></div>
+    </div>
+  </section>
+
+  <!-- ── TYPOGRAPHY ──────────────────────────────────────── -->
+  <section class="ds-section" id="typography">
+    <div class="section-label">02 — Typography</div>
+    <h2 class="section-title">Type Scale</h2>
+    <p class="section-sub">Geist Sans for the product. Medium weight (500) for hero headlines, heavier weights (700–800) for section titles. Body copy at 300 weight, generous line-height.</p>
+
+    <div style="margin-bottom:var(--sp-8)">
+      <div class="type-row">
+        <div class="type-row__meta"><strong>Hero</strong>clamp(44–76px)<br/>weight 500<br/>ls -0.025em<br/>lh 1.04</div>
+        <div class="type-row__sample" style="font-size:clamp(40px,5vw,72px);font-weight:500;letter-spacing:-.025em;line-height:1.04;color:var(--text-1)">Connect with more of your best customers.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__meta"><strong>H1 Section</strong>48–64px<br/>weight 800<br/>ls -0.025em</div>
+        <div class="type-row__sample" style="font-size:clamp(36px,4vw,56px);font-weight:800;letter-spacing:-.025em;color:var(--text-1)">We work with winners.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__meta"><strong>H2</strong>32–40px<br/>weight 700<br/>ls -0.02em</div>
+        <div class="type-row__sample" style="font-size:clamp(26px,3vw,38px);font-weight:700;letter-spacing:-.02em;color:var(--text-1)">Powering every stage of growth</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__meta"><strong>H3 Card</strong>24–28px<br/>weight 700</div>
+        <div class="type-row__sample" style="font-size:26px;font-weight:700;color:var(--text-1)">AI Automation Suite</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__meta"><strong>Body Large</strong>17px<br/>weight 300<br/>lh 1.7</div>
+        <div class="type-row__sample" style="font-size:17px;font-weight:300;line-height:1.7;color:var(--text-2);max-width:500px">We unify your entire customer journey on one intelligent platform. Every stage — from marketing to operations — engineered to make you the premier choice.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__meta"><strong>Body</strong>15px<br/>weight 400<br/>lh 1.6</div>
+        <div class="type-row__sample" style="font-size:15px;font-weight:400;line-height:1.6;color:var(--text-2);max-width:500px">This membership acts as your retainer of intent — a low-barrier way to secure our expertise. Pick a tier and let's get to work.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__meta"><strong>Caption</strong>12px<br/>weight 500<br/>ls 0.04em</div>
+        <div class="type-row__sample" style="font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--text-3)">Healthcare · Finance · Real Estate · E-Commerce · SaaS</div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__meta"><strong>Label / Badge</strong>10–11px<br/>weight 700<br/>ls 0.08–0.12em<br/>uppercase</div>
+        <div class="type-row__sample">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#A5D6A7;background:rgba(165,214,167,.12);border:1px solid rgba(165,214,167,.28);padding:5px 14px;border-radius:9999px">AI Automation</span>
+        </div>
+      </div>
+      <div class="type-row">
+        <div class="type-row__meta"><strong>Mono</strong>12px<br/>DM Mono<br/>weight 400–500</div>
+        <div class="type-row__sample" style="font-family:var(--font-mono);font-size:12px;color:#9FE1CB">--accent: #A5D6A7; /* brand green */</div>
+      </div>
+    </div>
+
+    <!-- Special treatments -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-4)">Special Text Treatments</div>
+    <div style="display:flex;flex-direction:column;gap:var(--sp-4)">
+      <div style="font-size:40px;font-weight:700;letter-spacing:-.02em;background:linear-gradient(135deg,#A5D6A7 0%,#6ec97a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">.vf-hero__headline-accent — Gradient text</div>
+      <div style="font-size:36px;font-weight:700;letter-spacing:-.02em;background:linear-gradient(45deg,#A5D6A7 0%,rgba(255,255,255,.8) 25%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.1) 75%,rgba(255,255,255,.5) 100%);background-size:400% 400%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:waterfallFlow 4s ease-in-out infinite">.waterfall-gradient — Animated shimmer</div>
+    </div>
+  </section>
+
+  <!-- ── COMPONENTS ──────────────────────────────────────── -->
+  <section class="ds-section" id="components">
+    <div class="section-label">03 — Components</div>
+    <h2 class="section-title">Component Library</h2>
+    <p class="section-sub">Fully interactive previews of all reusable components. Built with CSS custom properties — they adapt automatically to theme switches.</p>
+
+    <!-- Navigation -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Navigation — Floating Pill</div>
+    <div style="margin-bottom:var(--sp-8)">
+      <div class="vf-nav">
+        <span class="vf-nav__logo">Verbaflow LLC</span>
+        <span class="vf-nav__link">Services</span>
+        <span class="vf-nav__link">About</span>
+        <span class="vf-nav__link">Blog</span>
+        <span class="vf-nav__link">Agency</span>
+        <span class="vf-nav__link">Contact</span>
+        <button class="vf-nav__cta">Get started</button>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Buttons — All Variants</div>
+    <div class="component-canvas component-canvas--dark" style="margin-bottom:var(--sp-4)">
+      <button class="vf-btn vf-btn--primary">Get my growth plan →</button>
+      <button class="vf-btn vf-btn--ghost">Request Quote</button>
+      <button class="vf-btn vf-btn--accent-outline">Learn More</button>
+      <button class="vf-btn vf-btn--agency">Schedule Call</button>
+      <button class="vf-btn vf-btn--meet">Book via Google Meet</button>
+    </div>
+    <div class="component-canvas component-canvas--dark" style="margin-bottom:var(--sp-8)">
+      <button class="vf-btn vf-btn--sm vf-btn--primary">Small CTA</button>
+      <button class="vf-btn vf-btn--primary">Regular CTA</button>
+      <button class="vf-btn vf-btn--lg vf-btn--primary">Large CTA →</button>
+      <button class="vf-btn vf-btn--ghost" style="opacity:.45;cursor:not-allowed">Disabled</button>
+    </div>
+
+    <!-- Badges -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Badges & Pills</div>
+    <div class="component-canvas" style="margin-bottom:var(--sp-8)">
+      <span class="vf-badge vf-badge--accent"><span class="vf-badge-dot"></span>AI Automation</span>
+      <span class="vf-badge vf-badge--live"><span class="vf-badge-dot"></span>Live</span>
+      <span class="vf-badge vf-badge--info"><span class="vf-badge-dot"></span>New Feature</span>
+      <span class="vf-badge vf-badge--warning"><span class="vf-badge-dot"></span>Beta</span>
+    </div>
+
+    <!-- Trust bar -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Trust Bar</div>
+    <div style="margin-bottom:var(--sp-8)">
+      <div class="vf-trust-bar">
+        <span class="vf-trust-label">Trusted by growth-minded businesses</span>
+        <div class="vf-trust-pills">
+          <span class="vf-trust-pill">Healthcare</span>
+          <span class="vf-trust-pill">Finance</span>
+          <span class="vf-trust-pill">Real Estate</span>
+          <span class="vf-trust-pill">E-Commerce</span>
+          <span class="vf-trust-pill">SaaS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Form Elements</div>
+    <div class="component-canvas" style="flex-direction:column;align-items:stretch;max-width:480px;margin-bottom:var(--sp-8)">
+      <div class="vf-input-wrap">
+        <label class="vf-label">Full Name</label>
+        <input class="vf-input" placeholder="Jane Smith" />
+      </div>
+      <div class="vf-input-wrap">
+        <label class="vf-label">Email</label>
+        <input class="vf-input" type="email" placeholder="jane@company.com" />
+      </div>
+      <div class="vf-input-wrap">
+        <label class="vf-label">Message</label>
+        <textarea class="vf-input vf-textarea" placeholder="Tell us about your goals…"></textarea>
+      </div>
+      <button class="vf-btn vf-btn--primary" style="align-self:flex-start">Send Message</button>
+    </div>
+
+    <!-- Cards -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Cards — Standard</div>
+    <div class="token-grid token-grid--3" style="margin-bottom:var(--sp-8)">
+      <div class="vf-card vf-card--dark">
+        <div style="margin-bottom:var(--sp-3)"><span class="vf-badge vf-badge--accent">Service</span></div>
+        <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:var(--sp-2)">AI Chatbot Integration</div>
+        <div style="font-size:13px;color:#bee3ba;line-height:1.6">Deploy intelligent chatbots that qualify leads, answer FAQs, and book appointments — 24/7, without human intervention.</div>
+      </div>
+      <div class="vf-card vf-card--dark" style="border-color:rgba(165,214,167,.4);box-shadow:var(--shadow-glow)">
+        <div style="margin-bottom:var(--sp-3)"><span class="vf-badge vf-badge--live">Featured</span></div>
+        <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:var(--sp-2)">Growth Plan Wizard</div>
+        <div style="font-size:13px;color:#bee3ba;line-height:1.6">Our AI generates a personalised strategy based on your industry, market, and goals in under 2 minutes.</div>
+      </div>
+      <div class="vf-card vf-card--alt">
+        <div style="margin-bottom:var(--sp-3)"><span class="vf-badge vf-badge--info">Analytics</span></div>
+        <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:var(--sp-2)">Predictive Reporting</div>
+        <div style="font-size:13px;color:#bee3ba;line-height:1.6">LLM-powered dashboards that translate raw data into actionable business intelligence.</div>
+      </div>
+    </div>
+
+    <!-- Glass card -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Glass Card (Hero Widget)</div>
+    <div class="component-canvas component-canvas--dark" style="margin-bottom:var(--sp-8)">
+      <div class="vf-glass-card" style="min-width:300px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-5)">
+          <span style="font-size:12px;font-weight:700;color:#16a34a;background:rgba(22,163,74,.1);padding:3px 10px;border-radius:9999px">● Live</span>
+          <span style="font-size:11px;font-weight:500;color:#6B7280;letter-spacing:.04em;text-transform:uppercase">Growth Dashboard</span>
+        </div>
+        <div style="margin-bottom:var(--sp-4)">
+          <div style="font-size:13px;color:#6B7280;margin-bottom:4px">Leads this month</div>
+          <div style="font-size:40px;font-weight:700;color:#0a1628;line-height:1;letter-spacing:-.02em">+247</div>
+          <div style="font-size:13px;font-weight:500;color:#16a34a;margin-top:4px">↑ 34% vs last month</div>
+        </div>
+        <div style="height:1px;background:rgba(0,0,0,.07);margin-bottom:var(--sp-3)"></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0"><span style="font-size:13px;color:#6B7280">Campaigns active</span><span style="font-size:14px;font-weight:600;color:#0a1628">8</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0"><span style="font-size:13px;color:#6B7280">Avg. response rate</span><span style="font-size:14px;font-weight:600;color:#16a34a">68%</span></div>
+        <div style="display:flex;justify-content:space-between;padding:5px 0"><span style="font-size:13px;color:#6B7280">Tasks automated</span><span style="font-size:14px;font-weight:600;color:#0a1628">1,204</span></div>
+      </div>
+    </div>
+
+    <!-- Metric cards (CommandCentre) -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Metric Cards — CommandCentre</div>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--sp-3);margin-bottom:var(--sp-8)">
+      <div class="vf-metric-card vf-metric-card--revenue">
+        <div class="vf-metric-label">Revenue</div>
+        <div class="vf-metric-value">$48.2K</div>
+        <div class="vf-metric-delta">↑ 22% MoM</div>
+      </div>
+      <div class="vf-metric-card vf-metric-card--clients">
+        <div class="vf-metric-label">Active Clients</div>
+        <div class="vf-metric-value">134</div>
+        <div class="vf-metric-delta">↑ 8 new</div>
+      </div>
+      <div class="vf-metric-card vf-metric-card--conversion">
+        <div class="vf-metric-label">Conversion</div>
+        <div class="vf-metric-value">68%</div>
+        <div class="vf-metric-delta">↑ 4pts</div>
+      </div>
+      <div class="vf-metric-card vf-metric-card--performance">
+        <div class="vf-metric-label">Performance</div>
+        <div class="vf-metric-value">94/100</div>
+        <div class="vf-metric-delta">↑ 6pts</div>
+      </div>
+    </div>
+
+    <!-- Pricing cards -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Pricing Cards</div>
+    <div class="token-grid token-grid--3" style="align-items:start">
+      <div class="vf-pricing-card">
+        <div class="vf-pricing-plan">Coupe</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:0"><span class="vf-pricing-price">$49</span><span class="vf-pricing-period">/mo</span></div>
+        <div class="vf-pricing-desc">Essential website and online presence setup for new businesses.</div>
+        <ul class="vf-pricing-features">
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Custom Website Development</li>
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Landing Page Optimization</li>
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Google Business Profile</li>
+        </ul>
+        <button class="vf-btn vf-btn--accent-outline" style="width:100%;justify-content:center">Start Winning</button>
+      </div>
+
+      <div class="vf-pricing-card vf-pricing-card--featured">
+        <div class="vf-pricing-plan">Muscle</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:0"><span class="vf-pricing-price">$99</span><span class="vf-pricing-period">/mo</span></div>
+        <div class="vf-pricing-desc">Advanced marketing and automation tools for growing teams.</div>
+        <ul class="vf-pricing-features">
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Social Media Campaigns</li>
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Automated Lead Response</li>
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Google Ads & SEO</li>
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Analytics & Reporting</li>
+        </ul>
+        <button class="vf-btn vf-btn--primary" style="width:100%;justify-content:center">Grow Right Now</button>
+      </div>
+
+      <div class="vf-pricing-card">
+        <div class="vf-pricing-plan">Grand Tourer</div>
+        <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:0"><span class="vf-pricing-price">$199</span><span class="vf-pricing-period">/mo</span></div>
+        <div class="vf-pricing-desc">Full-service AI, automation & compliance for scaling operations.</div>
+        <ul class="vf-pricing-features">
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>AI Chatbot Development</li>
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Voice Workflow Automation</li>
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>LLM Integration</li>
+          <li><svg class="vf-check" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Cybersecurity Compliance</li>
+        </ul>
+        <button class="vf-btn vf-btn--agency" style="width:100%;justify-content:center">Join the Club</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ANIMATIONS ──────────────────────────────────────── -->
+  <section class="ds-section" id="animations">
+    <div class="section-label">04 — Motion</div>
+    <h2 class="section-title">Animation Primitives</h2>
+    <p class="section-sub">Subtle, purposeful motion. Mostly ease-out or custom cubic-bezier curves. Never distracting — always meaning-bearing.</p>
+
+    <div class="token-grid token-grid--auto" style="margin-bottom:var(--sp-8)">
+      <div class="anim-box">
+        <div class="anim-preview anim-preview--float">↕</div>
+        <div class="anim-name">float</div>
+        <div class="anim-desc">6s ease-in-out ∞<br/>translateY 0→-10px</div>
+      </div>
+      <div class="anim-box">
+        <div class="anim-preview anim-preview--glow" style="border-color:#A5D6A7">✦</div>
+        <div class="anim-name">glow-pulse</div>
+        <div class="anim-desc">2.5s ease-in-out ∞<br/>shadow-glow oscillate</div>
+      </div>
+      <div class="anim-box">
+        <div class="anim-preview anim-preview--waterfall">Verbaflow</div>
+        <div class="anim-name">waterfall-gradient</div>
+        <div class="anim-desc">4s ease-in-out ∞<br/>bg-position 0%→100%</div>
+      </div>
+      <div class="anim-box">
+        <div id="anim-fadein" class="anim-preview" style="cursor:pointer" title="Click to replay">▲</div>
+        <div class="anim-name">fadeInUp</div>
+        <div class="anim-desc">0.8s ease-out<br/>opacity+translateY</div>
+      </div>
+      <div class="anim-box">
+        <div id="anim-slidein" class="anim-preview" style="cursor:pointer" title="Click to replay">→</div>
+        <div class="anim-name">slideInLeft</div>
+        <div class="anim-desc">0.8s ease-out<br/>opacity+translateX</div>
+      </div>
+      <div class="anim-box">
+        <div style="width:48px;height:48px;border-radius:50%;border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;color:#A5D6A7;font-size:18px;animation:portalRotate 4s linear infinite;background:conic-gradient(from 0deg,transparent,rgba(165,214,167,.15),transparent)">✦</div>
+        <div class="anim-name">portalRotate</div>
+        <div class="anim-desc">8s linear ∞<br/>conic-gradient spin</div>
+      </div>
+    </div>
+
+    <!-- Easing reference -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Easing Curves</div>
+    <div class="token-grid token-grid--3">
+      <div class="anim-box">
+        <div class="anim-name">--ease (spring)</div>
+        <div class="anim-desc">cubic-bezier(0.16, 1, 0.3, 1)</div>
+      </div>
+      <div class="anim-box">
+        <div class="anim-name">--dur-fast</div>
+        <div class="anim-desc">120ms — micro interactions</div>
+      </div>
+      <div class="anim-box">
+        <div class="anim-name">--dur-slow</div>
+        <div class="anim-desc">400ms — theme/layout shifts</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SPACING / RADIUS ────────────────────────────────── -->
+  <section class="ds-section" id="spacing">
+    <div class="section-label">05 — Spacing & Radius</div>
+    <h2 class="section-title">Spatial Tokens</h2>
+    <p class="section-sub">4px base unit. All spacing and radius values are CSS custom properties on :root for easy overrides.</p>
+
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Spacing Scale</div>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--sp-4);align-items:flex-end;margin-bottom:var(--sp-8)">
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center" title="--sp-1">
+        <div style="width:4px;height:4px;background:#A5D6A7;border-radius:1px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-1<br/>4px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+        <div style="width:8px;height:8px;background:#A5D6A7;border-radius:2px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-2<br/>8px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+        <div style="width:12px;height:12px;background:#A5D6A7;border-radius:2px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-3<br/>12px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+        <div style="width:16px;height:16px;background:#A5D6A7;border-radius:3px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-4<br/>16px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+        <div style="width:20px;height:20px;background:#A5D6A7;border-radius:3px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-5<br/>20px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+        <div style="width:24px;height:24px;background:#A5D6A7;border-radius:4px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-6<br/>24px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+        <div style="width:32px;height:32px;background:#A5D6A7;border-radius:4px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-8<br/>32px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+        <div style="width:40px;height:40px;background:#A5D6A7;border-radius:5px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-10<br/>40px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+        <div style="width:48px;height:48px;background:#A5D6A7;border-radius:6px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-12<br/>48px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+        <div style="width:64px;height:64px;background:#A5D6A7;border-radius:7px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-16<br/>64px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+        <div style="width:80px;height:80px;background:#A5D6A7;border-radius:8px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3)">sp-20<br/>80px</div>
+      </div>
+    </div>
+
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Border Radius Scale</div>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--sp-4);align-items:flex-end;margin-bottom:var(--sp-8)">
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+        <div style="width:56px;height:56px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:6px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3);text-align:center">r-sm<br/>6px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+        <div style="width:56px;height:56px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:10px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3);text-align:center">r-md<br/>10px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+        <div style="width:56px;height:56px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:16px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3);text-align:center">r-lg<br/>16px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+        <div style="width:56px;height:56px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:20px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3);text-align:center">r-xl<br/>20px<br/><span style="color:#A5D6A7">Glass card</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+        <div style="width:56px;height:56px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:24px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3);text-align:center">r-2xl<br/>24px</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+        <div style="width:56px;height:56px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:32px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3);text-align:center">r-3xl<br/>32px<br/><span style="color:#A5D6A7">Cards</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+        <div style="width:56px;height:56px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:9999px"></div>
+        <div style="font-size:10px;font-family:var(--font-mono);color:var(--text-3);text-align:center">r-full<br/>9999px<br/><span style="color:#A5D6A7">Buttons/pills</span></div>
+      </div>
+    </div>
+
+    <!-- Shadows -->
+    <div class="swatch-group__label" style="margin-bottom:var(--sp-3)">Shadow Scale</div>
+    <div class="token-grid token-grid--4">
+      <div class="shadow-card" style="box-shadow:var(--shadow-sm)">
+        <div class="shadow-card__sample" style="box-shadow:var(--shadow-sm)"></div>
+        <div class="shadow-card__label">shadow-sm</div>
+      </div>
+      <div class="shadow-card" style="box-shadow:var(--shadow-md)">
+        <div class="shadow-card__sample" style="box-shadow:var(--shadow-md)"></div>
+        <div class="shadow-card__label">shadow-md</div>
+      </div>
+      <div class="shadow-card" style="box-shadow:var(--shadow-lg)">
+        <div class="shadow-card__sample" style="box-shadow:var(--shadow-lg)"></div>
+        <div class="shadow-card__label">shadow-lg</div>
+      </div>
+      <div class="shadow-card" style="box-shadow:var(--shadow-glow)">
+        <div class="shadow-card__sample" style="box-shadow:var(--shadow-glow);background:var(--accent-dim);border-color:var(--accent-border)"></div>
+        <div class="shadow-card__label">shadow-glow (accent)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AGENCY PALETTE ──────────────────────────────────── -->
+  <section class="ds-section" id="agency">
+    <div class="section-label">06 — Agency Page</div>
+    <h2 class="section-title">Agency Design Language</h2>
+    <p class="section-sub">Fully isolated from the global theme. A clean Studio White × Civic Dark palette for the agency showcase. Uses the <code style="font-family:var(--font-mono);font-size:12px;color:#A5D6A7">.agency-page</code> class scope.</p>
+
+    <div class="agency-canvas">
+      <div>
+        <div class="agency-label">Background tokens</div>
+        <div style="display:flex;gap:var(--sp-3)">
+          <div style="flex:1;height:56px;background:#FAFAF8;border:1px solid #D1D5DB;border-radius:var(--r-lg);display:flex;align-items:flex-end;padding:6px 10px"><span style="font-size:10px;font-family:var(--font-mono);color:#6B7280">#FAFAF8 page</span></div>
+          <div style="flex:1;height:56px;background:#FFFFFF;border:1px solid #D1D5DB;border-radius:var(--r-lg);display:flex;align-items:flex-end;padding:6px 10px"><span style="font-size:10px;font-family:var(--font-mono);color:#6B7280">#FFF card</span></div>
+          <div style="flex:1;height:56px;background:#F5F4F1;border:1px solid #D1D5DB;border-radius:var(--r-lg);display:flex;align-items:flex-end;padding:6px 10px"><span style="font-size:10px;font-family:var(--font-mono);color:#6B7280">#F5F4F1 raised</span></div>
+          <div style="flex:1;height:56px;background:#0F1923;border-radius:var(--r-lg);display:flex;align-items:flex-end;padding:6px 10px"><span style="font-size:10px;font-family:var(--font-mono);color:#9CA3AF">#0F1923 dark</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="agency-label">CTAs</div>
+        <div style="display:flex;gap:var(--sp-3);flex-wrap:wrap">
+          <button class="agency-btn agency-btn--primary">Book a Call</button>
+          <button class="agency-btn agency-btn--ghost">View Work</button>
+          <button class="agency-btn agency-btn--meet">Google Meet →</button>
+        </div>
+      </div>
+      <div>
+        <div class="agency-label">Domain Accent Chips</div>
+        <div class="domain-chips">
+          <span class="domain-chip chip-health">Healthcare #00c203</span>
+          <span class="domain-chip chip-finance">Finance #2E75B6</span>
+          <span class="domain-chip chip-cloud">Cloud / SaaS #7C3AED</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TOKEN REFERENCE ─────────────────────────────────── -->
+  <section class="ds-section">
+    <div class="section-label">07 — Token Reference</div>
+    <h2 class="section-title">CSS Variables</h2>
+    <p class="section-sub">Copy-paste-ready token definitions. Drop into your <code style="font-family:var(--font-mono);font-size:12px;color:#A5D6A7">globals.css</code> :root block.</p>
+    <div class="code-block"><span class="cm">/* Core theme tokens (dark default) */</span>
+<span class="kw">:root</span> {
+  <span class="st">--background</span>: <span class="vl">#102023</span>;         <span class="cm">/* deep teal */</span>
+  <span class="st">--section-bg-2</span>: <span class="vl">#2d2d4b</span>;       <span class="cm">/* indigo slate */</span>
+  <span class="st">--card-background</span>: <span class="vl">#1b2b2e</span>;
+  <span class="st">--text-primary</span>: <span class="vl">#ffffff</span>;
+  <span class="st">--text-secondary</span>: <span class="vl">#bee3ba</span>;
+  <span class="st">--text-accent</span>: <span class="vl">#e5f3e3</span>;
+  <span class="st">--border</span>: <span class="vl">#2f4144</span>;
+  <span class="st">--accent</span>: <span class="vl">#A5D6A7</span>;              <span class="cm">/* brand green */</span>
+  <span class="st">--accent-foreground</span>: <span class="vl">#000000</span>;
+}</div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer style="padding:var(--sp-10) var(--sp-8);border-top:1px solid var(--border-subtle);text-align:center">
+  <p style="font-size:12px;color:var(--text-3)">Verbaflow LLC Design System · Built from <span style="font-family:var(--font-mono)">BlendedAscended/vflow@main</span> · April 2026</p>
+</footer>
+
+<!-- Tweaks Panel -->
+<div id="tweaks-panel">
+  <div class="tweaks-title">Tweaks</div>
+  <div class="tweak-row">
+    <label class="tweak-label">Theme</label>
+    <select class="tweak-select" id="tweakTheme">
+      <option value="dark">Dark (default)</option>
+      <option value="light">Light</option>
+    </select>
+  </div>
+  <div class="tweak-row">
+    <label class="tweak-label">Accent color</label>
+    <select class="tweak-select" id="tweakAccent">
+      <option value="#A5D6A7">Brand Green #A5D6A7</option>
+      <option value="#6ec97a">Deep Green #6ec97a</option>
+      <option value="#60a5fa">Blue #60a5fa</option>
+      <option value="#fbbf24">Amber #fbbf24</option>
+    </select>
+  </div>
+  <div class="tweak-row">
+    <label class="tweak-label">Font</label>
+    <select class="tweak-select" id="tweakFont">
+      <option value="'DM Sans'">DM Sans (current)</option>
+      <option value="'Helvetica Neue', Helvetica">Helvetica Neue</option>
+      <option value="Georgia, serif">Georgia (serif)</option>
+    </select>
+  </div>
+</div>
+
+<script>
+// ── Theme toggle ──────────────────────────────────────────
+const html = document.documentElement;
+const btn = document.getElementById('themeBtn');
+const icon = document.getElementById('themeIcon');
+const moonPath = `<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke-width="1.5"/>`;
+const sunPath = `<circle cx="12" cy="12" r="4" stroke-width="1.5"/><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-7.364l-1.414 1.414M8.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M8.05 7.05L6.636 5.636" stroke-width="1.5"/>`;
+
+let isDark = true;
+
+function applyTheme(dark) {
+  isDark = dark;
+  html.classList.toggle('theme-dark', dark);
+  html.classList.toggle('theme-light', !dark);
+  icon.innerHTML = dark ? moonPath : sunPath;
+  const sel = document.getElementById('tweakTheme');
+  if (sel) sel.value = dark ? 'dark' : 'light';
+  try { localStorage.setItem('vf-ds-theme', dark ? 'dark' : 'light'); } catch {}
+}
+
+btn.addEventListener('click', () => applyTheme(!isDark));
+
+// Load saved
+try {
+  const saved = localStorage.getItem('vf-ds-theme');
+  if (saved === 'light') applyTheme(false);
+} catch {}
+
+// ── Animation replays ─────────────────────────────────────
+function replayAnim(id, animStr) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.style.animation = 'none';
+  el.offsetHeight; // reflow
+  el.style.animation = animStr;
+}
+document.getElementById('anim-fadein')?.addEventListener('click', () => replayAnim('anim-fadein', 'fadeInUp .8s ease-out'));
+document.getElementById('anim-slidein')?.addEventListener('click', () => replayAnim('anim-slidein', 'slideInLeft .8s ease-out'));
+
+// ── Tweaks panel ──────────────────────────────────────────
+window.addEventListener('message', (e) => {
+  if (e.data?.type === '__activate_edit_mode') {
+    document.getElementById('tweaks-panel').classList.add('active');
+  }
+  if (e.data?.type === '__deactivate_edit_mode') {
+    document.getElementById('tweaks-panel').classList.remove('active');
+  }
+});
+window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+document.getElementById('tweakTheme')?.addEventListener('change', (e) => {
+  applyTheme(e.target.value === 'dark');
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { theme: e.target.value } }, '*');
+});
+
+document.getElementById('tweakAccent')?.addEventListener('change', (e) => {
+  const v = e.target.value;
+  document.documentElement.style.setProperty('--accent', v);
+  // Also update all hardcoded accent refs via a dynamic style
+  document.getElementById('accentOverride')?.remove();
+  const s = document.createElement('style');
+  s.id = 'accentOverride';
+  s.textContent = `
+    .vf-btn--primary { background: ${v}; }
+    .vf-btn--primary:hover { background: ${v}cc; }
+    .vf-btn--accent-outline { color: ${v}; border-color: ${v}; }
+    .ds-hero__eyebrow { color: ${v}; background: ${v}20; border-color: ${v}44; }
+    .ds-hero__eyebrow-dot { background: ${v}; }
+    .ds-hero__title-accent { background: linear-gradient(135deg, ${v} 0%, ${v}bb 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .section-label { color: ${v}; }
+  `;
+  document.head.appendChild(s);
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { accent: v } }, '*');
+});
+
+document.getElementById('tweakFont')?.addEventListener('change', (e) => {
+  document.body.style.fontFamily = e.target.value + ', system-ui, sans-serif';
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { font: e.target.value } }, '*');
+});
+</script>
+</body>
+</html>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import QuoteOverlay from './QuoteOverlay';
+import { useCounter } from '../hooks/useCounter';
 
 const PricingSection = () => {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
@@ -10,7 +11,7 @@ const PricingSection = () => {
     {
       name: "Scope",
       description: "System scoping, architecture, and a working proof-of-concept. Know exactly what to build before you commit.",
-      price: "$895",
+      price: 895,
       period: " – $2,495",
       features: [
         "Agentic system scoping & architecture map",
@@ -25,7 +26,7 @@ const PricingSection = () => {
     {
       name: "Deploy",
       description: "Full production-grade agentic system. Built, tested, and handed off running in your environment.",
-      price: "$2,495",
+      price: 2495,
       period: " – $5,995",
       features: [
         "Production multi-agent system build",
@@ -41,7 +42,7 @@ const PricingSection = () => {
     {
       name: "Operate",
       description: "Ongoing agentic infrastructure management, multi-system orchestration, and engineering pod access.",
-      price: "$5,995",
+      price: 5995,
       period: " – $14,995",
       features: [
         "Multi-agent infrastructure management",
@@ -57,6 +58,11 @@ const PricingSection = () => {
       badge: "Plus:"
     }
   ];
+
+  // Counter hooks for each tier's price
+  const counters = pricingPlans.map((plan) =>
+    useCounter({ target: plan.price, prefix: "$", suffix: "", duration: 1600 })
+  );
 
 
 
@@ -101,7 +107,9 @@ const PricingSection = () => {
 
                 <div className="mb-6">
                   <div className="flex items-baseline mb-2">
-                    <span className="text-5xl font-extrabold text-[var(--text-secondary)]">{plan.price}</span>
+                    <span className="text-5xl font-extrabold text-[var(--text-secondary)]">
+                      <span ref={counters[index].ref}>{counters[index].display}</span>
+                    </span>
                     <span className="text-[var(--text-accent)] ml-3 text-xl">{plan.period}</span>
                   </div>
                 </div>

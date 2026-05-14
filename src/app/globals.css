@@ -981,3 +981,204 @@ html.theme-dark .vf-trust-bar__pill {
   animation: pulseMedium 2.5s ease-in-out infinite;
 }
 
+
+/* ═══════════════════════════════════════════════════════════
+   VOLUMETRIC BEAM HERO — new hero background system
+   Layer stack (bottom → top):
+     0: VolumetricBeam canvas
+     1: Starfield
+     2: Particles
+     3: Hands (DOM overlays)
+     4: Meeting light glow
+     5: UI overlay (existing hero content)
+   ═══════════════════════════════════════════════════════════ */
+
+.vf-hero-scene {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(28,77,138,.32), transparent 70%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, rgba(10,20,38,.9), transparent 75%),
+    linear-gradient(180deg, #03060d 0%, #050b18 40%, #0a1426 100%);
+}
+
+.vf-stars {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+}
+.vf-stars::before, .vf-stars::after {
+  content: ""; position: absolute;
+  width: 2px; height: 2px; border-radius: 50%;
+  background: transparent;
+}
+.vf-stars::before {
+  top: 0; left: 0;
+  box-shadow:
+    4vw 8vh #fff, 12vw 14vh #cfe6ff, 22vw 5vh #fff, 30vw 11vh #cfe6ff,
+    8vw 22vh #fff, 16vw 28vh #cfe6ff, 26vw 18vh #fff, 36vw 23vh #cfe6ff,
+    44vw 9vh #fff, 39vw 31vh #cfe6ff, 6vw 38vh #fff, 14vw 44vh #cfe6ff,
+    24vw 42vh #fff, 32vw 36vh #cfe6ff, 42vw 41vh #fff, 5vw 56vh #cfe6ff,
+    13vw 62vh #fff, 21vw 58vh #cfe6ff, 29vw 64vh #fff, 37vw 56vh #cfe6ff,
+    45vw 60vh #fff, 8vw 73vh #cfe6ff, 16vw 81vh #fff, 24vw 76vh #cfe6ff,
+    32vw 84vh #fff, 40vw 78vh #cfe6ff, 3vw 92vh #fff, 11vw 88vh #cfe6ff,
+    19vw 95vh #fff, 27vw 91vh #cfe6ff, 35vw 96vh #fff, 43vw 93vh #cfe6ff,
+    56vw 6vh #cfe6ff, 64vw 12vh #fff, 72vw 4vh #cfe6ff, 80vw 10vh #fff,
+    88vw 16vh #cfe6ff, 95vw 8vh #fff, 60vw 25vh #cfe6ff, 68vw 19vh #fff,
+    76vw 28vh #cfe6ff, 84vw 22vh #fff, 92vw 30vh #cfe6ff, 58vw 38vh #fff,
+    66vw 44vh #cfe6ff, 74vw 40vh #fff, 82vw 46vh #cfe6ff, 90vw 38vh #fff,
+    96vw 50vh #cfe6ff, 54vw 55vh #fff, 62vw 61vh #cfe6ff, 70vw 57vh #fff,
+    78vw 63vh #cfe6ff, 86vw 59vh #fff, 94vw 65vh #cfe6ff, 57vw 72vh #fff,
+    65vw 78vh #cfe6ff, 73vw 74vh #fff, 81vw 80vh #cfe6ff, 89vw 76vh #fff,
+    97vw 82vh #cfe6ff, 55vw 88vh #fff, 63vw 94vh #cfe6ff, 71vw 90vh #fff,
+    79vw 96vh #cfe6ff, 87vw 92vh #fff;
+  animation: vf-twinkle 6s ease-in-out infinite;
+}
+.vf-stars::after {
+  top: 0; left: 50%;
+  width: 1.5px; height: 1.5px;
+  box-shadow:
+    -16vw 18vh rgba(255,255,255,.9),
+    -10vw 32vh rgba(207,230,255,.8),
+    -22vw 48vh rgba(255,255,255,.7),
+    -8vw 62vh rgba(207,230,255,.9),
+    -14vw 78vh rgba(255,255,255,.8),
+    -20vw 88vh rgba(207,230,255,.7),
+    12vw 20vh rgba(255,255,255,.9),
+    8vw 36vh rgba(207,230,255,.8),
+    18vw 52vh rgba(255,255,255,.7),
+    14vw 66vh rgba(207,230,255,.9),
+    10vw 80vh rgba(255,255,255,.8),
+    22vw 90vh rgba(207,230,255,.7);
+  animation: vf-twinkle 4s ease-in-out infinite reverse;
+}
+@keyframes vf-twinkle {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.vf-particles {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+.vf-particle {
+  position: absolute;
+  width: 2px; height: 2px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 6px var(--accent);
+  opacity: 0;
+  animation: vf-drift linear infinite;
+}
+@keyframes vf-drift {
+  0%   { opacity: 0; transform: translateY(0) translateX(0); }
+  10%  { opacity: 0.9; }
+  90%  { opacity: 0.7; }
+  100% { opacity: 0; transform: translateY(-120vh) translateX(var(--drift-x, 0)); }
+}
+
+.vf-hands {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+.vf-hand {
+  position: absolute;
+  will-change: transform, opacity;
+  filter:
+    drop-shadow(0 24px 50px rgba(0,0,0,0.55))
+    drop-shadow(0 0 30px rgba(0,0,0,0.35));
+}
+.vf-hand-img {
+  width: 100%; height: auto; display: block;
+}
+.vf-hand--bottom {
+  right: 2vw;
+  bottom: -10vh;
+  width: clamp(280px, 30vw, 460px);
+  aspect-ratio: 233 / 311;
+  transform-origin: 100% 100%;
+  /* Base rotation + scroll-driven translateY (JS overrides transform at runtime) */
+  transform: rotate(-6deg);
+}
+.vf-hand-img--human {
+  transform: scaleX(-1);
+}
+.vf-hand--top {
+  right: 0;
+  top: -28vh;
+  width: clamp(380px, 40vw, 620px);
+  aspect-ratio: 479 / 560;
+  transform-origin: 100% 0%;
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  z-index: 3;
+}
+.vf-hand__fingertip {
+  position: absolute;
+  width: 22%; height: 14%;
+  pointer-events: none;
+  background: radial-gradient(circle,
+    rgba(255,255,255,0.95) 0%,
+    var(--accent) 25%,
+    rgba(165,214,167,0.35) 50%,
+    transparent 70%);
+  filter: blur(6px);
+  mix-blend-mode: screen;
+  opacity: 0.75;
+  animation: vf-tip-pulse 3.2s ease-in-out infinite;
+}
+@keyframes vf-tip-pulse {
+  0%,100% { opacity: 0.55; transform: scale(1); }
+  50%     { opacity: 0.95; transform: scale(1.18); }
+}
+.vf-hand--bottom .vf-hand__fingertip {
+  left: -20%; top: 0.5%;
+}
+.vf-hand__fingertip--robo {
+  left: -12%; top: 96%;
+  width: 26%; height: 14%;
+}
+.vf-meeting-light {
+  position: absolute;
+  width: 520px; height: 520px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 4;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(255,255,255,0.60) 0%,
+    rgba(229,255,234,0.35) 18%,
+    rgba(165,214,167,0.15) 35%,
+    rgba(165,214,167,0.04) 55%,
+    rgba(165,214,167,0.005) 75%,
+    transparent            100%);
+  mix-blend-mode: screen;
+  filter: blur(40px);
+  opacity: 0;
+  transition: opacity 160ms linear;
+  transform: translate(-50%, -50%);
+}
+.vf-hero-overlay {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vf-stars::before, .vf-stars::after { animation: none; }
+  .vf-particle { animation: none; opacity: 0.6; }
+  .vf-hand__fingertip { animation: none; }
+  .vf-meeting-light { transition: none; }
+}
+@media (max-width: 768px) {
+  .vf-hands { display: none; }
+  .vf-meeting-light { display: none; }
+  .vf-particles { display: none; }
+}
+

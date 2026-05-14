@@ -1,0 +1,92 @@
+/* Shared styles used inside preview/*.html cards. Each card includes this. */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #0F1923;
+  background: #FAFAF8;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.card {
+  width: 700px;
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #FFFFFF;
+  border: 1px solid #ECECEA;
+}
+
+.card--dark {
+  background: #102023;
+  color: #E5F3E3;
+  border-color: #2F4144;
+}
+
+.card--slate {
+  background: #2D2D4B;
+  color: #E5F3E3;
+  border-color: #3B3B5C;
+}
+
+.card--paper {
+  background: #F2F9F1;
+  color: #102023;
+  border-color: #DBE5D9;
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6B7280;
+}
+
+.eyebrow--mint { color: #A5D6A7; }
+
+.row { display: flex; gap: 10px; align-items: stretch; }
+.row--wrap { flex-wrap: wrap; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+
+.mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; }
+.swatch-label { font-size: 11px; font-weight: 500; opacity: 0.85; }
+.swatch-hex   { font-size: 10px; font-family: 'Geist Mono', ui-monospace, monospace; opacity: 0.55; }
+
+.swatch {
+  height: 70px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px 12px;
+  color: #0F1923;
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+.swatch--dark-text { color: #0F1923; }
+.swatch--light-text { color: #FFFFFF; }
+.swatch__name { font-size: 11px; font-weight: 600; }
+.swatch__hex { font-size: 10px; font-family: 'Geist Mono', monospace; opacity: 0.7; }
+
+.token-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #EAEAE6;
+}
+.token-row:last-child { border-bottom: none; }
+.token-row .k { font-family: 'Geist Mono', monospace; font-size: 11px; color: #4B5563; }
+.token-row .v { font-family: 'Geist Mono', monospace; font-size: 11px; color: #0F1923; }

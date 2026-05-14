@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Verbaflow — Hero (Volumetric Beam · Canvas)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════════════════ */
+:root {
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+
+  /* Base canvas — deep night with a subtle teal cast */
+  --bg-0: #03060d;
+  --bg-1: #050b18;
+  --bg-2: #0a1426;
+
+  /* Beam color — drives the overlay UI accents only.
+     The actual beam is rendered by <VolumetricBeam /> on a canvas. */
+  --beam-hue:    mint;
+  --beam-core:   #ffffff;
+  --beam-glow:   #A5D6A7;     /* default Verbaflow mint */
+  --beam-deep:   #3c8f4d;
+  --beam-haze:   #1c4028;
+
+  /* Intensity */
+  --beam-opacity: 1;
+  --beam-bottom-spread: 92vw;
+
+  --text-1: #f5f9ff;
+  --text-2: rgba(255,255,255,.72);
+  --text-3: rgba(255,255,255,.45);
+}
+
+/* UI-accent color presets toggled by data attribute on .scene */
+.scene[data-hue="mint"]   { --beam-glow:#A5D6A7; --beam-deep:#3c8f4d; --beam-haze:#1c4028; }
+.scene[data-hue="cyan"]   { --beam-glow:#6fc9ff; --beam-deep:#1c4d8a; --beam-haze:#0e2540; }
+.scene[data-hue="violet"] { --beam-glow:#a78bfa; --beam-deep:#3b2a7e; --beam-haze:#1a1430; }
+.scene[data-hue="amber"]  { --beam-glow:#fbbf24; --beam-deep:#7a5410; --beam-haze:#2a1d05; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow-x: hidden; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-0);
+  color: var(--text-1);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCENE — full viewport stage
+═══════════════════════════════════════════════════════════ */
+.scene {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate; /* contain blend-modes */
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(28,77,138,.32), transparent 70%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, rgba(10,20,38,.9), transparent 75%),
+    linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 40%, var(--bg-2) 100%);
+}
+
+/* ── Starfield (cheap, static, many shadows on one element) ── */
+.stars {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.stars::before, .stars::after {
+  content: ""; position: absolute;
+  width: 2px; height: 2px; border-radius: 50%;
+  background: transparent;
+}
+.stars::before {
+  top: 0; left: 0;
+  /* 80 little stars across the field */
+  box-shadow:
+    4vw 8vh #fff, 12vw 14vh #cfe6ff, 22vw 5vh #fff, 30vw 11vh #cfe6ff,
+    8vw 22vh #fff, 16vw 28vh #cfe6ff, 26vw 18vh #fff, 36vw 23vh #cfe6ff,
+    44vw 9vh #fff, 39vw 31vh #cfe6ff, 6vw 38vh #fff, 14vw 44vh #cfe6ff,
+    24vw 42vh #fff, 32vw 36vh #cfe6ff, 42vw 41vh #fff, 5vw 56vh #cfe6ff,
+    13vw 62vh #fff, 21vw 58vh #cfe6ff, 29vw 64vh #fff, 37vw 56vh #cfe6ff,
+    45vw 60vh #fff, 8vw 73vh #cfe6ff, 16vw 81vh #fff, 24vw 76vh #cfe6ff,
+    32vw 84vh #fff, 40vw 78vh #cfe6ff, 3vw 92vh #fff, 11vw 88vh #cfe6ff,
+    19vw 95vh #fff, 27vw 91vh #cfe6ff, 35vw 96vh #fff, 43vw 93vh #cfe6ff,
+    /* right half */
+    56vw 6vh #cfe6ff, 64vw 12vh #fff, 72vw 4vh #cfe6ff, 80vw 10vh #fff,
+    88vw 16vh #cfe6ff, 95vw 8vh #fff, 60vw 25vh #cfe6ff, 68vw 19vh #fff,
+    76vw 28vh #cfe6ff, 84vw 22vh #fff, 92vw 30vh #cfe6ff, 58vw 38vh #fff,
+    66vw 44vh #cfe6ff, 74vw 40vh #fff, 82vw 46vh #cfe6ff, 90vw 38vh #fff,
+    96vw 50vh #cfe6ff, 54vw 55vh #fff, 62vw 61vh #cfe6ff, 70vw 57vh #fff,
+    78vw 63vh #cfe6ff, 86vw 59vh #fff, 94vw 65vh #cfe6ff, 57vw 72vh #fff,
+    65vw 78vh #cfe6ff, 73vw 74vh #fff, 81vw 80vh #cfe6ff, 89vw 76vh #fff,
+    97vw 82vh #cfe6ff, 55vw 88vh #fff, 63vw 94vh #cfe6ff, 71vw 90vh #fff,
+    79vw 96vh #cfe6ff, 87vw 92vh #fff;
+  animation: twinkle 6s ease-in-out infinite;
+}
+.stars::after {
+  /* brighter "hero" stars near the beam */
+  top: 0; left: 50%;
+  width: 1.5px; height: 1.5px;
+  background: transparent;
+  box-shadow:
+    -16vw 18vh rgba(255,255,255,.9),
+    -10vw 32vh rgba(207,230,255,.8),
+    -22vw 48vh rgba(255,255,255,.7),
+    -8vw 62vh rgba(207,230,255,.9),
+    -14vw 78vh rgba(255,255,255,.8),
+    -20vw 88vh rgba(207,230,255,.7),
+    12vw 20vh rgba(255,255,255,.9),
+    8vw 36vh rgba(207,230,255,.8),
+    18vw 52vh rgba(255,255,255,.7),
+    14vw 66vh rgba(207,230,255,.9),
+    10vw 80vh rgba(255,255,255,.8),
+    22vw 90vh rgba(207,230,255,.7);
+  animation: twinkle 4s ease-in-out infinite reverse;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BEAM — now rendered by <VolumetricBeam /> on a canvas.
+   Container just positions the React mount behind everything.
+═══════════════════════════════════════════════════════════ */
+#beam-root {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Legacy CSS-beam layers retained but unused (kept for reference only). */
+.legacy-beam-unused .beam__haze {
+  position: absolute;
+  left: 50%; top: -10%;
+  width: 110vw; height: 130%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 30% 70% at 50% 70%, var(--beam-haze) 0%, transparent 65%);
+  filter: blur(40px);
+  opacity: 0.95;
+}
+
+/* Layer 2 — wider cone (clip-path trapezoid: narrow top, wide bottom) */
+.beam__cone-outer {
+  position: absolute;
+  left: 50%; top: -2%;
+  width: var(--beam-bottom-spread);
+  height: 105%;
+  transform: translateX(-50%);
+  clip-path: polygon(49.4% 0%, 50.6% 0%, 100% 100%, 0% 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(111,201,255,.0)  0%,
+    var(--beam-deep)      18%,
+    var(--beam-glow)      75%,
+    rgba(255,255,255,.4) 100%
+  );
+  background: linear-gradient(180deg, transparent 0%, var(--beam-haze) 12%, var(--beam-deep) 50%, var(--beam-glow) 95%);
+  filter: blur(28px);
+  opacity: 0.55;
+}
+
+/* Layer 3 — mid cone — sharper, more saturated */
+.beam__cone-mid {
+  position: absolute;
+  left: 50%; top: 0;
+  width: 50vw;
+  height: 100%;
+  transform: translateX(-50%);
+  clip-path: polygon(49.6% 0%, 50.4% 0%, 88% 100%, 12% 100%);
+  background: linear-gradient(180deg,
+    transparent 0%,
+    var(--beam-deep) 15%,
+    var(--beam-glow) 70%,
+    var(--beam-core) 100%
+  );
+  filter: blur(14px);
+  opacity: 0.85;
+}
+
+/* Layer 4 — inner cone — bright with halo */
+.beam__cone-inner {
+  position: absolute;
+  left: 50%; top: 0;
+  width: 26vw;
+  height: 100%;
+  transform: translateX(-50%);
+  clip-path: polygon(49.7% 0%, 50.3% 0%, 78% 100%, 22% 100%);
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(111,201,255,.5) 8%,
+    var(--beam-glow) 60%,
+    var(--beam-core) 100%
+  );
+  filter: blur(6px);
+  opacity: 0.9;
+}
+
+/* Layer 5 — sharp bright core (the highlight line) */
+.beam__core {
+  position: absolute;
+  left: 50%; top: 0;
+  width: 3px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0) 0%,
+    rgba(207,230,255,.9) 8%,
+    var(--beam-core) 40%,
+    var(--beam-core) 80%,
+    rgba(255,255,255,.8) 100%
+  );
+  box-shadow: 0 0 22px var(--beam-glow), 0 0 60px var(--beam-glow), 0 0 120px rgba(111,201,255,.4);
+  filter: blur(0.6px);
+  animation: core-pulse 4s ease-in-out infinite;
+}
+@keyframes core-pulse {
+  0%, 100% { opacity: 0.95; box-shadow: 0 0 22px var(--beam-glow), 0 0 60px var(--beam-glow), 0 0 120px rgba(111,201,255,.4); }
+  50%      { opacity: 1;    box-shadow: 0 0 30px var(--beam-glow), 0 0 90px var(--beam-glow), 0 0 160px rgba(111,201,255,.55); }
+}
+
+/* Layer 6 — top entry halo (where the beam "enters" from above) */
+.beam__halo-top {
+  position: absolute;
+  left: 50%; top: -240px;
+  width: 480px; height: 480px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, var(--beam-core) 0%, var(--beam-glow) 8%, transparent 50%);
+  filter: blur(8px);
+  opacity: 0.85;
+  animation: halo-pulse 5s ease-in-out infinite;
+}
+@keyframes halo-pulse {
+  0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 0.95; transform: translateX(-50%) scale(1.05); }
+}
+
+/* Layer 7 — bottom pool (where the beam lands) */
+.beam__pool {
+  position: absolute;
+  left: 50%; bottom: -20%;
+  width: 90vw; height: 45vh;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse 50% 60% at 50% 30%, var(--beam-glow) 0%, var(--beam-deep) 25%, transparent 60%);
+  filter: blur(20px);
+  opacity: 0.6;
+}
+
+/* Layer 8 — vertical "god ray" streaks (subtle) */
+.beam__rays {
+  position: absolute;
+  left: 50%; top: 0;
+  width: 70vw; height: 100%;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(180deg, transparent, var(--beam-glow) 50%, transparent) 30% 0 / 1px 100% no-repeat,
+    linear-gradient(180deg, transparent, var(--beam-glow) 50%, transparent) 38% 0 / 1px 100% no-repeat,
+    linear-gradient(180deg, transparent, var(--beam-glow) 50%, transparent) 46% 0 / 1px 100% no-repeat,
+    linear-gradient(180deg, transparent, var(--beam-glow) 50%, transparent) 54% 0 / 1px 100% no-repeat,
+    linear-gradient(180deg, transparent, var(--beam-glow) 50%, transparent) 62% 0 / 1px 100% no-repeat,
+    linear-gradient(180deg, transparent, var(--beam-glow) 50%, transparent) 70% 0 / 1px 100% no-repeat;
+  opacity: 0.15;
+  filter: blur(1.5px);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 90%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 90%, transparent 100%);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PARTICLES — drifting dust / sparks
+═══════════════════════════════════════════════════════════ */
+.particles {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: screen;
+}
+.particle {
+  position: absolute;
+  width: 2px; height: 2px;
+  border-radius: 50%;
+  background: var(--beam-core);
+  box-shadow: 0 0 6px var(--beam-glow);
+  opacity: 0;
+  animation: drift linear infinite;
+}
+@keyframes drift {
+  0%   { opacity: 0; transform: translateY(0) translateX(0); }
+  10%  { opacity: 0.9; }
+  90%  { opacity: 0.7; }
+  100% { opacity: 0; transform: translateY(-120vh) translateX(var(--drift-x, 0)); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   OVERLAY CONTENT (so user can see how to place things on top)
+═══════════════════════════════════════════════════════════ */
+.overlay {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 48px 0;
+}
+
+/* Top nav strip */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%;
+  margin-bottom: 80px;
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 16px; letter-spacing: -.01em;
+}
+.brand__mark {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--beam-glow), var(--beam-deep));
+  position: relative;
+  box-shadow: 0 4px 16px rgba(111,201,255,.3);
+}
+.brand__mark::after {
+  content: ""; position: absolute;
+  inset: 6px;
+  border-radius: 4px;
+  background: rgba(255,255,255,.85);
+}
+
+.nav-pill {
+  display: flex; gap: 4px;
+  padding: 6px;
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 9999px;
+}
+.nav-pill a {
+  font-size: 13px; font-weight: 500; color: var(--text-2);
+  padding: 7px 16px; border-radius: 9999px;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.nav-pill a:hover { color: var(--text-1); background: rgba(255,255,255,.06); }
+
+.login-btn {
+  display: inline-flex; align-items: center;
+  padding: 10px 22px; border-radius: 9999px;
+  background: var(--beam-glow); color: #001428;
+  font-weight: 600; font-size: 13px;
+  border: none; cursor: pointer;
+  box-shadow: 0 4px 18px rgba(111,201,255,.35);
+  transition: transform .25s, box-shadow .25s;
+}
+.login-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(111,201,255,.55); }
+
+/* Hero copy */
+.hero {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding-top: 24px;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.1);
+  font-size: 12px; font-weight: 500; color: var(--text-1);
+  margin-bottom: 28px;
+}
+.eyebrow__sparkle { color: var(--beam-glow); font-size: 14px; }
+
+.headline {
+  font-size: clamp(40px, 5.6vw, 84px);
+  font-weight: 500;
+  letter-spacing: -.03em;
+  line-height: 1.04;
+  margin-bottom: 22px;
+  max-width: 14ch;
+  /* subtle bleed effect — the headline catches the beam */
+  background: linear-gradient(180deg, #ffffff 0%, #e8f4ff 70%, var(--beam-glow) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sub {
+  font-size: 16px; font-weight: 300;
+  color: var(--text-2);
+  max-width: 520px;
+  line-height: 1.65;
+  margin-bottom: 40px;
+}
+
+/* Email capture */
+.capture {
+  display: flex; align-items: center;
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 9999px;
+  padding: 6px 6px 6px 22px;
+  width: min(520px, 90vw);
+  gap: 14px;
+  box-shadow: 0 12px 48px rgba(0,0,0,.45), 0 0 0 1px rgba(111,201,255,.08) inset;
+}
+.capture__icon {
+  width: 18px; height: 18px;
+  color: var(--text-3);
+  flex-shrink: 0;
+}
+.capture__input {
+  flex: 1;
+  background: transparent; border: none; outline: none;
+  font-family: var(--font-sans); font-size: 14px;
+  color: var(--text-1);
+  padding: 12px 0;
+  min-width: 0;
+}
+.capture__input::placeholder { color: var(--text-3); }
+.capture__submit {
+  padding: 12px 28px;
+  background: var(--beam-glow);
+  color: #001428;
+  border: none; border-radius: 9999px;
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(111,201,255,.3);
+  transition: transform .2s, box-shadow .2s;
+  flex-shrink: 0;
+}
+.capture__submit:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(111,201,255,.5); }
+
+/* Dashboard hint at bottom (just a sliver, suggests product) */
+.dash-hint {
+  margin-top: 80px;
+  width: min(1080px, 96vw);
+  align-self: center;
+  border-radius: 18px 18px 0 0;
+  background: rgba(8,15,28,.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(111,201,255,.18);
+  border-bottom: none;
+  padding: 18px 24px 70px;
+  box-shadow: 0 -10px 60px rgba(111,201,255,.15);
+  position: relative;
+}
+.dash-hint__row {
+  display: flex; gap: 12px; align-items: center;
+}
+.dash-hint__crumb {
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-3);
+  padding: 4px 10px;
+  background: rgba(255,255,255,.04);
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.dash-hint__placeholder {
+  margin-top: 16px;
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
+}
+.dash-hint__card {
+  height: 70px; border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+  border: 1px solid rgba(255,255,255,.06);
+  padding: 12px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.dash-hint__num { font-size: 22px; font-weight: 600; color: var(--text-1); }
+.dash-hint__label { font-size: 10px; color: var(--text-3); letter-spacing: .05em; text-transform: uppercase; }
+
+/* ═══════════════════════════════════════════════════════════
+   TWEAKS PANEL
+═══════════════════════════════════════════════════════════ */
+#tweaks {
+  display: none;
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  background: rgba(8,15,28,.92);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 20px;
+  padding: 20px;
+  width: 260px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  flex-direction: column; gap: 14px;
+  font-family: var(--font-sans);
+}
+#tweaks.active { display: flex; }
+.tweak-title {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--beam-glow);
+  margin-bottom: 4px;
+}
+.tweak-row { display: flex; flex-direction: column; gap: 6px; }
+.tweak-row label { font-size: 11px; color: var(--text-3); }
+.tweak-row .swatches { display: flex; gap: 6px; }
+.tweak-row .swatch {
+  width: 32px; height: 32px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.1);
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+.tweak-row .swatch.active { box-shadow: 0 0 0 2px var(--beam-glow); transform: scale(1.08); }
+.tweak-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--beam-glow);
+}
+.tweak-row select {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  color: var(--text-1);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .overlay { padding: 20px 20px 0; }
+  .topbar { margin-bottom: 60px; }
+  .nav-pill { display: none; }
+  .headline { font-size: clamp(36px, 9vw, 60px); }
+  .capture { padding: 4px 4px 4px 16px; flex-direction: row; }
+  .capture__submit { padding: 10px 18px; font-size: 12px; }
+  .dash-hint { padding: 14px 16px 50px; }
+  .dash-hint__placeholder { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="scene" id="scene" data-hue="mint">
+
+  <!-- Starfield -->
+  <div class="stars"></div>
+
+  <!-- Volumetric beam — canvas, rendered by React component -->
+  <div id="beam-root"></div>
+
+  <!-- Floating particles (generated in JS) -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Overlay content — replace with your real hero -->
+  <div class="overlay">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand__mark"></div>
+        <span>Verbaflow</span>
+      </div>
+      <nav class="nav-pill">
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Pricing</a>
+        <a href="#">About</a>
+      </nav>
+      <button class="login-btn">Log in</button>
+    </header>
+
+    <main class="hero">
+      <div class="eyebrow">
+        <span class="eyebrow__sparkle">✦</span>
+        AI-powered growth platform
+      </div>
+      <h1 class="headline">The future<br />of business growth.</h1>
+      <p class="sub">Unify your entire customer journey on one intelligent platform. Every stage — from marketing to operations — engineered to make you the premier choice.</p>
+
+      <form class="capture" onsubmit="event.preventDefault()">
+        <svg class="capture__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <input class="capture__input" type="email" placeholder="Your email address" />
+        <button class="capture__submit" type="submit">Get started</button>
+      </form>
+
+      <div class="dash-hint">
+        <div class="dash-hint__row">
+          <span class="dash-hint__crumb">⌘ Search or jump to…</span>
+        </div>
+        <div class="dash-hint__placeholder">
+          <div class="dash-hint__card"><span class="dash-hint__label">Active leads</span><span class="dash-hint__num">247</span></div>
+          <div class="dash-hint__card"><span class="dash-hint__label">Response rate</span><span class="dash-hint__num">68%</span></div>
+          <div class="dash-hint__card"><span class="dash-hint__label">Automated</span><span class="dash-hint__num">1,204</span></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Tweaks Panel -->
+<div id="tweaks">
+  <div class="tweak-title">Tweaks</div>
+
+  <div class="tweak-row">
+    <label>Beam color</label>
+    <div class="swatches" id="swatches">
+      <button class="swatch active" data-hue="mint"   style="background:linear-gradient(135deg,#A5D6A7,#2d6e3a)" title="Mint"></button>
+      <button class="swatch"        data-hue="cyan"   style="background:linear-gradient(135deg,#6fc9ff,#1c4d8a)" title="Cyan"></button>
+      <button class="swatch"        data-hue="violet" style="background:linear-gradient(135deg,#a78bfa,#3b2a7e)" title="Violet"></button>
+      <button class="swatch"        data-hue="amber"  style="background:linear-gradient(135deg,#fbbf24,#7a5410)" title="Amber"></button>
+    </div>
+  </div>
+
+  <div class="tweak-row">
+    <label>Beam intensity <span id="intensityVal" style="color:var(--beam-glow);font-family:var(--font-mono);font-size:10px">100%</span></label>
+    <input type="range" min="20" max="140" value="100" id="intensity" />
+  </div>
+
+  <div class="tweak-row">
+    <label>Bottom spread <span id="spreadVal" style="color:var(--beam-glow);font-family:var(--font-mono);font-size:10px">92vw</span></label>
+    <input type="range" min="40" max="120" value="92" id="spread" />
+  </div>
+
+  <div class="tweak-row">
+    <label>Particles</label>
+    <select id="particleCount">
+      <option value="0">Off</option>
+      <option value="20">Low</option>
+      <option value="40" selected>Medium</option>
+      <option value="80">High</option>
+    </select>
+  </div>
+
+  <div class="tweak-row">
+    <label>Show overlay content</label>
+    <select id="showOverlay">
+      <option value="1" selected>Show</option>
+      <option value="0">Hide (beam only)</option>
+    </select>
+  </div>
+</div>
+
+<!-- Volumetric beam React component -->
+<script type="text/babel" src="VolumetricBeam.jsx"></script>
+
+<!-- Mount the beam -->
+<script type="text/babel">
+function BeamApp() {
+  const [hue, setHue]               = React.useState('mint');
+  const [intensity, setIntensity]   = React.useState(1);
+  const [bottomSpread, setSpread]   = React.useState(0.92);
+
+  // Listen for tweak events from the vanilla UI panel.
+  React.useEffect(() => {
+    const onHue       = (e) => setHue(e.detail);
+    const onIntensity = (e) => setIntensity(e.detail);
+    const onSpread    = (e) => setSpread(e.detail);
+    window.addEventListener('beam:hue', onHue);
+    window.addEventListener('beam:intensity', onIntensity);
+    window.addEventListener('beam:spread', onSpread);
+    return () => {
+      window.removeEventListener('beam:hue', onHue);
+      window.removeEventListener('beam:intensity', onIntensity);
+      window.removeEventListener('beam:spread', onSpread);
+    };
+  }, []);
+
+  return (
+    <VolumetricBeam
+      hue={hue}
+      intensity={intensity}
+      bottomSpread={bottomSpread}
+    />
+  );
+}
+const beamRoot = ReactDOM.createRoot(document.getElementById('beam-root'));
+beamRoot.render(<BeamApp />);
+</script>
+
+<script>
+// ── Particles ──────────────────────────────────────────────
+const particleHost = document.getElementById('particles');
+function buildParticles(n) {
+  particleHost.innerHTML = '';
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const x = 35 + Math.random() * 30;        // cluster near beam (35–65%)
+    const startY = 100 + Math.random() * 20;
+    const dur = 8 + Math.random() * 14;
+    const delay = -Math.random() * dur;
+    const driftX = (Math.random() - 0.5) * 80;
+    const size = 1 + Math.random() * 2;
+    p.style.left = x + '%';
+    p.style.top = startY + 'vh';
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.animationDuration = dur + 's';
+    p.style.animationDelay = delay + 's';
+    p.style.setProperty('--drift-x', driftX + 'px');
+    particleHost.appendChild(p);
+  }
+}
+buildParticles(40);
+
+// ── Tweaks integration ─────────────────────────────────────
+const scene = document.getElementById('scene');
+const tweaks = document.getElementById('tweaks');
+
+// Color swatches
+document.querySelectorAll('#swatches .swatch').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#swatches .swatch').forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+    scene.dataset.hue = btn.dataset.hue;
+    window.dispatchEvent(new CustomEvent('beam:hue', { detail: btn.dataset.hue }));
+    persist({ hue: btn.dataset.hue });
+  });
+});
+
+// Intensity
+const intensity = document.getElementById('intensity');
+const intensityVal = document.getElementById('intensityVal');
+intensity.addEventListener('input', () => {
+  const v = +intensity.value;
+  intensityVal.textContent = v + '%';
+  window.dispatchEvent(new CustomEvent('beam:intensity', { detail: v / 100 }));
+  persist({ intensity: v });
+});
+
+// Spread
+const spread = document.getElementById('spread');
+const spreadVal = document.getElementById('spreadVal');
+spread.addEventListener('input', () => {
+  const v = +spread.value;
+  spreadVal.textContent = v + 'vw';
+  window.dispatchEvent(new CustomEvent('beam:spread', { detail: v / 100 }));
+  persist({ spread: v });
+});
+
+// Particle count
+document.getElementById('particleCount').addEventListener('change', (e) => {
+  buildParticles(+e.target.value);
+  persist({ particles: +e.target.value });
+});
+
+// Show / hide overlay
+document.getElementById('showOverlay').addEventListener('change', (e) => {
+  document.querySelector('.overlay').style.display = e.target.value === '1' ? '' : 'none';
+  persist({ overlay: +e.target.value });
+});
+
+// ── Edit mode protocol ─────────────────────────────────────
+window.addEventListener('message', (e) => {
+  if (e.data?.type === '__activate_edit_mode')   tweaks.classList.add('active');
+  if (e.data?.type === '__deactivate_edit_mode') tweaks.classList.remove('active');
+});
+window.parent?.postMessage({ type: '__edit_mode_available' }, '*');
+
+function persist(edits) {
+  window.parent?.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
+}
+</script>
+</body>
+</html>

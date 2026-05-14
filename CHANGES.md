@@ -1,3 +1,10 @@
+## 2026-05-14 - Fix VolumetricBeam horizontal seam line
+
+**Changes:**
+- Fixed `src/components/VolumetricBeam.tsx` landing pool `fillRect` from partial-canvas (`0, H * 0.55, W, H * 0.6`) to full-canvas (`0, 0, W, H`)
+- The hard clip edge at ~55% viewport height was a rendering artifact where the radial gradient's rectangle top edge created an abrupt seam
+- Full-canvas fill lets the radial gradient control its own falloff (already terminates at `rgba(0,0,0,0)`)
+
 ## 2026-04-19 20:38 (UTC) - Added AI customization portability guide for Claude, Copilot, and Antigravity
 
 **Changes:**
