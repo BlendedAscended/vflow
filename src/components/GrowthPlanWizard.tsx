@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { industries, getIndustry } from '../data/industries';
 
@@ -17,6 +17,11 @@ interface WizardData {
     subNiches: string[];
     currentStack: string[];
     legacyPain: string;
+    gbpPlaceId?: string;
+    gbpName?: string;
+    gbpAddress?: string;
+    gbpCategories?: string[];
+    gbpData?: any;
 }
 
 const initialData: WizardData = {
@@ -92,6 +97,206 @@ interface GrowthPlan {
     tech_stack?: { layer: string; tools: string[] }[];
 }
 
+interface PlaceSuggestion {
+    placeId: string;
+    text: string;
+    structuredFormat?: { mainText: string; secondaryText: string };
+}
+
+function GbpStep({
+    data,
+    updateData,
+    onNext,
+    onSkip,
+}: {
+    data: WizardData;
+    updateData: (field: keyof WizardData, value: any) => void;
+    onNext: () => void;
+    onSkip: () => void;
+}) {
+    const [query, setQuery] = useState('');
+    const [results, setResults] = useState<PlaceSuggestion[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [selected, setSelected] = useState<PlaceSuggestion | null>(null);
+    const [details, setDetails] = useState<any>(null);
+    const [detailsLoading, setDetailsLoading] = useState(false);
+    const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    const search = useCallback(async (q: string) => {
+        if (!q || q.length < 3) {
+            setResults([]);
+            return;
+        }
+        setLoading(true);
+        setError('');
+        try {
+            const res = await fetch(`/api/places/search?q=${encodeURIComponent(q)}`);
+            const json = await res.json();
+            if (!res.ok) throw new Error(json.error || 'Search failed');
+            setResults(json.results || []);
+        } catch (err: any) {
+            setError(err.message);
+            setResults([]);
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (debounceRef.current) clearTimeout(debounceRef.current);
+        debounceRef.current = setTimeout(() => {
+            search(query);
+        }, 250);
+        return () => {
+            if (debounceRef.current) clearTimeout(debounceRef.current);
+        };
+    }, [query, search]);
+
+    const selectPlace = async (place: PlaceSuggestion) => {
+        setSelected(place);
+        setResults([]);
+        setDetailsLoading(true);
+        try {
+            const res = await fetch(`/api/places/details?placeId=${encodeURIComponent(place.placeId)}`);
+            const json = await res.json();
+            if (!res.ok) throw new Error(json.error || 'Details failed');
+            setDetails(json.details);
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setDetailsLoading(false);
+        }
+    };
+
+    const confirm = () => {
+        if (!details) return;
+        updateData('gbpPlaceId', details.placeId);
+        updateData('gbpName', details.name);
+        updateData('gbpAddress', details.address);
+        updateData('gbpCategories', details.types || []);
+        updateData('gbpData', details);
+        onNext();
+    };
+
+    const skip = () => {
+        updateData('gbpPlaceId', undefined);
+        updateData('gbpName', undefined);
+        updateData('gbpAddress', undefined);
+        updateData('gbpCategories', undefined);
+        updateData('gbpData', undefined);
+        onSkip();
+    };
+
+    return (
+        <motion.div
+            key="step2-gbp"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="flex-1 flex flex-col"
+        >
+            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-2">Business Location</h2>
+            <p className="text-[var(--muted-foreground)] mb-6">
+                Link your Google Business Profile so our designer can use real photos, hours, and location context in your wireframe.
+            </p>
+
+            {!selected && (
+                <div className="space-y-4">
+                    <div className="relative">
+                        <input
+                            type="text"
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                            className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none transition-colors"
+                            placeholder="Start typing your business name..."
+                        />
+                        {loading && (
+                            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[var(--muted-foreground)]">Searching...</span>
+                        )}
+                    </div>
+
+                    {error && (
+                        <p className="text-sm text-red-400">{error}</p>
+                    )}
+
+                    <div className="space-y-2">
+                        {results.map((place) => (
+                            <button
+                                key={place.placeId}
+                                onClick={() => selectPlace(place)}
+                                className="w-full text-left p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/5 transition-all"
+                            >
+                                <p className="font-semibold text-[var(--text-primary)]">
+                                    {place.structuredFormat?.mainText || place.text}
+                                </p>
+                                <p className="text-sm text-[var(--muted-foreground)]">
+                                    {place.structuredFormat?.secondaryText || ''}
+                                </p>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {selected && (
+                <div className="space-y-4">
+                    <div className="p-5 rounded-xl border border-[var(--accent)] bg-[var(--accent)]/5">
+                        {detailsLoading ? (
+                            <p className="text-[var(--muted-foreground)]">Loading details...</p>
+                        ) : details ? (
+                            <div className="space-y-2">
+                                <p className="font-bold text-[var(--text-primary)] text-lg">{details.name}</p>
+                                <p className="text-sm text-[var(--muted-foreground)]">{details.address}</p>
+                                {details.types?.length > 0 && (
+                                    <div className="flex flex-wrap gap-1.5 pt-1">
+                                        {details.types.slice(0, 5).map((t: string) => (
+                                            <span key={t} className="text-xs bg-[var(--surface-3)] border border-[var(--ghost-border)] px-2 py-0.5 rounded-full">
+                                                {t.replace(/_/g, ' ')}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+                                {details.rating && (
+                                    <p className="text-sm text-[var(--accent)]">⭐ {details.rating} ({details.userRatingCount ?? 0} reviews)
+                                    </p>
+                                )}
+                            </div>
+                        ) : (
+                            <p className="text-red-400">Could not load details.</p>
+                        )}
+                    </div>
+
+                    <div className="flex gap-3">
+                        <button
+                            onClick={confirm}
+                            disabled={!details || detailsLoading}
+                            className="flex-1 bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-glow transition-all"
+                        >
+                            Confirm & Continue
+                        </button>
+                        <button
+                            onClick={() => { setSelected(null); setDetails(null); }}
+                            className="px-6 py-3 rounded-full border-2 border-[var(--border)] text-[var(--text-primary)] hover:border-[var(--accent)] transition-all"
+                        >
+                            Change
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {!selected && (
+                <button
+                    onClick={skip}
+                    className="mt-6 self-start text-[var(--muted-foreground)] hover:text-[var(--text-primary)] font-medium transition-colors"
+                >
+                    Skip this step →
+                </button>
+            )}
+        </motion.div>
+    );
+}
+
 export default function GrowthPlanWizard() {
     const [step, setStep] = useState(0);
     const [data, setData] = useState<WizardData>(initialData);
@@ -116,11 +321,11 @@ export default function GrowthPlanWizard() {
         }
     }, []);
 
-    const totalSteps = 7;
+    const totalSteps = 8;
     const selectedIndustry = useMemo(() => getIndustry(data.industry), [data.industry]);
 
     const handleNext = () => {
-        if (step < 6) {
+        if (step < 7) {
             setStep(step + 1);
         } else {
             setStep(step + 1);
@@ -291,6 +496,15 @@ export default function GrowthPlanWizard() {
                     )}
 
                     {step === 2 && (
+                        <GbpStep
+                            data={data}
+                            updateData={updateData}
+                            onNext={handleNext}
+                            onSkip={handleNext}
+                        />
+                    )}
+
+                    {step === 3 && (
                         <motion.div
                             key="step2-stage"
                             initial={{ opacity: 0, x: 20 }}
@@ -328,7 +542,7 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 3 && (
+                    {step === 4 && (
                         <motion.div
                             key="step3-challenges"
                             initial={{ opacity: 0, x: 20 }}
@@ -364,7 +578,7 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 4 && (
+                    {step === 5 && (
                         <motion.div
                             key="step4-stack"
                             initial={{ opacity: 0, x: 20 }}
@@ -411,7 +625,7 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 5 && (
+                    {step === 6 && (
                         <motion.div
                             key="step5-team"
                             initial={{ opacity: 0, x: 20 }}
@@ -470,7 +684,7 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 6 && (
+                    {step === 7 && (
                         <motion.div
                             key="step6-timeline"
                             initial={{ opacity: 0, x: 20 }}
@@ -544,7 +758,7 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 7 && (
+                    {step === 8 && (
                         <motion.div
                             key="step7"
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -711,7 +925,7 @@ export default function GrowthPlanWizard() {
                 </AnimatePresence>
             </div>
 
-            {step > 0 && step < 7 && !isGenerating && (
+            {step > 0 && step < 8 && !isGenerating && (
                 <div className="p-6 border-t border-[var(--border)] flex justify-start">
                     <button
                         onClick={handleBack}

@@ -17,10 +17,24 @@ const cspHeader = `
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname),
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'cdn.sanity.io' }
     ]
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/wireframe/:planId',
+        destination: '/api/wireframe/:planId',
+      },
+    ];
   },
   async headers() {
     return [

@@ -1,8 +1,9 @@
 name: cybergrowth-wireframe
-description: VerbaFlow Growth Plan customer journey. Takes wizard data, produces implementation plan plus wireframe, delivers via email.
-version: 1
+description: VerbaFlow Growth Plan customer journey. Takes wizard data + GBP data, produces implementation plan plus wireframe via Stitch, delivers via email.
+version: 2
 owner: san@verbaflowllc.com
 created: 2026-05-11
+updated: 2026-05-14
 
 trigger:
   type: webhook
@@ -19,6 +20,10 @@ inputs:
     type: object
     required: true
     description: industry, stage, challenges, goals, teamSize, budget, timeline, email, name, subNiches, currentStack, legacyPain
+  gbp_data:
+    type: object
+    required: false
+    description: Google Business Profile data from wizard GBP step
   services_catalog:
     type: array
     required: true
@@ -39,11 +44,12 @@ compression_target: 0.2
 stages:
   - name: architect
     agent: architect-agent
-    model: opencode-go/mimo-v2.5-pro
-    fallback: opencode-go/kimi-k2.5
+    model: gemini-2-5-pro
+    fallback: gemini-2-5-flash
     timeout: 180
     inputs:
       - wizard_data
+      - gbp_data
       - services_catalog
       - industries_catalog
     outputs:
@@ -54,38 +60,45 @@ stages:
     on_failure: status_update(drafting -> failed)
 
   - name: designer
-    agent: designer-agent
-    model: opencode-go/kimi-k2.6
-    fallback: deepseek/deepseek-chat
-    timeout: 240
+    type: tool_invocation
+    tool: mcp__stitch__generate_screen_from_text
     inputs:
-      - implementation_plan.md
-      - architecture.json
-      - wizard_data
+      projectId: "14405041833567191224"
+      designSystem: "assets/d410c1c8f34f4018985f8141eec9ef5a"
+      deviceType: DESKTOP
+      modelId: GEMINI_3_1_PRO
+      prompt: "{templated from architecture.json + wizard_data + gbp_data}"
+    poll:
+      after_seconds: 30
+      max_attempts: 10
+      tool: mcp__stitch__get_screen
     outputs:
-      - wireframe_components.jsx
-      - design_tokens.json
+      - screen_name
+      - screen_data
     on_success: status_update(designing -> backend)
+    on_failure: status_update(designing -> failed)
 
   - name: backend
     agent: backend-agent
-    model: opencode-go/qwen3.6-plus
-    fallback: deepseek/deepseek-chat
+    model: gemini-2-5-flash
+    fallback: gemini-2-5-pro
     timeout: 180
     inputs:
       - architecture.json
+      - gbp_data
     outputs:
       - integration_notes.md
     on_success: status_update(backend -> validating)
+    on_failure: status_update(backend -> failed)
 
   - name: validator
     agent: validator-agent
-    model: opencode-go/deepseek-v4-pro
-    fallback: opencode-go/kimi-k2.5
+    model: gemini-2-5-pro
+    fallback: gemini-2-5-flash
     timeout: 90
     inputs:
       - implementation_plan.md
-      - wireframe_components.jsx
+      - screen_data
       - integration_notes.md
     outputs:
       - validation_report.json
@@ -94,34 +107,32 @@ stages:
       score_min: 0.7
       on_fail: retry_stage(designer, max_retries=1)
     on_success: status_update(validating -> marketing)
+    on_failure: status_update(validating -> failed)
 
   - name: marketing
     agent: marketing-agent
-    model: opencode-go/minimax-m2.7
-    fallback: deepseek/deepseek-chat
+    model: gemini-2-5-flash
+    fallback: gemini-2-5-pro
     timeout: 120
     inputs:
       - implementation_plan.md
-      - wireframe_components.jsx
+      - screen_data
       - validation_report.json
     outputs:
       - upsell_pamphlet.md
       - email_body.html
-    on_success: status_update(marketing -> delivery)
+    on_success: status_update(marketing -> plan_ready)
+    on_failure: status_update(marketing -> failed)
 
   - name: delivery
     type: deterministic
     inputs:
-      - wireframe_components.jsx
-      - design_tokens.json
+      - screen_data
       - email_body.html
     actions:
-      - render_jsx_to_static_html:
-          template: src/lib/wireframe-template.html
-          output: index.html
       - upload_to_supabase:
           bucket: wireframes
-          key: "{plan_id}/index.html"
+          key: "{plan_id}/wireframe.png"
       - generate_signed_url:
           expiry_days: 90
           out_var: wireframe_signed_url
@@ -159,6 +170,7 @@ webui:
       - Backend
       - Validating
       - Marketing
+      - Plan Ready
       - Delivery
       - Delivered
       - Failed
@@ -174,6 +186,7 @@ webui:
         Challenges: {wizard_data.challenges | join(', ')}
         Stack: {wizard_data.currentStack | join(', ')}
         SubNiches: {wizard_data.subNiches | join(', ')}
+        GBP: {gbp_data.name | default('Not provided')}
 
   tasks:
     auto_create_per_stage: true

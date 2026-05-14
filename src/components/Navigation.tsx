@@ -108,16 +108,20 @@ const Navigation = () => {
           ? scrolled
             ? 'bg-[rgba(250,250,248,0.9)] backdrop-blur-md'
             : 'bg-transparent'
-          : 'backdrop-blur-md bg-[var(--section-bg-1)]'
+          : 'backdrop-blur-md bg-[var(--section-bg-1)]/85'
       }`}
-      style={isAgency ? { color: '#111111' } : { color: 'var(--text-primary)' }}
+      style={isAgency ? { color: '#111111' } : {
+        color: 'var(--text-primary)',
+        backdropFilter: 'blur(16px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+      }}
     >
       <div className="max-w-6xl mx-auto">
         {/* Floating pill container — transparent on /agency */}
-        <div className={`flex items-center justify-between px-8 py-4 mx-auto max-w-4xl ${
+        <div className={`flex items-center justify-between px-8 py-4 mx-auto max-w-5xl ${
           isAgency
             ? 'bg-transparent border-transparent'
-            : 'bg-[var(--card-background)] border border-[var(--border)] rounded-full shadow-elegant'
+            : 'bg-[var(--card-background)]/88 border border-[var(--border)] rounded-full shadow-elegant'
         }`}>
           {/* Logo */}
           <Link href="/" className="flex items-center animate-slide-in-left pl-1">
@@ -206,7 +210,13 @@ const Navigation = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center animate-slide-in-right">
+          <div className="hidden lg:flex items-center gap-3 animate-slide-in-right">
+            {!isAgency && (
+              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--ghost-border)] bg-[var(--surface-2)]/70 px-3 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-[var(--text-secondary)] shadow-[var(--depth-1)]">
+                <span className="live-tile__dot" aria-hidden="true" />
+                <span>3 plans in flight</span>
+              </div>
+            )}
             <Link
               href="/growth-plan"
               className={isAgency

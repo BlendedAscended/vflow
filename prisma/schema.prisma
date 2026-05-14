@@ -42,6 +42,7 @@ enum PlanStatus {
   validating
   marketing
   delivery
+  plan_ready
   wireframe_ready
   paid
   expired
@@ -74,6 +75,12 @@ model GrowthPlan {
   movedForward      Boolean         @default(false)
   customization     Json?           // post-wireframe questionnaire answers
   calendlyEventUri  String?
+  gbpPlaceId        String?
+  gbpName           String?
+  gbpAddress        String?
+  gbpCategories     String[]
+  gbpData           Json?
+  gbpVerifiedAt     DateTime?
   createdAt         DateTime        @default(now())
   updatedAt         DateTime        @updatedAt
   user              User?           @relation(fields: [userId], references: [id])

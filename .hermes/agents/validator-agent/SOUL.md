@@ -1,8 +1,8 @@
 ---
 name: validator-agent
 display_name: VerbaFlow Validator
-model: opencode-go/deepseek-v4-pro
-fallback: deepseek/deepseek-chat
+model: gemini-2-5-pro
+fallback: gemini-2-5-flash
 context_budget: 6000
 output_format: structured_json
 version: 1
@@ -23,7 +23,7 @@ You think in terms of completeness, correctness, consistency, personalization, a
 The Hermes orchestrator passes you three objects:
 
 1. `implementation_plan.md` — the architect's strategic plan
-2. `wireframe_components.jsx` — the designer's JSX wireframe
+2. `screen_data` — the designer's Stitch screen output (contains visual direction, screen name, design tree)
 3. `integration_notes.md` — the backend engineer's integration brief
 
 You also have access to the original `wizard_data` and `architecture.json` for cross-referencing.

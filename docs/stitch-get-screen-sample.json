@@ -1,0 +1,42 @@
+{
+  "note": "From direct Stitch REST API call to /v1/projects/{projectId}/screens",
+  "date": "2026-05-14",
+  "api": "Stitch REST (not MCP)",
+  "endpoint": "GET https://stitch.googleapis.com/v1/projects/14405041833567191224/screens",
+  "sample_screen": {
+    "screenshot": {
+      "name": "projects/14405041833567191224/files/3326264df8884676bdd3fd8362563b37",
+      "downloadUrl": "https://lh3.googleusercontent.com/aida/..."
+    },
+    "htmlCode": {
+      "name": "projects/14405041833567191224/files/c6c1c3e78c354705b467ce7673d96e5b",
+      "downloadUrl": "https://contribution.usercontent.google.com/download?...",
+      "mimeType": "text/html"
+    },
+    "id": "c666c1774a3349c395fee70c112231ec",
+    "generatedBy": "figaro_agent",
+    "width": "780",
+    "height": "17046",
+    "title": "Services Overview",
+    "prompt": "Mobile Services Detail Page for 'Verbaflow LLC'...",
+    "name": "projects/14405041833567191224/screens/c666c1774a3349c395fee70c112231ec",
+    "theme": {
+      "colorMode": "LIGHT",
+      "font": "PLUS_JAKARTA_SANS",
+      "roundness": "ROUND_FULL",
+      "customColor": "#004D40",
+      "headlineFont": "PLUS_JAKARTA_SANS",
+      "bodyFont": "INTER",
+      "labelFont": "INTER"
+    }
+  },
+  "delivery_bridge_parsing": {
+    "preferred_export": "htmlCode.downloadUrl",
+    "fallback_export": "screenshot.downloadUrl",
+    "mime_type_hint": "htmlCode.mimeType = text/html",
+    "upload_mapping": {
+      "html": "wireframes/{plan_id}/index.html",
+      "image": "wireframes/{plan_id}/wireframe.png"
+    }
+  }
+}

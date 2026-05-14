@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 
 const stageToPlanStatus: Record<string, string> = {
   architect: "drafting",
@@ -9,6 +10,86 @@ const stageToPlanStatus: Record<string, string> = {
   marketing: "marketing",
   delivery: "delivery",
 };
+
+const stageSuccessToPlanStatus: Record<string, string> = {
+  marketing: "plan_ready",
+  delivery: "wireframe_ready",
+};
+
+function getSupabaseServiceClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key || key === "placeholder") {
+    return null;
+  }
+  return createClient(url, key);
+}
+
+interface ScreenData {
+  screenshot?: { name?: string; downloadUrl?: string };
+  htmlCode?: { name?: string; downloadUrl?: string; mimeType?: string };
+  id?: string;
+  name?: string;
+}
+
+async function handleDelivery(
+  planId: string,
+  screenData: ScreenData,
+  planEmail: string,
+  planName: string | null
+): Promise<string | null> {
+  const supabaseService = getSupabaseServiceClient();
+  if (!supabaseService) {
+    console.error("[DELIVERY_BRIDGE] Supabase service client not configured");
+    return null;
+  }
+
+  // Prefer HTML export, fallback to screenshot PNG
+  const assetUrl = screenData.htmlCode?.downloadUrl ?? screenData.screenshot?.downloadUrl;
+  const isHtml = !!screenData.htmlCode?.downloadUrl;
+  if (!assetUrl) {
+    console.error("[DELIVERY_BRIDGE] No asset URL found in screen_data");
+    return null;
+  }
+
+  // Fetch asset bytes
+  const assetRes = await fetch(assetUrl);
+  if (!assetRes.ok) {
+    console.error("[DELIVERY_BRIDGE] Failed to fetch asset:", assetRes.status, await assetRes.text());
+    return null;
+  }
+  const buffer = await assetRes.arrayBuffer();
+
+  // Upload to Supabase Storage
+  const storagePath = isHtml
+    ? `wireframes/${planId}/index.html`
+    : `wireframes/${planId}/wireframe.png`;
+
+  const { error: uploadError } = await supabaseService.storage
+    .from("wireframes")
+    .upload(storagePath, Buffer.from(buffer), {
+      upsert: true,
+      contentType: isHtml ? "text/html" : "image/png",
+    });
+
+  if (uploadError) {
+    console.error("[DELIVERY_BRIDGE] Upload failed:", uploadError);
+    return null;
+  }
+
+  // Generate 90-day signed URL
+  const { data: signedData, error: signedError } = await supabaseService.storage
+    .from("wireframes")
+    .createSignedUrl(storagePath, 60 * 60 * 24 * 90);
+
+  if (signedError || !signedData?.signedUrl) {
+    console.error("[DELIVERY_BRIDGE] Signed URL generation failed:", signedError);
+    return null;
+  }
+
+  console.log("[DELIVERY_BRIDGE] Uploaded", storagePath, "signed URL expiry: 90 days");
+  return signedData.signedUrl;
+}
 
 export async function POST(request: Request) {
   try {
@@ -23,7 +104,7 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const { plan_id, stage, status, outputs, error } = body;
+    const { plan_id, stage, status, outputs, error: stageError, screen_data } = body;
 
     if (!plan_id || !stage || !status) {
       return NextResponse.json(
@@ -53,15 +134,15 @@ export async function POST(request: Request) {
         status,
         finishedAt: new Date(),
         artifactPath: outputs?.[0]?.url ?? null,
-        errorMessage: error ?? null,
+        errorMessage: stageError ?? null,
       },
     });
 
     // Determine the new GrowthPlan status
     let newPlanStatus = plan.status;
 
-    if (stage === "delivery" && status === "succeeded") {
-      newPlanStatus = "wireframe_ready";
+    if (status === "succeeded" && stageSuccessToPlanStatus[stage]) {
+      newPlanStatus = stageSuccessToPlanStatus[stage];
     } else if (stageToPlanStatus[stage]) {
       newPlanStatus = stageToPlanStatus[stage];
     }
@@ -76,13 +157,19 @@ export async function POST(request: Request) {
     };
     const updatedLog = [...currentLog, logEntry];
 
+    // Delivery bridge: Stitch screen → Supabase Storage → signed URL
+    let wireframeUrl: string | null = null;
+    if (stage === "delivery" && status === "succeeded" && screen_data) {
+      wireframeUrl = await handleDelivery(plan_id, screen_data as ScreenData, plan.email, plan.name);
+    }
+
     // Update GrowthPlan status and agentLog
     const updatedPlan = await prisma.growthPlan.update({
       where: { id: plan_id },
       data: {
         status: newPlanStatus,
         agentLog: updatedLog,
-        wireframeUrl: outputs?.find((o: any) => o.name === "wireframe_html")?.url ?? plan.wireframeUrl,
+        wireframeUrl: wireframeUrl ?? plan.wireframeUrl,
       },
     });
 
@@ -101,7 +188,7 @@ export async function POST(request: Request) {
       }
     }
 
-    return NextResponse.json({ acknowledged: true });
+    return NextResponse.json({ acknowledged: true, wireframeUrl: updatedPlan.wireframeUrl });
   } catch (error) {
     console.error("[HERMES_CALLBACK]", error);
     return NextResponse.json(

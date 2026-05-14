@@ -59,15 +59,20 @@ const PricingSection = () => {
     }
   ];
 
-  // Counter hooks for each tier's price
-  const counters = pricingPlans.map((plan) =>
-    useCounter({ target: plan.price, prefix: "$", suffix: "", duration: 1600 })
-  );
+  // Counter hooks for each tier's price — called explicitly at top level (Rules of Hooks)
+  const counter0 = useCounter({ target: pricingPlans[0].price, prefix: "$", suffix: "", duration: 1600 });
+  const counter1 = useCounter({ target: pricingPlans[1].price, prefix: "$", suffix: "", duration: 1600 });
+  const counter2 = useCounter({ target: pricingPlans[2].price, prefix: "$", suffix: "", duration: 1600 });
+  const counters = [counter0, counter1, counter2];
 
-
+  const bentoTileClasses = [
+    'bento-span-3 bento-tile',
+    'bento-span-3 bento-tile bento-tile--raised',
+    'bento-span-6 bento-row-2 bento-tile bento-tile--floating mouse-light',
+  ];
 
   return (
-    <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden">
+    <section className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-16 lg:py-24 relative overflow-hidden ambient-grain">
       {/* Next background pattern with conditional opacity */}
       <div
         className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
@@ -91,14 +96,11 @@ const PricingSection = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:gap-4 max-w-6xl mx-auto items-start">
+        <div className="bento-grid max-w-6xl mx-auto items-stretch">
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`group rounded-3xl p-6 lg:p-8 relative border-2 transition-all duration-500 animate-fade-in-up will-change-transform ${index % 2 === 0
-                ? 'bg-[var(--section-bg-3)] text-[var(--text-secondary)] border-[var(--border)]'
-                : 'bg-[var(--section-bg-2)] text-[var(--text-secondary)] border-[var(--border)]'
-                } ${index === 1 ? 'ring-2 ring-[var(--accent)]/70 shadow-glow scale-[1.02] hover:scale-[1.05]' : 'hover:scale-[1.02] hover:-rotate-[0.25deg]'}`}
+              className={`group ${bentoTileClasses[index]} animate-fade-in-up will-change-transform ${index === 1 ? 'ring-1 ring-[var(--accent)]/40' : ''}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="mb-6">

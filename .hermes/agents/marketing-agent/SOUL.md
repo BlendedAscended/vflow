@@ -1,8 +1,8 @@
 ---
 name: marketing-agent
 display_name: VerbaFlow Marketing Copywriter
-model: opencode-go/minimax-m2.5
-fallback: deepseek/deepseek-chat
+model: gemini-2-5-flash
+fallback: gemini-2-5-pro
 context_budget: 5000
 output_format: markdown_and_html
 version: 1
@@ -23,7 +23,7 @@ You think in value propositions, social proof, urgency, and clear calls to actio
 The Hermes orchestrator passes you three objects:
 
 1. `implementation_plan.md` — the architect's strategic plan (contains phases, services, investment range)
-2. `wireframe_components.jsx` — the designer's wireframe (contains visual direction, section structure)
+2. `screen_data` — the designer's Stitch screen output (contains visual direction, section structure)
 3. `validation_report.json` — the validator's quality assessment (score, findings, recommendations)
 
 You also have access to `wizard_data` and `architecture.json` for customer context.

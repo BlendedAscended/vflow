@@ -1,5 +1,6 @@
 'use client';
 
+import { FormEvent, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useVapi } from './VapiContext';
@@ -7,6 +8,8 @@ import { useVapi } from './VapiContext';
 const Footer = () => {
   const pathname = usePathname();
   const { toggleCall, isSessionActive } = useVapi();
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const isHome = pathname === '/';
   const hasContactSection = isHome || pathname === '/about' || pathname === '/blog' || pathname.startsWith('/services/');
 
@@ -69,8 +72,31 @@ const Footer = () => {
     }
   ];
 
+  const handleNewsletterSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!newsletterEmail || newsletterStatus === 'loading') return;
+
+    setNewsletterStatus('loading');
+
+    try {
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: newsletterEmail, source: 'footer' }),
+      });
+
+      if (!response.ok) throw new Error('Newsletter signup failed');
+
+      setNewsletterStatus('success');
+      setNewsletterEmail('');
+    } catch (error) {
+      console.error('Newsletter signup failed:', error);
+      setNewsletterStatus('error');
+    }
+  };
+
   return (
-    <footer className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-20 lg:py-24 relative overflow-hidden">
+    <footer className="w-full bg-[var(--section-bg-2)] text-[var(--text-secondary)] py-20 lg:py-24 relative overflow-hidden ambient-grain">
       {/* Next background pattern with conditional opacity */}
       <div
         className="pointer-events-none absolute inset-0 opacity-65 dark:opacity-35"
@@ -85,26 +111,33 @@ const Footer = () => {
       <div className="absolute bottom-6 left-12 w-80 h-80 bg-[var(--accent)]/10 rounded-full blur-3xl"></div>
 
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-12 lg:space-y-0 lg:space-x-16">
+        <div className="bento-grid">
           {/* Logo and Company Name */}
-          <div className="flex items-center space-x-4 animate-fade-in">
-            <div className="w-16 h-12 relative">
-              <Image
-                src="/logo.png"
-                alt="Verbaflow LLC Logo"
-                fill
-                className="object-contain"
-                priority
-              />
+          <div className="bento-tile bento-tile--raised mouse-light bento-span-6 animate-fade-in">
+            <div className="flex items-center space-x-4">
+              <div className="w-16 h-12 relative">
+                <Image
+                  src="/logo.png"
+                  alt="Verbaflow LLC Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              <div>
+                <h3 className="text-[var(--text-primary)] font-bold text-2xl tracking-tight">VERBAFLOW</h3>
+                <p className="text-[var(--accent)] text-lg font-medium">LLC</p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-[var(--text-secondary)] font-bold text-2xl tracking-tight">VERBAFLOW</h3>
-              <p className="text-[var(--text-accent)] text-lg font-medium">LLC</p>
-            </div>
+            <p className="mt-6 max-w-xl text-[var(--text-secondary)] text-base leading-relaxed">
+              Agentic operations systems, growth plans, and implementation support for teams that need production outcomes.
+            </p>
           </div>
 
           {/* Navigation Links */}
-          <div className="flex flex-wrap gap-10 lg:gap-16">
+          <div className="bento-tile bento-span-3">
+            <h4 className="text-[var(--text-primary)] font-semibold text-sm uppercase tracking-[0.08em] mb-5">Quick links</h4>
+            <div className="flex flex-col gap-3">
             {navigationLinks.map((link, index) => (
               <a
                 key={index}
@@ -122,26 +155,71 @@ const Footer = () => {
                 {link.isButton && isSessionActive ? 'End Call' : link.name}
               </a>
             ))}
+            </div>
           </div>
 
           {/* Social Media Icons */}
-          <div className="flex space-x-8">
-            {socialLinks.map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                className={`hover:opacity-90 transition-colors ${social.name === 'LinkedIn' ? 'text-[#0A66C2]' :
-                  social.name === 'Twitter' ? 'text-[#1DA1F2]' :
-                    social.name === 'Facebook' ? 'text-[#1877F2]' :
-                      social.name === 'Instagram' ? 'text-[#E4405F]' :
-                        social.name === 'YouTube' ? 'text-[#FF0000]' :
-                          'text-[var(--text-accent)]'
-                  }`}
-                aria-label={social.name}
-              >
-                {social.icon}
-              </a>
-            ))}
+          <div className="bento-tile bento-span-3 live-tile">
+            <div className="live-tile__status">
+              <span className="live-tile__dot" />
+              Contact
+            </div>
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+              Montgomery County systems partner. Call, message, or follow the build.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-3">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  className={`hover:opacity-90 transition-colors ${social.name === 'LinkedIn' ? 'text-[#0A66C2]' :
+                    social.name === 'Twitter' ? 'text-[#1DA1F2]' :
+                      social.name === 'Facebook' ? 'text-[#1877F2]' :
+                        social.name === 'Instagram' ? 'text-[#E4405F]' :
+                          social.name === 'YouTube' ? 'text-[#FF0000]' :
+                            'text-[var(--text-accent)]'
+                    }`}
+                  aria-label={social.name}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="bento-tile bento-tile--floating mouse-light bento-span-12">
+            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <h4 className="text-[var(--text-primary)] font-semibold text-xl">Field notes from the control room</h4>
+                <p className="mt-2 max-w-2xl text-[var(--text-secondary)] text-sm leading-relaxed">
+                  Practical notes on AI operations, automation strategy, and local-business growth systems.
+                </p>
+              </div>
+              <form onSubmit={handleNewsletterSubmit} className="flex w-full flex-col gap-3 sm:w-[420px] sm:flex-row">
+                <input
+                  type="email"
+                  value={newsletterEmail}
+                  onChange={(event) => setNewsletterEmail(event.target.value)}
+                  placeholder="Work email"
+                  className="min-w-0 flex-1 rounded-full border border-[var(--ghost-border)] bg-[var(--surface-container-lowest)] px-5 py-3 text-[var(--text-primary)] placeholder:text-[var(--text-muted)]"
+                  aria-label="Email address"
+                  required
+                />
+                <button
+                  type="submit"
+                  disabled={newsletterStatus === 'loading'}
+                  className="rounded-full bg-[var(--accent)] px-6 py-3 font-bold text-[var(--accent-foreground)] transition-all duration-300 hover:shadow-glow disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {newsletterStatus === 'loading' ? 'Joining...' : 'Join list'}
+                </button>
+              </form>
+            </div>
+            {newsletterStatus === 'success' && (
+              <p className="mt-4 text-sm text-[var(--accent)]">You&apos;re on the list.</p>
+            )}
+            {newsletterStatus === 'error' && (
+              <p className="mt-4 text-sm text-[var(--accent-error)]">That did not go through. Try again in a moment.</p>
+            )}
           </div>
         </div>
 

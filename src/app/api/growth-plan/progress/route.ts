@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     const abandonment = await prisma.abandonment.findFirst({
       where: {
         wizardData: {
-          path: "$.email",
+          path: ["email"],
           equals: email,
         },
       },

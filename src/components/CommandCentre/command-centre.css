@@ -220,6 +220,41 @@
   }
 }
 
+/* ══ Spatial Bento wrappers ═════════════════════════════════════════════════════ */
+.command-centre__grid {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.command-centre__helix-tile {
+  position: relative;
+  min-height: 520px;
+  overflow: visible;
+}
+
+.command-centre__helix-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure metric layer sits above helix inside the tile */
+.command-centre__helix-stage .metric-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.command-centre__helix-stage .metric-card {
+  pointer-events: auto;
+}
+
 /* ── Reduced Motion ──────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .metric-card,

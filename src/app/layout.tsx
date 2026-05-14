@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import ChatWidget from "../components/ChatWidget";
+import MouseLightProvider from "../components/MouseLightProvider";
 import { VapiProvider } from "../components/VapiContext";
 
 const geistSans = Geist({
@@ -14,16 +15,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const inter = Inter({
-  variable: "--font-body",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
+  variable: "--font-mono-stitch",
   subsets: ["latin"],
-  weight: ["400"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -49,9 +50,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${jakarta.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <VapiProvider>
+          <MouseLightProvider />
           {children}
           <ChatWidget />
         </VapiProvider>

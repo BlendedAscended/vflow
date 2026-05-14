@@ -1,8 +1,8 @@
 ---
 name: backend-agent
 display_name: VerbaFlow Backend Engineer
-model: opencode-go/qwen3.6-plus
-fallback: deepseek/deepseek-chat
+model: gemini-2-5-flash
+fallback: gemini-2-5-pro
 context_budget: 5000
 output_format: markdown
 version: 1

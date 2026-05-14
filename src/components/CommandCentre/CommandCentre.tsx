@@ -98,6 +98,8 @@ const CARD_POSITIONS: Record<string, React.CSSProperties> = {
   performance: { right: 40, top: 600 },
 }
 
+const AGENTS = ['Architect', 'Designer', 'Backend', 'Validator', 'Marketing', 'Booking']
+
 // Tablet card positions (applied via CSS data attr at ≤768px)
 // handled in CSS media query — card tops: 60/220/380/540
 
@@ -171,17 +173,65 @@ export default function CommandCentre() {
 
   return (
     <section className="command-centre command-centre-root" ref={containerRef}>
-      <HelixBackbone />
+      <div className="command-centre__grid bento-grid">
+        <div className="bento-tile bento-tile--raised mouse-light bento-span-6 live-tile" data-gsap="card-left">
+          <div className="live-tile__status">
+            <span className="live-tile__dot" />
+            Plans in flight
+          </div>
+          <div className="live-tile__metric">4,820</div>
+          <div className="live-tile__delta">+12% this week</div>
+          <div className="hairline-spark" aria-hidden="true" />
+        </div>
 
-      <div className="metric-layer">
-        {METRICS.map((metric) => (
-          <MetricCard
-            key={metric.id}
-            data={metric}
-            style={CARD_POSITIONS[metric.id]}
-            data-gsap={metric.position === 'left' ? 'card-left' : 'card-right'}
-          />
-        ))}
+        <div className="bento-tile mouse-light bento-span-6 live-tile" data-gsap="card-right">
+          <div className="live-tile__status">
+            <span className="live-tile__dot" />
+            Wireframes shipped today
+          </div>
+          <div className="live-tile__metric">27</div>
+          <div className="live-tile__delta">3 awaiting final QA</div>
+          <div className="hairline-spark" aria-hidden="true" />
+        </div>
+
+        <div className="command-centre__helix-tile bento-tile bento-tile--floating mouse-light bento-span-12 bento-row-2">
+          <div className="command-centre__helix-stage">
+            <HelixBackbone />
+
+            <div className="metric-layer">
+              {METRICS.map((metric) => (
+                <MetricCard
+                  key={metric.id}
+                  data={metric}
+                  style={CARD_POSITIONS[metric.id]}
+                  data-gsap={metric.position === 'left' ? 'card-left' : 'card-right'}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="bento-tile bento-span-6 live-tile" data-gsap="card-left">
+          <div className="live-tile__status">
+            <span className="live-tile__dot" />
+            Agents busy
+          </div>
+          <div className="live-tile__metric">{AGENTS.length}</div>
+          <div className="live-tile__list">
+            {AGENTS.map((agent) => (
+              <span key={agent} className="live-tile__chip">{agent}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className="bento-tile bento-tile--raised mouse-light bento-span-6 live-tile" data-gsap="card-right">
+          <div className="live-tile__status">
+            <span className="live-tile__dot" />
+            Avg delivery time
+          </div>
+          <div className="live-tile__metric">00:18:42</div>
+          <div className="live-tile__delta">Current median across paid plans</div>
+        </div>
       </div>
     </section>
   )

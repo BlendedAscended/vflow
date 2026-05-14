@@ -17,6 +17,11 @@ export async function POST(request: Request) {
       subNiches,
       currentStack,
       legacyPain,
+      gbpPlaceId,
+      gbpName,
+      gbpAddress,
+      gbpCategories,
+      gbpData,
     } = body;
 
     if (!email || typeof email !== "string" || !email.includes("@")) {
@@ -67,6 +72,11 @@ export async function POST(request: Request) {
       subNiches: subNiches ?? [],
       currentStack: currentStack ?? [],
       legacyPain: legacyPain ?? null,
+      gbpPlaceId: gbpPlaceId ?? null,
+      gbpName: gbpName ?? null,
+      gbpAddress: gbpAddress ?? null,
+      gbpCategories: gbpCategories ?? [],
+      gbpData: gbpData ?? null,
     };
 
     // Create GrowthPlan
@@ -75,6 +85,11 @@ export async function POST(request: Request) {
         email,
         status: "queued",
         wizardData,
+        gbpPlaceId: gbpPlaceId ?? null,
+        gbpName: gbpName ?? null,
+        gbpAddress: gbpAddress ?? null,
+        gbpCategories: gbpCategories ?? [],
+        gbpData: gbpData ?? null,
       },
     });
 
@@ -115,7 +130,7 @@ export async function POST(request: Request) {
         planId: growthPlan.id,
         agent: "architect",
         status: "pending",
-        model: "mimo-v2.5-pro",
+        model: "gemini-2-5-pro",
       },
     });
 
@@ -129,6 +144,7 @@ export async function POST(request: Request) {
           plan_id: growthPlan.id,
           pipeline: "cybergrowth-wireframe",
           input: wizardData,
+          gbp_data: gbpData ?? null,
         });
         
         // Compute HMAC-SHA256 signature

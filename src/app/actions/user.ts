@@ -1,6 +1,5 @@
 'use server';
 
-// @ts-expect-error - Module not found in build but exists
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
