@@ -50,3 +50,4 @@ __pycache__/
 *.pyc
 *.pyo
 .claude/fix-journal.jsonl
+graphify-out/cache/

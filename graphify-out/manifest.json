@@ -1,846 +1,1797 @@
 {
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/postcss.config.mjs": {
-    "mtime": 1757988171.4991856,
-    "hash": "675899342e765a4d16acd75a53389101"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/next-env.d.ts": {
-    "mtime": 1757988171.4979424,
-    "hash": "ba64ff7d54714a8f64db89b1003207d8"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/sanity.cli.ts": {
-    "mtime": 1758127905.2341003,
-    "hash": "a45cea67df40efde1d7540c82138ffdd"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/tailwind.config.ts": {
-    "mtime": 1757992831.1821656,
-    "hash": "0f1c3ea0581b2b5a9879ba977dac96aa"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/sanity.config.ts": {
-    "mtime": 1758127905.2317414,
-    "hash": "63c33dec082f1da8e59322c7bc56dd03"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/ecosystem.config.js": {
-    "mtime": 1773635763.9425237,
-    "hash": "596c3e512ced635d87e6491c4229295c"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/eslint.config.mjs": {
-    "mtime": 1757988171.4989197,
-    "hash": "f1e80e839db34357a0e228efe227e759"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/next.config.ts": {
-    "mtime": 1774026649.693017,
-    "hash": "eebfc55f695deabafcb8e1039e21463b"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/palette_swatch.py": {
-    "mtime": 1778552424.6244648,
-    "hash": "e872466df78a66a6950e03756bb5e53f"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/seed-sanity-services.ts": {
-    "mtime": 1766491397.9172022,
-    "hash": "b0c5f043c999d6e2b198d11389d50f1b"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/seed-supabase.ts": {
-    "mtime": 1766426890.425278,
-    "hash": "a9d7fae78f1fba6f890a252c4b5b919c"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/apply-migration.ts": {
-    "mtime": 1778552424.7071657,
-    "hash": "93b3bfb90ed7d4e8b078f38fe21af4ed"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/middleware.ts": {
-    "mtime": 1773622751.8966076,
-    "hash": "0c654257daa457a9992f9fd0900cf65a"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/browser.ts": {
-    "mtime": 1764535380.445215,
-    "hash": "44da0864d084bcc216f912ee0591808b"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/client.ts": {
-    "mtime": 1764535380.445106,
-    "hash": "03e60357e1d5a48063a17d30e29c5021"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/models.ts": {
-    "mtime": 1764535380.4452603,
-    "hash": "8f1f9f0b2a81c2720a2ad44305e728f9"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/commonInputTypes.ts": {
-    "mtime": 1764535380.4453077,
-    "hash": "07df011f7ee363b50479f4d7cdabcac1"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/enums.ts": {
-    "mtime": 1764535380.4451191,
-    "hash": "fa6c58ad2d5526df3ff4f7e351d5f2f2"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/internal/class.ts": {
-    "mtime": 1764535380.4462693,
-    "hash": "51461297bb219edfe02c24e0a6f6b010"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/internal/prismaNamespace.ts": {
-    "mtime": 1764535380.446395,
-    "hash": "983b25d709bdfe528000238361f76148"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/internal/prismaNamespaceBrowser.ts": {
-    "mtime": 1764535380.4462266,
-    "hash": "7095e2d02ee064d84ac54e94085c67fc"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/models/Customer.ts": {
-    "mtime": 1764535380.4460196,
-    "hash": "9ac60f95041f19ffd7ade7bacb7503d5"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/models/User.ts": {
-    "mtime": 1764535380.4459817,
-    "hash": "e794a77e0efa9611dd754459c3159b28"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/layout.tsx": {
-    "mtime": 1778563632.6960711,
-    "hash": "a8d850d900edf44edd073ee4d03ff2b3"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/page.tsx": {
-    "mtime": 1778564640.2448065,
-    "hash": "a325efce4687d7c002fb49eeb34b9907"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/studio/[[...tool]]/page.tsx": {
-    "mtime": 1758127905.229047,
-    "hash": "6fa539b6cad86c5233773198a87810af"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/virtual-office/page.tsx": {
-    "mtime": 1778138072.3876102,
-    "hash": "a99b4aceecac504feb2765ecfd708d2f"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/plan/[id]/PlanStatusClient.tsx": {
-    "mtime": 1778552424.717251,
-    "hash": "0f7f32b9aa20d50afd7e7ff453be6a83"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/plan/[id]/page.tsx": {
-    "mtime": 1778552424.7177882,
-    "hash": "a397d202564fa5c15b2a76934cb103f1"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/plan/[id]/preview/page.tsx": {
-    "mtime": 1778552424.7182827,
-    "hash": "afbcc09e6530f49e6e2dd88e0bbe632e"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/agency/layout.tsx": {
-    "mtime": 1775316919.1839507,
-    "hash": "2426c20aa1a34579c0fea27f155f49dd"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/agency/page.tsx": {
-    "mtime": 1778138079.4152849,
-    "hash": "aa8f6498bf235c7a1bfaf2e9b04e2c18"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/admin/invoice/[userId]/page.tsx": {
-    "mtime": 1764535334.9443219,
-    "hash": "107d75e62359eda44a96ec6013b3bda6"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/about/page.tsx": {
-    "mtime": 1766499847.4812708,
-    "hash": "690974ccf46c495da1d207447a4a1da1"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/layout.tsx": {
-    "mtime": 1758854079.2597418,
-    "hash": "76944c6dfc859308866585c92cd39775"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/page.tsx": {
-    "mtime": 1764206995.4097044,
-    "hash": "74745d192be77110f074f27f78fa8c6e"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/faq/page.tsx": {
-    "mtime": 1764042260.6512544,
-    "hash": "41fc17521826508a53b4f7c3e505ef55"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/setup/page.tsx": {
-    "mtime": 1764040426.3153422,
-    "hash": "8f0d2cbb7da565c65f7ac374a9486ea1"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/portfolio/page.tsx": {
-    "mtime": 1764137846.0462248,
-    "hash": "a1084acb1d920c109ef24be031b90744"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/[slug]/page.tsx": {
-    "mtime": 1764471953.1598387,
-    "hash": "699988831c86edf1dd8a5562719614b7"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/debug/page.tsx": {
-    "mtime": 1764041524.0770805,
-    "hash": "17a3ab706b99ddc3f3045ca1b199fcc4"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/growth-plan/page.tsx": {
-    "mtime": 1778138072.3823857,
-    "hash": "b294b5b7075006f66a4b2b2c41253944"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/actions/payment.ts": {
-    "mtime": 1766500257.285875,
-    "hash": "e05fdbdde09658839d49e3fe94b9eb5d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/actions/submitContact.ts": {
-    "mtime": 1764200863.6287284,
-    "hash": "9928142ca0c732d555ba450490699461"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/actions/user.ts": {
-    "mtime": 1764537737.8836308,
-    "hash": "f82cc1eaffe289633c2a1b20f158b52a"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/generate-strategy/route.ts": {
-    "mtime": 1766498599.8416083,
-    "hash": "1c1248dc8bb645f0d230ebb6d5865bbe"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/checkout-growth-plan/route.ts": {
-    "mtime": 1778552424.7114992,
-    "hash": "f2cf740268a448b5ac027ca01340e022"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/send-quote/route.ts": {
-    "mtime": 1766454969.4845655,
-    "hash": "6285c19c64987fa2312f14b6a7cc5d94"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/chat/route.ts": {
-    "mtime": 1766452585.3146217,
-    "hash": "0fdcc0501046a758e27a7b94bbeac625"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/status/route.ts": {
-    "mtime": 1778552424.7147288,
-    "hash": "1f75be9bc7953eefeada395f276af60d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/move-forward/route.ts": {
-    "mtime": 1778552424.7143018,
-    "hash": "848d8f82377c4e37f2e6a365bd7b82ec"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/preview/route.ts": {
-    "mtime": 1778552424.714523,
-    "hash": "f9ed48140f006cf77601cc85cc70612d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/checkout/route.ts": {
-    "mtime": 1766500072.8231275,
-    "hash": "daeefdc91c2bc85eb5df4d95e05437e9"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/growth-plan/submit/route.ts": {
-    "mtime": 1778552424.7125375,
-    "hash": "0602bee5366eb57d7b70f21852b03873"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/growth-plan/progress/route.ts": {
-    "mtime": 1778552424.7118773,
-    "hash": "65bb8fd1886a5658164f2f327140759a"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/growth-plan/start/route.ts": {
-    "mtime": 1778552424.7121341,
-    "hash": "20b8241b2a546e5293a5be20bd54e615"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/request-quote/route.ts": {
-    "mtime": 1764486526.511811,
-    "hash": "a1c361efacbf27a0caa2eca146d79230"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/hermes/state/route.ts": {
-    "mtime": 1778562455.3810952,
-    "hash": "cd27f861817675509ecd219860df9cba"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/hermes/callback/route.ts": {
-    "mtime": 1778552424.7128894,
-    "hash": "c39e47d2f7221d6c5c19a555c2917d43"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/newsletter/subscribe/route.ts": {
-    "mtime": 1778552424.713672,
-    "hash": "45081841daeaf43e9fc1843a82733270"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/webhooks/stripe/route.ts": {
-    "mtime": 1778552424.7165306,
-    "hash": "61ac0d42123aadb72acffb421b028e8c"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/page.tsx": {
-    "mtime": 1778138072.3870544,
-    "hash": "dbea334dad9ba0aa24dd45e0ae9facfa"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/[slug]/page.tsx": {
-    "mtime": 1778138072.3859186,
-    "hash": "4f502297b11f05bad881d3aeb3ff53ed"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/structure.ts": {
-    "mtime": 1758127926.2078707,
-    "hash": "becf47858c8f085ada4bb826870f582f"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/env.ts": {
-    "mtime": 1778552424.725318,
-    "hash": "9f464157ff5be561ce7321f8d919d006"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/categoryType.ts": {
-    "mtime": 1758127926.2017713,
-    "hash": "6273b82563c9b46c3969c6ecb094abcf"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/faqType.ts": {
-    "mtime": 1758615940.6886177,
-    "hash": "bb18a892060aa3eaf6b34075d47de5bd"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/blockContentType.ts": {
-    "mtime": 1758127926.1992724,
-    "hash": "5385834cd96392acc75b43e479e32818"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/chatLogType.ts": {
-    "mtime": 1764472413.8936248,
-    "hash": "45e77e4f54514d1d63f880a33bb998bc"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/testimonialType.ts": {
-    "mtime": 1758133213.5726435,
-    "hash": "071cecbfb97031aa0fe8bd96739261ea"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/authorType.ts": {
-    "mtime": 1758127926.19695,
-    "hash": "9158a01a7a3cc5f469bad8b7e846f5d2"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/contactType.ts": {
-    "mtime": 1764201620.0225325,
-    "hash": "abdd17ec1848b7f1a0d88bdaaa3aea0e"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/systemContextType.ts": {
-    "mtime": 1764472415.9410052,
-    "hash": "909d1ec8daaff9103d5542026a4db58d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/postType.ts": {
-    "mtime": 1758127926.2037435,
-    "hash": "8bddc06c148a6e95b5863c1e57cf7618"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/blogType.ts": {
-    "mtime": 1758854062.834681,
-    "hash": "4148818df1ab22f448c015bb1727ae79"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/index.ts": {
-    "mtime": 1764472417.8452191,
-    "hash": "8043a0a307e7b457bae7905e272db918"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/schemaTypes/serviceType.ts": {
-    "mtime": 1778138072.3970919,
-    "hash": "b21304a8f0851cbcffae8e80b2e11ac5"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/lib/image.ts": {
-    "mtime": 1758127926.1941247,
-    "hash": "a3977f08bd8338148d6f6ecad8db8392"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/lib/live.ts": {
-    "mtime": 1758127926.1921756,
-    "hash": "23a060414de984b25bad60297d09b8cb"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/lib/types.ts": {
-    "mtime": 1758610684.1393983,
-    "hash": "850c44eba97aec3e3f082c9c6c625667"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/sanity/lib/client.ts": {
-    "mtime": 1778552424.7262886,
-    "hash": "069c4ae70159fbb9215c9821e0ff755a"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/VapiContext.tsx": {
-    "mtime": 1764486500.9474986,
-    "hash": "3780a3c6e51467455ca2779b93ee0b00"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/BusinessInfoSection.tsx": {
-    "mtime": 1764203187.48291,
-    "hash": "e0f2329406b99b4a51216157c53e956a"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ChatWidget.tsx": {
-    "mtime": 1773605640.262513,
-    "hash": "8d902774829c370ea5eeb74be2368363"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/QuoteOverlay.tsx": {
-    "mtime": 1766497155.7712934,
-    "hash": "f20673b4f7015bbfa72b861ce5544f59"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/AIToolsSection.tsx": {
-    "mtime": 1764471876.3708181,
-    "hash": "cc5142b80c2ffebca0880ed8892e8684"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/QuoteRequestSection.tsx": {
-    "mtime": 1764486610.4972143,
-    "hash": "8b6cc4f845803f2a914b44bca116f0b9"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/VirtualOffice.tsx": {
-    "mtime": 1778138072.3919325,
-    "hash": "b38e30a9a15593db3cd8397d322c3732"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/GrowthPlanWizard.tsx": {
-    "mtime": 1778563323.2904234,
-    "hash": "7167142ebc9b7896471b65b2e490ed34"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/StatsBand.tsx": {
-    "mtime": 1778564579.143411,
-    "hash": "b6a53d7b70497c2e6ad6ed0f5e734629"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/LocationContext.tsx": {
-    "mtime": 1766495121.3949103,
-    "hash": "ed2da62b88b2c7721548e4f43fdb404f"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/FAQSection.tsx": {
-    "mtime": 1778564579.1345568,
-    "hash": "519f405e65625417e2985a73f8dd6a89"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/Footer.tsx": {
-    "mtime": 1764486629.256439,
-    "hash": "80ebc9db179250951595f0b30964c042"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ServicesSection.tsx": {
-    "mtime": 1778564640.247137,
-    "hash": "2278dfe32cc57cd1a72736d2f6b5573d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/SplineHelix.tsx": {
-    "mtime": 1778564579.1426616,
-    "hash": "261ec0d9470726315b0d2492fd844f69"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ThemeToggle.tsx": {
-    "mtime": 1758670629.1365862,
-    "hash": "c236f5ceb22462cc84b16d6a94574f0d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/TestimonialsSection.tsx": {
-    "mtime": 1778564579.1457376,
-    "hash": "82071db42a798c758e8784db6fc5758c"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/HeroSection.tsx": {
-    "mtime": 1778564640.2462015,
-    "hash": "46a9d86546ed95ccaeee8eecbb5bfa5e"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/PricingSection.tsx": {
-    "mtime": 1778564579.1392298,
-    "hash": "08e7ab133a493fcefae6ff4dab0daf43"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ContactSection.tsx": {
-    "mtime": 1778564579.1325817,
-    "hash": "b4889970a120ede2ffb786704cc90844"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/Navigation.tsx": {
-    "mtime": 1778138072.390351,
-    "hash": "7eb4055ae15c57ba95e810ef932c9f37"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ui/MagneticButton.tsx": {
-    "mtime": 1778564579.1590104,
-    "hash": "bc5f730b58858963e4b808978384449c"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ui/AnimatedHeadline.tsx": {
-    "mtime": 1778564579.157555,
-    "hash": "23bfde22f148d762f8de66b44961ad7a"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ui/Marquee.tsx": {
-    "mtime": 1778564579.1595588,
-    "hash": "3d53a9ff0356874e558f575dce8e1764"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/ui/CursorDot.tsx": {
-    "mtime": 1778564579.1582613,
-    "hash": "410a284d1e7708f5280f071993998d03"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/payment/ComplianceModal.tsx": {
-    "mtime": 1764535050.7670107,
-    "hash": "640e92833b8798f0e92b7e8a0db3535c"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/DomainToggle.tsx": {
-    "mtime": 1774059771.7950008,
-    "hash": "43da4de6e1cf731b9e93551e84cab333"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/AgencyProjectsStrip.tsx": {
-    "mtime": 1778138072.3925064,
-    "hash": "bc714d19f7762f6122085dd537f1b8be"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/ProjectFrame.tsx": {
-    "mtime": 1775317313.4808755,
-    "hash": "a61d2652f957fd08e8e20f338e256f06"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/AgencySplitLayout.tsx": {
-    "mtime": 1777183067.0388412,
-    "hash": "555d523590503689aaa5cc4fb4e17902"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/AgencyLeftPanel.tsx": {
-    "mtime": 1778564579.1492383,
-    "hash": "cb176f69eb206995e540028f285f7b4e"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/ThreeAgencyBackground.tsx": {
-    "mtime": 1778564579.1508842,
-    "hash": "93593c7ce08297d8f8960bc798aabe33"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/AgencyRightPanel.tsx": {
-    "mtime": 1773605524.6626623,
-    "hash": "15662f988be15ee1e08007fc22636e3f"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/mocks/IPadMock.tsx": {
-    "mtime": 1775317201.341071,
-    "hash": "b64dcbb552b530abe72c0973910bc996"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/mocks/SaaSBrowserMock.tsx": {
-    "mtime": 1775317159.834479,
-    "hash": "6f9ef79fe99ec2e70bd40b217aa2304f"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/mocks/IPhoneMock.tsx": {
-    "mtime": 1775317231.3052418,
-    "hash": "28edb65a5db5771ce1220815f8cff27d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/infographics/FinanceCharts.tsx": {
-    "mtime": 1778564579.1529186,
-    "hash": "18ab7a4088c9bba9f1e687826ab4e606"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/infographics/HealthcareCharts.tsx": {
-    "mtime": 1778564579.1549108,
-    "hash": "4523ca14371ec06b43dc075d3841f84a"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency/infographics/PlatformCharts.tsx": {
-    "mtime": 1778564579.1565666,
-    "hash": "4a36aaf76456f2d2dd40bae690114b98"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/HelixBackbone.tsx": {
-    "mtime": 1774042358.589492,
-    "hash": "047bca52d6f2d87eba229901af843ae9"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/ActionButton.tsx": {
-    "mtime": 1774042377.0332854,
-    "hash": "924d19492bb91d4cad121843f882b2ca"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/types.ts": {
-    "mtime": 1774042285.6248193,
-    "hash": "ca7182f284a65c597dfb851d2e777fb2"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/MetricCard.tsx": {
-    "mtime": 1774042396.5690925,
-    "hash": "c7f42586e411436356beb970a0ee78a9"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/CommandCentre/CommandCentre.tsx": {
-    "mtime": 1774042430.364617,
-    "hash": "e3a9b132de9e07798c929a30dc606415"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/registry.ts": {
-    "mtime": 1778552424.7229064,
-    "hash": "e872656c1f4f72b4908bbb0988caa45a"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/ProtoNav.tsx": {
-    "mtime": 1777183054.679481,
-    "hash": "23990fb3293b02b4fa9630b36f618cf4"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/ProtoFrame.tsx": {
-    "mtime": 1777200612.9747345,
-    "hash": "d62a6baa8d8ae7f4142dc812aa2a207b"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-02-split-screen/index.tsx": {
-    "mtime": 1777183069.6752982,
-    "hash": "3e5de9425b051ae1cee046b96ec1f7c1"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx": {
-    "mtime": 1777184706.8600607,
-    "hash": "eb7c2e7beee506f667e295f4b9f6935d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx": {
-    "mtime": 1777183806.6502092,
-    "hash": "be8f67c61230d4babcae72927fb2ef00"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-03-wireframe-v1/index.tsx": {
-    "mtime": 1777183769.7772112,
-    "hash": "49e0648aae2e685062f5ad5091c5e0fb"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-05-iso-floor/index.tsx": {
-    "mtime": 1778562455.3816335,
-    "hash": "384abde5fd26238f677bc7f2757b83f6"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-05-iso-floor/AgentZoneModal.tsx": {
-    "mtime": 1778552424.7204845,
-    "hash": "bad550bd58743112d6bf9c8853965301"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-05-iso-floor/BookCallModal.tsx": {
-    "mtime": 1778552424.7207491,
-    "hash": "b42d671e1bfdd4b557c53adcad009719"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-04-wireframe-v2/index.tsx": {
-    "mtime": 1777184574.3252902,
-    "hash": "c3605b7c53866494a60d0b168efc741d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/hooks/useReveal.ts": {
-    "mtime": 1778564579.1601746,
-    "hash": "4f82d078a7cdffc85da5027f83192056"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/hooks/useHermesState.ts": {
-    "mtime": 1778552424.7234535,
-    "hash": "2806350453d076e7e29021a79d76f302"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/prisma.ts": {
-    "mtime": 1778552424.7241604,
-    "hash": "bd409bbc98b0c011e38702958b320e71"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/email.ts": {
-    "mtime": 1778552424.7239633,
-    "hash": "a4c9cadec17a5f853f68597d321bc438"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/facta.ts": {
-    "mtime": 1764535076.3012156,
-    "hash": "313cea25a80c5b0d17c9800ab926a348"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/knowledge-base.ts": {
-    "mtime": 1766499854.4033787,
-    "hash": "fe779486667ae0846c13a3d9abbfe0eb"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/supabase.ts": {
-    "mtime": 1766462060.2851856,
-    "hash": "4a4fef5c81e8a2f08ef12afefe26c5c4"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/data/industries.ts": {
-    "mtime": 1778138072.3938391,
-    "hash": "06e8adaacec73def0704ff83bd33b27d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/data/agencyProjects.ts": {
-    "mtime": 1778138072.3930244,
-    "hash": "32f6e8a90ae5bc844b3ced4577691ad7"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/data/agencyDomains.ts": {
-    "mtime": 1775317274.2550478,
-    "hash": "e5254adb757c051e3fffedafe6c9a6a1"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/data/services.ts": {
-    "mtime": 1778138072.3946464,
-    "hash": "044b4eb8b307d48bb284037906e14968"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/README.md": {
-    "mtime": 1773619445.60761,
-    "hash": "c328d254270ee07afa54e67e524a82b4"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/mempalace.yaml": {
-    "mtime": 1778376902.7922802,
-    "hash": "86c352e258ce00e2bf447bd2fc9e59aa"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/Pasted markdown (2).md": {
-    "mtime": 1778284450.1867573,
-    "hash": "ab717df73a0d172e7735e655db599368"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/Pasted markdown.md": {
-    "mtime": 1778284447.8291435,
-    "hash": "3c38e2364eb80b0df7d1e02731447bca"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/AGENT_REGISTRY.md": {
-    "mtime": 1778559765.1675959,
-    "hash": "09ea22097a71815d60639c5852a81a2c"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/CHANGES.md": {
-    "mtime": 1778552424.5080378,
-    "hash": "55f0891afe2eb27675e64c509a915b3e"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/AGENTS.md": {
-    "mtime": 1778552424.5074189,
-    "hash": "cfea53941da1afbac3ab7f4b32209f50"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/CLAUDE.md": {
-    "mtime": 1778361426.6878865,
-    "hash": "da79aa9343cd2b362206f03762160abc"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/phase1-audit-action-plan.md": {
-    "mtime": 1778552424.672407,
-    "hash": "5239139a16da7dba5df2bf507f4196b3"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/frontend-blueprint-ref-04-saas_webapp_patterns.md": {
-    "mtime": 1773616720.0,
-    "hash": "0269e6e94236b28acde2d302d997f679"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/frontend-blueprint-ref-01-chrome_extension_guide.md": {
-    "mtime": 1773616720.0,
-    "hash": "4f1c77cde43ea3ecec5b31d83c4a1ee8"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/master-design-system.md": {
-    "mtime": 1773616720.0,
-    "hash": "5025fa621ae1ffef205419d27abc86c3"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/frontend-blueprint-ref-03-portfolio_implementation_plan.md": {
-    "mtime": 1773616720.0,
-    "hash": "557c94378bf63e64498aa8b8f8455459"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/SKILL.md": {
-    "mtime": 1775295839.731635,
-    "hash": "59feff44c6c8f5c106aad924585ef876"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/00-READ-ME-FIRST.txt": {
-    "mtime": 1773616720.0,
-    "hash": "bd09b6fd521693ac3c13ca60b3aad7af"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/DOWNLOAD-SUMMARY.md": {
-    "mtime": 1773616720.0,
-    "hash": "77c0c7e8604f0742b7484884177358a6"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/frontend-blueprint-ref-02-design_system.md": {
-    "mtime": 1773616720.0,
-    "hash": "206d1e72a5dbe19ad96b604dbab8e794"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/site-architecture-audit.md": {
-    "mtime": 1778552424.6726158,
-    "hash": "b036ceb57fad3538896fa2b6845030b3"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/MASTER-PACKAGE-OVERVIEW.md": {
-    "mtime": 1773616720.0,
-    "hash": "ea4a7978cb421f7478e342b72f9d4e45"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-v2-hermes-brief.md": {
-    "mtime": 1778552424.6722233,
-    "hash": "b7c1af37cc31a1a523f69bc0c07793f5"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/FRONTEND-BLUEPRINT-INDEX.md": {
-    "mtime": 1773616720.0,
-    "hash": "35e3eb2469e0d04dbb3883defc52beb0"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/INSTALLATION_GUIDE.md": {
-    "mtime": 1773616720.0,
-    "hash": "3adfadaa0fb84b301e80bbf1f6cfde8f"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/INFRASTRUCTURE.md": {
-    "mtime": 1773721070.7890944,
-    "hash": "e1ab9b20ec3b99c19740ece8e574c9a6"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/IMPLEMENTATION_PLAN.md": {
-    "mtime": 1778552424.508349,
-    "hash": "631b062d804ac53b68a23942f56eb01d"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/frontend-blueprint-SKILL.md": {
-    "mtime": 1773616720.0,
-    "hash": "917d9094ac6720ddb14ac973afbb155e"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/website-revamp.md": {
-    "mtime": 1778138072.3789194,
-    "hash": "837f9a98f69893674a50174f617548f2"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/01-cloudflare-setup.md": {
-    "mtime": 1773721070.791707,
-    "hash": "7d69afe438ac28c3afb9b45b1114f305"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/06-dns-migration-godaddy-cloudflare.md": {
-    "mtime": 1773721070.7976294,
-    "hash": "af792e457822478e84dd43d5dd6a57f7"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/05-email-resend-config.md": {
-    "mtime": 1773721070.7965608,
-    "hash": "d9854396b52262563dd1763502f513e1"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/03-github-actions-cicd.md": {
-    "mtime": 1773721070.7938929,
-    "hash": "6cbf5e0361fa0ee84837c444406f2bd8"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/07-server-migration-troubleshooting.md": {
-    "mtime": 1773784062.63456,
-    "hash": "a5d6c5d1eed7953a172f917bcc589416"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/02-hetzner-deploy.md": {
-    "mtime": 1773721070.7925508,
-    "hash": "d03ae766d68beee755afcc37f94cff57"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/00-donportfolio-analysis.md": {
-    "mtime": 1773700649.4035213,
-    "hash": "9873876de9a77bdb291ba06fb9586799"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/prompts/04-portfolio-migration.md": {
-    "mtime": 1773721070.7955067,
-    "hash": "f782ba992cc623b8db5bb8785bf15bed"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/cloudflare-tunnel-config.yml": {
-    "mtime": 1773721070.79061,
-    "hash": "200696045b8d8df15177adfb1c7b1fc8"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/GITHUB_SECRETS_SETUP.md": {
-    "mtime": 1773721070.786862,
-    "hash": "629679ae63fc046fc17d20f3f14ed987"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/README.md": {
-    "mtime": 1777183841.179171,
-    "hash": "8cdaed5bb0af47159b39c37a2d8172c3"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/Slice 2.png": {
-    "mtime": 1773589932.1865783,
-    "hash": "605dfdfefacf0ec67984faf83734c001"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/Slice 1.png": {
-    "mtime": 1773589895.1376593,
-    "hash": "9aa7ef8dbc28c1db8efc2b65352eeab7"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/palette-swatch.png": {
-    "mtime": 1778552424.6242673,
-    "hash": "a06fc7a980b4dd53809e5201c4f0a7ce"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/floor-layout.png": {
-    "mtime": 1778552424.57301,
-    "hash": "faa9e6c35533bd7ee46d55ed54190741"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/verbaflow-logo.png": {
-    "mtime": 1778552424.6718824,
-    "hash": "dffb2e24ea025397f26591f4c242d7ba"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/floor-still-LOCKED.png": {
-    "mtime": 1778552424.6234958,
-    "hash": "4a1cf310bc2e3021554a4473c5eba641"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/style-reference.jpg": {
-    "mtime": 1778552424.6688678,
-    "hash": "e7b8da7dd63d4f880526dda29ccb0282"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/docs/iso-floor-inputs/pictogram-poses.png": {
-    "mtime": 1778552424.6666906,
-    "hash": "78ee21633897079a34da9d0d67fa6fd7"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/file.svg": {
-    "mtime": 1757988171.4979753,
-    "hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/Style-reference.jpg": {
-    "mtime": 1778552424.679402,
-    "hash": "e7b8da7dd63d4f880526dda29ccb0282"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/Business-1.png": {
-    "mtime": 1758671041.0672765,
-    "hash": "6fe13d3c1025f07dc7fc63e06fce63dc"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/Business-2.png": {
-    "mtime": 1758671041.1325839,
-    "hash": "2cf5e28965c6cc63ab710037b294f823"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/bg-section-last.png": {
-    "mtime": 1758686148.4301891,
-    "hash": "cc0baa05436e99d8bf10cf07f7260743"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/logo.png": {
-    "mtime": 1757966731.4636045,
-    "hash": "dffb2e24ea025397f26591f4c242d7ba"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/vercel.svg": {
-    "mtime": 1757988171.5006678,
-    "hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/next.svg": {
-    "mtime": 1757988171.5002708,
-    "hash": "8e061864f388b47f33a1c3780831193e"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/globe.svg": {
-    "mtime": 1757988171.5006504,
-    "hash": "2aaafa6a49b6563925fe440891e32717"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/window.svg": {
-    "mtime": 1757988171.5009334,
-    "hash": "a2760511c65806022ad20adf74370ff3"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/bg-section-gemini.png": {
-    "mtime": 1758685183.7897036,
-    "hash": "a9a426a8ad85c2a6b8c5e8f0a5f2182f"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/bg-section-next.png": {
-    "mtime": 1758685629.0060077,
-    "hash": "cf24bce5371a2b0c1ce787f0bcd5973c"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/hero-image.png": {
-    "mtime": 1758618045.1679204,
-    "hash": "13c67aa3c5ef0e9bdcf140616599ce08"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/agency/iso-floor.png": {
-    "mtime": 1778552424.7066092,
-    "hash": "4a1cf310bc2e3021554a4473c5eba641"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/agency-prototypes/proto-01/logo.png": {
-    "mtime": 1777182979.2189918,
-    "hash": "dffb2e24ea025397f26591f4c242d7ba"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/Futuristic_Robotic_Surgery_Scene_Generated.mp4": {
-    "mtime": 1774046783.7929618,
-    "hash": "878ec1c8f3411912cba5e41bc7f6d40c"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/hero-video-v2.mp4": {
-    "mtime": 1774046909.4084089,
-    "hash": "878ec1c8f3411912cba5e41bc7f6d40c"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/bg-video-2.mp4": {
-    "mtime": 1758688555.5725098,
-    "hash": "2136f65a8c4a2c65ea6cbac62c96eb66"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/hero-video.mp4": {
-    "mtime": 1758620842.7421243,
-    "hash": "043227838c3168bb46f6ab93b1ce3550"
-  },
-  "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/public/bg-video-section.mp4": {
-    "mtime": 1758688555.6292539,
-    "hash": "e68c55d39acc2e71badbf37a1e94d2fc"
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/layout.builder.json": {
+    "mtime": 1778234447.9267454,
+    "ast_hash": "da9722c8160453f6d63269a97d628923",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/postcss.config.mjs": {
+    "mtime": 1778234447.9276917,
+    "ast_hash": "675899342e765a4d16acd75a53389101",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/next-env.d.ts": {
+    "mtime": 1778234621.618553,
+    "ast_hash": "ba64ff7d54714a8f64db89b1003207d8",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/sanity.cli.ts": {
+    "mtime": 1778234447.955117,
+    "ast_hash": "a45cea67df40efde1d7540c82138ffdd",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/tailwind.config.ts": {
+    "mtime": 1778234447.9702628,
+    "ast_hash": "0f1c3ea0581b2b5a9879ba977dac96aa",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/entities.json": {
+    "mtime": 1778392828.7028368,
+    "ast_hash": "0588b1a9d4e826357e567c5ee307ffde",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/package.json": {
+    "mtime": 1778565788.4678268,
+    "ast_hash": "dfd7a0d4c7aa768fcdc3a494b35fb081",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/sanity.config.ts": {
+    "mtime": 1778234447.9565685,
+    "ast_hash": "63c33dec082f1da8e59322c7bc56dd03",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/tsconfig.json": {
+    "mtime": 1778234447.9703152,
+    "ast_hash": "027b9977186fff8e5246007ad17693b3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/ecosystem.config.js": {
+    "mtime": 1778234447.9263299,
+    "ast_hash": "596c3e512ced635d87e6491c4229295c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/eslint.config.mjs": {
+    "mtime": 1778234447.926397,
+    "ast_hash": "f1e80e839db34357a0e228efe227e759",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/next.config.ts": {
+    "mtime": 1778748216.960877,
+    "ast_hash": "084c0620b0d0213e8eef1cb52fd95633",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/VolumetricBeam.jsx": {
+    "mtime": 1778712069.0,
+    "ast_hash": "c72ca54bae7f1bb5cfbffe6d54a01cda",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/agency/AgencyFooter.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "6ecd97c0b0f9589f7395124cba3126ff",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/agency/AgencyNav.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "04c84a5d4d72ebc6d9949af9dcb48b12",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/agency/SocialProofBar.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "d5535debf94e215d1f68382b633ea83f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/agency/MetricsRow.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "4477970b40cb247e55fc22c35af137ca",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/agency/AgentZones.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "c4d0ffa4dcf3b01c351ad364d1fa8711",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/agency/AgencyHero.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "15a10c6d8d2bc6005f2e09848f565d47",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/Testimonials.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "bcaabc37f8e8a4d66c9b071ec17e134a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/Footer.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "0ee05ae67b955460dd15bc09547ca363",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/Pricing.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "602c5fd5ed6d2fc1eee67e31993781f9",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/Nav.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "c12cda5ac6812aafa3762f661ecbe4f4",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/Hero.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "2eaead071828064261b04b7635c5cc2d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/BentoFeatures.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "c66692a8401b01d02507758a7bdacc0e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/Marquee.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "afa83812332b812775747ceb727359e3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/Services.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "c6828d6e1da5891d8d310ddd1f2558b3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/StatsBand.jsx": {
+    "mtime": 1778712070.0,
+    "ast_hash": "fde142cdc1e9021ad8fe7615011693f8",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/uploads/web-capture-2026-05-13T21-40-54.json": {
+    "mtime": 1778712070.0,
+    "ast_hash": "4c13377e93458671188f3249c1682a1b",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.opencode/package.json": {
+    "mtime": 1778819528.4657583,
+    "ast_hash": "2ef3e5ce1865087a2fc6cdd1baa87abf",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.opencode/opencode.json": {
+    "mtime": 1778562212.4440434,
+    "ast_hash": "e5f74d14a81702b55bdf53b33ec991d7",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.opencode/plugins/graphify.js": {
+    "mtime": 1778562212.444139,
+    "ast_hash": "be1746a10b51388635ff4e97b3e91a50",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.claude/settings.json": {
+    "mtime": 1778562212.4435878,
+    "ast_hash": "9276b535256dc065bd7b8b84e15abd95",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.claude/launch.json": {
+    "mtime": 1778565788.458422,
+    "ast_hash": "35fad9d028b9907ac1ac499db28cd023",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/stitch-get-screen-sample.json": {
+    "mtime": 1778751779.5120475,
+    "ast_hash": "5caf7ca50e9291678a72c668de23eeb0",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-inputs/palette_swatch.py": {
+    "mtime": 1778544987.5612009,
+    "ast_hash": "e872466df78a66a6950e03756bb5e53f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/VolumetricBeam.jsx": {
+    "mtime": 1778709670.0,
+    "ast_hash": "c72ca54bae7f1bb5cfbffe6d54a01cda",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/uploads/web-capture-2026-05-13T21-40-54.json": {
+    "mtime": 1778709670.0,
+    "ast_hash": "4c13377e93458671188f3249c1682a1b",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/supabase/.temp/linked-project.json": {
+    "mtime": 1778562212.4639857,
+    "ast_hash": "29b06d7b0a4a7f502df117972f422d8b",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/scripts/check-dev.sh": {
+    "mtime": 1778445314.47061,
+    "ast_hash": "670d950d43e14203e10f1ab7af02c18c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/scripts/bootstrap-hetzner.sh": {
+    "mtime": 1778234447.956811,
+    "ast_hash": "49d481207b744ff2997a6acb01974fd0",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/scripts/seed-sanity-services.ts": {
+    "mtime": 1778234447.9572194,
+    "ast_hash": "b0c5f043c999d6e2b198d11389d50f1b",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/scripts/seed-supabase.ts": {
+    "mtime": 1778234447.957292,
+    "ast_hash": "a9d7fae78f1fba6f890a252c4b5b919c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/scripts/apply-migration.ts": {
+    "mtime": 1778485680.2150934,
+    "ast_hash": "93b3bfb90ed7d4e8b078f38fe21af4ed",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/workspace_checkpoint.json": {
+    "mtime": 1778562212.4438646,
+    "ast_hash": "4033fe922dd3c5c19887fd724f834a81",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/middleware.ts": {
+    "mtime": 1778234447.9690351,
+    "ast_hash": "0c654257daa457a9992f9fd0900cf65a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/generated/client/browser.ts": {
+    "mtime": 1778234447.9679458,
+    "ast_hash": "44da0864d084bcc216f912ee0591808b",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/generated/client/client.ts": {
+    "mtime": 1778234447.9680102,
+    "ast_hash": "03e60357e1d5a48063a17d30e29c5021",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/generated/client/models.ts": {
+    "mtime": 1778234447.9684548,
+    "ast_hash": "8f1f9f0b2a81c2720a2ad44305e728f9",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/generated/client/commonInputTypes.ts": {
+    "mtime": 1778234447.968104,
+    "ast_hash": "07df011f7ee363b50479f4d7cdabcac1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/generated/client/enums.ts": {
+    "mtime": 1778234447.9681547,
+    "ast_hash": "fa6c58ad2d5526df3ff4f7e351d5f2f2",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/generated/client/internal/class.ts": {
+    "mtime": 1778234447.968267,
+    "ast_hash": "51461297bb219edfe02c24e0a6f6b010",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/generated/client/internal/prismaNamespace.ts": {
+    "mtime": 1778234447.968341,
+    "ast_hash": "983b25d709bdfe528000238361f76148",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/generated/client/internal/prismaNamespaceBrowser.ts": {
+    "mtime": 1778234447.9683998,
+    "ast_hash": "7095e2d02ee064d84ac54e94085c67fc",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/generated/client/models/Customer.ts": {
+    "mtime": 1778234447.968583,
+    "ast_hash": "9ac60f95041f19ffd7ade7bacb7503d5",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/generated/client/models/User.ts": {
+    "mtime": 1778234447.9686882,
+    "ast_hash": "e794a77e0efa9611dd754459c3159b28",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/layout.tsx": {
+    "mtime": 1778737159.5738719,
+    "ast_hash": "9c73e30b9cd1a075fbb0d2a6a4704579",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/page.tsx": {
+    "mtime": 1778580719.0313144,
+    "ast_hash": "eae13bf5afda3fdc10499fd3e316ddcf",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/studio/[[...tool]]/page.tsx": {
+    "mtime": 1778234447.960581,
+    "ast_hash": "6fa539b6cad86c5233773198a87810af",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/virtual-office/page.tsx": {
+    "mtime": 1778578864.709952,
+    "ast_hash": "d74070010f6746d33cdecc094721bd2e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/plan/[id]/PlanStatusClient.tsx": {
+    "mtime": 1778483965.8873863,
+    "ast_hash": "0f7f32b9aa20d50afd7e7ff453be6a83",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/plan/[id]/page.tsx": {
+    "mtime": 1778483937.0477216,
+    "ast_hash": "a397d202564fa5c15b2a76934cb103f1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/plan/[id]/preview/page.tsx": {
+    "mtime": 1778483988.5928593,
+    "ast_hash": "afbcc09e6530f49e6e2dd88e0bbe632e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/agency/layout.tsx": {
+    "mtime": 1778234447.9580276,
+    "ast_hash": "2426c20aa1a34579c0fea27f155f49dd",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/agency/page.tsx": {
+    "mtime": 1778578864.7098773,
+    "ast_hash": "148e5017799bc312eb7962a99622a9c3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/admin/invoice/[userId]/page.tsx": {
+    "mtime": 1778234447.9579325,
+    "ast_hash": "107d75e62359eda44a96ec6013b3bda6",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/about/page.tsx": {
+    "mtime": 1778234447.957481,
+    "ast_hash": "690974ccf46c495da1d207447a4a1da1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/blog/layout.tsx": {
+    "mtime": 1778234447.9595108,
+    "ast_hash": "76944c6dfc859308866585c92cd39775",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/blog/page.tsx": {
+    "mtime": 1778234447.9595637,
+    "ast_hash": "74745d192be77110f074f27f78fa8c6e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/blog/faq/page.tsx": {
+    "mtime": 1778234447.9594696,
+    "ast_hash": "41fc17521826508a53b4f7c3e505ef55",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/blog/setup/page.tsx": {
+    "mtime": 1778234447.9598284,
+    "ast_hash": "8f0d2cbb7da565c65f7ac374a9486ea1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/blog/portfolio/page.tsx": {
+    "mtime": 1778234447.9596517,
+    "ast_hash": "a1084acb1d920c109ef24be031b90744",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/blog/[slug]/page.tsx": {
+    "mtime": 1778234447.9590414,
+    "ast_hash": "699988831c86edf1dd8a5562719614b7",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/blog/debug/page.tsx": {
+    "mtime": 1778234447.959351,
+    "ast_hash": "17a3ab706b99ddc3f3045ca1b199fcc4",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/growth-plan/page.tsx": {
+    "mtime": 1778234447.9602046,
+    "ast_hash": "b294b5b7075006f66a4b2b2c41253944",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/actions/payment.ts": {
+    "mtime": 1778745958.0240018,
+    "ast_hash": "9cde7b00dfe6b541a013c53574565d26",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/actions/submitContact.ts": {
+    "mtime": 1778234447.957637,
+    "ast_hash": "9928142ca0c732d555ba450490699461",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/actions/user.ts": {
+    "mtime": 1778746044.9781678,
+    "ast_hash": "47bef88d6eeec398e002286b62b9b3e1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/generate-strategy/route.ts": {
+    "mtime": 1778760767.453234,
+    "ast_hash": "c795081f18a3e10a3f048fad9f6b7263",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/checkout-growth-plan/route.ts": {
+    "mtime": 1778483496.150638,
+    "ast_hash": "f2cf740268a448b5ac027ca01340e022",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/send-quote/route.ts": {
+    "mtime": 1778234447.9587672,
+    "ast_hash": "6285c19c64987fa2312f14b6a7cc5d94",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/chat/route.ts": {
+    "mtime": 1778234447.9582784,
+    "ast_hash": "0fdcc0501046a758e27a7b94bbeac625",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/plan/[id]/status/route.ts": {
+    "mtime": 1778483530.5598993,
+    "ast_hash": "1f75be9bc7953eefeada395f276af60d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/plan/[id]/move-forward/route.ts": {
+    "mtime": 1778483530.5638607,
+    "ast_hash": "848d8f82377c4e37f2e6a365bd7b82ec",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/plan/[id]/preview/route.ts": {
+    "mtime": 1778483530.577746,
+    "ast_hash": "f9ed48140f006cf77601cc85cc70612d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/places/details/route.ts": {
+    "mtime": 1778746767.6616333,
+    "ast_hash": "4cde8babb50f8906019d1016d77279c1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/places/search/route.ts": {
+    "mtime": 1778746724.3382394,
+    "ast_hash": "a227e85695819c88e1d76d00f956ab00",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/wireframe/generate/route.ts": {
+    "mtime": 1778761545.1396627,
+    "ast_hash": "ac02e5378c187c4a3ce4d97bd93f32af",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/wireframe/[planId]/route.ts": {
+    "mtime": 1778748185.5028322,
+    "ast_hash": "43f4d78b8e7923490940bd1d370e6338",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/checkout/route.ts": {
+    "mtime": 1778234447.958448,
+    "ast_hash": "daeefdc91c2bc85eb5df4d95e05437e9",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/growth-plan/submit/route.ts": {
+    "mtime": 1778747543.6276288,
+    "ast_hash": "ab36ca12a96a0ee0e0e7e474c7d0c0ae",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/growth-plan/progress/route.ts": {
+    "mtime": 1778746125.6856353,
+    "ast_hash": "1b3e3fcf52e8bb2671397e7e4c99220e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/growth-plan/start/route.ts": {
+    "mtime": 1778487620.244356,
+    "ast_hash": "20b8241b2a546e5293a5be20bd54e615",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/request-quote/route.ts": {
+    "mtime": 1778234447.958662,
+    "ast_hash": "a1c361efacbf27a0caa2eca146d79230",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/hermes/state/route.ts": {
+    "mtime": 1778576720.3902018,
+    "ast_hash": "fd8b1a0b1af7c9a73eca6da859a8bf58",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/hermes/callback/route.ts": {
+    "mtime": 1778751878.7700825,
+    "ast_hash": "62954ea5244556f7b464f2ef56235166",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/newsletter/subscribe/route.ts": {
+    "mtime": 1778483496.1593037,
+    "ast_hash": "45081841daeaf43e9fc1843a82733270",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/api/webhooks/stripe/route.ts": {
+    "mtime": 1778483496.1548388,
+    "ast_hash": "61ac0d42123aadb72acffb421b028e8c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/services/page.tsx": {
+    "mtime": 1778234447.9604664,
+    "ast_hash": "dbea334dad9ba0aa24dd45e0ae9facfa",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/app/services/[slug]/page.tsx": {
+    "mtime": 1778234447.960416,
+    "ast_hash": "4f502297b11f05bad881d3aeb3ff53ed",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/structure.ts": {
+    "mtime": 1778234447.9702108,
+    "ast_hash": "becf47858c8f085ada4bb826870f582f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/env.ts": {
+    "mtime": 1778444432.28942,
+    "ast_hash": "9f464157ff5be561ce7321f8d919d006",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/categoryType.ts": {
+    "mtime": 1778234447.969691,
+    "ast_hash": "6273b82563c9b46c3969c6ecb094abcf",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/faqType.ts": {
+    "mtime": 1778234447.969851,
+    "ast_hash": "bb18a892060aa3eaf6b34075d47de5bd",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/blockContentType.ts": {
+    "mtime": 1778234447.969495,
+    "ast_hash": "5385834cd96392acc75b43e479e32818",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/chatLogType.ts": {
+    "mtime": 1778234447.969748,
+    "ast_hash": "45e77e4f54514d1d63f880a33bb998bc",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/testimonialType.ts": {
+    "mtime": 1778234447.9701638,
+    "ast_hash": "071cecbfb97031aa0fe8bd96739261ea",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/authorType.ts": {
+    "mtime": 1778234447.9694405,
+    "ast_hash": "9158a01a7a3cc5f469bad8b7e846f5d2",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/contactType.ts": {
+    "mtime": 1778234447.969792,
+    "ast_hash": "abdd17ec1848b7f1a0d88bdaaa3aea0e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/systemContextType.ts": {
+    "mtime": 1778234447.97012,
+    "ast_hash": "909d1ec8daaff9103d5542026a4db58d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/postType.ts": {
+    "mtime": 1778234447.9699461,
+    "ast_hash": "8bddc06c148a6e95b5863c1e57cf7618",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/blogType.ts": {
+    "mtime": 1778234447.9696312,
+    "ast_hash": "4148818df1ab22f448c015bb1727ae79",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/index.ts": {
+    "mtime": 1778234447.9699004,
+    "ast_hash": "8043a0a307e7b457bae7905e272db918",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/schemaTypes/serviceType.ts": {
+    "mtime": 1778234447.970075,
+    "ast_hash": "b21304a8f0851cbcffae8e80b2e11ac5",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/lib/image.ts": {
+    "mtime": 1778234447.9692428,
+    "ast_hash": "a3977f08bd8338148d6f6ecad8db8392",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/lib/live.ts": {
+    "mtime": 1778234447.9692893,
+    "ast_hash": "23a060414de984b25bad60297d09b8cb",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/lib/types.ts": {
+    "mtime": 1778234447.9693515,
+    "ast_hash": "850c44eba97aec3e3f082c9c6c625667",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/sanity/lib/client.ts": {
+    "mtime": 1778445748.2759619,
+    "ast_hash": "069c4ae70159fbb9215c9821e0ff755a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/VapiContext.tsx": {
+    "mtime": 1778234447.9635255,
+    "ast_hash": "3780a3c6e51467455ca2779b93ee0b00",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/BusinessInfoSection.tsx": {
+    "mtime": 1778565788.4685824,
+    "ast_hash": "306d1ffe1cfe469bbdc2f659dd9f0437",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/MouseLightProvider.tsx": {
+    "mtime": 1778737138.3091245,
+    "ast_hash": "b2e917f692596bdc237d2145c2a1030e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/ChatWidget.tsx": {
+    "mtime": 1778234447.9611096,
+    "ast_hash": "8d902774829c370ea5eeb74be2368363",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/QuoteOverlay.tsx": {
+    "mtime": 1778234447.9628217,
+    "ast_hash": "f20673b4f7015bbfa72b861ce5544f59",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/AIToolsSection.tsx": {
+    "mtime": 1778565788.4684103,
+    "ast_hash": "c48c816b4d4e595223b61a603bfc9313",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/QuoteRequestSection.tsx": {
+    "mtime": 1778234447.9629948,
+    "ast_hash": "8b6cc4f845803f2a914b44bca116f0b9",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/VolumetricBeam.tsx": {
+    "mtime": 1778736204.5417461,
+    "ast_hash": "28dc707b6aaeca94dd18a9ec3962607e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/VirtualOffice.tsx": {
+    "mtime": 1778234447.9636,
+    "ast_hash": "b38e30a9a15593db3cd8397d322c3732",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/GrowthPlanWizard.tsx": {
+    "mtime": 1778761530.595804,
+    "ast_hash": "e705379f86a6da5cbc79e531d4a3963e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/StatsBand.tsx": {
+    "mtime": 1778565788.4699106,
+    "ast_hash": "b6a53d7b70497c2e6ad6ed0f5e734629",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/LocationContext.tsx": {
+    "mtime": 1778234447.9624588,
+    "ast_hash": "ed2da62b88b2c7721548e4f43fdb404f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/FAQSection.tsx": {
+    "mtime": 1778565788.4687867,
+    "ast_hash": "c570d5bc9988d97f85b7c69001918894",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/Footer.tsx": {
+    "mtime": 1778745704.5153105,
+    "ast_hash": "b91cf8f96ea18a5c5767db67659f416c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/ServicesSection.tsx": {
+    "mtime": 1778732303.5506656,
+    "ast_hash": "8efb41f2bcdd6972a603f5d0f7318a63",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/SplineHelix.tsx": {
+    "mtime": 1778565788.4698465,
+    "ast_hash": "261ec0d9470726315b0d2492fd844f69",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/ThemeToggle.tsx": {
+    "mtime": 1778234447.9633899,
+    "ast_hash": "c236f5ceb22462cc84b16d6a94574f0d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/TestimonialsSection.tsx": {
+    "mtime": 1778565788.4700289,
+    "ast_hash": "139de9d1e20ff34a14eefc61609753fb",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/HeroSection.tsx": {
+    "mtime": 1778739766.7717915,
+    "ast_hash": "b8b6453e502775b5d3582c38684a0042",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/PricingSection.tsx": {
+    "mtime": 1778745724.3526888,
+    "ast_hash": "5fe5848a5a3871448d3e9cfaed394aa2",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/ContactSection.tsx": {
+    "mtime": 1778565788.4686844,
+    "ast_hash": "7478f743548c453ee5760c2eecab6567",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/Navigation.tsx": {
+    "mtime": 1778737304.5207546,
+    "ast_hash": "b9485cb5550fdb5270a3f79345522cf6",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/ui/MagneticButton.tsx": {
+    "mtime": 1778724607.9680536,
+    "ast_hash": "d6e8af50de5b8458778e39ee5935dfaa",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/ui/AnimatedHeadline.tsx": {
+    "mtime": 1778565788.4710827,
+    "ast_hash": "23bfde22f148d762f8de66b44961ad7a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/ui/Marquee.tsx": {
+    "mtime": 1778565788.4712267,
+    "ast_hash": "3d53a9ff0356874e558f575dce8e1764",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/ui/ServicesHoverReveal.tsx": {
+    "mtime": 1778733258.719156,
+    "ast_hash": "da5b1527356b69458983c0488a2b63c5",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/ui/CursorDot.tsx": {
+    "mtime": 1778565788.4711354,
+    "ast_hash": "410a284d1e7708f5280f071993998d03",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/payment/ComplianceModal.tsx": {
+    "mtime": 1778234447.9672692,
+    "ast_hash": "640e92833b8798f0e92b7e8a0db3535c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/DomainToggle.tsx": {
+    "mtime": 1778234447.9658644,
+    "ast_hash": "43da4de6e1cf731b9e93551e84cab333",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/AgencyProjectsStrip.tsx": {
+    "mtime": 1778234447.965664,
+    "ast_hash": "bc714d19f7762f6122085dd537f1b8be",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/ProjectFrame.tsx": {
+    "mtime": 1778234447.9660256,
+    "ast_hash": "a61d2652f957fd08e8e20f338e256f06",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/AgencySplitLayout.tsx": {
+    "mtime": 1778234447.9658105,
+    "ast_hash": "555d523590503689aaa5cc4fb4e17902",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/AgencyLeftPanel.tsx": {
+    "mtime": 1778565788.470805,
+    "ast_hash": "38fa128b6d51989a9e4873b0339f143f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/ThreeAgencyBackground.tsx": {
+    "mtime": 1778565788.4709895,
+    "ast_hash": "93593c7ce08297d8f8960bc798aabe33",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/AgencyRightPanel.tsx": {
+    "mtime": 1778565788.4708843,
+    "ast_hash": "93b0c358af819819fe83d4c7406a79d1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/mocks/IPadMock.tsx": {
+    "mtime": 1778234447.9667785,
+    "ast_hash": "b64dcbb552b530abe72c0973910bc996",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/mocks/SaaSBrowserMock.tsx": {
+    "mtime": 1778234447.967069,
+    "ast_hash": "6f9ef79fe99ec2e70bd40b217aa2304f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/mocks/IPhoneMock.tsx": {
+    "mtime": 1778234447.9669158,
+    "ast_hash": "28edb65a5db5771ce1220815f8cff27d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/infographics/FinanceCharts.tsx": {
+    "mtime": 1778234447.9664028,
+    "ast_hash": "a0c8db8da78489afa0a59e596fa98378",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/infographics/HealthcareCharts.tsx": {
+    "mtime": 1778234447.9664962,
+    "ast_hash": "ebbccbff90f0a239ac708e61b080b8fb",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency/infographics/PlatformCharts.tsx": {
+    "mtime": 1778234447.9665873,
+    "ast_hash": "31323efc49cdaba27dc8a057ec147765",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/CommandCentre/HelixBackbone.tsx": {
+    "mtime": 1778234447.9615061,
+    "ast_hash": "047bca52d6f2d87eba229901af843ae9",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/CommandCentre/ActionButton.tsx": {
+    "mtime": 1778234447.961211,
+    "ast_hash": "924d19492bb91d4cad121843f882b2ca",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/CommandCentre/types.ts": {
+    "mtime": 1778234447.9617383,
+    "ast_hash": "ca7182f284a65c597dfb851d2e777fb2",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/CommandCentre/MetricCard.tsx": {
+    "mtime": 1778234447.9615536,
+    "ast_hash": "c7f42586e411436356beb970a0ee78a9",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/CommandCentre/CommandCentre.tsx": {
+    "mtime": 1778737251.9596393,
+    "ast_hash": "e33547243c30da7214396cd4151d4350",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/registry.ts": {
+    "mtime": 1778551306.1097383,
+    "ast_hash": "e872656c1f4f72b4908bbb0988caa45a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/ProtoNav.tsx": {
+    "mtime": 1778234447.9637349,
+    "ast_hash": "23990fb3293b02b4fa9630b36f618cf4",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/ProtoFrame.tsx": {
+    "mtime": 1778234447.963684,
+    "ast_hash": "d62a6baa8d8ae7f4142dc812aa2a207b",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-02-split-screen/index.tsx": {
+    "mtime": 1778234447.964257,
+    "ast_hash": "3e5de9425b051ae1cee046b96ec1f7c1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx": {
+    "mtime": 1778234447.964065,
+    "ast_hash": "eb7c2e7beee506f667e295f4b9f6935d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx": {
+    "mtime": 1778234447.9639182,
+    "ast_hash": "be8f67c61230d4babcae72927fb2ef00",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-03-wireframe-v1/index.tsx": {
+    "mtime": 1778234447.964693,
+    "ast_hash": "49e0648aae2e685062f5ad5091c5e0fb",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-05-iso-floor/index.tsx": {
+    "mtime": 1778580050.5696898,
+    "ast_hash": "894a1a0d1b50250a67dec7304f9953d1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-05-iso-floor/AgentZoneModal.tsx": {
+    "mtime": 1778565788.4802957,
+    "ast_hash": "07db2e3e2828113cd0f1e0d9089a8c7f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-05-iso-floor/HeadlineStrip.tsx": {
+    "mtime": 1778576748.8560033,
+    "ast_hash": "f92da4ab1b3a41b266d0f486135f29d9",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-05-iso-floor/BookCallModal.tsx": {
+    "mtime": 1778565788.4804225,
+    "ast_hash": "6d107755ae52a36bf9b3381e7d46e032",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-05-iso-floor/RosterPanel.tsx": {
+    "mtime": 1778576769.302456,
+    "ast_hash": "223a0d169a4ef84c0dff31b19bb878e8",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-05-iso-floor/StatusBar.tsx": {
+    "mtime": 1778576444.4298203,
+    "ast_hash": "50d7db21b0908ce6d193cf964816a796",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-05-iso-floor/StatStrip.tsx": {
+    "mtime": 1778576754.6268144,
+    "ast_hash": "fca84bf243ea1fbeff38021600ad1505",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-05-iso-floor/ActivityFeed.tsx": {
+    "mtime": 1778576781.811794,
+    "ast_hash": "685cd49594da1e546a1ed8e0c0fc1e2e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-04-wireframe-v2/index.tsx": {
+    "mtime": 1778234447.9649844,
+    "ast_hash": "c3605b7c53866494a60d0b168efc741d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/hooks/useCounter.ts": {
+    "mtime": 1778724336.6855862,
+    "ast_hash": "cf1f5ef33756b667a895f63f313e6ca1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/hooks/useScrollY.ts": {
+    "mtime": 1778737134.9153926,
+    "ast_hash": "3c3f1254bc73e275be8b4fd4aa74e5c8",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/hooks/useMouseLight.ts": {
+    "mtime": 1778737129.3916152,
+    "ast_hash": "b3f116ecbb0fb6ff265413157826486d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/hooks/useReveal.ts": {
+    "mtime": 1778565788.4713898,
+    "ast_hash": "4f82d078a7cdffc85da5027f83192056",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/hooks/useHermesState.ts": {
+    "mtime": 1778576734.274335,
+    "ast_hash": "4c53d98841aec75663473bcd9df04f54",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/lib/prisma.ts": {
+    "mtime": 1778483305.010539,
+    "ast_hash": "bd409bbc98b0c011e38702958b320e71",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/lib/email.ts": {
+    "mtime": 1778484068.5528555,
+    "ast_hash": "a4c9cadec17a5f853f68597d321bc438",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/lib/facta.ts": {
+    "mtime": 1778234447.9687831,
+    "ast_hash": "313cea25a80c5b0d17c9800ab926a348",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/lib/knowledge-base.ts": {
+    "mtime": 1778234447.9688427,
+    "ast_hash": "fe779486667ae0846c13a3d9abbfe0eb",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/lib/places-client.ts": {
+    "mtime": 1778755499.720842,
+    "ast_hash": "8b2a77c5a02252bfbcc1b2086637ac3e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/lib/supabase.ts": {
+    "mtime": 1778234447.9689822,
+    "ast_hash": "4a4fef5c81e8a2f08ef12afefe26c5c4",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/lib/email-templates/wireframe-ready.ts": {
+    "mtime": 1778748094.9299889,
+    "ast_hash": "701278824da78fed924bbdfc5c3c9ed6",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/lib/email-templates/abandonment-followup.ts": {
+    "mtime": 1778748148.6438901,
+    "ast_hash": "682f9da1fd9e6d3bbc604e7f6e7eff54",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/lib/email-templates/plan-ready.ts": {
+    "mtime": 1778748037.2330759,
+    "ast_hash": "a0efb181a159c5f03e0221b576d4ec97",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/data/industries.ts": {
+    "mtime": 1778234447.9676466,
+    "ast_hash": "06e8adaacec73def0704ff83bd33b27d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/data/agencyProjects.ts": {
+    "mtime": 1778234447.967509,
+    "ast_hash": "32f6e8a90ae5bc844b3ced4577691ad7",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/data/agencyDomains.ts": {
+    "mtime": 1778565788.4713306,
+    "ast_hash": "30b3623e0f5d955cd55836659c072f22",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/data/services.ts": {
+    "mtime": 1778234447.967718,
+    "ast_hash": "044b4eb8b307d48bb284037906e14968",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/AGENT.md": {
+    "mtime": 1778565788.4589245,
+    "ast_hash": "f94da32dcf26c5101b6193025f44c5ed",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/KIRO.md": {
+    "mtime": 1778565788.459241,
+    "ast_hash": "f94da32dcf26c5101b6193025f44c5ed",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/ANTIGRAVITY.md": {
+    "mtime": 1778565788.4589872,
+    "ast_hash": "f94da32dcf26c5101b6193025f44c5ed",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/README.md": {
+    "mtime": 1778234447.8445752,
+    "ast_hash": "c328d254270ee07afa54e67e524a82b4",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/mempalace.yaml": {
+    "mtime": 1778392829.0093293,
+    "ast_hash": "be86eb45343b6133943d16186a6bc1d2",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Pasted markdown (2).md": {
+    "mtime": 1778562212.444421,
+    "ast_hash": "ab717df73a0d172e7735e655db599368",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Pasted markdown.md": {
+    "mtime": 1778562212.4445221,
+    "ast_hash": "3c38e2364eb80b0df7d1e02731447bca",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/AGENT_REGISTRY.md": {
+    "mtime": 1778736805.3693144,
+    "ast_hash": "09ea22097a71815d60639c5852a81a2c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/CHANGES.md": {
+    "mtime": 1778751981.0151098,
+    "ast_hash": "2dc5ba1bdc8e93276a123a3fdf32809f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/AGENTS.md": {
+    "mtime": 1778861101.796092,
+    "ast_hash": "4fbd8203904206f86fd476ca2cec5e0d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/CLAUDE.md": {
+    "mtime": 1778861101.810484,
+    "ast_hash": "dd843822113054f31a3b34e26a39daad",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/hero v3.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "929e62e2adebe76b9b80045780e3741a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/hero.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "f099838620d09d94ceeb6adbc66df812",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/Design System.html": {
+    "mtime": 1778712069.0,
+    "ast_hash": "67b2c554b163311ceb120227a3174072",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/hero v2.html": {
+    "mtime": 1778712069.0,
+    "ast_hash": "b3c7b4e25a0f6c733c5e8a893bccf20c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/README.md": {
+    "mtime": 1778712069.0,
+    "ast_hash": "56d1bc4b08153469859a2a8f40e8beef",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/SKILL.md": {
+    "mtime": 1778712069.0,
+    "ast_hash": "7339463356d325c93345acbe9cf30538",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/Coding Agent Prompt.md": {
+    "mtime": 1778712069.0,
+    "ast_hash": "4daea4cb7e73329c8bdec545d6a26751",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/13G Motion Analysis.html": {
+    "mtime": 1778712069.0,
+    "ast_hash": "13757b6f6393f42dfbbcaa4dfa69fc45",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/Services Hover Reveal.html": {
+    "mtime": 1778744058.9253109,
+    "ast_hash": "d8a95d58293bbaba490f25d4f3a470a1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/agency/index.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "d7aaa610994215333ca4b127aaa84c71",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/agency/README.md": {
+    "mtime": 1778712070.0,
+    "ast_hash": "819269bb1e492b40efd33af55287a453",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/index.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "df111ca141dee5b02469eea97b8513ab",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/ui_kits/marketing/README.md": {
+    "mtime": 1778712070.0,
+    "ast_hash": "a4e5f1ebe914e574c2f0f64416b8ce15",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/agency-cta-buttons.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "de3623cc0d0711f5c3d66976e71c9c61",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/colors-marketing-light.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "b522f9a33b429b230fae65ad0aa22527",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/brand-logo.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "6524a3d181a5b6e46aa2a9b19f21f63f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/type-gradient-text.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "7016df294545f67a8d6858a3945b8f27",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/brand-voice.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "b21bdc1269be110754c091fa4cf63f36",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/type-hero-medium.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "5d76ec2a5c2efbdfcdea348fc1dccbab",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/brand-section-textures.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "08d09fb07e5f24d9bccef8f015c35808",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/type-body-eyebrow.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "e80d71c56621f6f1e68c3b75081b14d1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/components-buttons-ghost.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "4a1eca9c9738ff87d45203f4fb1b6830",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/brand-iconography.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "127b884c9f250f815471335f5a1574de",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/components-pricing-card.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "00d7d338d9eaaa3c74862cb94a58267f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/components-stat-counter.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "85e2d4843e9d5328bb7ce0019150efee",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/spacing-scale.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "603066fe4e8a6d1686d260751ec7931e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/colors-domain-accents.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "6e8b73c883e5294aa8d1e83506c1b7d6",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/components-marquee.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "76e9cb9802294ce6478f5c7647e42dd6",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/type-display-scale.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "a1f088eed1abf1739e60eadfa23ec30a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/spacing-shadows.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "a256feec96c99c121b2f598ae877fb43",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/spacing-radii.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "19bf2e82f8c20f3ccfda5aa632bc231b",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/type-family.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "2e6b30733a8fc3d47317eda6997230ba",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/components-13g-cta.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "641398d7304e86de92846c1ca5b94d72",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/components-nav-pill.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "3f84d44f4c64943acef11ac3a95c312a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/components-eyebrow-chips.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "045795ad430ddb4691b90cf76f98fd48",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/agency-social-proof.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "b13ca28078b6c3d72dc50f03988a36d3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/colors-marketing-dark.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "c8d9d2865bbb0f0aaa118ecca1e560c6",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/colors-agency.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "1966936fba29105142358c1debefeed5",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/components-service-card.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "252dbd83c38818f0c31e1bcb9367aca2",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/colors-brand-palette.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "648590d7c1808ff2399b124e14faa44e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/components-glass-card.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "2ed8436ae4982c16d3c1b60536162be0",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/preview/colors-status.html": {
+    "mtime": 1778712070.0,
+    "ast_hash": "0ec3e83bf6e447d83bb1f9a1239f2dca",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/phase1-audit-action-plan.md": {
+    "mtime": 1778444627.3840039,
+    "ast_hash": "5239139a16da7dba5df2bf507f4196b3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/frontend-blueprint-ref-04-saas_webapp_patterns.md": {
+    "mtime": 1778234447.9252827,
+    "ast_hash": "0269e6e94236b28acde2d302d997f679",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/frontend-blueprint-ref-01-chrome_extension_guide.md": {
+    "mtime": 1778234447.924952,
+    "ast_hash": "4f1c77cde43ea3ecec5b31d83c4a1ee8",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-v2-task4-video-swap-brief.md": {
+    "mtime": 1778579780.696146,
+    "ast_hash": "e866536aba4bab8b6955c1a8091bcdd5",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/master-design-system.md": {
+    "mtime": 1778234447.925427,
+    "ast_hash": "5025fa621ae1ffef205419d27abc86c3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/AI-CUSTOMIZATION-PORTABILITY.md": {
+    "mtime": 1778565788.4593365,
+    "ast_hash": "a0770aa8c8e3d64fb0d36230511275e1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/spatial-bento-wireframe-pipeline-execution-handoff.md": {
+    "mtime": 1778743505.990189,
+    "ast_hash": "90966dceddc3444cfb01d5d953071fd1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/frontend-blueprint-ref-03-portfolio_implementation_plan.md": {
+    "mtime": 1778234447.925184,
+    "ast_hash": "557c94378bf63e64498aa8b8f8455459",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-v2-tier2-chrome-brief.md": {
+    "mtime": 1778565788.4801219,
+    "ast_hash": "c0e8097e9a8f1ec3affabe03188ed592",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/SKILL.md": {
+    "mtime": 1778234447.8457956,
+    "ast_hash": "59feff44c6c8f5c106aad924585ef876",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/00-READ-ME-FIRST.txt": {
+    "mtime": 1778234447.8448396,
+    "ast_hash": "bd09b6fd521693ac3c13ca60b3aad7af",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/DOWNLOAD-SUMMARY.md": {
+    "mtime": 1778234447.8450253,
+    "ast_hash": "77c0c7e8604f0742b7484884177358a6",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/frontend-blueprint-ref-02-design_system.md": {
+    "mtime": 1778234447.9250677,
+    "ast_hash": "206d1e72a5dbe19ad96b604dbab8e794",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-v2-tier1-polish-brief.md": {
+    "mtime": 1778565788.4799964,
+    "ast_hash": "aff1e75c9ab9e1cca51adc0a31660a56",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/site-architecture-audit.md": {
+    "mtime": 1778444519.3954523,
+    "ast_hash": "b036ceb57fad3538896fa2b6845030b3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/MASTER-PACKAGE-OVERVIEW.md": {
+    "mtime": 1778234447.8456767,
+    "ast_hash": "ea4a7978cb421f7478e342b72f9d4e45",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/CHANGES-2026-05-14.md": {
+    "mtime": 1778752033.6759577,
+    "ast_hash": "3e49519f175a62c2fbde6e7e67862467",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-v2-hermes-brief.md": {
+    "mtime": 1778552033.1872563,
+    "ast_hash": "b7c1af37cc31a1a523f69bc0c07793f5",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/FRONTEND-BLUEPRINT-INDEX.md": {
+    "mtime": 1778234447.8452208,
+    "ast_hash": "35e3eb2469e0d04dbb3883defc52beb0",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/INSTALLATION_GUIDE.md": {
+    "mtime": 1778234447.845497,
+    "ast_hash": "3adfadaa0fb84b301e80bbf1f6cfde8f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/INFRASTRUCTURE.md": {
+    "mtime": 1778234447.8454115,
+    "ast_hash": "e1ab9b20ec3b99c19740ece8e574c9a6",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/IMPLEMENTATION_PLAN.md": {
+    "mtime": 1778481194.340109,
+    "ast_hash": "631b062d804ac53b68a23942f56eb01d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/frontend-blueprint-SKILL.md": {
+    "mtime": 1778234447.9245613,
+    "ast_hash": "917d9094ac6720ddb14ac973afbb155e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/website-revamp.md": {
+    "mtime": 1778234447.9262686,
+    "ast_hash": "837f9a98f69893674a50174f617548f2",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/ai/CODE-STANDARDS.md": {
+    "mtime": 1778565788.4594247,
+    "ast_hash": "f94da32dcf26c5101b6193025f44c5ed",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/prompts/01-cloudflare-setup.md": {
+    "mtime": 1778234447.925579,
+    "ast_hash": "7d69afe438ac28c3afb9b45b1114f305",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/prompts/06-dns-migration-godaddy-cloudflare.md": {
+    "mtime": 1778234447.9259882,
+    "ast_hash": "af792e457822478e84dd43d5dd6a57f7",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/prompts/05-email-resend-config.md": {
+    "mtime": 1778234447.925938,
+    "ast_hash": "d9854396b52262563dd1763502f513e1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/prompts/03-github-actions-cicd.md": {
+    "mtime": 1778234447.9257603,
+    "ast_hash": "6cbf5e0361fa0ee84837c444406f2bd8",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/prompts/07-server-migration-troubleshooting.md": {
+    "mtime": 1778234447.9260678,
+    "ast_hash": "a5d6c5d1eed7953a172f917bcc589416",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/prompts/02-hetzner-deploy.md": {
+    "mtime": 1778234447.9256299,
+    "ast_hash": "d03ae766d68beee755afcc37f94cff57",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/prompts/00-donportfolio-analysis.md": {
+    "mtime": 1778234447.92552,
+    "ast_hash": "9873876de9a77bdb291ba06fb9586799",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/prompts/04-portfolio-migration.md": {
+    "mtime": 1778234447.92589,
+    "ast_hash": "f782ba992cc623b8db5bb8785bf15bed",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/hero v3.html": {
+    "mtime": 1778709670.0,
+    "ast_hash": "6871452445f3facf70f1d28993cddbe3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/hero.html": {
+    "mtime": 1778709670.0,
+    "ast_hash": "f099838620d09d94ceeb6adbc66df812",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/Design System.html": {
+    "mtime": 1778709670.0,
+    "ast_hash": "67b2c554b163311ceb120227a3174072",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/hero v2.html": {
+    "mtime": 1778709670.0,
+    "ast_hash": "b3c7b4e25a0f6c733c5e8a893bccf20c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/Coding Agent Prompt.md": {
+    "mtime": 1778709670.0,
+    "ast_hash": "4daea4cb7e73329c8bdec545d6a26751",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/13G Motion Analysis.html": {
+    "mtime": 1778709670.0,
+    "ast_hash": "13757b6f6393f42dfbbcaa4dfa69fc45",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/Services Hover Reveal.html": {
+    "mtime": 1778744058.9253128,
+    "ast_hash": "d8a95d58293bbaba490f25d4f3a470a1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/scripts/cloudflare-tunnel-config.yml": {
+    "mtime": 1778234447.9569092,
+    "ast_hash": "200696045b8d8df15177adfb1c7b1fc8",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/scripts/GITHUB_SECRETS_SETUP.md": {
+    "mtime": 1778234447.956663,
+    "ast_hash": "629679ae63fc046fc17d20f3f14ed987",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.github/copilot-instructions.md": {
+    "mtime": 1778565788.458866,
+    "ast_hash": "f94da32dcf26c5101b6193025f44c5ed",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.github/workflows/deploy.yml": {
+    "mtime": 1778234447.8414626,
+    "ast_hash": "392d7f9d1a568f945c4a5441966e5dcc",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/output/test123/index.html": {
+    "mtime": 1778489637.5552807,
+    "ast_hash": "23e0ad0af9edd058800da521fd768009",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/output/test123/email.html": {
+    "mtime": 1778489637.5553615,
+    "ast_hash": "d772cb1ae0fdeae55f9781a2b49811c0",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/agents/delivery-agent/SOUL.md": {
+    "mtime": 1778482869.549632,
+    "ast_hash": "3c2259a61810fcab41c4b3723c254ae0",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/agents/designer-agent/SOUL.md": {
+    "mtime": 1778747931.9722288,
+    "ast_hash": "5e1c20a9b3f41ed37c9061dbed42748a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/agents/booking-agent/SOUL.md": {
+    "mtime": 1778747951.4346085,
+    "ast_hash": "fa686c1cd2e1957b29f4f66d9ace7d6f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/agents/backend-agent/SOUL.md": {
+    "mtime": 1778747815.0900419,
+    "ast_hash": "739f383000041dce4c6047f4656fdf3a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/agents/validator-agent/SOUL.md": {
+    "mtime": 1778747859.0287442,
+    "ast_hash": "cc5973e19c136ec9b50f8734fae8a62e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/agents/marketing-agent/SOUL.md": {
+    "mtime": 1778747885.6642225,
+    "ast_hash": "173e7e4834a93e6d2d06060e1c1ec0fd",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/agents/architect-agent/SOUL.md": {
+    "mtime": 1778747804.5871925,
+    "ast_hash": "209ed04f17370ade6d7eb3410866fd5d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/.hermes/pipelines/cybergrowth-wireframe.yaml": {
+    "mtime": 1778747690.7899597,
+    "ast_hash": "be36a01903e07b587e809592308d4dd1",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/agency-prototypes/proto-01-wireframe-main/README.md": {
+    "mtime": 1778234447.9638257,
+    "ast_hash": "8cdaed5bb0af47159b39c37a2d8172c3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/_check.png": {
+    "mtime": 1778712069.0,
+    "ast_hash": "6dad48aef6941844815bc9b88d6201f3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/uploads/Screenshot 2026-05-13 at 5.54.18 PM.png": {
+    "mtime": 1778712070.0,
+    "ast_hash": "7a6d5c1b873ec557c5a9effec1e0689f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/uploads/6f15f3fe5d23be1761306ee60aae5ba1.jpg": {
+    "mtime": 1778712070.0,
+    "ast_hash": "2563e03efc82d405765f77bc1ad6ce9f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/uploads/draw-6653fd14-ddb9-43f2-9295-a3df15019bc6.png": {
+    "mtime": 1778712070.0,
+    "ast_hash": "4a81bb359ff97b414e1ad9aad15970d5",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/uploads/1b8efd3015bd421f1916cad1d50dd9d5.jpg": {
+    "mtime": 1778712070.0,
+    "ast_hash": "7a4724940ae358f3980b98744652910e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/uploads/WhatsApp Image 2026-05-13 at 18.03.58.jpeg": {
+    "mtime": 1778712070.0,
+    "ast_hash": "98e55fc1f9f2c6cac360c7fe985c5f0d",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/uploads/Screenshot 2026-05-13 at 5.23.54 PM.png": {
+    "mtime": 1778712070.0,
+    "ast_hash": "16d446dd15b9f35740cb4648e95d635c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/uploads/draw-2bdd7de7-ea36-4c4d-a593-a766d71993ec.png": {
+    "mtime": 1778712070.0,
+    "ast_hash": "36976233ee74169e0a52e6317a103c50",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/public/robotic-hand.png": {
+    "mtime": 1778712070.0,
+    "ast_hash": "f7f4a61d555872d7630e0a06f291d30a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/public/human-hand.png": {
+    "mtime": 1778712070.0,
+    "ast_hash": "0282ad616c04834e72ded17ff2f89982",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/public/logo.png": {
+    "mtime": 1778712070.0,
+    "ast_hash": "dffb2e24ea025397f26591f4c242d7ba",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/assets/style-reference.jpg": {
+    "mtime": 1778712069.0,
+    "ast_hash": "e7b8da7dd63d4f880526dda29ccb0282",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/assets/bg-section-last.png": {
+    "mtime": 1778712069.0,
+    "ast_hash": "cc0baa05436e99d8bf10cf07f7260743",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/assets/logo.png": {
+    "mtime": 1778712069.0,
+    "ast_hash": "dffb2e24ea025397f26591f4c242d7ba",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/assets/bg-section-gemini.png": {
+    "mtime": 1778712069.0,
+    "ast_hash": "a9a426a8ad85c2a6b8c5e8f0a5f2182f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System (1)/assets/bg-section-next.png": {
+    "mtime": 1778712069.0,
+    "ast_hash": "cf24bce5371a2b0c1ce787f0bcd5973c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/Slice 2.png": {
+    "mtime": 1778234447.9242547,
+    "ast_hash": "605dfdfefacf0ec67984faf83734c001",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/Slice 1.png": {
+    "mtime": 1778234447.8584347,
+    "ast_hash": "9aa7ef8dbc28c1db8efc2b65352eeab7",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-inputs/palette-swatch.png": {
+    "mtime": 1778544996.9977255,
+    "ast_hash": "a06fc7a980b4dd53809e5201c4f0a7ce",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-inputs/floor-layout.png": {
+    "mtime": 1778549878.385988,
+    "ast_hash": "faa9e6c35533bd7ee46d55ed54190741",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-inputs/verbaflow-logo.png": {
+    "mtime": 1778544962.4153752,
+    "ast_hash": "dffb2e24ea025397f26591f4c242d7ba",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-inputs/floor-still-LOCKED.png": {
+    "mtime": 1778550714.3740754,
+    "ast_hash": "4a1cf310bc2e3021554a4473c5eba641",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-inputs/style-reference.jpg": {
+    "mtime": 1778544947.5151951,
+    "ast_hash": "e7b8da7dd63d4f880526dda29ccb0282",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-inputs/pictogram-poses.png": {
+    "mtime": 1778547743.144861,
+    "ast_hash": "78ee21633897079a34da9d0d67fa6fd7",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/uploads/Screenshot 2026-05-13 at 5.54.18 PM.png": {
+    "mtime": 1778709670.0,
+    "ast_hash": "7a6d5c1b873ec557c5a9effec1e0689f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/uploads/6f15f3fe5d23be1761306ee60aae5ba1.jpg": {
+    "mtime": 1778709670.0,
+    "ast_hash": "2563e03efc82d405765f77bc1ad6ce9f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/uploads/draw-6653fd14-ddb9-43f2-9295-a3df15019bc6.png": {
+    "mtime": 1778709670.0,
+    "ast_hash": "4a81bb359ff97b414e1ad9aad15970d5",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/uploads/Screenshot 2026-05-13 at 5.23.54 PM.png": {
+    "mtime": 1778709670.0,
+    "ast_hash": "16d446dd15b9f35740cb4648e95d635c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Verbaflow Design System/public/logo.png": {
+    "mtime": 1778709670.0,
+    "ast_hash": "dffb2e24ea025397f26591f4c242d7ba",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/robotic-hand.png": {
+    "mtime": 1778712070.0,
+    "ast_hash": "f7f4a61d555872d7630e0a06f291d30a",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/file.svg": {
+    "mtime": 1778234447.944827,
+    "ast_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/human-hand.png": {
+    "mtime": 1778712070.0,
+    "ast_hash": "0282ad616c04834e72ded17ff2f89982",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/Style-reference.jpg": {
+    "mtime": 1778543964.6427789,
+    "ast_hash": "e7b8da7dd63d4f880526dda29ccb0282",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/Business-1.png": {
+    "mtime": 1778234447.9287612,
+    "ast_hash": "6fe13d3c1025f07dc7fc63e06fce63dc",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/Business-2.png": {
+    "mtime": 1778234447.930199,
+    "ast_hash": "2cf5e28965c6cc63ab710037b294f823",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/bg-section-last.png": {
+    "mtime": 1778234447.933239,
+    "ast_hash": "cc0baa05436e99d8bf10cf07f7260743",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/logo.png": {
+    "mtime": 1778234447.9547462,
+    "ast_hash": "dffb2e24ea025397f26591f4c242d7ba",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/vercel.svg": {
+    "mtime": 1778234447.954863,
+    "ast_hash": "c0af2f507b369b085b35ef4bbe3bcf1e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/next.svg": {
+    "mtime": 1778234447.954812,
+    "ast_hash": "8e061864f388b47f33a1c3780831193e",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/globe.svg": {
+    "mtime": 1778234447.9448988,
+    "ast_hash": "2aaafa6a49b6563925fe440891e32717",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/window.svg": {
+    "mtime": 1778234447.9550126,
+    "ast_hash": "a2760511c65806022ad20adf74370ff3",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/bg-section-gemini.png": {
+    "mtime": 1778234447.932213,
+    "ast_hash": "a9a426a8ad85c2a6b8c5e8f0a5f2182f",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/bg-section-next.png": {
+    "mtime": 1778234447.933984,
+    "ast_hash": "cf24bce5371a2b0c1ce787f0bcd5973c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/hero-image.png": {
+    "mtime": 1778234447.946176,
+    "ast_hash": "13c67aa3c5ef0e9bdcf140616599ce08",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/agency/iso-floor.png": {
+    "mtime": 1778551202.9662,
+    "ast_hash": "4a1cf310bc2e3021554a4473c5eba641",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/agency-prototypes/proto-01/logo.png": {
+    "mtime": 1778234447.9314158,
+    "ast_hash": "dffb2e24ea025397f26591f4c242d7ba",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/Futuristic_Robotic_Surgery_Scene_Generated.mp4": {
+    "mtime": 1778234447.843868,
+    "ast_hash": "878ec1c8f3411912cba5e41bc7f6d40c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/docs/iso-floor-inputs/iso-floor.mp4": {
+    "mtime": 1778577462.1046195,
+    "ast_hash": "9a0c01bef4869d63d3925833cdcfaee7",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/hero-video-v2.mp4": {
+    "mtime": 1778234447.9494638,
+    "ast_hash": "878ec1c8f3411912cba5e41bc7f6d40c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/bg-video-2.mp4": {
+    "mtime": 1778234447.93827,
+    "ast_hash": "2136f65a8c4a2c65ea6cbac62c96eb66",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/hero-video.mp4": {
+    "mtime": 1778234447.954106,
+    "ast_hash": "043227838c3168bb46f6ab93b1ce3550",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/bg-video-section.mp4": {
+    "mtime": 1778234447.9442465,
+    "ast_hash": "e68c55d39acc2e71badbf37a1e94d2fc",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/public/agency/iso-floor.mp4": {
+    "mtime": 1778577462.1046195,
+    "ast_hash": "9a0c01bef4869d63d3925833cdcfaee7",
+    "semantic_hash": ""
   }
 }

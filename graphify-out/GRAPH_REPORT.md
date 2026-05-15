@@ -1,16 +1,16 @@
-# Graph Report - vflow1.0  (2026-05-12)
+# Graph Report - vflow2.0  (2026-05-15)
 
 ## Corpus Check
-- 180 files · ~2,495,883 words
+- 256 files · ~2,872,544 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1674 nodes · 2079 edges · 116 communities (101 shown, 15 thin omitted)
+- 2672 nodes · 3198 edges · 229 communities (195 shown, 34 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `15bab874`
+- Built from commit: `ac83af2b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -113,38 +113,127 @@
 - [[_COMMUNITY_Community 95|Community 95]]
 - [[_COMMUNITY_Community 96|Community 96]]
 - [[_COMMUNITY_Community 97|Community 97]]
+- [[_COMMUNITY_Community 98|Community 98]]
+- [[_COMMUNITY_Community 99|Community 99]]
+- [[_COMMUNITY_Community 100|Community 100]]
 - [[_COMMUNITY_Community 104|Community 104]]
 - [[_COMMUNITY_Community 105|Community 105]]
 - [[_COMMUNITY_Community 106|Community 106]]
 - [[_COMMUNITY_Community 107|Community 107]]
 - [[_COMMUNITY_Community 108|Community 108]]
 - [[_COMMUNITY_Community 110|Community 110]]
+- [[_COMMUNITY_Community 116|Community 116]]
+- [[_COMMUNITY_Community 117|Community 117]]
+- [[_COMMUNITY_Community 118|Community 118]]
+- [[_COMMUNITY_Community 119|Community 119]]
+- [[_COMMUNITY_Community 120|Community 120]]
+- [[_COMMUNITY_Community 121|Community 121]]
+- [[_COMMUNITY_Community 122|Community 122]]
+- [[_COMMUNITY_Community 123|Community 123]]
+- [[_COMMUNITY_Community 124|Community 124]]
+- [[_COMMUNITY_Community 125|Community 125]]
+- [[_COMMUNITY_Community 126|Community 126]]
+- [[_COMMUNITY_Community 127|Community 127]]
+- [[_COMMUNITY_Community 128|Community 128]]
+- [[_COMMUNITY_Community 129|Community 129]]
+- [[_COMMUNITY_Community 130|Community 130]]
+- [[_COMMUNITY_Community 131|Community 131]]
+- [[_COMMUNITY_Community 132|Community 132]]
+- [[_COMMUNITY_Community 133|Community 133]]
+- [[_COMMUNITY_Community 134|Community 134]]
+- [[_COMMUNITY_Community 135|Community 135]]
+- [[_COMMUNITY_Community 136|Community 136]]
+- [[_COMMUNITY_Community 137|Community 137]]
+- [[_COMMUNITY_Community 138|Community 138]]
+- [[_COMMUNITY_Community 139|Community 139]]
+- [[_COMMUNITY_Community 140|Community 140]]
+- [[_COMMUNITY_Community 141|Community 141]]
+- [[_COMMUNITY_Community 142|Community 142]]
+- [[_COMMUNITY_Community 143|Community 143]]
+- [[_COMMUNITY_Community 144|Community 144]]
+- [[_COMMUNITY_Community 145|Community 145]]
+- [[_COMMUNITY_Community 146|Community 146]]
+- [[_COMMUNITY_Community 147|Community 147]]
+- [[_COMMUNITY_Community 148|Community 148]]
+- [[_COMMUNITY_Community 149|Community 149]]
+- [[_COMMUNITY_Community 150|Community 150]]
+- [[_COMMUNITY_Community 151|Community 151]]
+- [[_COMMUNITY_Community 152|Community 152]]
+- [[_COMMUNITY_Community 153|Community 153]]
+- [[_COMMUNITY_Community 154|Community 154]]
+- [[_COMMUNITY_Community 155|Community 155]]
+- [[_COMMUNITY_Community 156|Community 156]]
+- [[_COMMUNITY_Community 157|Community 157]]
+- [[_COMMUNITY_Community 158|Community 158]]
+- [[_COMMUNITY_Community 159|Community 159]]
+- [[_COMMUNITY_Community 160|Community 160]]
+- [[_COMMUNITY_Community 161|Community 161]]
+- [[_COMMUNITY_Community 162|Community 162]]
+- [[_COMMUNITY_Community 163|Community 163]]
+- [[_COMMUNITY_Community 164|Community 164]]
+- [[_COMMUNITY_Community 165|Community 165]]
+- [[_COMMUNITY_Community 166|Community 166]]
+- [[_COMMUNITY_Community 167|Community 167]]
+- [[_COMMUNITY_Community 168|Community 168]]
+- [[_COMMUNITY_Community 169|Community 169]]
+- [[_COMMUNITY_Community 170|Community 170]]
+- [[_COMMUNITY_Community 171|Community 171]]
+- [[_COMMUNITY_Community 172|Community 172]]
+- [[_COMMUNITY_Community 173|Community 173]]
+- [[_COMMUNITY_Community 174|Community 174]]
+- [[_COMMUNITY_Community 175|Community 175]]
+- [[_COMMUNITY_Community 176|Community 176]]
+- [[_COMMUNITY_Community 177|Community 177]]
+- [[_COMMUNITY_Community 178|Community 178]]
+- [[_COMMUNITY_Community 179|Community 179]]
+- [[_COMMUNITY_Community 180|Community 180]]
+- [[_COMMUNITY_Community 181|Community 181]]
+- [[_COMMUNITY_Community 182|Community 182]]
+- [[_COMMUNITY_Community 183|Community 183]]
+- [[_COMMUNITY_Community 184|Community 184]]
+- [[_COMMUNITY_Community 185|Community 185]]
+- [[_COMMUNITY_Community 186|Community 186]]
+- [[_COMMUNITY_Community 189|Community 189]]
+- [[_COMMUNITY_Community 190|Community 190]]
+- [[_COMMUNITY_Community 191|Community 191]]
+- [[_COMMUNITY_Community 192|Community 192]]
+- [[_COMMUNITY_Community 193|Community 193]]
+- [[_COMMUNITY_Community 194|Community 194]]
+- [[_COMMUNITY_Community 195|Community 195]]
+- [[_COMMUNITY_Community 196|Community 196]]
+- [[_COMMUNITY_Community 197|Community 197]]
+- [[_COMMUNITY_Community 198|Community 198]]
+- [[_COMMUNITY_Community 199|Community 199]]
+- [[_COMMUNITY_Community 215|Community 215]]
+- [[_COMMUNITY_Community 216|Community 216]]
+- [[_COMMUNITY_Community 217|Community 217]]
+- [[_COMMUNITY_Community 218|Community 218]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `Customer` - 68 edges
-2. `ProjectFrame()` - 21 edges
-3. `File Inventory` - 18 edges
-4. `VerbaFlow 2.0 — Cyber Growth Funnel Implementation Plan` - 17 edges
-5. `Verbaflow LLC Website` - 16 edges
-6. `Chrome Extension Best Practices` - 15 edges
-7. `Sandeep Ghotra — Portfolio Website Implementation Plan` - 14 edges
-8. `client` - 14 edges
-9. `SaaS / Web App Architecture Patterns` - 13 edges
-10. `Universal Design System` - 13 edges
+1. `Customer` - 69 edges
+2. `dependencies` - 32 edges
+3. `settings` - 25 edges
+4. `client` - 24 edges
+5. `Cross-Tool Rules (Shared by ALL AI tools)` - 23 edges
+6. `ProjectFrame()` - 21 edges
+7. `File Inventory` - 18 edges
+8. `File Inventory` - 18 edges
+9. `VerbaFlow 2.0 — Cyber Growth Funnel Implementation Plan` - 17 edges
+10. `compilerOptions` - 16 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `FAQBlogPage()` --calls--> `formatDate()`  [INFERRED]
-  src/app/blog/faq/page.tsx → src/app/blog/[slug]/page.tsx
-- `FAQBlog` --calls--> `formatDate()`  [INFERRED]
-  src/app/blog/faq/page.tsx → src/app/blog/[slug]/page.tsx
-- `PortfolioPage()` --calls--> `formatDate()`  [INFERRED]
-  src/app/blog/portfolio/page.tsx → src/app/blog/[slug]/page.tsx
 - `POST()` --calls--> `sendWireframeReadyEmail()`  [INFERRED]
-  src/app/api/hermes/callback/route.ts → src/lib/email.ts
-- `BusinessInfoSection()` --calls--> `useLocationValue()`  [EXTRACTED]
-  src/components/BusinessInfoSection.tsx → src/components/LocationContext.tsx
+  src/app/api/hermes/callback/route.ts → /Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/email.ts
+- `getServices()` --calls--> `getSanityService()`  [EXTRACTED]
+  src/app/page.tsx → /Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/[slug]/page.tsx
+- `getServices()` --calls--> `sanityToRender()`  [EXTRACTED]
+  src/app/page.tsx → /Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/[slug]/page.tsx
+- `getServices()` --calls--> `staticToRender()`  [EXTRACTED]
+  src/app/page.tsx → /Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/[slug]/page.tsx
+- `generateMetadata()` --calls--> `getServices()`  [EXTRACTED]
+  /Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/[slug]/page.tsx → src/app/page.tsx
 
-## Communities (116 total, 15 thin omitted)
+## Communities (229 total, 34 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.02
@@ -160,35 +249,35 @@ Nodes (70): AggregateUser, DateTimeFieldUpdateOperationsInput, GetUserAggregateT
 
 ### Community 3 - "Community 3"
 Cohesion: 0.06
-Nodes (44): AgencyLeftPanel(), AgencyLeftPanelProps, TICKER_ITEMS, _TICKER_TEXT, AgencyRightPanel(), AgencyRightPanelProps, AgencySplitLayout(), DomainToggle() (+36 more)
+Nodes (45): AgencyLeftPanel(), AgencyLeftPanelProps, TICKER_ITEMS, _TICKER_TEXT, AgencyRightPanel(), AgencyRightPanelProps, AgencySplitLayout(), DomainToggle() (+37 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.05
-Nodes (36): ContactSection(), categoryTitles, defaultFaqs, FAQ, FAQSection(), FAQSectionProps, PricingSection(), BASE_PRICE (+28 more)
+Cohesion: 0.07
+Nodes (19): BASE_PRICE, calcPrice(), HelixProps, ICON_TO_CATEGORY, ICON_TO_PRICE, ICON_TO_SHORT, InlinePanelProps, ModalProps (+11 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.04
-Nodes (48): 1.1 SSH into server, 1.2 Install cloudflared, 1.3 Create tunnel, 1.4 Configure tunnel, 1.5 Route DNS, 1.6 Install as system service, 1.7 Clone repo & build, 2.1 Take snapshot of old server (+40 more)
+Cohesion: 0.13
+Nodes (15): 1.1 SSH into server, 1.2 Install cloudflared, 1.3 Create tunnel, 1.4 Configure tunnel, 1.5 Route DNS, 1.6 Install as system service, 1.7 Clone repo & build, code:bash (# Use your SSH alias or key directly) (+7 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.04
-Nodes (19): chargeCustomer(), getCustomerDefaultPaymentMethod(), prisma, stripe, prisma, POST(), stageToPlanStatus, stripe (+11 more)
+Cohesion: 0.22
+Nodes (6): AGENT_LABELS, PIPELINE_STAGES, PlanStatusPage(), AGENT_LABELS, STATUS_COLORS, STATUS_ICONS
 
 ### Community 7 - "Community 7"
 Cohesion: 0.04
 Nodes (47): 10. Mobile App Considerations, 1. Architecture Decisions, 2. Authentication & Authorization, 3. Database & Data Layer, 4. API Design, 5. State Management, 6. Billing & Subscription, 7. Deployment & DevOps (+39 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.05
-Nodes (43): Adding New Sections, AI Tools Section, Build for Production, Business Info Section, code:block1 (src/), code:bash (git clone <repository-url>), code:bash (npm install), code:bash (NEXT_PUBLIC_SANITY_PROJECT_ID=yourProjectId) (+35 more)
+Cohesion: 0.04
+Nodes (44): Adding New Sections, AI Tools Section, Build for Production, Business Info Section, code:block1 (src/), code:bash (git clone <repository-url>), code:bash (npm install), code:bash (NEXT_PUBLIC_SANITY_PROJECT_ID=yourProjectId) (+36 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.05
 Nodes (36): 1. Bento Box Grid, 1. Select the Matrix, 2. Define the Core Action, 2. Split Screen Input/Output Hero, 3. Draft Content Architecture, 3. Floating Ecosystem Showcase, 4. Assemble the Bento Grid, 5. Apply Lighting and Shadows (+28 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.06
-Nodes (32): AI Tool Infrastructure Config, Architecture Overview, code:block1 (anthropic.claude-code), code:block2 (Machine A (MacBook Pro)          Machine B (MacBook Air)), code:block3 (~/.config/opencode/), Enhancement Roadmap, File Inventory, File Relationship Map (+24 more)
+Cohesion: 0.11
+Nodes (19): code:block1 (anthropic.claude-code), File Inventory, Layer 10: Gemini CLI Config, Layer 11: GitHub CLI Config, Layer 12: VS Code Settings, Layer 13: VS Code Extensions, Layer 14: SSH Config, Layer 15: Git Global Config (+11 more)
 
 ### Community 11 - "Community 11"
 Cohesion: 0.06
@@ -199,8 +288,8 @@ Cohesion: 0.06
 Nodes (31): 1. VerbaFlow Design System Skill (NEW), 2. Frontend Blueprint Skill (EXISTING - ALL REFERENCES), code:block1 (frontend-blueprint (Architecture)), code:block2 (/frontend-blueprint), code:block3 (Build me a Chrome extension), code:block4 (/verbaflow-design-system), code:block5 (Which design matrix should I use for Samurai?), Complete VerbaFlow Skills & Design System Package (+23 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.11
-Nodes (19): AgentsSection(), AnnoBar(), Cap(), CTASection(), GoogleFonts(), HeroFloor(), HowSection(), LiveOpsSection() (+11 more)
+Cohesion: 0.05
+Nodes (52): AgentsSection(), AnnoBar(), Cap(), CTASection(), HeroFloor(), HowSection(), LiveOpsSection(), Pawn() (+44 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.07
@@ -215,31 +304,31 @@ Cohesion: 0.07
 Nodes (26): Both Skills Together, code:block1 (/frontend-blueprint), code:block2 (/verbaflow-design-system), code:block3 (Downloaded Files/), 📥 Complete Download Package Summary, 📖 Documentation & Guides, 🎯 File Organization, 🤔 Frequently Asked Questions (+18 more)
 
 ### Community 17 - "Community 17"
-Cohesion: 0.09
-Nodes (22): code:bash (# Inputs from Claude Code hook stdin), code:bash (PAYLOAD=$(cat)), code:bash (PAYLOAD=$(cat)), code:json ({), code:block5 (products(id, codename, status, owner_human_id, primary_repo_), code:block6 (Tier <N>: <one line summary>), Constraints, Defaults when ambiguous (+14 more)
+Cohesion: 0.04
+Nodes (44): code:bash (# Inputs from Claude Code hook stdin), code:bash (PAYLOAD=$(cat)), code:bash (PAYLOAD=$(cat)), code:json ({), code:block5 (products(id, codename, status, owner_human_id, primary_repo_), code:block6 (Tier <N>: <one line summary>), Constraints, Defaults when ambiguous (+36 more)
 
 ### Community 18 - "Community 18"
 Cohesion: 0.09
 Nodes (22): Accessibility & User Experience, Authentication & Security, Database & Schema, Deployment, File Sizes & Read Time, Files in This Package, For Chrome Extension Development, For General Web Projects (+14 more)
 
 ### Community 19 - "Community 19"
-Cohesion: 0.21
-Nodes (16): getFAQs(), getServices(), getTestimonials(), Home(), getServiceBySlug(), ServiceDef, urlFor(), Service (+8 more)
+Cohesion: 0.18
+Nodes (20): getFAQs(), getServices(), getTestimonials(), Home(), getServiceBySlug(), serviceCategories, ServiceCategory, ServiceDef (+12 more)
 
 ### Community 20 - "Community 20"
 Cohesion: 0.09
 Nodes (21): Acceptance criteria (per commit), Brief — Iso Floor v2 Enhancements (No Vision Required), code:ts (import { readFile } from 'node:fs/promises';), code:block10 ([v2-task-N] blocked — <reason> · <what San needs to provide>), code:ts ('use client';), code:json ({), code:ts (const WALKING_PATHS: Array<{ id: string; from: string; to: s), code:tsx (<defs>) (+13 more)
 
 ### Community 21 - "Community 21"
-Cohesion: 0.11
-Nodes (14): AgencyLayout(), metadata, playfair, geistMono, geistSans, inter, jetbrainsMono, metadata (+6 more)
+Cohesion: 0.09
+Nodes (18): AgencyLayout(), metadata, playfair, geistMono, geistSans, inter, jakarta, jetbrainsMono (+10 more)
 
 ### Community 22 - "Community 22"
-Cohesion: 0.16
-Nodes (15): ActionButton(), ActionButtonProps, CARD_POSITIONS, CommandCentre(), METRICS, CARD_ANCHORS, getRungEndpoints(), HelixBackbone() (+7 more)
+Cohesion: 0.15
+Nodes (16): ActionButton(), ActionButtonProps, AGENTS, CARD_POSITIONS, CommandCentre(), METRICS, CARD_ANCHORS, getRungEndpoints() (+8 more)
 
 ### Community 23 - "Community 23"
-Cohesion: 0.1
+Cohesion: 0.09
 Nodes (20): 1. Goals, 2.1 Growth-Plan page (commit `d576c34`), 2.2 Services pages (commit `fb31df2`), 2.3 Virtual Office, home and agency (commit `b39a8c3`), 2. What shipped, 3. File map, 4.1 Wire the paid path, 4.2 Wire the agentic backend (+12 more)
 
 ### Community 24 - "Community 24"
@@ -247,32 +336,32 @@ Cohesion: 0.1
 Nodes (19): BoolFilter, BoolWithAggregatesFilter, DateTimeFilter, DateTimeWithAggregatesFilter, NestedBoolFilter, NestedBoolWithAggregatesFilter, NestedDateTimeFilter, NestedDateTimeWithAggregatesFilter (+11 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.13
-Nodes (13): BusinessInfoSection(), HeroSection(), rotatingWords, sectors, useMagneticRef(), LocationContext, LocationContextValue, LocationProvider() (+5 more)
+Cohesion: 0.15
+Nodes (10): BusinessInfoSection(), HeroSection(), rotatingWords, sectors, useMagneticRef(), LocationContext, LocationContextValue, LocationProvider() (+2 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.11
-Nodes (10): Customer, User, PrismaClient, User, config, LogOptions, PrismaClient, PrismaClientConstructor (+2 more)
+Cohesion: 0.23
+Nodes (8): PrismaClient, User, config, decodeBase64AsWasm(), getPrismaClientClass(), LogOptions, PrismaClient, PrismaClientConstructor
 
 ### Community 27 - "Community 27"
-Cohesion: 0.12
-Nodes (16): budgets, challengesList, COMMON_CHALLENGES, COMMON_GOALS, GrowthPlan, INDUSTRIES, initialData, stackOptions (+8 more)
+Cohesion: 0.11
+Nodes (17): budgets, challengesList, COMMON_CHALLENGES, COMMON_GOALS, GrowthPlan, INDUSTRIES, initialData, PlaceSuggestion (+9 more)
 
 ### Community 28 - "Community 28"
-Cohesion: 0.13
+Cohesion: 0.12
 Nodes (9): AboutPage(), Footer(), NavigationService, useVapi(), GrowthPlanPage(), Service, ServicesPage(), metadata (+1 more)
 
 ### Community 29 - "Community 29"
-Cohesion: 0.14
-Nodes (11): BlogPage(), BlogPost, CategoryFilter, BlogDebugPage(), DebugBlog, client, { sanityFetch, SanityLive }, client (+3 more)
+Cohesion: 0.18
+Nodes (9): BlogPage(), BlogPost, CategoryFilter, BlogDebugPage(), DebugBlog, client, { sanityFetch, SanityLive }, BlogSetupPage() (+1 more)
 
 ### Community 30 - "Community 30"
-Cohesion: 0.14
-Nodes (11): center(), ComputeStream(), ComputeStreamProps, FeedEntry, pathFor(), Phase, PHASES, Point (+3 more)
+Cohesion: 0.04
+Nodes (45): created, description, kanban_snapshot, kanban_summary, assignee, phases, ready, todo (+37 more)
 
 ### Community 31 - "Community 31"
-Cohesion: 0.14
-Nodes (12): AgentState, useHermesState(), AgentDetail, AgentZoneModalProps, STATE_LABEL, BookCallModalProps, AGENT_DETAILS, IsoFloor() (+4 more)
+Cohesion: 0.09
+Nodes (20): ActivityEvent, AgentState, HermesState, useHermesState(), ActivityFeed(), AgentDetail, AgentZoneModalProps, STATE_LABEL (+12 more)
 
 ### Community 32 - "Community 32"
 Cohesion: 0.11
@@ -291,35 +380,39 @@ Cohesion: 0.11
 Nodes (17): code:bash (cd /path/to/DonPortfolio), code:bash (# NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX), code:yaml (script: |), code:bash (git add .github/workflows/deploy.yml), code:bash (ssh senpai@<HETZNER_IP>), code:bash (ssh senpai@<HETZNER_IP>), code:bash (# On Hetzner server), code:yaml (ingress:) (+9 more)
 
 ### Community 36 - "Community 36"
-Cohesion: 0.12
-Nodes (16): CustomerScalarFieldEnum, ModelName, NullsOrder, NullTypes, QueryMode, SortOrder, TransactionIsolationLevel, UserScalarFieldEnum (+8 more)
+Cohesion: 0.1
+Nodes (18): Customer, User, CustomerScalarFieldEnum, ModelName, NullsOrder, NullTypes, QueryMode, SortOrder (+10 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.15
-Nodes (12): POST(), POST(), getIndustryContext(), getServices(), IndustryContext, SanityService, Service, supabase (+4 more)
+Cohesion: 0.28
+Nodes (9): POST(), normalizePlan(), POST(), getIndustryContext(), getServices(), IndustryContext, SanityService, Service (+1 more)
 
 ### Community 38 - "Community 38"
 Cohesion: 0.12
 Nodes (16): code:block1 (verbaflow-design-system/), code:block2 (---), code:block3 (/verbaflow-design-system), code:block4 (Which design matrix should I use for Samurai?), code:block5 (Use Enterprise Authority for this dashboard), Folder Structure, How to Add It to Your Skills, Integration with Frontend Blueprint (+8 more)
 
 ### Community 39 - "Community 39"
-Cohesion: 0.15
-Nodes (13): submitContact(), FAQ, FAQBlog, FAQBlogPage(), ContactBlog, PortfolioPage(), ResumeCategory, BlogPost (+5 more)
+Cohesion: 0.28
+Nodes (9): FAQ, FAQBlog, FAQBlogPage(), BlogPost, BlogPostPage(), BlogPostPageProps, formatDate(), generateSlugFromTitle() (+1 more)
 
 ### Community 40 - "Community 40"
 Cohesion: 0.12
 Nodes (15): code:bash (# Generate a dedicated deploy key (don't use your personal k), code:bash (# Copy public key to Hetzner), code:bash (cat ~/.ssh/hetzner_deploy), code:bash (# SSH into Hetzner), code:bash (# One-liner remote deploy), For DonPortfolio repo:, For VerbaFlow repo:, GitHub Secrets Setup — Both Projects (+7 more)
 
+### Community 41 - "Community 41"
+Cohesion: 0.05
+Nodes (42): Adding New Sections, AI Tools Section, Build for Production, Business Info Section, code:block1 (src/), code:bash (git clone <repository-url>), code:bash (npm install), code:bash (NEXT_PUBLIC_SANITY_PROJECT_ID=yourProjectId) (+34 more)
+
 ### Community 42 - "Community 42"
-Cohesion: 0.13
+Cohesion: 0.12
 Nodes (14): code:block1 (Type  Name              Content                          Pri), code:block2 (Type  Name                         Content), code:bash (ssh senpai@<HETZNER_IP>), code:bash (# From local machine or Hetzner, test the contact form), code:block5 (TXT  verbaflowllc.com  "v=spf1 include:secureserver.net incl), Prompt 05 — Email Configuration (Resend + MX Records), Resend Sending Domain Options, Sanity MCP → Resend Mass Marketing (Future) (+6 more)
 
 ### Community 43 - "Community 43"
-Cohesion: 0.24
+Cohesion: 0.2
 Nodes (6): builder, dataset, projectId, structure(), schema, StudioPage()
 
 ### Community 44 - "Community 44"
-Cohesion: 0.15
+Cohesion: 0.14
 Nodes (12): code:bash (ssh root@<HETZNER_IP>), code:bash (ssh senpai@<HETZNER_IP>), code:bash (cd /var/www/portfolio), code:bash (pm2 startup), code:bash (curl http://localhost:3000  # VerbaFlow), Environment Variables Reference, Prompt 02 — Hetzner Server Bootstrap & App Deploy, Step 1 — Bootstrap server (run once) (+4 more)
 
 ### Community 45 - "Community 45"
@@ -331,15 +424,15 @@ Cohesion: 0.17
 Nodes (12): 4.1 Hero Section, 4.2 Domain-Specific Skill Matrix, 4.3 Experience Narrative Timeline, 4.4 Cross-Domain Metrics Banner, 4.5 Project Showcase Grid, 4.6 Navigation, 4.7 Footer, 4. Component Specifications (+4 more)
 
 ### Community 47 - "Community 47"
-Cohesion: 0.17
+Cohesion: 0.15
 Nodes (11): code:block1 (nia.ns.cloudflare.com), code:bash (# Check nameservers have propagated), code:bash (cloudflared tunnel route dns verbaflow-main verbaflowllc.com), code:bash (curl -I https://verbaflowllc.com  # 200 from Hetzner), Overview, Phase A — Add site to Cloudflare (before changing nameservers), Phase B — Change nameservers at GoDaddy, Phase C — Verify DNS is active (+3 more)
 
 ### Community 48 - "Community 48"
-Cohesion: 0.27
+Cohesion: 0.26
 Nodes (6): AgencyPage(), ProtoFrameProps, ProtoNav(), ProtoNavProps, ProtoEntry, registry
 
 ### Community 49 - "Community 49"
-Cohesion: 0.18
+Cohesion: 0.17
 Nodes (10): 10. SEO & Meta Strategy, 6. Responsive Breakpoint Strategy, 7. Accessibility Requirements, 8. Performance Budget, 9. Deployment & Infrastructure, code:block15 (Mobile-first approach. All styles start at 390px and scale u), code:tsx (// app/layout.tsx), Knowledge-Grounded Personal Portfolio (Kreos-Inspired) (+2 more)
 
 ### Community 50 - "Community 50"
@@ -351,12 +444,12 @@ Cohesion: 0.18
 Nodes (11): 4. Component Patterns, Badge / Tag, Button System, code:tsx (<p className="text-[11px] text-zinc-500 uppercase tracking-w), code:css (.glass-card {), code:tsx (// Primary), code:tsx (// Domain tag with accent color), code:tsx (<div className="glass-card text-center">) (+3 more)
 
 ### Community 52 - "Community 52"
-Cohesion: 0.18
-Nodes (10): Architecture Overview, code:block1 (Internet), code:block17 (Sanity CMS (blog posts, services, testimonials)), code:groq (*[_type == "post"] { title, body, publishedAt, "author": aut), code:bash (# Check running processes), Domain Routing, Maintenance Checklist, Sanity as MCP Server (Mass Marketing via Content) (+2 more)
+Cohesion: 0.25
+Nodes (7): Architecture Overview, code:block1 (Internet), code:bash (# Check running processes), Domain Routing, Maintenance Checklist, Server Specs, VerbaFlow Infrastructure — Master Deployment Plan
 
 ### Community 53 - "Community 53"
-Cohesion: 0.18
-Nodes (11): code:block10 (CNAME  agency  →  verbaflowllc.com  (DNS only, NOT proxied t), code:bash (# Install tunnel as systemd service), code:bash (cloudflared tunnel login), code:bash (cloudflared tunnel create verbaflow-main), code:bash (# Point each domain to the tunnel (creates CNAME records aut), Phase 3: Cloudflare Tunnel Setup, Step 3.1 — Authenticate cloudflared, Step 3.2 — Create the Tunnel (+3 more)
+Cohesion: 0.14
+Nodes (14): code:block10 (CNAME  agency  →  verbaflowllc.com  (DNS only, NOT proxied t), code:bash (# Install tunnel as systemd service), code:bash (cloudflared tunnel login), code:bash (cloudflared tunnel create verbaflow-main), code:bash (mkdir -p ~/.cloudflared), code:yaml (tunnel: <TUNNEL_ID>), code:bash (# Point each domain to the tunnel (creates CNAME records aut), Phase 3: Cloudflare Tunnel Setup (+6 more)
 
 ### Community 54 - "Community 54"
 Cohesion: 0.18
@@ -367,7 +460,7 @@ Cohesion: 0.18
 Nodes (10): 10. 10x Features (high leverage, low effort), 11. Week 1 Rollout Schedule (2026-05-11 to 2026-05-18), 14. Open Questions to Resolve Before Day 1, 15. Success Criteria for Launch (2026-05-18), 16. Out of Scope for Week 1, 1. Goal, 2. Funnel Architecture, 8. Email Automation (Resend) (+2 more)
 
 ### Community 56 - "Community 56"
-Cohesion: 0.18
+Cohesion: 0.17
 Nodes (10): code:bash (ssh-keygen -t ed25519 -C "github-deploy@verbaflowllc" -f ~/.), code:yaml (name: Deploy DonPortfolio to Hetzner), code:js ({), code:bash (# Push a trivial change to each repo's main branch), Prompt 03 — GitHub Actions CI/CD Setup, Step 1 — Generate deploy SSH key (local machine), Step 2 — Add secrets to BOTH GitHub repos, Step 3 — Fix portfolio deploy workflow (move to repo root) (+2 more)
 
 ### Community 57 - "Community 57"
@@ -375,11 +468,11 @@ Cohesion: 0.28
 Nodes (6): STATUS_BG, STATUS_COLOR, STATUS_LABEL, AgencyProject, agencyProjects, ProjectStatus
 
 ### Community 58 - "Community 58"
-Cohesion: 0.22
-Nodes (8): 7. Responsive Strategy, 8. Accessibility Checklist, Breakpoints (Kreos-Aligned), code:block14 (390px   — Mobile (iPhone baseline)), Mobile-First Patterns, Patterns for Websites, Extensions, SaaS, and Apps, Table of Contents, Universal Design System
+Cohesion: 0.2
+Nodes (8): 6. Dark Mode / Light Mode, 8. Accessibility Checklist, code:css (:root { /* dark by default */ }), Implementation, Patterns for Websites, Extensions, SaaS, and Apps, Strategy, Table of Contents, Universal Design System
 
 ### Community 59 - "Community 59"
-Cohesion: 0.25
+Cohesion: 0.29
 Nodes (7): code:bash (npm run dev       # Start dev server), Commands, Key Paths, Notes, Obsidian Vault, Stack, VerbaFlow 2.0 — Company Website
 
 ### Community 60 - "Community 60"
@@ -395,7 +488,7 @@ Cohesion: 0.29
 Nodes (6): Design Philosophy (Kreos-Inspired), Frontend Blueprint: Best Practices for Web Products, Output Formats, Quality Standards (Non-Negotiable), Voice for Generated Content, When This Skill Is Invoked
 
 ### Community 63 - "Community 63"
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (6): code:block1 (DonPortfolio/                        ← git repo root), code:bash (# Future (not needed yet)), ⚠️ Critical: Subdirectory Structure, .env.example, Mini Prompt — DonPortfolio Analysis, Summary of Findings
 
 ### Community 64 - "Community 64"
@@ -411,16 +504,16 @@ Cohesion: 0.33
 Nodes (6): Bot Fight Mode, code:bash (# UFW rule — block ALL external access to OpenClaw port), OpenClaw Hardening (Internal Service), Phase 5: Cloudflare Security Hardening, Security Level, WAF Rules
 
 ### Community 67 - "Community 67"
-Cohesion: 0.4
+Cohesion: 0.53
 Nodes (4): compat, __dirname, eslintConfig, __filename
 
 ### Community 68 - "Community 68"
-Cohesion: 0.7
+Cohesion: 0.73
 Nodes (4): label_color(), load_font(), luminance(), main()
 
 ### Community 70 - "Community 70"
-Cohesion: 0.4
-Nodes (4): 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-05-11 17:00 (UTC) — Cybergrowth funnel implementation plan published
+Cohesion: 0.17
+Nodes (11): 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-05-11 17:00 (UTC) — Cybergrowth funnel implementation plan published, 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-04-19 05:21 (UTC) - Unified all agent instruction files to the master Claude context (+3 more)
 
 ### Community 71 - "Community 71"
 Cohesion: 0.4
@@ -463,8 +556,8 @@ Cohesion: 0.4
 Nodes (5): code:block2 (MX   verbaflowllc.com  → (existing mail server, import from ), Phase 1: Cloudflare DNS Migration from Vercel, Step 1.1 — Transfer DNS from GoDaddy to Cloudflare, Step 1.2 — SSL/TLS Configuration in Cloudflare, Step 1.3 — Preserve Email Records
 
 ### Community 82 - "Community 82"
-Cohesion: 0.5
-Nodes (4): 6. Dark Mode / Light Mode, code:css (:root { /* dark by default */ }), Implementation, Strategy
+Cohesion: 0.05
+Nodes (38): 2.4.A — Extend the SSE endpoint, 2.4.B — Extend the hook, 2.4.C — Update existing callsites, 2.4.D — Build RosterPanel and ActivityFeed, Acceptance criteria (all four tasks), Brief — Iso Floor v2 Tier 2 (Dashboard Chrome Wrap), code:block1 (<section className={styles.stage}>), code:ts (const emitActivity = async () => {) (+30 more)
 
 ### Community 83 - "Community 83"
 Cohesion: 0.5
@@ -490,32 +583,308 @@ Nodes (4): 5.1 `/api/growth-plan/submit` contract, 5. API Layer, code:json ({), 
 Cohesion: 0.5
 Nodes (3): Contents, Notes, Proto 01 — Wireframe Main
 
+### Community 92 - "Community 92"
+Cohesion: 0.06
+Nodes (34): AI Customization Portability Guide, code:md (---), code:text (my-sales-plugin/), Copilot skill template, Core Rule, Current Recommendation For This Repo, Decision table, First classify what the "plugin" really is (+26 more)
+
 ### Community 94 - "Community 94"
 Cohesion: 0.67
 Nodes (3): code:block15 (MX  verbaflowllc.com  →  mailstore1.secureserver.net  (prior), MX Records (keep existing GoDaddy email), Phase 6: Email Setup (Resend)
 
 ### Community 95 - "Community 95"
-Cohesion: 0.67
-Nodes (3): code:bash (mkdir -p ~/.cloudflared), code:yaml (tunnel: <TUNNEL_ID>), Step 3.3 — Create Tunnel Config
+Cohesion: 0.06
+Nodes (34): api, date, delivery_bridge_parsing, fallback_export, mime_type_hint, preferred_export, upload_mapping, endpoint (+26 more)
 
 ### Community 96 - "Community 96"
 Cohesion: 0.67
 Nodes (3): 4. Database Schema (Prisma), code:prisma (model GrowthPlan {), code:bash (npx prisma migrate dev --name growth_plan_funnel)
 
+### Community 104 - "Community 104"
+Cohesion: 0.06
+Nodes (31): 1. Marketing surface (default — every page except `/agency`), 2. Agency surface (`/agency` only), Animation, Backgrounds, Borders, radii & corners, Capsules & protection gradients, Cards (canonical anatomy), Casing & punctuation (+23 more)
+
+### Community 105 - "Community 105"
+Cohesion: 0.06
+Nodes (32): dependencies, framer-motion, @google/generative-ai, gsap, @gsap/react, lightningcss, lucide-react, next (+24 more)
+
+### Community 106 - "Community 106"
+Cohesion: 0.07
+Nodes (26): Agent SOUL Files, API Routes, B.10 Email Templates, B.12 Next Config Rewrite, B.1 Prisma Schema & Migration, B.2 GBP Wizard Step, B.3 Places Client & Routes, B.4 Hermes YAML (+18 more)
+
+### Community 107 - "Community 107"
+Cohesion: 0.08
+Nodes (24): code:html (<!DOCTYPE html>), code:block2 (Bucket: wireframes), code:block3 (Authorization: Bearer {supabase_service_role_key}), code:block4 (POST https://{supabase_url}/storage/v1/object/sign/wireframe), code:block5 (POST https://api.resend.com/emails), code:block6 (POST {callback_url}), code:json ({), code:json ({) (+16 more)
+
+### Community 108 - "Community 108"
+Cohesion: 0.08
+Nodes (23): 1. Update imports, 2. Add a video ref and an IntersectionObserver pause hook, 3. Swap the JSX, 4. Confirm `.still` CSS, Acceptance criteria, Brief — Iso Floor v2 Task 4 (Seedance Video Swap), code:block1 (public/agency/iso-floor.mp4), code:block10 ([task4-video-swap] blocked — <reason>) (+15 more)
+
+### Community 110 - "Community 110"
+Cohesion: 0.29
+Nodes (6): graphify, 1. Automatic Changelog Maintenance (CHANGES.md), code:markdown (## YYYY-MM-DD HH:MM (UTC) - One-line task summary), code:block2, === GLOBAL CLAUDE WORKFLOW RULES (Applies to EVERY project) ===, YYYY-MM-DD HH:MM (UTC) — one-line summary
+
+### Community 116 - "Community 116"
+Cohesion: 0.1
+Nodes (20): 1. Completeness (weight: 0.25), 2. Correctness (weight: 0.20), 3. Consistency (weight: 0.20), 4. Personalization (weight: 0.20), 5. Actionability (weight: 0.15), code:block1 (overall_score = (completeness * 0.25) + (correctness * 0.20)), code:json ({), code:json ({) (+12 more)
+
+### Community 117 - "Community 117"
+Cohesion: 0.1
+Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
+
+### Community 118 - "Community 118"
+Cohesion: 0.11
+Nodes (17): Acceptance criteria (all three tasks), Brief — Iso Floor v2 Tier 1 (Quick Polish), code:tsx (const [originPoint, setOriginPoint] = useState<{ x: number; ), code:block10 ([tier1-task-N] blocked — <reason>), code:tsx (<div), code:css (@keyframes slideUp {), code:css (.canvas {), code:tsx (import { useState, useEffect, useMemo } from 'react';) (+9 more)
+
+### Community 119 - "Community 119"
+Cohesion: 0.11
+Nodes (19): code:block1 (anthropic.claude-code), File Inventory, Layer 10: Gemini CLI Config, Layer 11: GitHub CLI Config, Layer 12: VS Code Settings, Layer 13: VS Code Extensions, Layer 14: SSH Config, Layer 15: Git Global Config (+11 more)
+
+### Community 120 - "Community 120"
+Cohesion: 0.11
+Nodes (17): Architect Agent, code:json ({), code:json ({), code:markdown (# Growth Plan for {wizard_data.name}), code:json ({), code:json ({), code:json ({), Failure modes to avoid (+9 more)
+
+### Community 121 - "Community 121"
+Cohesion: 0.15
+Nodes (12): ContactSection(), categoryTitles, defaultFaqs, FAQ, FAQSection(), FAQSectionProps, ServicesSection(), defaultTestimonials (+4 more)
+
+### Community 122 - "Community 122"
+Cohesion: 0.19
+Nodes (13): GET(), getClientIp(), isRateLimited(), rateLimit, getHeaders(), getPlaceDetails(), PlaceDetails, PlaceSuggestion (+5 more)
+
+### Community 123 - "Community 123"
+Cohesion: 0.12
+Nodes (17): 2. Agent Coordination (Concurrent Editing), 3. Formatting Hard Stops, 4. Verification (Auto-Run After Edits), 5. Skill Activation, 6. Reference Files, Agent Write Rules, Changelog Rule, Cross-Tool Rules (Shared by ALL AI tools) (+9 more)
+
+### Community 124 - "Community 124"
+Cohesion: 0.13
+Nodes (15): 3. Phase B: Complete Wireframe Pipeline + GBP, B.10 Email Automation, B.11 Plan Pages And Move-Forward Flow, B.12 Next Config Rewrite, B.2 GrowthPlanWizard GBP Step, B.3 Places Client And API Routes, B.4 Hermes Pipeline YAML With Stitch / AI Studio Split, B.6 Agent SOUL.md Files (+7 more)
+
+### Community 125 - "Community 125"
+Cohesion: 0.13
+Nodes (14): code:markdown (# Your Growth Plan: {wizard_data.industry}), code:html (<!DOCTYPE html>), code:json ({), code:json ({), Failure modes to avoid, Hard constraints, Inputs you receive, Marketing Agent (+6 more)
+
+### Community 126 - "Community 126"
+Cohesion: 0.13
+Nodes (15): code:bash (sudo systemctl restart cloudflared), code:bash (pm2 stop <APP_NAME>), code:bash (# Option A: Add swap), code:bash (sudo cloudflared --config /home/<USER>/.cloudflared/config.y), code:bash (rm ~/.cloudflared/cert.pem), code:bash (# Always specify your key:), code:bash (# 1. Is the app running?), Error: 1033 Cloudflare Tunnel Error (+7 more)
+
+### Community 127 - "Community 127"
+Cohesion: 0.15
+Nodes (12): Backend Agent, code:markdown (# Integration Notes for Plan {plan_id}), code:json ({), code:json ({), Failure modes to avoid, Hard constraints, Inputs you receive, Output 1: `integration_notes.md` (+4 more)
+
+### Community 128 - "Community 128"
+Cohesion: 0.15
+Nodes (12): code:block1 (Design a professional wireframe landing page for a {wizard_d), code:json ({), code:json ({), Design prompt template, Designer Agent, Failure modes to avoid, Hard constraints, Inputs you receive (+4 more)
+
+### Community 129 - "Community 129"
+Cohesion: 0.15
+Nodes (5): globalForPrisma, PlanPreviewPage(), GET(), POST(), POST()
+
+### Community 130 - "Community 130"
+Cohesion: 0.24
+Nodes (9): getSupabaseServiceClient(), handleDelivery(), POST(), ScreenData, stageSuccessToPlanStatus, stageToPlanStatus, resend, sendWireframeReadyEmail() (+1 more)
+
+### Community 131 - "Community 131"
+Cohesion: 0.17
+Nodes (12): 2. Phase A: Reconcile And Complete The Spatial Bento Front-End, A.10 Front-End Verification, A.1 Resolve The Current Parked UI State, A.2 Global CSS Token And Utility Work, A.3 Font Wiring, A.4 Cursor And Scroll Hooks, A.5 HeroSection, A.6 PricingSection (+4 more)
+
+### Community 132 - "Community 132"
+Cohesion: 0.18
+Nodes (9): 4.1 DNS Record, 4.2 Redirect Rule, Architecture Reference, code:bash (# ── Cloudflared ──), code:block19 (Browser → Cloudflare Edge (DNS + SSL)), Phase 4 — Cloudflare Redirect Rules (Subdomain → Path), Phase 5 — Diagnostic Commands Cheat Sheet, Prerequisites (+1 more)
+
+### Community 133 - "Community 133"
+Cohesion: 0.18
+Nodes (11): devDependencies, dotenv, eslint, eslint-config-next, @eslint/eslintrc, tailwindcss, @tailwindcss/postcss, @types/node (+3 more)
+
+### Community 134 - "Community 134"
+Cohesion: 0.2
+Nodes (10): 5.1 Static Checks, 5.2 Front-End Smoke Test, 5.3 GBP Test, 5.4 Hermes Pipeline Test, 5.5 Stitch Delivery Test, 5.6 Stripe + Email Test, 5. End-To-End Verification Plan, code:bash (npm run lint) (+2 more)
+
+### Community 136 - "Community 136"
+Cohesion: 0.2
+Nodes (10): code:tsx ("use client";), code:css (.vf-btn-magnetic { transition: transform .5s var(--ease-out-), code:css (.vf-ambient { position: relative; overflow: hidden; }), Primitive 01 — Kinetic headline swap, Primitive 04 — Scroll-reveal with ease-out-expo, Primitive 05 — Counter, Primitive 06 — Magnetic CTA (hero only), Primitive 08 — Ambient drift backgrounds (+2 more)
+
+### Community 137 - "Community 137"
+Cohesion: 0.2
+Nodes (10): code:tsx ("use client";), code:css (.vf-btn-magnetic { transition: transform .5s var(--ease-out-), code:css (.vf-ambient { position: relative; overflow: hidden; }), Primitive 01 — Kinetic headline swap, Primitive 04 — Scroll-reveal with ease-out-expo, Primitive 05 — Counter, Primitive 06 — Magnetic CTA (hero only), Primitive 08 — Ambient drift backgrounds (+2 more)
+
+### Community 138 - "Community 138"
+Cohesion: 0.28
+Nodes (6): chargeCustomer(), getCustomerDefaultPaymentMethod(), prisma, stripe, prisma, AdminInvoicePage()
+
+### Community 139 - "Community 139"
+Cohesion: 0.28
+Nodes (5): PricingSection(), useCounter(), UseCounterOptions, MagneticButtonInner, MagneticButtonProps
+
+### Community 140 - "Community 140"
+Cohesion: 0.22
+Nodes (8): name, private, scripts, build, dev, lint, start, version
+
+### Community 141 - "Community 141"
+Cohesion: 0.22
+Nodes (8): AI Tool Infrastructure Config, Architecture Overview, code:block3 (~/.config/opencode/), Enhancement Roadmap, File Relationship Map, Version History, Wrote /Users/sandeep/Desktop/Project26/Verbaflow_lake/AI tool infrastructure config.md, Wrote /Users/sandeep/Desktop/Project26/Verbaflow_lake/AI tool infrastructure config.md
+
+### Community 142 - "Community 142"
+Cohesion: 0.22
+Nodes (9): 0.1 — Global easing swap, 0.2 — Add three motion utility classes to globals.css, 0.3 — Create a single `useReveal` hook, 0.4 — Respect reduced motion everywhere, code:css (--ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);), code:css (:root {), code:ts ("use client";), code:ts (const prefersReduced = window.matchMedia("(prefers-reduced-m) (+1 more)
+
+### Community 143 - "Community 143"
+Cohesion: 0.22
+Nodes (9): code:tsx (// In each section:), code:css (.vf-section-num { font-family: 'DM Mono', monospace; font-si), S1 — Oversized typography, S2 — One-word positioning, S3 — Case-study-first homepage, S4 — Numbered sections, S5 — Asymmetric grids, S6 — Accent color restraint (+1 more)
+
+### Community 144 - "Community 144"
+Cohesion: 0.22
+Nodes (9): 0.1 — Global easing swap, 0.2 — Add three motion utility classes to globals.css, 0.3 — Create a single `useReveal` hook, 0.4 — Respect reduced motion everywhere, code:css (--ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);), code:css (:root {), code:ts ("use client";), code:ts (const prefersReduced = window.matchMedia("(prefers-reduced-m) (+1 more)
+
+### Community 145 - "Community 145"
+Cohesion: 0.22
+Nodes (9): code:tsx (// In each section:), code:css (.vf-section-num { font-family: 'DM Mono', monospace; font-si), S1 — Oversized typography, S2 — One-word positioning, S3 — Case-study-first homepage, S4 — Numbered sections, S5 — Asymmetric grids, S6 — Accent color restraint (+1 more)
+
+### Community 146 - "Community 146"
+Cohesion: 0.25
+Nodes (7): code:bash (npm run dev       # Start dev server), Commands, Key Paths, Notes, Obsidian Vault, Stack, VerbaFlow 2.0 — Company Website
+
+### Community 147 - "Community 147"
+Cohesion: 0.25
+Nodes (7): Booking Agent, code:json ({), Hard constraints, Inputs you receive, Output discipline, Outputs you must produce, Your role
+
+### Community 148 - "Community 148"
+Cohesion: 0.25
+Nodes (7): 0. Non-Negotiable Coordination Rules, 1. Current State Snapshot To Verify First, 4. B.9 Future Extensions: Architecture Intent, 6. Final Documentation And Change Log, 7. Practical Execution Order, code:bash (git status --short), Spatial Bento + Wireframe Pipeline Execution Handoff
+
+### Community 149 - "Community 149"
+Cohesion: 0.25
+Nodes (8): 1.1 — Global easing swap, 1.2 — Kinetic headline in HeroSection.tsx, 1.3 — Counter stats band (new component), code:tsx (const rotatingWords = ["best customers.", "high-intent leads), code:css (.vf-word-mask {), code:tsx ("use client";), code:css (.vf-stats-band { padding: 80px 0; border-block: 1px solid rg), 🚀 Wave 1 — The Three Highest-Leverage Changes (1–2 hours)
+
+### Community 150 - "Community 150"
+Cohesion: 0.25
+Nodes (8): 1.1 — Global easing swap, 1.2 — Kinetic headline in HeroSection.tsx, 1.3 — Counter stats band (new component), code:tsx (const rotatingWords = ["best customers.", "high-intent leads), code:css (.vf-word-mask {), code:tsx ("use client";), code:css (.vf-stats-band { padding: 80px 0; border-block: 1px solid rg), 🚀 Wave 1 — The Three Highest-Leverage Changes (1–2 hours)
+
+### Community 151 - "Community 151"
+Cohesion: 0.33
+Nodes (3): config, middleware(), config
+
+### Community 152 - "Community 152"
+Cohesion: 0.29
+Nodes (6): ⚠️ Critical Rules, ✅ Deliverable Checklist (paste into PR descriptions), 🎯 Mission, 📎 Reference, Verbaflow Website — Motion & Structure Upgrade (13g.fr-inspired), 🧭 Wave 3 — Apply the Recommendation Map (the 8 cards)
+
+### Community 153 - "Community 153"
+Cohesion: 0.29
+Nodes (6): ⚠️ Critical Rules, ✅ Deliverable Checklist (paste into PR descriptions), 🎯 Mission, 📎 Reference, Verbaflow Website — Motion & Structure Upgrade (13g.fr-inspired), 🧭 Wave 3 — Apply the Recommendation Map (the 8 cards)
+
+### Community 154 - "Community 154"
+Cohesion: 0.29
+Nodes (7): Before Writing Code, Behavioral Contract — 12 Rules, Exceptions, Rule Expiration — 4-Week Auto-Prune, Session Management, Verifying Work, While Writing Code
+
+### Community 155 - "Community 155"
+Cohesion: 0.53
+Nodes (4): submitContact(), ContactBlog, PortfolioPage(), ResumeCategory
+
+### Community 156 - "Community 156"
+Cohesion: 0.33
+Nodes (5): code:block1 (open ui_kits/agency/index.html), Notes, Open, Verbaflow UI Kit — Agency surface (Studio White), What's in here
+
+### Community 157 - "Community 157"
+Cohesion: 0.33
+Nodes (4): pricingMap, QuoteOverlayProps, QuoteResult, suggestionMap
+
+### Community 158 - "Community 158"
+Cohesion: 0.33
+Nodes (5): code:block1 (open ui_kits/marketing/index.html), Notes, Open, Verbaflow UI Kit — Marketing surface, What's in here
+
+### Community 159 - "Community 159"
+Cohesion: 0.33
+Nodes (6): 2.1 Take snapshot of old server, 2.2 Rebuild new server from snapshot, 2.3 Post-migration checklist, ⚠️ 2.4 CRITICAL — Stop cloudflared on old server, code:bash (# On the OLD server:), Phase 2 — Snapshot Migration (Hetzner)
+
+### Community 160 - "Community 160"
+Cohesion: 0.53
+Nodes (4): industryContext, seed(), supabase, verbaflowServices
+
+### Community 161 - "Community 161"
+Cohesion: 0.33
+Nodes (6): code:block2 (Machine A (MacBook Pro)          Machine B (MacBook Air)), How It Works, Manual Steps After Clone on New Machine, Sync Strategy, What Does NOT Sync (excluded via .gitignore), What Syncs (committed to repo)
+
+### Community 162 - "Community 162"
+Cohesion: 0.33
+Nodes (6): AI Tool Infrastructure Config, Architecture Overview, code:block3 (~/.config/opencode/), Enhancement Roadmap, File Relationship Map, Version History
+
+### Community 163 - "Community 163"
+Cohesion: 0.33
+Nodes (6): code:block2 (Machine A (MacBook Pro)          Machine B (MacBook Air)), How It Works, Manual Steps After Clone on New Machine, Sync Strategy, What Does NOT Sync (excluded via .gitignore), What Syncs (committed to repo)
+
+### Community 164 - "Community 164"
+Cohesion: 0.6
+Nodes (3): client, seedServices(), services
+
+### Community 165 - "Community 165"
+Cohesion: 0.4
+Nodes (4): name, organization_id, organization_slug, ref
+
+### Community 167 - "Community 167"
+Cohesion: 0.5
+Nodes (4): 7. Responsive Strategy, Breakpoints (Kreos-Aligned), code:block14 (390px   — Mobile (iPhone baseline)), Mobile-First Patterns
+
+### Community 168 - "Community 168"
+Cohesion: 0.5
+Nodes (3): people, projects, topics
+
+### Community 171 - "Community 171"
+Cohesion: 0.5
+Nodes (4): Current Projects (16 active), High Priority, Low Priority, Medium Priority
+
+### Community 178 - "Community 178"
+Cohesion: 0.67
+Nodes (3): code:block17 (Sanity CMS (blog posts, services, testimonials)), code:groq (*[_type == "post"] { title, body, publishedAt, "author": aut), Sanity as MCP Server (Mass Marketing via Content)
+
+### Community 179 - "Community 179"
+Cohesion: 0.67
+Nodes (3): B.1 Prisma Schema And Migration, code:prisma (gbpPlaceId       String?), code:bash (npx prisma migrate dev --name growth_plan_funnel_with_gbp)
+
+### Community 180 - "Community 180"
+Cohesion: 0.67
+Nodes (3): B.5 Hermes Provider Config, code:yaml (providers:), code:bash (GEMINI_API_KEY=)
+
+### Community 191 - "Community 191"
+Cohesion: 0.67
+Nodes (3): code:block13 (Failed to add route: An A, AAAA, or CNAME record with that h), code:bash (cloudflared tunnel route dns <TUNNEL_NAME> <HOSTNAME>), Error: DNS record already exists (cloudflared tunnel route)
+
+### Community 194 - "Community 194"
+Cohesion: 0.67
+Nodes (3): code:css (.vf-char-mask { display: inline-block; overflow: hidden; ver), code:tsx ("use client";), Primitive 02 — Letter-by-letter rise on H2s
+
+### Community 195 - "Community 195"
+Cohesion: 0.67
+Nodes (3): code:tsx (export default function Marquee({ children, speed = 22, vari), code:css (.vf-marquee { width: 100%; overflow: hidden; mask-image: lin), Primitive 03 — Marquee (two flavors)
+
+### Community 196 - "Community 196"
+Cohesion: 0.67
+Nodes (3): code:tsx (const pillars = [), code:css (.vf-pillars { display: flex; gap: 16px; height: 520px; }), Primitive 07 — 3-pillar hover-expand (restructure ServicesSection)
+
+### Community 197 - "Community 197"
+Cohesion: 0.67
+Nodes (3): code:css (.vf-char-mask { display: inline-block; overflow: hidden; ver), code:tsx ("use client";), Primitive 02 — Letter-by-letter rise on H2s
+
+### Community 198 - "Community 198"
+Cohesion: 0.67
+Nodes (3): code:tsx (export default function Marquee({ children, speed = 22, vari), code:css (.vf-marquee { width: 100%; overflow: hidden; mask-image: lin), Primitive 03 — Marquee (two flavors)
+
+### Community 199 - "Community 199"
+Cohesion: 0.67
+Nodes (3): code:tsx (const pillars = [), code:css (.vf-pillars { display: flex; gap: 16px; height: 520px; }), Primitive 07 — 3-pillar hover-expand (restructure ServicesSection)
+
 ## Knowledge Gaps
-- **797 isolated node(s):** `config`, `__filename`, `__dirname`, `compat`, `eslintConfig` (+792 more)
+- **1360 isolated node(s):** `blocks`, `people`, `projects`, `topics`, `name` (+1355 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **34 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Customer` connect `Community 1` to `Community 0`, `Community 26`, `Community 29`?**
-  _High betweenness centrality (0.034) - this node is a cross-community bridge._
+- **Why does `Customer` connect `Community 1` to `Community 0`, `Community 26`, `Community 43`, `Community 36`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **Why does `AgencySplitLayout()` connect `Community 3` to `Community 13`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **What connects `config`, `__filename`, `__dirname` to the rest of the system?**
-  _797 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **What connects `blocks`, `people`, `projects` to the rest of the system?**
+  _1360 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.02 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
