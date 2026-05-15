@@ -45,3 +45,8 @@ next-env.d.ts
 # MemPalace per-project files (issue #185)
 mempalace.yaml
 entities.json
+*.backup
+__pycache__/
+*.pyc
+*.pyo
+.claude/fix-journal.jsonl

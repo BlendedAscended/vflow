@@ -299,6 +299,373 @@ Hard stops, no exceptions:
 
 ---
 
+<!-- universal -->
+
+## Who I Am
+
+**Name:** San Ghotra  
+**Company:** VerbaFlow LLC (founder)  
+**Role:** Full-stack builder — AI agents, browser extensions, healthcare tech, community platforms  
+**Focus:** Building AI-augmented tools that compound in value over time  
+**Style:** Direct, no fluff, terminal-first, ship fast, automate ruthlessly  
+
+**Goals 2026:**
+1. Ship Galaxy multi-agent platform as a product
+2. Launch PriorZap denial-prevention in healthcare (real revenue)
+3. Complete all active client projects (MLLC, Sanctuary, Aqwa)
+
+---
+
+---
+
+## Current Projects (16 active)
+
+### High Priority
+| Project | What | Status |
+|---------|------|--------|
+| [[Samurai]] | Browser extension + Discord bot — vision analysis, MCP server | Building |
+| [[Galaxy]] | Multi-agent AI platform — OpenClaw, n8n, Prometheus | Building |
+| [[PriorZap]] | Real-time healthcare denial prevention at point of care | Building |
+| [[VerbaFlow-2.0]] | Company website — Next.js 15, Sanity, Spline 3D | Building |
+| [[MLLC]] | Nonprofit foundation — WordPress + Preact admin portal | Phase 5 |
+
+### Medium Priority
+[[RT]], [[Refree]], [[Sanctuary]], [[Aqwa]], [[Galaxy-Products]], [[Jack]], [[Gibby]], [[Zenith]], [[TrustOneServices]]
+
+### Low Priority
+[[Galaxy-Personal]], [[RalphFree]]
+
+**Currently stuck on:** Multi-agent concurrency control across tools.  
+**Next milestone:** Galaxy agent lifecycle completion; Samurai extension MVP.
+
+---
+
+---
+
+## How This Vault Works
+
+```
+Vault Root
+├── CLAUDE.md          ← THIS FILE — read first every session
+├── Dashboard.md       ← Navigation hub
+├── Inbox/             ← Raw captures (articles, tweets, voice notes, quick saves)
+├── Notes/             ← Processed content (articles, highlights, research)
+├── Ideas/             ← My own thinking, observations, voice note transcripts
+├── Projects/          ← Active work — one note per project
+├── Knowledge/         ← Evergreen concepts, people, tools, processes
+├── Resources/         ← External references (articles, videos, books, papers)
+├── Daily/             ← Daily notes (YYYY-MM-DD.md)
+├── Queue/             ← Task files for agent processing
+├── Generated/         ← Agent outputs, operations log
+├── Outputs/           ← AI-generated content (LLM exports, charts, diagrams)
+├── Attachments/       ← Images, PDFs, media files
+├── System/            ← Schemas, templates reference
+├── Templates/         ← Note templates
+└── Archive/           ← Completed/deprecated, Notion export raw
+```
+
+---
+
+---
+
+## What I Want From AI Tools
+
+1. **Surface connections I haven't seen.** Find links between projects, ideas, and notes.
+2. **Challenge my assumptions.** Don't agree with me — find the gap in my thinking.
+3. **When I ask what to focus on** — answer from vault context, not generically.
+4. **Flag contradictions.** If something I saved earlier contradicts something new, call it out.
+5. **Be concise.** No preamble. No fluff. Direct answers. Tables over paragraphs.
+6. **Save durable insights.** Update this vault. Compound the knowledge.
+
+---
+
+---
+
+## Behavioral Contract — 12 Rules
+
+> Each rule prevents a specific observed failure mode. Source: Forrest Chang's 6-week, 30-codebase study built on Karpathy's January 2026 thread. Compliance holds ~76% for 12 rules; past 14 rules drops to 52%.
+> **Any rule that hasn't prevented a real failure in 4 weeks gets dropped.** This is a living contract, not a museum.
+
+### Before Writing Code
+| # | Rule | Prevents |
+|---|------|----------|
+| R1 | **State assumptions explicitly.** If uncertain, ask. Stop when confused. Name what's unclear. | Silent wrong assumptions |
+| R2 | **Read before writing.** Before adding code, read exports, callers, shared utilities. | Code conflicts 30 lines away |
+| R3 | **Minimum code that solves the problem.** Nothing speculative. No abstractions for single-use code. Would a senior engineer call it overcomplicated? Simplify. | Over-engineering |
+
+### While Writing Code
+| # | Rule | Prevents |
+|---|------|----------|
+| R4 | **Touch only what you must.** Don't refactor adjacent code. Match existing style. Clean up only your own mess. | Orthogonal damage |
+| R5 | **Model only for judgment calls.** Use for: classification, drafting, summarization. NOT for: routing, retries, deterministic transforms. If code can answer, code answers. | Flaky AI-driven business logic |
+| R6 | **Match conventions, even if you disagree.** snake_case → snake_case. class components → class components. If you think the convention is harmful, surface it — don't fork silently. | Convention drift across 16 projects |
+| R7 | **Surface conflicts, don't average them.** If two patterns contradict, pick one (more recent/tested). Explain why. Flag the other for cleanup. | Incoherent blended code |
+
+### Verifying Work
+| # | Rule | Prevents |
+|---|------|----------|
+| R8 | **Define success, then iterate.** Don't follow steps. Define what done looks like and loop until verified. | Aimless iteration |
+| R9 | **Tests verify intent, not just behavior.** A test that can't fail when business logic changes is wrong. | Shallow tests passing while production breaks |
+| R10 | **Fail loud.** "Completed" is wrong if anything was skipped silently. "Tests pass" is wrong if any were skipped. Default to surfacing uncertainty, not hiding it. | Silent failures compounding across 7 tools |
+
+### Session Management
+| # | Rule | Prevents |
+|---|------|----------|
+| R11 | **Hard token budgets.** Per-task: 4,000 tokens. Per-session: 30,000 tokens. Summarize and start fresh when approaching the limit. Surface the breach. | Agent spirals, 90-minute loops |
+| R12 | **Checkpoint every significant step.** Summarize what was done, what's verified, what's left. Don't continue from a state you can't describe back. If you lose track, stop and restate. | Multi-step refactors losing state |
+
+### Exceptions
+- **Prototypes / spikes:** R3 and R9 are relaxed — speculative code and shallow tests are acceptable.
+- **Single-file scripts:** R2, R4, and R10 are relaxed.
+- **Trivial tasks:** R1 and R12 are relaxed.
+
+### Rule Expiration — 4-Week Auto-Prune
+After each Weekly Synthesis (Monday 8am), Hermes reviews the 12 rules against the vault's work log:
+- **If a rule prevented zero real failures in 4 weeks** → flag for removal.
+- **If a new failure mode appears** → propose a new rule.
+- Target: stay at 10-14 rules. Add one → drop one.
+- **Failure tracking:** `Knowledge/rules-fired.md` — `YYYY-MM-DD | R# | what the rule prevented`.
+
+---
+
+<!-- universal -->
+
+## Formatting Hard Stops
+
+These apply to ALL output across ALL tools. No exceptions.
+
+- No em dashes. Restructure the sentence.
+- No hyphens in compound modifiers (write "real time" not "real-time").
+- No filler adverbs: "really", "truly", "incredibly", "genuinely".
+- No bullet lists in final deliverables (emails, letters, pitch scripts) unless explicitly requested.
+- No preamble before a deliverable. Output first.
+- No post-summary after a deliverable. End at the last line.
+- One clarifying question max per response.
+- Active voice in all operational and instructional writing.
+- End every response with a concrete next step or ask. Never end with "let me know if you need anything."
+
+---
+
+---
+
+## Safety Rules — Always Apply
+
+- Never fabricate facts, IDs, dates, credentials, metrics, or environment behavior.
+- Preserve schema integrity and relational integrity.
+- Prefer native APIs over UI automation.
+- Keep outputs implementation-oriented. No filler.
+- Apply only rules relevant to the task. No scope bleed.
+- Never commit secrets (`.env`, `credentials.json`, API keys).
+- Never auto-resolve merge conflict markers. Stop and ask.
+
+---
+
+---
+
+## Agent Write Rules
+
+- Write to vault `Inbox/` only unless explicitly told to write elsewhere.
+- When writing to `Knowledge/`, ensure the note is evergreen (not time-bound).
+- When updating `Projects/`, add a timestamp line: `Last updated: YYYY-MM-DD`.
+- Never overwrite vault content without reading it first.
+- When exporting to `Outputs/`, include source context (which tool, which session, which prompt).
+
+---
+
+---
+
+## Concurrent Agent Protocol (ALWAYS ACTIVE — AUTOMATIC)
+
+San runs multiple AI tools simultaneously: OpenCode, Claude Code, Codex, Hermes, VS Code Copilot, Gemini CLI, OpenClaw. Every session MUST follow the lock protocol before editing any file.
+
+**Automatic behavior:** If the working directory contains a `.git` folder or `AGENTS.md`, this is a project repo. You MUST create `WORKING.lock` before making ANY edit. No exceptions.
+
+**Before any edit:**
+1. Check `{project_root}/WORKING.lock`. If it exists and is <30 min old, another agent is active. Ask San before proceeding.
+2. Read `{project_root}/AGENT_REGISTRY.md` to see what other agents are doing.
+
+**While working:**
+- Write your own `WORKING.lock` with your target files and expiry time.
+- Append your task to `AGENT_REGISTRY.md` with status `in_progress`.
+
+**When done:**
+- Delete `WORKING.lock`.
+- Mark your `AGENT_REGISTRY.md` entry as `completed`.
+
+**Exclusive locks (no shared editing):** `functions.php`, `app.js`, `package.json`, `.htaccess`
+**Soft locks (read OK, write waits):** `AdminPortal.jsx`, any file >1000 lines.
+
+### Git Hook Enforcement (Cross-Tool Protection)
+
+Hooks to implement as git hooks:
+- `pre-commit`: Check for `WORKING.lock` before commits. Check for secrets (`.env`, `credentials.json`, API keys). Run lint/typecheck if configured.
+- `pre-push`: Verify no secrets in staged files. Verify no merge conflict markers.
+- `commit-msg`: Enforce conventional commit format if project uses it.
+
+Each active repo gets hooks via `setup.sh hooks`. Hook scripts in `ai-config-transfer/hooks/`, symlinked into `.git/hooks/`.
+
+---
+
+---
+
+## Cross-Tool Architecture
+
+| Tool | Lane | Model |
+|---|---|---|
+| OpenCode | Daily coding | Kimi K2.6 (Go), MiniMax M2.7 fallback |
+| Claude Code | Hard refactors, escalation | Opus 4.6 (escalation only) |
+| Codex | Extended sessions, sandboxing | OpenAI models (subscription) |
+| VS Code Copilot | Inline assist | GitHub Copilot |
+| Gemini CLI | Supplementary, large context | Gemini models |
+| Hermes | Knowledge compounding, cron | DeepSeek V3 default, GLM 5.1 cached |
+| OpenClaw | Orchestration, HITL gate | Qwen 3.6 Plus, GLM 5.1 |
+
+Escalation: OpenCode Go → OpenCode Zen (pay-per-use) → Claude Code (Opus 4.6) → Codex.
+
+### Config Sync (Critical)
+
+All 7 tools share configs via symlinks. Single source of truth paths:
+- **Instructions:** `~/Documents/Obsidian Vault/CLAUDE.md` (this file) propagated to all tools
+- **Skills:** `~/.config/opencode/skills/` → symlinked to `~/.claude/skills/`, `~/.hermes/skills/*`, `~/.codex/skills/*`
+- **MCP servers:** Must be added to ALL 3 configs: `opencode.json`, `~/.claude/settings.json`, `~/.hermes/config.yaml`
+- **Git hooks:** All repos symlink `.git/hooks/` → `~/Desktop/Project26/ai-config-transfer/hooks/git/`
+- **Cross-tool rules:** `~/.claude/context/cross-tool-rules.md` — changelog, WORKING.lock, formatting, verification, git safety
+
+When updating this file, the sync script (`~/.hermes/scripts/sync-rules.py`) propagates changes to all derived files. If you edit a derived file directly, the script merges NEW content back into this file.
+
+---
+
+---
+
+## Changelog Rule
+
+After any code change, feature, bug fix, or architecture update, you MUST:
+1. Ensure `CHANGES.md` exists in the project root
+2. Add a new entry at the very top using this format:
+
+```
+
+---
+
+## YYYY-MM-DD HH:MM (UTC) — one-line summary
+
+**Changes:**
+- What changed
+- Key files modified / created / deleted
+- Breaking changes, migration notes, client impact
+```
+
+Applies to ALL tools (OpenCode, Claude Code, Hermes, Codex, Copilot, Gemini). No exceptions.
+
+---
+
+<!-- universal -->
+
+## Verification (Auto-Run After Edits)
+
+| Trigger | Automatic Action |
+|---|---|
+| Edit `.php` file | Run `php -l` on the file before declaring done |
+| Edit `.jsx`/`.js` file | Check bracket balance `()[]{}` on modified files |
+| Edit JS/JSX in Vite project | Run `npm run build` before declaring done |
+| Edit component with `return` statement | Verify it does not return `null` without placeholder |
+
+### State Safety (Auto-Check During Edits)
+
+| Trigger | Automatic Action |
+|---|---|
+| Edit auth state file | Scan for new `useState` additions near auth logic; flag fragmentation |
+| Edit save/mutation flow | Verify success callback is NOT inside catch block |
+| Edit settings mutation | Verify hash/token gets updated after mutation |
+| Add new REST endpoint | Verify permission callback is strict (not `__return_true`) |
+
+### Convention Enforcement (Auto-Check)
+
+| Trigger | Automatic Action |
+|---|---|
+| Edit JSX in Preact project | Verify `class` not `className`, `h()` not `React.createElement` |
+| Add new route | Verify route is wrapped in error boundary |
+| Add user-visible text | Check if bilingual/i18n variant needed |
+| Add image/media field | Verify it uses project's asset resolver function |
+
+### Documentation (Auto-Maintain)
+
+| Trigger | Automatic Action |
+|---|---|
+| Any user-facing change | Append entry to `CHANGES.md` before declaring done |
+| Remove dead code/fields | Update field map/reference docs if they exist |
+| Fix a bug from known-issues list | Mark issue as resolved with date |
+
+### Git Safety (Auto-Guard)
+
+| Trigger | Automatic Action |
+|---|---|
+| Uncommitted changes at session start | Warn user and suggest stash or commit |
+| Edit creates merge conflict markers | Stop immediately and ask user |
+| About to `git commit` | Verify no secrets (`.env`, credentials) are staged |
+
+---
+
+---
+
+## Knowledge & Context
+
+- Vault: `~/Documents/Obsidian Vault` (`OBSIDIAN_VAULT_PATH`)
+- Read `CLAUDE.md` at vault root before vault operations
+- Context files: `~/.claude/context/` (projects.md, engineering.md, pipelines.md, business.md)
+- All tools read/write vault for cross-tool persistence
+- Use absolute paths. `[[WikiLinks]]` for connectivity
+
+---
+
+<!-- universal -->
+
+## Integration Points
+
+- **Hermes Daily Brief:** Weekday 6am → `Inbox/`
+- **Hermes Weekly Synthesis:** Monday 8am → `Outputs/LLM/`
+- **Cross-tool context:** `~/.claude/context/` — project registry, engineering, pipelines, business
+- **Skill files:** `~/.config/opencode/skills/` — symlinked to `~/.claude/skills/`, `~/.hermes/skills/*`, `~/.codex/skills/*`
+- **MCP servers:** mempalace, fetch, filesystem, git, time — shared across OpenCode, Claude Code, Hermes
+
+---
+
+<!-- universal -->
+
+## Merged Learnings from Projects
+
+### Workflow & Automation Rules
+
+- **Plan before executing.** Produce architecture docs, PRDs, and implementation plans before writing code. If San says "just plan don't execute," produce the plan only.
+- **Discord is the universal HITL gate.** Every automated pipeline touching external output routes through Discord for approval before execution.
+- **Google Sheets is the boundary layer between CLI tools and n8n.** CLI writes rows. n8n reads rows. They communicate exclusively through the sheet.
+- **Always implement DLQ / Circuit Breaker patterns** for failed data pipeline jobs.
+- **Always implement a "Fast Test Mode"** (mock data bypassing LLM or external API) during feature development.
+- **Always create a detailed Implementation Plan** offering multiple prototype options before starting major UI builds.
+- **Do not interrupt long-running processes** (like AI generations) just to check logs. Observe non-destructively.
+- **Immediate Credential Rotation** if `.env` is accidentally committed: rewrite git history, push forcefully, rotate all affected API keys.
+- **Docker Container Syncing:** Always rebuild the container (`docker compose up --build -d`) rather than assuming changes take effect locally.
+- **n8n Debuggability:** Use "Code in JavaScript" nodes (with `$http.request`) for MCP calls. Guarantees full payload visibility.
+- **n8n Connectivity:** Use native HTTP Request nodes instead of custom Python inside Code nodes. The Python sandbox is restrictive.
+- **The Content Factory Pipeline:** FETCH (source data) → GENERATE (content packaging) → SAVE (to target DB or Notion).
+- **Ensure safe retries** with idempotency keys.
+- **Prioritize quick wins** to maintain momentum. Ship velocity over perfection.
+- **Close open loops before opening new ones.**
+
+### For Engineering Work
+
+Apply `docs/ai/CODE-STANDARDS.md`. That file is the source of truth for:
+- Backend and frontend standards
+- Type safety
+- Parsing and schema safety
+- Async and integration patterns
+- AI structured output conventions
+- Maintenance and self-healing standards review
+
+---
+
+---
+
 ## Maintenance
 
 **Engineering standards:** use the maintenance prompt in `AGENT.md` and update `docs/ai/CODE-STANDARDS.md` conservatively.

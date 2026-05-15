@@ -94,6 +94,7 @@ interface GrowthPlan {
     recommended_services: string[];
     estimated_investment: string;
     wireframe_url?: string;
+    wireframe_html?: string;
     tech_stack?: { layer: string; tools: string[] }[];
 }
 
@@ -303,6 +304,7 @@ export default function GrowthPlanWizard() {
     const [isGenerating, setIsGenerating] = useState(false);
     const [generatedPlan, setGeneratedPlan] = useState<GrowthPlan | null>(null);
     const [isPaid, setIsPaid] = useState(false);
+    const [isGeneratingWireframe, setIsGeneratingWireframe] = useState(false);
 
     useEffect(() => {
         const stored = localStorage.getItem('vflow_growth_plan_partial');
@@ -320,6 +322,34 @@ export default function GrowthPlanWizard() {
             }
         }
     }, []);
+
+    const generateWireframe = async () => {
+        setIsGeneratingWireframe(true);
+        try {
+            const res = await fetch('/api/wireframe/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    industry: data.industry,
+                    subNiches: data.subNiches,
+                    businessName: data.name || 'Your Business',
+                    executiveSummary: generatedPlan?.executive_summary || '',
+                    phases: generatedPlan?.phases || [],
+                    services: generatedPlan?.recommended_services || [],
+                }),
+            });
+            if (!res.ok) throw new Error('Wireframe generation failed');
+            const result = await res.json();
+            if (generatedPlan) {
+                setGeneratedPlan({ ...generatedPlan, wireframe_url: result.wireframe_url, wireframe_html: result.html });
+            }
+        } catch (err) {
+            console.error('Wireframe error:', err);
+            alert('Wireframe generation failed. Please try again.');
+        } finally {
+            setIsGeneratingWireframe(false);
+        }
+    };
 
     const totalSteps = 8;
     const selectedIndustry = useMemo(() => getIndustry(data.industry), [data.industry]);
@@ -737,11 +767,11 @@ export default function GrowthPlanWizard() {
 
                                 <div className="space-y-3 pt-2">
                                     <button
-                                        onClick={() => { setIsPaid(true); startCheckout(); }}
+                                        onClick={() => { setIsPaid(true); handleNext(); }}
                                         disabled={!data.name || !data.email || !data.timeline}
                                         className="w-full bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-8 py-4 rounded-full disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-glow transition-all"
                                     >
-                                        Unlock Full Plan — $19
+                                        Generate Full Plan
                                     </button>
                                     <button
                                         onClick={() => { setIsPaid(false); handleNext(); }}
@@ -751,7 +781,7 @@ export default function GrowthPlanWizard() {
                                         Get the Free Preview First
                                     </button>
                                     <p className="text-xs text-[var(--muted-foreground)] text-center">
-                                        $19 unlocks the wireframe (Gemini) + tech-stack diagram (OpenClaw agents). Refundable in 24h.
+                                        Test mode: payment bypassed. Wireframe delivery via Hermes pipeline.
                                     </p>
                                 </div>
                             </div>
@@ -794,17 +824,41 @@ export default function GrowthPlanWizard() {
                                             </p>
                                         </div>
 
-                                        {isPaid && generatedPlan.wireframe_url && (
-                                            <div className="bg-[var(--card-background)] p-6 rounded-xl border border-[var(--border)]">
-                                                <h3 className="text-xl font-bold text-[var(--accent)] mb-3 flex items-center gap-2">
-                                                    <span>🖼️</span> Wireframe
-                                                </h3>
-                                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                <img src={generatedPlan.wireframe_url} alt="Generated wireframe" className="w-full rounded-lg border border-[var(--border)]" />
-                                            </div>
-                                        )}
+                                        {/* Wireframe Section */}
+                                        <div className="bg-[var(--card-background)] p-6 rounded-xl border border-[var(--border)]">
+                                            <h3 className="text-xl font-bold text-[var(--accent)] mb-3 flex items-center gap-2">
+                                                <span>🖼️</span> Wireframe
+                                            </h3>
+                                            {generatedPlan.wireframe_url ? (
+                                                <iframe
+                                                    srcDoc={generatedPlan.wireframe_html || atob(generatedPlan.wireframe_url.split(',')[1] || '')}
+                                                    title="Wireframe Preview"
+                                                    className="w-full rounded-lg border border-[var(--border)]"
+                                                    style={{ height: '600px', border: 'none' }}
+                                                    sandbox="allow-scripts"
+                                                />
+                                            ) : (
+                                                <div className="space-y-4">
+                                                    <p className="text-[var(--text-secondary)]">Generate a custom wireframe for your business based on your growth plan.</p>
+                                                    <button
+                                                        onClick={generateWireframe}
+                                                        disabled={isGeneratingWireframe}
+                                                        className="bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-6 py-3 rounded-full hover:shadow-glow transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                                    >
+                                                        {isGeneratingWireframe ? (
+                                                            <>
+                                                                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                                                Generating Wireframe...
+                                                            </>
+                                                        ) : (
+                                                            <>🎨 Generate Free Wireframe</>
+                                                        )}
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </div>
 
-                                        {isPaid && generatedPlan.tech_stack && generatedPlan.tech_stack.length > 0 && (
+                                        {generatedPlan.tech_stack && generatedPlan.tech_stack.length > 0 && (
                                             <div className="bg-[var(--card-background)] p-6 rounded-xl border border-[var(--border)]">
                                                 <h3 className="text-xl font-bold text-[var(--accent)] mb-3 flex items-center gap-2">
                                                     <span>🧩</span> Recommended Tech Stack
