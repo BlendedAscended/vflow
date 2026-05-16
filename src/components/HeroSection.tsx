@@ -262,49 +262,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Spatial Bento */}
-          <div className="bento-grid animate-slide-in-right parallax-layer" data-depth="1">
-            <div className="bento-tile bento-tile--raised mouse-light bento-span-12 live-tile">
-              <div className="live-tile__status">
-                <span className="live-tile__dot" />
-                Plans in flight
-              </div>
-              <div className="live-tile__metric">4,820</div>
-              <div className="live-tile__delta">+12% this week</div>
-              <div className="hairline-spark" aria-hidden="true" />
-            </div>
-
-            <div className="bento-tile bento-span-6 live-tile">
-              <div className="live-tile__status">
-                <span className="live-tile__dot" />
-                Active agents
-              </div>
-              <div className="live-tile__metric">6</div>
-              <div className="live-tile__list" aria-label="Active agent list">
-                {['Architect', 'Designer', 'Backend', 'Validator', 'Marketing', 'Booking'].map((agent) => (
-                  <span key={agent} className="live-tile__chip">{agent}</span>
-                ))}
-              </div>
-            </div>
-
-            <div className="bento-tile bento-tile--floating mouse-light bento-span-6 live-tile">
-              <div className="live-tile__status">
-                <span className="live-tile__dot" />
-                Latest wireframe
-              </div>
-              <div className="rounded-2xl border border-[var(--ghost-border)] bg-[var(--surface-container-lowest)]/70 p-3">
-                <div className="grid grid-cols-5 gap-2">
-                  <div className="col-span-3 h-16 rounded-xl bg-[var(--accent-mint)]/15" />
-                  <div className="col-span-2 space-y-2">
-                    <div className="h-3 rounded-full bg-[var(--text-primary)]/18" />
-                    <div className="h-3 rounded-full bg-[var(--text-primary)]/10" />
-                    <div className="h-8 rounded-xl bg-[var(--accent-teal)]/18" />
-                  </div>
-                </div>
-              </div>
-              <div className="live-tile__delta">Shipped 18 minutes ago</div>
-            </div>
-          </div>
+          {/* Right Column - removed glass cards */}
           </div>
         </div>
       </div>
