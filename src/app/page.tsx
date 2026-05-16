@@ -11,7 +11,7 @@ import PricingSection from '../components/PricingSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import FAQSection from '../components/FAQSection';
 import ContactSection from '../components/ContactSection';
-
+import VolumetricBeam from '../components/VolumetricBeam';
 import Footer from '../components/Footer';
 import { client } from '../sanity/lib/client';
 
@@ -66,12 +66,22 @@ export default async function Home() {
 
   return (
     <LocationProvider>
-      <div className="min-h-screen">
+      <div className="min-h-screen relative">
         <ThemeToggle />
         <Navigation />
 
         {/* Hero */}
         <HeroSection />
+
+        {/* Waterfall beam — extends 25vh into Services, above circuit/cards, below headings */}
+        <VolumetricBeam
+          hue="mint"
+          intensity={1.4}
+          bottomSpread={1.4}
+          lavaOverlap={0.55}
+          className="absolute top-0 left-0 w-full pointer-events-none"
+          style={{ zIndex: 12 }}
+        />
 
         {/* Services — 3-pillar layout */}
         <ServicesSection services={services} />

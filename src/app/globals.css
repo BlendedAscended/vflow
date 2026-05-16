@@ -1258,7 +1258,7 @@ html.theme-dark .vf-trust-bar__pill {
 .vf-hero-scene {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
+  overflow: visible;
   isolation: isolate;
   background:
     radial-gradient(ellipse 60% 50% at 50% 0%, rgba(28,77,138,.32), transparent 70%),
