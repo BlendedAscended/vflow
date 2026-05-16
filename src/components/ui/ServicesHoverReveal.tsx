@@ -281,19 +281,6 @@ export default function ServicesHoverReveal({
       }
     };
 
-    // ── Event handlers ─────────────────────────────────────────────
-    const onMove = (e: MouseEvent) => {
-      const r = wrap.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width;
-      const y = 1.0 - (e.clientY - r.top) / r.height;
-      targetMouse.set(x, y);
-      targetHover = 1;
-    };
-
-    const onLeave = () => {
-      targetHover = 0;
-    };
-
     const resize = () => {
       const r = wrap.getBoundingClientRect();
       renderer.setSize(r.width, r.height, false);
@@ -303,6 +290,7 @@ export default function ServicesHoverReveal({
     };
 
     let lastTime = performance.now();
+    let hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
     const loop = () => {
       raf = requestAnimationFrame(loop);
@@ -317,23 +305,62 @@ export default function ServicesHoverReveal({
       mat.uniforms.uHover.value = smoothHover;
       mat.uniforms.uTime.value = now / 1000;
 
-      updatePacMan(dt);
+      // Pac-Man: only visible when hovering
+      if (pac.active) {
+        if (smoothHover < 0.1) {
+          // Hide Pac-Man when not hovering
+          pac.active = false;
+          mat.uniforms.uPacManActive.value = 0;
+          if (pacManRef.current) {
+            pacManRef.current.style.opacity = "0";
+          }
+        } else {
+          updatePacMan(dt);
+        }
+      }
 
       renderer.render(scene, camera);
     };
 
     resize();
-    spawnPacMan();
     const host = wrap.parentElement ?? wrap;
-    host.addEventListener("mousemove", onMove);
-    host.addEventListener("mouseleave", onLeave);
+
+    // Modified hover handlers: spawn Pac-Man after 0.2s hover
+    const onMoveWithPac = (e: MouseEvent) => {
+      const r = wrap.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = 1.0 - (e.clientY - r.top) / r.height;
+      targetMouse.set(x, y);
+      targetHover = 1;
+
+      // Start hover timer if not already hovering
+      if (!hoverTimer && !pac.active) {
+        hoverTimer = setTimeout(() => {
+          spawnPacMan();
+          hoverTimer = null;
+        }, 200); // 0.2s delay
+      }
+    };
+
+    const onLeaveWithPac = () => {
+      targetHover = 0;
+      // Cancel hover timer if still pending
+      if (hoverTimer) {
+        clearTimeout(hoverTimer);
+        hoverTimer = null;
+      }
+    };
+
+    host.addEventListener("mousemove", onMoveWithPac);
+    host.addEventListener("mouseleave", onLeaveWithPac);
     window.addEventListener("resize", resize);
     raf = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(raf);
-      host.removeEventListener("mousemove", onMove);
-      host.removeEventListener("mouseleave", onLeave);
+      if (hoverTimer) clearTimeout(hoverTimer);
+      host.removeEventListener("mousemove", onMoveWithPac);
+      host.removeEventListener("mouseleave", onLeaveWithPac);
       window.removeEventListener("resize", resize);
       renderer.dispose();
     };

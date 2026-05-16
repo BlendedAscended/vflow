@@ -210,7 +210,8 @@ const HeroSection = () => {
       <div className="vf-meeting-light" ref={meetLightRef} />
 
       {/* ═══ LAYER 5 — Existing UI (topmost, interactive) ═══ */}
-      <div className="vf-hero-overlay">
+      {/* Hidden: overlay card covering robot hand — revisit later */}
+      <div className="vf-hero-overlay hidden">
         {/* Background decoration orbs from original hero */}
         <div className="absolute top-10 right-10 w-72 h-72 bg-[var(--accent)]/20 rounded-full blur-3xl animate-float pointer-events-none" />
         <div className="absolute bottom-10 left-10 w-96 h-96 bg-[var(--accent)]/15 rounded-full blur-3xl animate-pulse-slow pointer-events-none" />

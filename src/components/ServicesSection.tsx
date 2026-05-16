@@ -766,8 +766,9 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
         </div>
       </div>
 
-      {/* DNA Triptych: three holographic 3D helices */}
+      {/* DNA Triptych: parked — revisit when ready for 3D helices
       <DNATriptych />
+      */}
 
       {/* Content — below waterfall beam */}
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
