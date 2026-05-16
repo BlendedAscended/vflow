@@ -37,7 +37,7 @@ export default function VolumetricBeam({
   };
 
   const MUTED: Record<string, { glow: number[]; deep: number[] }> = {
-    mint: { glow: [200, 235, 205], deep: [100, 170, 120] },
+    mint: { glow: [34, 46, 60], deep: [24, 32, 42] },
     cyan: { glow: [160, 220, 255], deep: [60, 130, 180] },
     violet: { glow: [200, 180, 255], deep: [110, 80, 190] },
     amber: { glow: [255, 220, 130], deep: [200, 140, 60] },
@@ -126,7 +126,7 @@ export default function VolumetricBeam({
         let fadeT = 0;
         if (y > oh * heroRatio) {
           fadeT = (y - oh * heroRatio) / (oh * (1 - heroRatio));
-          lavaFade = 1.0 - Math.pow(fadeT, 1.8);
+          lavaFade = Math.pow(1.0 - fadeT, 2.4);
         }
         if (lavaFade < 0.005) continue;
 
@@ -136,10 +136,10 @@ export default function VolumetricBeam({
           widthFrac = 0.08 + (t / SHAFT_END) * 0.12; // 0.08 → 0.20
         } else if (t < PLUME_END) {
           const plumeT = (t - SHAFT_END) / (PLUME_END - SHAFT_END);
-          widthFrac = 0.20 + Math.pow(plumeT, 2) * 0.12; // 0.20 → 0.32
+          widthFrac = 0.20 + Math.pow(plumeT, 2) * 0.096; // 0.20 → 0.296
         } else {
           const megaT = (t - PLUME_END) / (1.0 - PLUME_END);
-          widthFrac = 0.32 + Math.pow(megaT, 1.4) * 0.08; // 0.32 → 0.40
+          widthFrac = 0.296 + Math.pow(megaT, 1.4) * 0.064; // 0.296 → 0.36
         }
 
         const halfW = (ow * bottomSpread * widthFrac) / 2 + 1.2;
@@ -227,7 +227,7 @@ export default function VolumetricBeam({
       coreG.addColorStop(heroRatio * 0.4, `rgba(${core[0]},${core[1]},${core[2]},${coreOp})`);
       coreG.addColorStop(heroRatio * 0.8, `rgba(${core[0]},${core[1]},${core[2]},${coreOp * 0.85})`);
       coreG.addColorStop(heroRatio, `rgba(${glow[0]},${glow[1]},${glow[2]},${coreOp * 0.35})`);
-      coreG.addColorStop(Math.min(heroRatio + 0.15, 0.98), `rgba(${glow[0]},${glow[1]},${glow[2]},${coreOp * 0.05})`);
+      coreG.addColorStop(Math.min(heroRatio + 0.08, 0.98), `rgba(${glow[0]},${glow[1]},${glow[2]},${coreOp * 0.05})`);
       coreG.addColorStop(1.0, "rgba(0,0,0,0)");
       ctx.fillStyle = coreG;
       ctx.fillRect(W / 2 - coreW / 2, 0, coreW, H);
@@ -255,7 +255,7 @@ export default function VolumetricBeam({
       poolG.addColorStop(0.7, `rgba(${haze[0]},${haze[1]},${haze[2]},${poolIntensity * 0.25})`);
       poolG.addColorStop(1.0, "rgba(0,0,0,0)");
       ctx.fillStyle = poolG;
-      ctx.fillRect(0, H * heroRatio * 0.7, W, H * (1 - heroRatio) + H * heroRatio * 0.3);
+      ctx.fillRect(0, 0, W, H);
 
       ctx.globalCompositeOperation = "source-over";
       raf = requestAnimationFrame(render);

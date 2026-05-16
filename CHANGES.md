@@ -1,3 +1,43 @@
+## 2026-05-16 00:50 (UTC) — Volumetric beam: kill seam, color-grade overlap, slim plume
+
+**Changes:**
+- `src/components/VolumetricBeam.tsx`
+  - Fix 1: Landing pool fillRect now draws full canvas height (removed hard top-edge seam at heroRatio*0.7)
+  - Fix 2a: MUTED mint palette changed to RGB(34,46,60) matching --section-bg-2 so beam fades *into* Services bg
+  - Fix 2b: lavaFade curve steepened from pow(fadeT,1.8) to pow(1-fadeT,2.4) — overlap zone drops to near-zero alpha faster
+  - Fix 2c: Core line overlap band shortened from heroRatio+0.15 to heroRatio+0.08
+  - Fix 3: Plume delta reduced 20% (0.12→0.096), mega-cone delta reduced 20% (0.08→0.064). Peak width 0.40→0.36
+- No changes to page.tsx, globals.css, or bottomSpread
+
+## 2026-05-15 22:45 (UTC) — Pac-Man automated + wall bounce
+
+**Changes:**
+- `src/components/ui/ServicesHoverReveal.tsx`
+  - Pac-Man now auto-spawns immediately on mount (no hover delay)
+  - Removed hover-based spawn/despawn timers — always active
+  - Wall bounce: reverses direction when hitting section edges instead of clamping
+  - Grid intersections still trigger random direction changes, but no longer blocked by bounds
+  - Removed glow-radius visibility mask — Pac-Man is always visible when active
+  - Still passes naturally behind service cards (z-index below content layer)
+
+---
+
+## 2026-05-15 22:30 (UTC) — Services hover reveal fix + Pac-Man wanderer
+
+**Changes:**
+- Fixed `src/components/ui/ServicesHoverReveal.tsx` wrapper collapsing to 0 height: removed forced `relative` class so caller's `absolute inset-0` fills the section
+- Fixed hover listeners bound to wrapper (sibling of content): now attached to `host = wrap.parentElement` so mouse events fire over service cards and helix
+- Added Pac-Man character that wanders the 56 px circuit grid after 1 s hover:
+  - Spawns at cursor location, snaps to nearest grid intersection
+  - Moves at 84 px/sec with random direction changes at intersections
+  - Classic CSS clip-path chomping animation (0.25 s alternate)
+  - Only visible inside the glow radius (soft fade at edge)
+  - Naturally occludes behind service cards (z-index below content layer)
+  - Shader "eat" effect: temporarily clears green circuit lines within 18 px radius
+  - Despawns 2 s after mouseleave; respawns on re-hover
+
+---
+
 ## 2026-05-14 - Fix VolumetricBeam horizontal seam line
 
 **Changes:**
