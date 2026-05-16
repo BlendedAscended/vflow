@@ -299,15 +299,8 @@ export default function VolumetricBeam({
       ctx.fillStyle = poolG;
       ctx.fillRect(0, 0, W, H);
 
-      // (g) Ground streak — thin horizontal smear at the surface
-      const streakY = H * heroRatio;
-      const streakH = 60 + pulseSlow * 20;
-      const streakG = ctx.createLinearGradient(0, streakY - streakH / 2, 0, streakY + streakH / 2);
-      streakG.addColorStop(0.0, "rgba(0,0,0,0)");
-      streakG.addColorStop(0.5, `rgba(${glow[0]},${glow[1]},${glow[2]},${0.22 * intensity * (0.6 + landingBoost * 0.4)})`);
-      streakG.addColorStop(1.0, "rgba(0,0,0,0)");
-      ctx.fillStyle = streakG;
-      ctx.fillRect(0, streakY - streakH / 2, W, streakH);
+      // (g) Ground streak — REMOVED 2026-05-16 (read as ugly horizontal mint band against the Services bg)
+      // The vertical pool + lava-fade already convey the "landing" without a separate streak layer.
 
       ctx.globalCompositeOperation = "source-over";
       raf = requestAnimationFrame(render);

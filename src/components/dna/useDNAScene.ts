@@ -45,9 +45,10 @@ export function useDNAScene({ canvasRef, onHoverNode, enabled = true }: UseDNASc
     renderer.setClearColor(0x000000, 0);
     rendererRef.current = renderer;
 
-    // Scene
+    // Scene — no fog. FogExp2 with navy was painting a dark blob behind the
+    // helices and killing the holographic read. Without fog the emissive
+    // materials carry the depth cue on their own.
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x1a1a2e, ANIMATION.fogDensityStart);
     sceneRef.current = scene;
 
     // Camera
@@ -56,17 +57,23 @@ export function useDNAScene({ canvasRef, onHoverNode, enabled = true }: UseDNASc
     camera.lookAt(0, 0, 0);
     cameraRef.current = camera;
 
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+    // Lights — keep ambient low so emissive materials dominate (read as glow,
+    // not as lit plastic). Two coloured point lights add rim shading.
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.25);
     scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0xa5d6a7, 1.5, 20);
+    const pointLight = new THREE.PointLight(0xa5d6a7, 2.0, 25);
     pointLight.position.set(0, 3, 5);
     scene.add(pointLight);
 
-    const pointLight2 = new THREE.PointLight(0x66bb6a, 0.8, 15);
+    const pointLight2 = new THREE.PointLight(0x66bb6a, 1.0, 18);
     pointLight2.position.set(-3, -2, 4);
     scene.add(pointLight2);
+
+    // Rim light from behind for silhouette pop
+    const rimLight = new THREE.PointLight(0xffffff, 0.6, 20);
+    rimLight.position.set(0, 0, -6);
+    scene.add(rimLight);
 
     // Build helices
     const helices: BuiltHelix[] = [];
@@ -119,15 +126,7 @@ export function useDNAScene({ canvasRef, onHoverNode, enabled = true }: UseDNASc
       const delta = clockRef.current.getDelta();
       const elapsed = clockRef.current.getElapsedTime();
 
-      // Fog entry animation
-      if (scene.fog instanceof THREE.FogExp2 && elapsed < ANIMATION.fogDuration + 0.5) {
-        const fogT = Math.min(elapsed / ANIMATION.fogDuration, 1);
-        scene.fog.density = THREE.MathUtils.lerp(
-          ANIMATION.fogDensityStart,
-          ANIMATION.fogDensityEnd,
-          fogT,
-        );
-      }
+      // Fog entry animation removed — no fog in scene (see scene setup above).
 
       // Smooth speed transition for hover
       const targetSpeed = hoveredHelixRef.current >= 0 ? ANIMATION.hoverSpeed : ANIMATION.rotationSpeed;

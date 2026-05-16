@@ -9,17 +9,22 @@ import type { HelixVariation, HelixNode } from './variations';
 
 const _materialCache = new Map<string, THREE.Material>();
 
-function getBackboneMaterial(color: string): THREE.LineBasicMaterial {
+// Backbone — emissive standard so the tube glows. NOT LineBasicMaterial
+// (WebGL ignores linewidth on most platforms, lines render as 1px hairlines).
+function getBackboneMaterial(color: string): THREE.MeshStandardMaterial {
   const key = `backbone-${color}`;
   if (!_materialCache.has(key)) {
-    _materialCache.set(key, new THREE.LineBasicMaterial({
+    _materialCache.set(key, new THREE.MeshStandardMaterial({
       color,
+      emissive: color,
+      emissiveIntensity: 0.9,
+      metalness: 0.4,
+      roughness: 0.3,
       transparent: true,
-      opacity: 0.6,
-      linewidth: 1,
+      opacity: 0.85,
     }));
   }
-  return _materialCache.get(key) as THREE.LineBasicMaterial;
+  return _materialCache.get(key) as THREE.MeshStandardMaterial;
 }
 
 function getNodeMaterial(color: string, emissive: number): THREE.MeshStandardMaterial {
@@ -27,41 +32,31 @@ function getNodeMaterial(color: string, emissive: number): THREE.MeshStandardMat
   if (!_materialCache.has(key)) {
     _materialCache.set(key, new THREE.MeshStandardMaterial({
       color,
-      emissive,
-      emissiveIntensity: 0.8,
+      emissive: color,
+      emissiveIntensity: Math.max(emissive, 1.0),
       metalness: 0.3,
-      roughness: 0.4,
-      transparent: true,
-      opacity: 0.95,
+      roughness: 0.35,
+      transparent: false,
     }));
   }
   return _materialCache.get(key) as THREE.MeshStandardMaterial;
 }
 
+// Rungs — emissive standard, NOT physical/transmission. Transmission needs an
+// envMap to render as glass; without one it renders as nothing.
 function getRungMaterial(color: string, style: 'capsule' | 'glass'): THREE.Material {
   const key = `rung-${color}-${style}`;
   if (!_materialCache.has(key)) {
-    if (style === 'capsule') {
-      _materialCache.set(key, new THREE.MeshPhysicalMaterial({
-        color,
-        transparent: true,
-        opacity: 0.35,
-        transmission: 0.6,
-        thickness: 0.5,
-        roughness: 0.1,
-        metalness: 0.0,
-      }));
-    } else {
-      _materialCache.set(key, new THREE.MeshPhysicalMaterial({
-        color,
-        transparent: true,
-        opacity: 0.2,
-        transmission: 0.8,
-        thickness: 0.3,
-        roughness: 0.05,
-        metalness: 0.0,
-      }));
-    }
+    const isGlass = style === 'glass';
+    _materialCache.set(key, new THREE.MeshStandardMaterial({
+      color,
+      emissive: color,
+      emissiveIntensity: isGlass ? 0.5 : 0.7,
+      metalness: 0.2,
+      roughness: isGlass ? 0.15 : 0.3,
+      transparent: true,
+      opacity: isGlass ? 0.6 : 0.85,
+    }));
   }
   return _materialCache.get(key) as THREE.Material;
 }
@@ -74,12 +69,50 @@ function getOrbMaterial(color: string, opacity: number): THREE.MeshStandardMater
       transparent: true,
       opacity,
       emissive: color,
-      emissiveIntensity: 0.3,
-      metalness: 0.1,
-      roughness: 0.6,
+      emissiveIntensity: 0.7,
+      metalness: 0.2,
+      roughness: 0.4,
     }));
   }
   return _materialCache.get(key) as THREE.MeshStandardMaterial;
+}
+
+// Additive halo material — billboard sprite around each node so the emissive
+// reads as bloom even without a post-processing pass. Color tinted to the
+// helix accent. Uses a radial-falloff canvas texture generated once.
+let _haloTexture: THREE.Texture | null = null;
+function getHaloTexture(): THREE.Texture {
+  if (_haloTexture) return _haloTexture;
+  const size = 128;
+  const cvs = document.createElement('canvas');
+  cvs.width = size;
+  cvs.height = size;
+  const c = cvs.getContext('2d')!;
+  const g = c.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+  g.addColorStop(0.0, 'rgba(255,255,255,1)');
+  g.addColorStop(0.25, 'rgba(255,255,255,0.55)');
+  g.addColorStop(0.55, 'rgba(255,255,255,0.18)');
+  g.addColorStop(1.0, 'rgba(255,255,255,0)');
+  c.fillStyle = g;
+  c.fillRect(0, 0, size, size);
+  _haloTexture = new THREE.CanvasTexture(cvs);
+  _haloTexture.colorSpace = THREE.SRGBColorSpace;
+  return _haloTexture;
+}
+
+function getHaloMaterial(color: string): THREE.SpriteMaterial {
+  const key = `halo-${color}`;
+  if (!_materialCache.has(key)) {
+    _materialCache.set(key, new THREE.SpriteMaterial({
+      map: getHaloTexture(),
+      color,
+      transparent: true,
+      opacity: 0.9,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    }));
+  }
+  return _materialCache.get(key) as THREE.SpriteMaterial;
 }
 
 // ─── Helix math ──────────────────────────────────────────────────────────────
@@ -87,6 +120,10 @@ function getOrbMaterial(color: string, opacity: number): THREE.MeshStandardMater
 const HELIX_CYCLES = 4;
 const HELIX_HEIGHT = 8; // scene units
 const HELIX_SEGMENTS = 120;
+// Amplitude scale: variations.ts stores amplitude in pixels-ish (35-45). At
+// 0.01 the helices were ~0.4 scene units wide — invisibly thin. 0.025 gives
+// ~1.0 unit wide, which reads properly inside a 12-unit camera frustum.
+const AMP_SCALE = 0.025;
 
 interface HelixPoint {
   x: number;
@@ -100,9 +137,9 @@ function computeHelixPoints(amplitude: number, phaseOffset: number): HelixPoint[
   for (let i = 0; i <= HELIX_SEGMENTS; i++) {
     const t = i / HELIX_SEGMENTS;
     const angle = t * HELIX_CYCLES * Math.PI * 2 + phaseOffset;
-    const x = Math.sin(angle) * amplitude * 0.01; // scale amplitude to scene units
+    const x = Math.sin(angle) * amplitude * AMP_SCALE; // scale amplitude to scene units
     const y = (t - 0.5) * HELIX_HEIGHT;
-    const z = Math.cos(angle) * amplitude * 0.01;
+    const z = Math.cos(angle) * amplitude * AMP_SCALE;
     points.push({ x, y, z, t });
   }
   return points;
@@ -114,19 +151,23 @@ function buildBackbone(amplitude: number, color: string): THREE.Group {
   const group = new THREE.Group();
   const mat = getBackboneMaterial(color);
 
-  // Strand A (phase 0)
-  const ptsA = computeHelixPoints(amplitude, 0);
-  const geomA = new THREE.BufferGeometry().setFromPoints(
-    ptsA.map(p => new THREE.Vector3(p.x, p.y, p.z))
-  );
-  group.add(new THREE.Line(geomA, mat));
+  // Build each strand as a TubeGeometry along a CatmullRomCurve3. This
+  // gives real thickness and accepts emissive shading — LineBasicMaterial
+  // does neither (linewidth is ignored in WebGL).
+  const buildStrand = (phase: number) => {
+    const pts = computeHelixPoints(amplitude, phase).map(
+      p => new THREE.Vector3(p.x, p.y, p.z),
+    );
+    const curve = new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.5);
+    // Tube radius scales with amplitude so wider helices have proportionally
+    // thicker strands.
+    const tubeRadius = Math.max(0.025, amplitude * AMP_SCALE * 0.06);
+    const geom = new THREE.TubeGeometry(curve, HELIX_SEGMENTS, tubeRadius, 8, false);
+    group.add(new THREE.Mesh(geom, mat));
+  };
 
-  // Strand B (phase PI)
-  const ptsB = computeHelixPoints(amplitude, Math.PI);
-  const geomB = new THREE.BufferGeometry().setFromPoints(
-    ptsB.map(p => new THREE.Vector3(p.x, p.y, p.z))
-  );
-  group.add(new THREE.Line(geomB, mat));
+  buildStrand(0);
+  buildStrand(Math.PI);
 
   return group;
 }
@@ -150,43 +191,38 @@ function buildRungs(
     const angleA = t * HELIX_CYCLES * Math.PI * 2;
     const angleB = angleA + Math.PI;
 
-    const ax = Math.sin(angleA) * amplitude * 0.01;
+    const ax = Math.sin(angleA) * amplitude * AMP_SCALE;
     const ay = (t - 0.5) * HELIX_HEIGHT;
-    const az = Math.cos(angleA) * amplitude * 0.01;
+    const az = Math.cos(angleA) * amplitude * AMP_SCALE;
 
-    const bx = Math.sin(angleB) * amplitude * 0.01;
+    const bx = Math.sin(angleB) * amplitude * AMP_SCALE;
     const by = ay;
-    const bz = Math.cos(angleB) * amplitude * 0.01;
+    const bz = Math.cos(angleB) * amplitude * AMP_SCALE;
 
-    if (style === 'capsule') {
-      // Cylinder between the two points
-      const start = new THREE.Vector3(ax, ay, az);
-      const end = new THREE.Vector3(bx, by, bz);
-      const mid = new THREE.Vector3().addVectors(start, end).multiplyScalar(0.5);
-      const len = start.distanceTo(end);
+    const start = new THREE.Vector3(ax, ay, az);
+    const end = new THREE.Vector3(bx, by, bz);
+    const mid = new THREE.Vector3().addVectors(start, end).multiplyScalar(0.5);
+    const len = start.distanceTo(end);
 
-      const geom = new THREE.CylinderGeometry(0.02, 0.02, len, 8, 1);
-      const mesh = new THREE.Mesh(geom, mat);
-      mesh.position.copy(mid);
-      mesh.lookAt(end);
-      mesh.rotateX(Math.PI / 2);
-      group.add(mesh);
+    // Both styles now use cylinders — Line elements with emissive standard
+    // material don't behave (lines aren't shaded). Glass style just runs
+    // thinner with a more translucent material.
+    const radius = style === 'capsule' ? 0.05 : 0.028;
+    const geom = new THREE.CylinderGeometry(radius, radius, len, 12, 1);
+    const mesh = new THREE.Mesh(geom, mat);
+    mesh.position.copy(mid);
+    mesh.lookAt(end);
+    mesh.rotateX(Math.PI / 2);
+    group.add(mesh);
 
-      // Caps at each end
-      const capGeom = new THREE.SphereGeometry(0.025, 8, 8);
-      const capA = new THREE.Mesh(capGeom, mat);
-      capA.position.copy(start);
-      group.add(capA);
-
-      const capB = new THREE.Mesh(capGeom, mat);
-      capB.position.copy(end);
-      group.add(capB);
-    } else {
-      // Thin glass line
-      const points = [new THREE.Vector3(ax, ay, az), new THREE.Vector3(bx, by, bz)];
-      const geom = new THREE.BufferGeometry().setFromPoints(points);
-      group.add(new THREE.Line(geom, mat));
-    }
+    // End caps so the rung reads as a capsule, not a stubby cylinder
+    const capGeom = new THREE.SphereGeometry(radius * 1.05, 10, 10);
+    const capA = new THREE.Mesh(capGeom, mat);
+    capA.position.copy(start);
+    group.add(capA);
+    const capB = new THREE.Mesh(capGeom, mat);
+    capB.position.copy(end);
+    group.add(capB);
   }
 
   return group;
@@ -202,9 +238,9 @@ function buildNodes(
 
   for (const node of variation.nodes) {
     const angleA = node.t * HELIX_CYCLES * Math.PI * 2;
-    const x = Math.sin(angleA) * variation.amplitude * 0.01;
+    const x = Math.sin(angleA) * variation.amplitude * AMP_SCALE;
     const y = (node.t - 0.5) * HELIX_HEIGHT;
-    const z = Math.cos(angleA) * variation.amplitude * 0.01;
+    const z = Math.cos(angleA) * variation.amplitude * AMP_SCALE;
 
     let geom: THREE.BufferGeometry;
 
@@ -286,9 +322,9 @@ function buildOrbCloud(
     const ry = Math.sin(seed + i * 269.5) * 0.3;
     const rz = Math.cos(seed + i * 311.7) * 0.5 - 0.25;
 
-    const baseX = Math.sin(angle) * amplitude * 0.01;
+    const baseX = Math.sin(angle) * amplitude * AMP_SCALE;
     const baseY = (t - 0.5) * HELIX_HEIGHT;
-    const baseZ = Math.cos(angle) * amplitude * 0.01;
+    const baseZ = Math.cos(angle) * amplitude * AMP_SCALE;
 
     const radius = config.minRadius + (hash % 1) * (config.maxRadius - config.minRadius);
     const geom = new THREE.SphereGeometry(radius * 0.15, 12, 12);
