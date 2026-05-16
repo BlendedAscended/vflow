@@ -1,3 +1,32 @@
+## 2026-05-16 03:30 (UTC) — DNA Triptych: three holographic 3D helices for Services section
+
+**Changes:**
+- `src/components/dna/` — new directory with 6 files
+  - `variations.ts` — 3 helix variation configs (Biometric Ledger, Chronological Pipeline, Quantum Network) with mock data and adaptive granularity
+  - `buildHelix.ts` — pure geometry builder: backbone strands, rungs (capsule/glass), nodes (puck/flask/orb), orb cloud. Reuses shared materials via cache.
+  - `useDNAScene.ts` — hook managing WebGLRenderer, scene, camera, RAF loop, resize, IntersectionObserver pause, prefers-reduced-motion
+  - `raycast.ts` — hover state machine with 120ms debounce
+  - `HoverOverlay.tsx` — 3 overlay renderers: MetricCard (V1), ProjectCard (V2), IframePreview (V3)
+  - `DNATriptych.tsx` — main client component owning canvas + overlay portal
+- `src/components/ServicesSection.tsx`
+  - Imported and mounted `<DNATriptych />` after section header (line 768)
+  - Additive change: no existing functionality removed
+
+**Architecture:**
+- Vanilla Three.js + GSAP (no R3F dependency)
+- One canvas, three THREE.Groups (left/center/right thirds)
+- Hover overlay as HTML positioned above canvas via raycaster projection
+- Entry animation: fog density fade + staggered scale-in per helix
+- Idle: continuous slow rotation (0.12 rad/s) + sine Y float
+- Hover: speed drops to 0.04 rad/s, camera nudges toward hovered third
+
+**Verification:**
+- `npm run build` passes (0 new TypeScript errors)
+- Three helices render side by side, rotating in lockstep
+- Hover each node: overlay appears within ~120ms with correct variation content
+- Scroll out of view: RAF pauses (IntersectionObserver)
+- prefers-reduced-motion: rotation halts, overlays open on click
+
 ## 2026-05-16 03:00 (UTC) — Volumetric beam: CSS mask + screen blend (guaranteed seam kill)
 
 **Changes:**

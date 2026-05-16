@@ -4,6 +4,7 @@ import { useState, useRef, useMemo, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { services as defaultServiceDefs, serviceCategories, type ServiceCategory } from '../data/services';
 import ServicesHoverReveal from './ui/ServicesHoverReveal';
+import DNATriptych from './dna/DNATriptych';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Service {
@@ -764,6 +765,9 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
           </div>
         </div>
       </div>
+
+      {/* DNA Triptych: three holographic 3D helices */}
+      <DNATriptych />
 
       {/* Content — below waterfall beam */}
       <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
