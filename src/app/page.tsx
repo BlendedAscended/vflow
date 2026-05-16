@@ -131,8 +131,10 @@ export default async function Home() {
         {/* Testimonials */}
         <TestimonialsSection testimonials={testimonials} />
 
-        {/* FAQ */}
-        <FAQSection faqs={faqs} />
+        {/* FAQ — hidden for now */}
+        <div className="hidden">
+          <FAQSection faqs={faqs} />
+        </div>
 
         {/* Contact */}
         <ContactSection />
