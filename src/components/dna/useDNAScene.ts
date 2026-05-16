@@ -3,7 +3,7 @@
 
 'use client';
 
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { VARIATIONS, ANIMATION } from './variations';
 import { buildHelix, disposeHelix, type BuiltHelix } from './buildHelix';
@@ -15,19 +15,22 @@ interface UseDNASceneOptions {
 }
 
 export function useDNAScene({ canvasRef, onHoverNode, enabled = true }: UseDNASceneOptions) {
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const sceneRef = useRef<THREE.Scene | null>(null);
-  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const helicesRef = useRef<BuiltHelix[]>([]);
   const rafRef = useRef<number>(0);
   const clockRef = useRef(new THREE.Clock());
   const pausedRef = useRef(false);
   const hoveredHelixRef = useRef<number>(-1);
-  const currentSpeedRef = useRef<number>(ANIMATION.rotationSpeed);
+  const currentSpeedRef = useRef(ANIMATION.rotationSpeed);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+  const onHoverNodeRef = useRef(onHoverNode);
+  onHoverNodeRef.current = onHoverNode;
 
-  // ─── Init ──────────────────────────────────────────────────────────────────
+  // ─── Main effect: init scene + RAF loop ────────────────────────────────────
 
-  const init = useCallback(() => {
+  useEffect(() => {
+    if (!enabled) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -66,20 +69,22 @@ export function useDNAScene({ canvasRef, onHoverNode, enabled = true }: UseDNASc
     scene.add(pointLight2);
 
     // Build helices
+    const helices: BuiltHelix[] = [];
     VARIATIONS.forEach((variation) => {
       const built = buildHelix(variation);
-      // Start small for entry animation
       built.group.scale.set(1, 0.2, 1);
       built.group.userData.entryComplete = false;
       scene.add(built.group);
-      helicesRef.current.push(built);
+      helices.push(built);
     });
+    helicesRef.current = helices;
 
     // Resize
     const handleResize = () => {
       const rect = canvas.getBoundingClientRect();
       const w = rect.width;
       const h = rect.height;
+      if (w === 0 || h === 0) return;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
@@ -102,153 +107,137 @@ export function useDNAScene({ canvasRef, onHoverNode, enabled = true }: UseDNASc
       pausedRef.current = true;
     }
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      io.disconnect();
-      helicesRef.current.forEach(disposeHelix);
-      helicesRef.current = [];
-      renderer.dispose();
-    };
-  }, [canvasRef]);
+    // ─── RAF loop ──────────────────────────────────────────────────────────
 
-  // ─── RAF loop ──────────────────────────────────────────────────────────────
+    clockRef.current.start();
 
-  const animate = useCallback(() => {
-    rafRef.current = requestAnimationFrame(animate);
+    function animate() {
+      rafRef.current = requestAnimationFrame(animate);
 
-    if (pausedRef.current) return;
+      if (pausedRef.current) return;
 
-    const delta = clockRef.current.getDelta();
-    const elapsed = clockRef.current.getElapsedTime();
+      const delta = clockRef.current.getDelta();
+      const elapsed = clockRef.current.getElapsedTime();
 
-    const scene = sceneRef.current;
-    const camera = cameraRef.current;
-    const renderer = rendererRef.current;
-    if (!scene || !camera || !renderer) return;
-
-    // Fog entry animation
-    if (scene.fog instanceof THREE.FogExp2 && elapsed < ANIMATION.fogDuration + 0.5) {
-      const fogT = Math.min(elapsed / ANIMATION.fogDuration, 1);
-      scene.fog.density = THREE.MathUtils.lerp(
-        ANIMATION.fogDensityStart,
-        ANIMATION.fogDensityEnd,
-        fogT,
-      );
-    }
-
-    // Smooth speed transition for hover
-    const targetSpeed = hoveredHelixRef.current >= 0 ? ANIMATION.hoverSpeed : ANIMATION.rotationSpeed;
-    currentSpeedRef.current = THREE.MathUtils.lerp(
-      currentSpeedRef.current,
-      targetSpeed,
-      delta / ANIMATION.hoverTransition,
-    );
-
-    // Update each helix
-    helicesRef.current.forEach((built, idx) => {
-      const { group } = built;
-
-      // Entry animation: scale in with stagger
-      const entryDelay = ANIMATION.staggerDelay * idx;
-      if (!group.userData.entryComplete && elapsed > entryDelay) {
-        const entryT = Math.min(
-          (elapsed - entryDelay) / ANIMATION.scaleInDuration,
-          1,
+      // Fog entry animation
+      if (scene.fog instanceof THREE.FogExp2 && elapsed < ANIMATION.fogDuration + 0.5) {
+        const fogT = Math.min(elapsed / ANIMATION.fogDuration, 1);
+        scene.fog.density = THREE.MathUtils.lerp(
+          ANIMATION.fogDensityStart,
+          ANIMATION.fogDensityEnd,
+          fogT,
         );
-        const eased = 1 - Math.pow(1 - entryT, 3); // power3.out
-        group.scale.y = THREE.MathUtils.lerp(0.2, 1, eased);
-        if (entryT >= 1) {
-          group.userData.entryComplete = true;
-          group.scale.y = 1;
-        }
       }
 
-      // Rotation
-      group.rotation.y += currentSpeedRef.current * delta;
+      // Smooth speed transition for hover
+      const targetSpeed = hoveredHelixRef.current >= 0 ? ANIMATION.hoverSpeed : ANIMATION.rotationSpeed;
+      currentSpeedRef.current = THREE.MathUtils.lerp(
+        currentSpeedRef.current,
+        targetSpeed,
+        delta / ANIMATION.hoverTransition,
+      );
 
-      // Float
-      const floatY = Math.sin(elapsed * (Math.PI * 2 / ANIMATION.floatPeriod) + idx * 0.5)
-        * ANIMATION.floatAmplitude;
-      group.position.y = floatY;
-    });
+      // Update each helix
+      helices.forEach((built, idx) => {
+        const { group } = built;
 
-    // Camera nudge toward hovered helix
-    if (hoveredHelixRef.current >= 0) {
-      const targetX = VARIATIONS[hoveredHelixRef.current].offsetX * 0.1;
-      camera.position.x = THREE.MathUtils.lerp(camera.position.x, targetX, delta * 3);
-    } else {
-      camera.position.x = THREE.MathUtils.lerp(camera.position.x, 0, delta * 2);
+        // Entry animation: scale in with stagger
+        const entryDelay = ANIMATION.staggerDelay * idx;
+        if (!group.userData.entryComplete && elapsed > entryDelay) {
+          const entryT = Math.min(
+            (elapsed - entryDelay) / ANIMATION.scaleInDuration,
+            1,
+          );
+          const eased = 1 - Math.pow(1 - entryT, 3);
+          group.scale.y = THREE.MathUtils.lerp(0.2, 1, eased);
+          if (entryT >= 1) {
+            group.userData.entryComplete = true;
+            group.scale.y = 1;
+          }
+        }
+
+        // Rotation
+        group.rotation.y += currentSpeedRef.current * delta;
+
+        // Float
+        const floatY = Math.sin(elapsed * (Math.PI * 2 / ANIMATION.floatPeriod) + idx * 0.5)
+          * ANIMATION.floatAmplitude;
+        group.position.y = floatY;
+      });
+
+      // Camera nudge toward hovered helix
+      if (hoveredHelixRef.current >= 0) {
+        const targetX = VARIATIONS[hoveredHelixRef.current].offsetX * 0.1;
+        camera.position.x = THREE.MathUtils.lerp(camera.position.x, targetX, delta * 3);
+      } else {
+        camera.position.x = THREE.MathUtils.lerp(camera.position.x, 0, delta * 2);
+      }
+
+      renderer.render(scene, camera);
     }
 
-    renderer.render(scene, camera);
-  }, []);
+    rafRef.current = requestAnimationFrame(animate);
 
-  // ─── Hover detection ───────────────────────────────────────────────────────
+    // ─── Cleanup ──────────────────────────────────────────────────────────
+
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener('resize', handleResize);
+      io.disconnect();
+      helices.forEach(disposeHelix);
+      helicesRef.current = [];
+      renderer.dispose();
+      rendererRef.current = null;
+      sceneRef.current = null;
+      cameraRef.current = null;
+    };
+  }, [enabled, canvasRef]);
+
+  // ─── Hover detection (stable callbacks via ref) ────────────────────────────
 
   const raycasterRef = useRef(new THREE.Raycaster());
   const mouseRef = useRef(new THREE.Vector2());
 
-  const handlePointerMove = useCallback(
-    (event: React.PointerEvent<HTMLCanvasElement>) => {
-      const canvas = canvasRef.current;
-      if (!canvas || !cameraRef.current) return;
+  function handlePointerMove(event: React.PointerEvent<HTMLCanvasElement>) {
+    const canvas = canvasRef.current;
+    if (!canvas || !cameraRef.current) return;
 
-      const rect = canvas.getBoundingClientRect();
-      mouseRef.current.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      mouseRef.current.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    const rect = canvas.getBoundingClientRect();
+    mouseRef.current.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouseRef.current.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
-      raycasterRef.current.setFromCamera(mouseRef.current, cameraRef.current);
+    raycasterRef.current.setFromCamera(mouseRef.current, cameraRef.current);
 
-      // Collect all node meshes
-      const allNodes: THREE.Mesh[] = [];
-      helicesRef.current.forEach((built) => {
-        allNodes.push(...built.nodeMeshes);
-      });
+    const allNodes: THREE.Mesh[] = [];
+    helicesRef.current.forEach((built) => {
+      allNodes.push(...built.nodeMeshes);
+    });
 
-      const intersects = raycasterRef.current.intersectObjects(allNodes, false);
+    const intersects = raycasterRef.current.intersectObjects(allNodes, false);
 
-      if (intersects.length > 0) {
-        const hit = intersects[0].object as THREE.Mesh;
-        const variationId = hit.userData.variationId;
-        const helixIdx = VARIATIONS.findIndex((v) => v.id === variationId);
-        hoveredHelixRef.current = helixIdx;
+    if (intersects.length > 0) {
+      const hit = intersects[0].object as THREE.Mesh;
+      const variationId = hit.userData.variationId;
+      const helixIdx = VARIATIONS.findIndex((v) => v.id === variationId);
+      hoveredHelixRef.current = helixIdx;
 
-        // Project to screen coords
-        const worldPos = new THREE.Vector3();
-        hit.getWorldPosition(worldPos);
-        worldPos.project(cameraRef.current);
-        const screenX = ((worldPos.x + 1) / 2) * rect.width + rect.left;
-        const screenY = ((-worldPos.y + 1) / 2) * rect.height + rect.top;
+      const worldPos = new THREE.Vector3();
+      hit.getWorldPosition(worldPos);
+      worldPos.project(cameraRef.current);
+      const screenX = ((worldPos.x + 1) / 2) * rect.width + rect.left;
+      const screenY = ((-worldPos.y + 1) / 2) * rect.height + rect.top;
 
-        onHoverNode?.(hit, { x: screenX, y: screenY });
-      } else {
-        hoveredHelixRef.current = -1;
-        onHoverNode?.(null, null);
-      }
-    },
-    [canvasRef, onHoverNode],
-  );
+      onHoverNodeRef.current?.(hit, { x: screenX, y: screenY });
+    } else {
+      hoveredHelixRef.current = -1;
+      onHoverNodeRef.current?.(null, null);
+    }
+  }
 
-  const handlePointerLeave = useCallback(() => {
+  function handlePointerLeave() {
     hoveredHelixRef.current = -1;
-    onHoverNode?.(null, null);
-  }, [onHoverNode]);
+    onHoverNodeRef.current?.(null, null);
+  }
 
-  // ─── Lifecycle ─────────────────────────────────────────────────────────────
-
-  useEffect(() => {
-    if (!enabled) return;
-    const cleanup = init();
-    rafRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      cancelAnimationFrame(rafRef.current);
-      cleanup?.();
-    };
-  }, [enabled, init, animate]);
-
-  return {
-    handlePointerMove,
-    handlePointerLeave,
-  };
+  return { handlePointerMove, handlePointerLeave };
 }

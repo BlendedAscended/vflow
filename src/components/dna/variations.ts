@@ -267,25 +267,25 @@ export const VARIATIONS: HelixVariation[] = [
 
 export const ANIMATION = {
   /** Rotation speed in radians per second */
-  rotationSpeed: 0.12,
+  rotationSpeed: 0.12 as number,
   /** Float amplitude in scene units */
-  floatAmplitude: 0.08,
+  floatAmplitude: 0.08 as number,
   /** Float period in seconds */
-  floatPeriod: 4,
+  floatPeriod: 4 as number,
   /** Hover slow-mo target speed */
-  hoverSpeed: 0.04,
+  hoverSpeed: 0.04 as number,
   /** Hover speed transition duration (seconds) */
-  hoverTransition: 0.4,
+  hoverTransition: 0.4 as number,
   /** Camera nudge toward hovered helix */
-  cameraNudge: 0.3,
+  cameraNudge: 0.3 as number,
   /** Entry fog density start */
-  fogDensityStart: 0.4,
+  fogDensityStart: 0.4 as number,
   /** Entry fog density end */
-  fogDensityEnd: 0.04,
+  fogDensityEnd: 0.04 as number,
   /** Entry fog transition duration */
-  fogDuration: 1.6,
+  fogDuration: 1.6 as number,
   /** Entry stagger delay per helix */
-  staggerDelay: 0.2,
+  staggerDelay: 0.2 as number,
   /** Entry scale-in duration */
-  scaleInDuration: 0.8,
-} as const;
+  scaleInDuration: 0.8 as number,
+};
