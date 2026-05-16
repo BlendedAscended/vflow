@@ -22,6 +22,43 @@ interface WizardData {
     gbpAddress?: string;
     gbpCategories?: string[];
     gbpData?: any;
+    // Industry-specific fields (stage 2 — injected after sub-niche selection)
+    dentalServices?: string[];
+    insuranceAccepted?: string;
+    yearsInPractice?: number;
+    languages?: string[];
+    newPatientOffer?: string;
+    emergencyHours?: boolean;
+    financingAvailable?: boolean;
+    practiceAreas?: string[];
+    freeConsultation?: boolean;
+    contingencyBasis?: boolean;
+    barAdmissions?: string;
+    cuisineType?: string;
+    priceRange?: string;
+    diningOptions?: string[];
+    reservationLink?: string;
+    dietaryOptions?: string[];
+    salonServices?: string[];
+    walkIns?: boolean;
+    productLines?: string;
+    homeServices?: string[];
+    serviceArea?: string;
+    licensedInsured?: boolean;
+    emergencyService?: boolean;
+    brandsServiced?: string;
+    warrantyOffered?: string;
+    specialties?: string[];
+    insuranceNetworks?: string;
+    telehealth?: boolean;
+    acceptingNewPatients?: boolean;
+    transactionTypes?: string[];
+    propertyTypes?: string[];
+    mlsId?: string;
+    autoServices?: string[];
+    makesServiced?: string;
+    loanerCars?: boolean;
+    towingAvailable?: boolean;
 }
 
 const initialData: WizardData = {
@@ -86,6 +123,40 @@ const timelines = [
     { id: 'asap', label: 'ASAP (This month)' },
     { id: 'short', label: '3-6 Months' },
     { id: 'long', label: '12 Months+' },
+];
+
+// Industry-specific question banks
+const dentalServicesList = [
+    'General Dentistry', 'Cosmetic Dentistry', 'Orthodontics', 'Dental Implants',
+    'Emergency Care', 'Pediatric Dentistry', 'Periodontics', 'Oral Surgery',
+    'Endodontics', 'Teeth Whitening', 'Porcelain Veneers', 'Invisalign',
+];
+const practiceAreaList = [
+    'Personal Injury', 'Family Law', 'Criminal Defense', 'Business Law',
+    'Estate Planning', 'Immigration', 'Real Estate Law', 'Employment Law',
+    'Bankruptcy', 'Intellectual Property',
+];
+const cuisineList = ['Italian', 'Mexican', 'Japanese', 'Indian', 'American', 'Chinese', 'Thai', 'French', 'Mediterranean', 'Other'];
+const priceRangeList = ['$', '$$', '$$$', '$$$$'];
+const diningOptionList = ['Dine-in', 'Takeout', 'Delivery', 'Catering', 'Private Events'];
+const dietaryList = ['Vegetarian', 'Vegan', 'Gluten-Free', 'Halal', 'Kosher', 'None specific'];
+const salonServiceList = [
+    'Haircut & Styling', 'Hair Color', 'Extensions', 'Nails', 'Facials',
+    'Waxing', 'Massage', 'Makeup', 'Bridal Package',
+];
+const homeServiceList = [
+    'HVAC', 'Plumbing', 'Electrical', 'Roofing', 'Landscaping',
+    'Pest Control', 'Cleaning', 'Handyman', 'Painting', 'Moving',
+];
+const specialtyList = [
+    'Primary Care', 'Cardiology', 'Dermatology', 'Orthopedics',
+    'Pediatrics', 'OB/GYN', 'Neurology', 'Psychiatry',
+];
+const transactionTypeList = ['Buyer Representation', 'Seller Representation', 'Rentals', 'Commercial', 'Property Management'];
+const propertyTypeList = ['Single Family', 'Condo/Townhouse', 'Multi-Family', 'Land', 'Commercial'];
+const autoServiceList = [
+    'Auto Repair', 'Body Work', 'Detailing', 'Oil Change', 'Tires',
+    'Brakes', 'A/C Service', 'Transmission', 'Diagnostics',
 ];
 
 interface GrowthPlan {
@@ -351,11 +422,11 @@ export default function GrowthPlanWizard() {
         }
     };
 
-    const totalSteps = 8;
+    const totalSteps = 9;
     const selectedIndustry = useMemo(() => getIndustry(data.industry), [data.industry]);
 
     const handleNext = () => {
-        if (step < 7) {
+        if (step < 8) {
             setStep(step + 1);
         } else {
             setStep(step + 1);
@@ -526,6 +597,380 @@ export default function GrowthPlanWizard() {
                     )}
 
                     {step === 2 && (
+                        <motion.div
+                            key="step2-industry-details"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            className="flex-1 flex flex-col overflow-y-auto"
+                        >
+                            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-2">Tell us about your business</h2>
+                            <p className="text-[var(--muted-foreground)] mb-6">
+                                These details help us build a better, more accurate website. All fields optional — skip what you don't know.
+                            </p>
+
+                            <div className="space-y-6 max-h-[55vh] overflow-y-auto pr-2">
+                                {/* DENTAL */}
+                                {data.industry === 'dental' && (
+                                    <div className="space-y-4">
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Services offered</label>
+                                            <div className="grid grid-cols-2 gap-2">
+                                                {dentalServicesList.map((svc) => (
+                                                    <button
+                                                        key={svc}
+                                                        onClick={() => {
+                                                            const cur = data.dentalServices || [];
+                                                            updateData('dentalServices', cur.includes(svc) ? cur.filter(s => s !== svc) : [...cur, svc]);
+                                                        }}
+                                                        className={`p-2.5 rounded-xl border-2 text-sm text-left transition-all ${(data.dentalServices || []).includes(svc) ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                    >{svc}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Insurance accepted</label>
+                                            <input type="text" value={data.insuranceAccepted || ''} onChange={(e) => updateData('insuranceAccepted', e.target.value)}
+                                                className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                placeholder="e.g. Delta Dental, Aetna, Cigna" />
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="block text-[var(--text-primary)] font-semibold mb-2">Years in practice</label>
+                                                <input type="number" value={data.yearsInPractice || ''} onChange={(e) => updateData('yearsInPractice', parseInt(e.target.value) || undefined)}
+                                                    className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                    placeholder="e.g. 15" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-[var(--text-primary)] font-semibold mb-2">Languages</label>
+                                                <input type="text" value={(data.languages || []).join(', ')} onChange={(e) => updateData('languages', e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
+                                                    className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                    placeholder="e.g. English, Spanish" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">New patient offer</label>
+                                            <input type="text" value={data.newPatientOffer || ''} onChange={(e) => updateData('newPatientOffer', e.target.value)}
+                                                className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                placeholder="e.g. Free consultation and $99 cleaning special" />
+                                        </div>
+                                        <div className="flex gap-6">
+                                            <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                                <input type="checkbox" checked={!!data.emergencyHours} onChange={(e) => updateData('emergencyHours', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                                Emergency hours
+                                            </label>
+                                            <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                                <input type="checkbox" checked={!!data.financingAvailable} onChange={(e) => updateData('financingAvailable', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                                Financing available
+                                            </label>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* LEGAL */}
+                                {data.industry === 'legal' && (
+                                    <div className="space-y-4">
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Practice areas</label>
+                                            <div className="grid grid-cols-2 gap-2">
+                                                {practiceAreaList.map((area) => (
+                                                    <button key={area} onClick={() => {
+                                                        const cur = data.practiceAreas || [];
+                                                        updateData('practiceAreas', cur.includes(area) ? cur.filter(a => a !== area) : [...cur, area]);
+                                                    }}
+                                                        className={`p-2.5 rounded-xl border-2 text-sm text-left transition-all ${(data.practiceAreas || []).includes(area) ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                    >{area}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="block text-[var(--text-primary)] font-semibold mb-2">Years in practice</label>
+                                                <input type="number" value={data.yearsInPractice || ''} onChange={(e) => updateData('yearsInPractice', parseInt(e.target.value) || undefined)}
+                                                    className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                    placeholder="e.g. 20" />
+                                            </div>
+                                            <div>
+                                                <label className="block text-[var(--text-primary)] font-semibold mb-2">Bar admissions</label>
+                                                <input type="text" value={data.barAdmissions || ''} onChange={(e) => updateData('barAdmissions', e.target.value)}
+                                                    className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                    placeholder="e.g. WA State Bar" />
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-6">
+                                            <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                                <input type="checkbox" checked={!!data.freeConsultation} onChange={(e) => updateData('freeConsultation', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                                Free consultation
+                                            </label>
+                                            <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                                <input type="checkbox" checked={!!data.contingencyBasis} onChange={(e) => updateData('contingencyBasis', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                                No fee unless we win
+                                            </label>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* RESTAURANT */}
+                                {data.industry === 'restaurant' && (
+                                    <div className="space-y-4">
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="block text-[var(--text-primary)] font-semibold mb-2">Cuisine type</label>
+                                                <div className="grid grid-cols-2 gap-2">
+                                                    {cuisineList.map((c) => (
+                                                        <button key={c} onClick={() => updateData('cuisineType', c)}
+                                                            className={`p-2 rounded-xl border-2 text-sm transition-all ${data.cuisineType === c ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                        >{c}</button>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <label className="block text-[var(--text-primary)] font-semibold mb-2">Price range</label>
+                                                <div className="flex gap-2">
+                                                    {priceRangeList.map((p) => (
+                                                        <button key={p} onClick={() => updateData('priceRange', p)}
+                                                            className={`flex-1 p-2 rounded-xl border-2 text-sm transition-all ${data.priceRange === p ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                        >{p}</button>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Dining options</label>
+                                            <div className="grid grid-cols-3 gap-2">
+                                                {diningOptionList.map((opt) => (
+                                                    <button key={opt} onClick={() => {
+                                                        const cur = data.diningOptions || [];
+                                                        updateData('diningOptions', cur.includes(opt) ? cur.filter(o => o !== opt) : [...cur, opt]);
+                                                    }}
+                                                        className={`p-2 rounded-xl border-2 text-sm transition-all ${(data.diningOptions || []).includes(opt) ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                    >{opt}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Dietary options available</label>
+                                            <div className="flex flex-wrap gap-2">
+                                                {dietaryList.map((d) => (
+                                                    <button key={d} onClick={() => {
+                                                        const cur = data.dietaryOptions || [];
+                                                        updateData('dietaryOptions', cur.includes(d) ? cur.filter(x => x !== d) : [...cur, d]);
+                                                    }}
+                                                        className={`px-3 py-1.5 rounded-full border-2 text-xs transition-all ${(data.dietaryOptions || []).includes(d) ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                    >{d}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* SALON & BEAUTY */}
+                                {data.industry === 'salon_beauty' && (
+                                    <div className="space-y-4">
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Services offered</label>
+                                            <div className="grid grid-cols-2 gap-2">
+                                                {salonServiceList.map((svc) => (
+                                                    <button key={svc} onClick={() => {
+                                                        const cur = data.salonServices || [];
+                                                        updateData('salonServices', cur.includes(svc) ? cur.filter(s => s !== svc) : [...cur, svc]);
+                                                    }}
+                                                        className={`p-2.5 rounded-xl border-2 text-sm transition-all ${(data.salonServices || []).includes(svc) ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                    >{svc}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Product lines carried</label>
+                                            <input type="text" value={data.productLines || ''} onChange={(e) => updateData('productLines', e.target.value)}
+                                                className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                placeholder="e.g. Oribe, Kerastase, Olaplex" />
+                                        </div>
+                                        <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                            <input type="checkbox" checked={!!data.walkIns} onChange={(e) => updateData('walkIns', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                            Walk-ins welcome
+                                        </label>
+                                    </div>
+                                )}
+
+                                {/* HOME SERVICES */}
+                                {(data.industry === 'home_services' || data.industry === 'construction') && (
+                                    <div className="space-y-4">
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Services offered</label>
+                                            <div className="grid grid-cols-2 gap-2">
+                                                {homeServiceList.map((svc) => (
+                                                    <button key={svc} onClick={() => {
+                                                        const cur = data.homeServices || [];
+                                                        updateData('homeServices', cur.includes(svc) ? cur.filter(s => s !== svc) : [...cur, svc]);
+                                                    }}
+                                                        className={`p-2.5 rounded-xl border-2 text-sm transition-all ${(data.homeServices || []).includes(svc) ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                    >{svc}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Service area</label>
+                                            <input type="text" value={data.serviceArea || ''} onChange={(e) => updateData('serviceArea', e.target.value)}
+                                                className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                placeholder="e.g. Seattle metro, Eastside, Tacoma" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Warranty offered</label>
+                                            <input type="text" value={data.warrantyOffered || ''} onChange={(e) => updateData('warrantyOffered', e.target.value)}
+                                                className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                placeholder="e.g. 5-year parts, 1-year labor" />
+                                        </div>
+                                        <div className="flex gap-6">
+                                            <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                                <input type="checkbox" checked={!!data.licensedInsured} onChange={(e) => updateData('licensedInsured', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                                Licensed & insured
+                                            </label>
+                                            <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                                <input type="checkbox" checked={!!data.emergencyService} onChange={(e) => updateData('emergencyService', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                                24/7 emergency service
+                                            </label>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* HEALTHCARE */}
+                                {data.industry === 'health_medical' && (
+                                    <div className="space-y-4">
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Specialties</label>
+                                            <div className="grid grid-cols-2 gap-2">
+                                                {specialtyList.map((sp) => (
+                                                    <button key={sp} onClick={() => {
+                                                        const cur = data.specialties || [];
+                                                        updateData('specialties', cur.includes(sp) ? cur.filter(s => s !== sp) : [...cur, sp]);
+                                                    }}
+                                                        className={`p-2.5 rounded-xl border-2 text-sm transition-all ${(data.specialties || []).includes(sp) ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                    >{sp}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Insurance networks</label>
+                                            <input type="text" value={data.insuranceNetworks || ''} onChange={(e) => updateData('insuranceNetworks', e.target.value)}
+                                                className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                placeholder="e.g. Blue Cross, United, Medicare" />
+                                        </div>
+                                        <div className="flex gap-6">
+                                            <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                                <input type="checkbox" checked={!!data.telehealth} onChange={(e) => updateData('telehealth', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                                Telehealth available
+                                            </label>
+                                            <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                                <input type="checkbox" checked={!!data.acceptingNewPatients} onChange={(e) => updateData('acceptingNewPatients', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                                Accepting new patients
+                                            </label>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* REAL ESTATE */}
+                                {data.industry === 'real_estate' && (
+                                    <div className="space-y-4">
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Transaction types</label>
+                                            <div className="grid grid-cols-3 gap-2">
+                                                {transactionTypeList.map((tt) => (
+                                                    <button key={tt} onClick={() => {
+                                                        const cur = data.transactionTypes || [];
+                                                        updateData('transactionTypes', cur.includes(tt) ? cur.filter(t => t !== tt) : [...cur, tt]);
+                                                    }}
+                                                        className={`p-2 rounded-xl border-2 text-sm transition-all ${(data.transactionTypes || []).includes(tt) ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                    >{tt}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Property types</label>
+                                            <div className="grid grid-cols-3 gap-2">
+                                                {propertyTypeList.map((pt) => (
+                                                    <button key={pt} onClick={() => {
+                                                        const cur = data.propertyTypes || [];
+                                                        updateData('propertyTypes', cur.includes(pt) ? cur.filter(p => p !== pt) : [...cur, pt]);
+                                                    }}
+                                                        className={`p-2 rounded-xl border-2 text-sm transition-all ${(data.propertyTypes || []).includes(pt) ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                    >{pt}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Service area</label>
+                                            <input type="text" value={data.serviceArea || ''} onChange={(e) => updateData('serviceArea', e.target.value)}
+                                                className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                placeholder="e.g. Seattle, Bellevue, Kirkland" />
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* AUTO SERVICES */}
+                                {data.industry === 'auto_services' && (
+                                    <div className="space-y-4">
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Services offered</label>
+                                            <div className="grid grid-cols-3 gap-2">
+                                                {autoServiceList.map((svc) => (
+                                                    <button key={svc} onClick={() => {
+                                                        const cur = data.autoServices || [];
+                                                        updateData('autoServices', cur.includes(svc) ? cur.filter(s => s !== svc) : [...cur, svc]);
+                                                    }}
+                                                        className={`p-2 rounded-xl border-2 text-sm transition-all ${(data.autoServices || []).includes(svc) ? 'border-[var(--accent)] bg-[var(--accent)]/10' : 'border-[var(--border)] hover:border-[var(--accent)]'}`}
+                                                    >{svc}</button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Makes serviced</label>
+                                            <input type="text" value={data.makesServiced || ''} onChange={(e) => updateData('makesServiced', e.target.value)}
+                                                className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                placeholder="e.g. All makes and models" />
+                                        </div>
+                                        <div className="flex gap-6">
+                                            <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                                <input type="checkbox" checked={!!data.loanerCars} onChange={(e) => updateData('loanerCars', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                                Loaner cars available
+                                            </label>
+                                            <label className="flex items-center gap-2 text-[var(--text-primary)] cursor-pointer">
+                                                <input type="checkbox" checked={!!data.towingAvailable} onChange={(e) => updateData('towingAvailable', e.target.checked)} className="w-4 h-4 rounded accent-[var(--accent)]" />
+                                                Towing available
+                                            </label>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* GENERIC for unlisted industries */}
+                                {!['dental', 'legal', 'restaurant', 'salon_beauty', 'home_services', 'construction', 'health_medical', 'real_estate', 'auto_services'].includes(data.industry) && (
+                                    <div className="space-y-4">
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Years in business</label>
+                                            <input type="number" value={data.yearsInPractice || ''} onChange={(e) => updateData('yearsInPractice', parseInt(e.target.value) || undefined)}
+                                                className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                placeholder="e.g. 5" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-[var(--text-primary)] font-semibold mb-2">Service area / location</label>
+                                            <input type="text" value={data.serviceArea || ''} onChange={(e) => updateData('serviceArea', e.target.value)}
+                                                className="w-full px-4 py-2.5 rounded-xl border-2 border-[var(--border)] bg-[var(--background)] text-[var(--text-primary)] focus:border-[var(--accent)] outline-none"
+                                                placeholder="e.g. Seattle metro area" />
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            <button
+                                onClick={handleNext}
+                                className="self-end bg-[var(--accent)] text-[var(--accent-foreground)] font-bold px-8 py-3 rounded-full hover:shadow-glow transition-all mt-6"
+                            >
+                                Continue
+                            </button>
+                        </motion.div>
+                    )}
+
+                    {step === 3 && (
                         <GbpStep
                             data={data}
                             updateData={updateData}
@@ -534,7 +979,7 @@ export default function GrowthPlanWizard() {
                         />
                     )}
 
-                    {step === 3 && (
+                    {step === 4 && (
                         <motion.div
                             key="step2-stage"
                             initial={{ opacity: 0, x: 20 }}
@@ -572,7 +1017,7 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 4 && (
+                    {step === 5 && (
                         <motion.div
                             key="step3-challenges"
                             initial={{ opacity: 0, x: 20 }}
@@ -608,7 +1053,7 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 5 && (
+                    {step === 6 && (
                         <motion.div
                             key="step4-stack"
                             initial={{ opacity: 0, x: 20 }}
@@ -655,7 +1100,7 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 6 && (
+                    {step === 7 && (
                         <motion.div
                             key="step5-team"
                             initial={{ opacity: 0, x: 20 }}
@@ -714,7 +1159,7 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 7 && (
+                    {step === 8 && (
                         <motion.div
                             key="step6-timeline"
                             initial={{ opacity: 0, x: 20 }}
@@ -788,7 +1233,7 @@ export default function GrowthPlanWizard() {
                         </motion.div>
                     )}
 
-                    {step === 8 && (
+                    {step === 9 && (
                         <motion.div
                             key="step7"
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -979,7 +1424,7 @@ export default function GrowthPlanWizard() {
                 </AnimatePresence>
             </div>
 
-            {step > 0 && step < 8 && !isGenerating && (
+            {step > 0 && step < 9 && !isGenerating && (
                 <div className="p-6 border-t border-[var(--border)] flex justify-start">
                     <button
                         onClick={handleBack}

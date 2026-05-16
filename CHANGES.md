@@ -47,7 +47,36 @@
   - Frock silhouette: narrow shaft (0.08→0.20), wider plume (0.20→0.32), dramatic mega flare (0.32→0.50). Was capped at 0.36.
   - Asymmetric noise: two layered sin waves (`flareNoise` + `flareJitter`) kick in at t>0.5 and t>0.6, creating organic ragged hem that varies per-row over time. Prevents the bottom from reading as a smooth symmetric cone.
 
-## 2026-05-16 01:45 (UTC) — Business-First Prompt Architecture: complete two-axis spec
+## 2026-05-16 02:15 (UTC) — Mode A implementation: agent SOULs, pipeline YAML, client-profile utility, industry-specific wizard
+
+**Changes:**
+- `.hermes/agents/architect-agent/SOUL.md` — Updated to v3 with Mode A support
+  - New input fields: `client_business_profile`, `competitor_inspiration`, `template_config`
+  - Mode-dependent output shape: simplified implementation plan + architecture.json for Mode A
+  - Mode A constraints: single service (`web-design`), $400 fixed price, no VerbaFlow language in designer_brief
+  - Mode B behavior preserved unchanged
+- `.hermes/agents/designer-agent/SOUL.md` — Updated to v3 with Mode A prompt template
+  - Full business-first prompt template for Mode A: client profile + competitor DNA + adaptive template
+  - Perspective guardrails: CTA is client's booking, not Calendly; services from client_business_profile, not VerbaFlow slugs
+  - 7-section structure with competitor inspiration and template overrides injected per section
+  - Mode B template preserved unchanged
+- `.hermes/pipelines/cybergrowth-wireframe.yaml` — Updated to v3 with dual-mode support
+  - New `mode` input parameter: `client-business-website` | `growth-plan-wireframe`
+  - New optional inputs: `client_business_profile`, `competitor_inspiration`, `template_config`
+  - Stage skip rules: backend, validator, marketing skipped for Mode A (static HTML, no 6-agent pipeline needed)
+  - WebUI kanban updated: mode label in card title and body
+- `src/lib/client-profile.ts` — NEW utility (418 lines)
+  - `extractClientBusinessProfile()`: deterministic normalization of wizard_data + gbp_data into ClientBusinessProfile
+  - Industry-specific service label maps: DENTAL_SERVICE_LABELS, LEGAL_SERVICE_LABELS, RESTAURANT_SERVICE_LABELS, SALON_SERVICE_LABELS, HOME_SERVICES_LABELS, HEALTHCARE_SERVICE_LABELS, REAL_ESTATE_LABELS, AUTO_SERVICE_LABELS
+  - Computed fields: about text builder, target customer inference, unique selling point extraction
+  - `qualifiesForModeA()`: quick check for wizard completeness
+- `src/components/GrowthPlanWizard.tsx` — Industry-specific step added
+  - WizardData interface: 28 new optional industry-specific fields
+  - New step 2: conditional industry-specific questions (dental, legal, restaurant, salon, home services, healthcare, real estate, auto)
+  - Generic fallback for unlisted industries
+  - Total steps: 8 → 9; all step numbers shifted
+  - handleNext updated for new step count
+  - 11 industry-specific option arrays added
 
 **Changes:**
 - `verbaflow_lake/business-first-prompt-architecture.md` — 78,158 bytes, 19 sections

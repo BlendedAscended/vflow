@@ -1,9 +1,9 @@
 name: cybergrowth-wireframe
-description: VerbaFlow Growth Plan customer journey. Takes wizard data + GBP data, produces implementation plan plus wireframe via Stitch, delivers via email.
-version: 2
+description: VerbaFlow Growth Plan customer journey. Takes wizard data + GBP data, produces implementation plan plus wireframe via Stitch, delivers via email. Supports two modes: client-business-website ($400) and growth-plan-wireframe (lead magnet).
+version: 3
 owner: san@verbaflowllc.com
 created: 2026-05-11
-updated: 2026-05-14
+updated: 2026-05-16
 
 trigger:
   type: webhook
@@ -16,6 +16,11 @@ inputs:
     type: string
     required: true
     description: cuid from Postgres growth_plans row
+  mode:
+    type: string
+    required: true
+    description: "client-business-website" or "growth-plan-wireframe"
+    default: "growth-plan-wireframe"
   wizard_data:
     type: object
     required: true
@@ -32,6 +37,18 @@ inputs:
     type: array
     required: true
     description: Industry objects from src/data/industries.ts
+  client_business_profile:
+    type: object
+    required: false
+    description: Required for mode "client-business-website". Normalized client business data from Stage 2 extraction.
+  competitor_inspiration:
+    type: object
+    required: false
+    description: Required for mode "client-business-website". 3-5 reference sites with extracted design elements.
+  template_config:
+    type: object
+    required: false
+    description: Required for mode "client-business-website". Base template + overrides + variance from 54 popular-web-designs.
   callback_url:
     type: string
     required: true
@@ -48,15 +65,23 @@ stages:
     fallback: gemini-2-5-flash
     timeout: 180
     inputs:
+      - mode
       - wizard_data
       - gbp_data
       - services_catalog
       - industries_catalog
+      - client_business_profile
+      - competitor_inspiration
+      - template_config
     outputs:
       - implementation_plan.md
       - architecture.json
     on_start: status_update(queued -> drafting)
-    on_success: status_update(drafting -> designing)
+    on_success:
+      - if: mode == "client-business-website"
+        then: status_update(drafting -> designing)
+      - if: mode == "growth-plan-wireframe"
+        then: status_update(drafting -> designing)
     on_failure: status_update(drafting -> failed)
 
   - name: designer
@@ -67,7 +92,7 @@ stages:
       designSystem: "assets/d410c1c8f34f4018985f8141eec9ef5a"
       deviceType: DESKTOP
       modelId: GEMINI_3_1_PRO
-      prompt: "{templated from architecture.json + wizard_data + gbp_data}"
+      prompt: "{templated from mode-dependent prompt template in designer-agent/SOUL.md}"
     poll:
       after_seconds: 30
       max_attempts: 10
@@ -75,7 +100,11 @@ stages:
     outputs:
       - screen_name
       - screen_data
-    on_success: status_update(designing -> backend)
+    on_success:
+      - if: mode == "client-business-website"
+        then: status_update(designing -> delivery)
+      - if: mode == "growth-plan-wireframe"
+        then: status_update(designing -> backend)
     on_failure: status_update(designing -> failed)
 
   - name: backend
@@ -90,6 +119,8 @@ stages:
       - integration_notes.md
     on_success: status_update(backend -> validating)
     on_failure: status_update(backend -> failed)
+    skip_if: mode == "client-business-website"
+    skip_reason: "Static HTML site — no backend needed for Mode A"
 
   - name: validator
     agent: validator-agent
@@ -108,6 +139,8 @@ stages:
       on_fail: retry_stage(designer, max_retries=1)
     on_success: status_update(validating -> marketing)
     on_failure: status_update(validating -> failed)
+    skip_if: mode == "client-business-website"
+    skip_reason: "Human review replaces validator for Mode A"
 
   - name: marketing
     agent: marketing-agent
@@ -123,6 +156,8 @@ stages:
       - email_body.html
     on_success: status_update(marketing -> plan_ready)
     on_failure: status_update(marketing -> failed)
+    skip_if: mode == "client-business-website"
+    skip_reason: "Mode A uses simplified delivery email, not full marketing pamphlet"
 
   - name: delivery
     type: deterministic
@@ -132,18 +167,19 @@ stages:
     actions:
       - upload_to_supabase:
           bucket: wireframes
-          key: "{plan_id}/wireframe.png"
+          key: "{plan_id}/index.html"
       - generate_signed_url:
           expiry_days: 90
           out_var: wireframe_signed_url
       - send_email_via_resend:
-          template: wireframe_ready
+          template: "{mode == 'client-business-website' ? 'website_ready' : 'wireframe_ready'}"
           to: "{wizard_data.email}"
           from: plans@verbaflowllc.com
           variables:
             name: "{wizard_data.name}"
             wireframe_url: "{wireframe_signed_url}"
             plan_id: "{plan_id}"
+            mode: "{mode}"
       - callback:
           method: POST
           url: "{callback_url}"
@@ -153,6 +189,7 @@ stages:
             plan_id: "{plan_id}"
             status: wireframe_ready
             wireframe_url: "{wireframe_signed_url}"
+            mode: "{mode}"
     on_success: status_update(delivery -> wireframe_ready)
 
 artifacts:
@@ -175,23 +212,28 @@ webui:
       - Delivered
       - Failed
     card_template:
-      title: "Plan {plan_id} - {wizard_data.industry}"
+      title: "Plan {plan_id} - {wizard_data.industry} [{mode}]"
       labels:
+        - "{mode}"
         - "{wizard_data.stage}"
         - "{wizard_data.budget}"
         - "{wizard_data.timeline}"
       body: |
         Email: {wizard_data.email}
         Name: {wizard_data.name}
+        Mode: {mode}
         Challenges: {wizard_data.challenges | join(', ')}
         Stack: {wizard_data.currentStack | join(', ')}
         SubNiches: {wizard_data.subNiches | join(', ')}
         GBP: {gbp_data.name | default('Not provided')}
+        {if mode == 'client-business-website'}
+        Client: {client_business_profile.name | default('N/A')}
+        Template: {template_config.base.template | default('N/A')}
 
   tasks:
     auto_create_per_stage: true
     task_template:
-      title: "Plan {plan_id} - {stage_name}"
+      title: "Plan {plan_id} - {stage_name} [{mode}]"
       assignee: "{agent_name}"
       due_at: "{stage_started_at + stage_timeout}"
 
