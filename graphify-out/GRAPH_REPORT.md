@@ -1,16 +1,16 @@
-# Graph Report - vflow2.0  (2026-05-15)
+# Graph Report - vflow2.0  (2026-05-16)
 
 ## Corpus Check
-- 256 files · ~2,872,544 words
+- 259 files · ~2,887,731 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2672 nodes · 3198 edges · 229 communities (195 shown, 34 thin omitted)
+- 2897 nodes · 3421 edges · 234 communities (202 shown, 32 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ac83af2b`
+- Built from commit: `45d92a7f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -208,6 +208,11 @@
 - [[_COMMUNITY_Community 216|Community 216]]
 - [[_COMMUNITY_Community 217|Community 217]]
 - [[_COMMUNITY_Community 218|Community 218]]
+- [[_COMMUNITY_Community 229|Community 229]]
+- [[_COMMUNITY_Community 230|Community 230]]
+- [[_COMMUNITY_Community 231|Community 231]]
+- [[_COMMUNITY_Community 232|Community 232]]
+- [[_COMMUNITY_Community 233|Community 233]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Customer` - 69 edges
@@ -216,10 +221,10 @@
 4. `client` - 24 edges
 5. `Cross-Tool Rules (Shared by ALL AI tools)` - 23 edges
 6. `ProjectFrame()` - 21 edges
-7. `File Inventory` - 18 edges
+7. `1. Skills Catalog` - 20 edges
 8. `File Inventory` - 18 edges
-9. `VerbaFlow 2.0 — Cyber Growth Funnel Implementation Plan` - 17 edges
-10. `compilerOptions` - 16 edges
+9. `File Inventory` - 18 edges
+10. `VerbaFlow 2.0 — Cyber Growth Funnel Implementation Plan` - 17 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `POST()` --calls--> `sendWireframeReadyEmail()`  [INFERRED]
@@ -233,7 +238,7 @@
 - `generateMetadata()` --calls--> `getServices()`  [EXTRACTED]
   /Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/[slug]/page.tsx → src/app/page.tsx
 
-## Communities (229 total, 34 thin omitted)
+## Communities (234 total, 32 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.02
@@ -241,11 +246,11 @@ Nodes (92): Args, At, AtLeast, AtLoose, AtStrict, BatchPayload, Boolean, Boolean
 
 ### Community 1 - "Community 1"
 Cohesion: 0.05
-Nodes (72): Customer, AggregateCustomer, BoolFieldUpdateOperationsInput, CustomerAggregateArgs, CustomerCountAggregateInputType, CustomerCountAggregateOutputType, CustomerCountArgs, CustomerCountOrderByAggregateInput (+64 more)
+Nodes (71): Customer, AggregateCustomer, BoolFieldUpdateOperationsInput, CustomerAggregateArgs, CustomerCountAggregateInputType, CustomerCountAggregateOutputType, CustomerCountArgs, CustomerCountOrderByAggregateInput (+63 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.05
-Nodes (70): AggregateUser, DateTimeFieldUpdateOperationsInput, GetUserAggregateType, GetUserGroupByPayload, NullableStringFieldUpdateOperationsInput, Prisma__UserClient, StringFieldUpdateOperationsInput, User$customerArgs (+62 more)
+Nodes (71): AggregateUser, DateTimeFieldUpdateOperationsInput, GetUserAggregateType, GetUserGroupByPayload, NullableStringFieldUpdateOperationsInput, Prisma__UserClient, StringFieldUpdateOperationsInput, User$customerArgs (+63 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.06
@@ -253,7 +258,7 @@ Nodes (45): AgencyLeftPanel(), AgencyLeftPanelProps, TICKER_ITEMS, _TICKER_TEXT,
 
 ### Community 4 - "Community 4"
 Cohesion: 0.07
-Nodes (19): BASE_PRICE, calcPrice(), HelixProps, ICON_TO_CATEGORY, ICON_TO_PRICE, ICON_TO_SHORT, InlinePanelProps, ModalProps (+11 more)
+Nodes (20): BASE_PRICE, calcPrice(), HelixProps, ICON_TO_CATEGORY, ICON_TO_PRICE, ICON_TO_SHORT, InlinePanelProps, ModalProps (+12 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.13
@@ -336,24 +341,24 @@ Cohesion: 0.1
 Nodes (19): BoolFilter, BoolWithAggregatesFilter, DateTimeFilter, DateTimeWithAggregatesFilter, NestedBoolFilter, NestedBoolWithAggregatesFilter, NestedDateTimeFilter, NestedDateTimeWithAggregatesFilter (+11 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.15
-Nodes (10): BusinessInfoSection(), HeroSection(), rotatingWords, sectors, useMagneticRef(), LocationContext, LocationContextValue, LocationProvider() (+2 more)
+Cohesion: 0.08
+Nodes (20): submitContact(), BusinessInfoSection(), HeroSection(), rotatingWords, sectors, useMagneticRef(), LocationContext, LocationContextValue (+12 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.23
-Nodes (8): PrismaClient, User, config, decodeBase64AsWasm(), getPrismaClientClass(), LogOptions, PrismaClient, PrismaClientConstructor
+Cohesion: 0.17
+Nodes (10): Customer, User, PrismaClient, User, config, decodeBase64AsWasm(), getPrismaClientClass(), LogOptions (+2 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.11
 Nodes (17): budgets, challengesList, COMMON_CHALLENGES, COMMON_GOALS, GrowthPlan, INDUSTRIES, initialData, PlaceSuggestion (+9 more)
 
 ### Community 28 - "Community 28"
-Cohesion: 0.12
-Nodes (9): AboutPage(), Footer(), NavigationService, useVapi(), GrowthPlanPage(), Service, ServicesPage(), metadata (+1 more)
+Cohesion: 0.08
+Nodes (25): Chat, CLI Reference, code:block10 (hermes webhook subscribe N  Create route at /webhooks/<name>), code:block11 (hermes profile list         List all profiles), code:block12 (hermes auth add             Interactive credential wizard), code:block13 (hermes insights [--days N]  Usage analytics), code:block2 (hermes [flags] [command]), code:block3 (hermes chat [flags]) (+17 more)
 
 ### Community 29 - "Community 29"
-Cohesion: 0.18
-Nodes (9): BlogPage(), BlogPost, CategoryFilter, BlogDebugPage(), DebugBlog, client, { sanityFetch, SanityLive }, BlogSetupPage() (+1 more)
+Cohesion: 0.16
+Nodes (11): BlogPage(), BlogPost, CategoryFilter, BlogDebugPage(), DebugBlog, client, { sanityFetch, SanityLive }, Service (+3 more)
 
 ### Community 30 - "Community 30"
 Cohesion: 0.04
@@ -380,12 +385,12 @@ Cohesion: 0.11
 Nodes (17): code:bash (cd /path/to/DonPortfolio), code:bash (# NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX), code:yaml (script: |), code:bash (git add .github/workflows/deploy.yml), code:bash (ssh senpai@<HETZNER_IP>), code:bash (ssh senpai@<HETZNER_IP>), code:bash (# On Hetzner server), code:yaml (ingress:) (+9 more)
 
 ### Community 36 - "Community 36"
-Cohesion: 0.1
-Nodes (18): Customer, User, CustomerScalarFieldEnum, ModelName, NullsOrder, NullTypes, QueryMode, SortOrder (+10 more)
+Cohesion: 0.12
+Nodes (16): CustomerScalarFieldEnum, ModelName, NullsOrder, NullTypes, QueryMode, SortOrder, TransactionIsolationLevel, UserScalarFieldEnum (+8 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.28
-Nodes (9): POST(), normalizePlan(), POST(), getIndustryContext(), getServices(), IndustryContext, SanityService, Service (+1 more)
+Cohesion: 0.19
+Nodes (13): POST(), normalizePlan(), POST(), getIndustryContext(), getServices(), IndustryContext, SanityService, Service (+5 more)
 
 ### Community 38 - "Community 38"
 Cohesion: 0.12
@@ -428,8 +433,8 @@ Cohesion: 0.15
 Nodes (11): code:block1 (nia.ns.cloudflare.com), code:bash (# Check nameservers have propagated), code:bash (cloudflared tunnel route dns verbaflow-main verbaflowllc.com), code:bash (curl -I https://verbaflowllc.com  # 200 from Hetzner), Overview, Phase A — Add site to Cloudflare (before changing nameservers), Phase B — Change nameservers at GoDaddy, Phase C — Verify DNS is active (+3 more)
 
 ### Community 48 - "Community 48"
-Cohesion: 0.26
-Nodes (6): AgencyPage(), ProtoFrameProps, ProtoNav(), ProtoNavProps, ProtoEntry, registry
+Cohesion: 0.1
+Nodes (20): 1. Skills Catalog, apple (5), autonomous-ai-agents (5), creative (21), data-science (1), devops (10), email (1), gaming (2) (+12 more)
 
 ### Community 49 - "Community 49"
 Cohesion: 0.17
@@ -464,8 +469,8 @@ Cohesion: 0.17
 Nodes (10): code:bash (ssh-keygen -t ed25519 -C "github-deploy@verbaflowllc" -f ~/.), code:yaml (name: Deploy DonPortfolio to Hetzner), code:js ({), code:bash (# Push a trivial change to each repo's main branch), Prompt 03 — GitHub Actions CI/CD Setup, Step 1 — Generate deploy SSH key (local machine), Step 2 — Add secrets to BOTH GitHub repos, Step 3 — Fix portfolio deploy workflow (move to repo root) (+2 more)
 
 ### Community 57 - "Community 57"
-Cohesion: 0.28
-Nodes (6): STATUS_BG, STATUS_COLOR, STATUS_LABEL, AgencyProject, agencyProjects, ProjectStatus
+Cohesion: 0.1
+Nodes (20): code:block21 (~/.hermes/config.yaml       Main configuration), code:bash (git clone https://github.com/nesquena/hermes-webui.git), code:bash (cd hermes-webui), code:bash (git clone https://github.com/nesquena/hermes-webui), code:yaml (model:), code:yaml (providers:), code:bash (hermes -m 'qwen2.5:14b-4bit' --provider omlx chat -q 'your p), code:bash (rm -f ~/.hermes/webui/models_cache.json) (+12 more)
 
 ### Community 58 - "Community 58"
 Cohesion: 0.2
@@ -512,8 +517,8 @@ Cohesion: 0.73
 Nodes (4): label_color(), load_font(), luminance(), main()
 
 ### Community 70 - "Community 70"
-Cohesion: 0.17
-Nodes (11): 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-05-11 17:00 (UTC) — Cybergrowth funnel implementation plan published, 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-04-19 05:21 (UTC) - Unified all agent instruction files to the master Claude context (+3 more)
+Cohesion: 0.14
+Nodes (13): 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-05-11 17:00 (UTC) — Cybergrowth funnel implementation plan published, 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-04-19 05:21 (UTC) - Unified all agent instruction files to the master Claude context (+5 more)
 
 ### Community 71 - "Community 71"
 Cohesion: 0.4
@@ -644,8 +649,8 @@ Cohesion: 0.11
 Nodes (17): Architect Agent, code:json ({), code:json ({), code:markdown (# Growth Plan for {wizard_data.name}), code:json ({), code:json ({), code:json ({), Failure modes to avoid (+9 more)
 
 ### Community 121 - "Community 121"
-Cohesion: 0.15
-Nodes (12): ContactSection(), categoryTitles, defaultFaqs, FAQ, FAQSection(), FAQSectionProps, ServicesSection(), defaultTestimonials (+4 more)
+Cohesion: 0.14
+Nodes (15): ContactSection(), categoryTitles, defaultFaqs, FAQ, FAQSection(), FAQSectionProps, PricingSection(), ServicesSection() (+7 more)
 
 ### Community 122 - "Community 122"
 Cohesion: 0.19
@@ -677,7 +682,7 @@ Nodes (12): code:block1 (Design a professional wireframe landing page for a {wiz
 
 ### Community 129 - "Community 129"
 Cohesion: 0.15
-Nodes (5): globalForPrisma, PlanPreviewPage(), GET(), POST(), POST()
+Nodes (5): globalForPrisma, POST(), PlanPreviewPage(), GET(), POST()
 
 ### Community 130 - "Community 130"
 Cohesion: 0.24
@@ -712,8 +717,8 @@ Cohesion: 0.28
 Nodes (6): chargeCustomer(), getCustomerDefaultPaymentMethod(), prisma, stripe, prisma, AdminInvoicePage()
 
 ### Community 139 - "Community 139"
-Cohesion: 0.28
-Nodes (5): PricingSection(), useCounter(), UseCounterOptions, MagneticButtonInner, MagneticButtonProps
+Cohesion: 0.13
+Nodes (15): code:block14 (/new (/reset)        Fresh session), code:block15 (/config              Show config (CLI)), code:block16 (/tools               Manage tools (CLI)), code:block17 (/approve             Approve a pending command (gateway)), code:block18 (/branch (/fork)      Branch the current session), code:block19 (/help                Show commands), code:block20 (/quit (/exit, /q)    Exit CLI), Configuration (+7 more)
 
 ### Community 140 - "Community 140"
 Cohesion: 0.22
@@ -776,16 +781,16 @@ Cohesion: 0.29
 Nodes (7): Before Writing Code, Behavioral Contract — 12 Rules, Exceptions, Rule Expiration — 4-Week Auto-Prune, Session Management, Verifying Work, While Writing Code
 
 ### Community 155 - "Community 155"
-Cohesion: 0.53
-Nodes (4): submitContact(), ContactBlog, PortfolioPage(), ResumeCategory
+Cohesion: 0.04
+Nodes (44): 10. Open Questions (Answer Before Phase 1), 1. Visual Vocabulary (Reference Names), 2. What the User Described (Condensed), 3. Current Code Anatomy (What Exists Now), 4. Three Architectural Options, 5.1 Geometry: From Cone to Waterfall Profile, 5.2 Turbulence: More Noise, Wider at Bottom, 5.3 Surge Pulse: Additive Traveling Energy Packet (+36 more)
 
 ### Community 156 - "Community 156"
 Cohesion: 0.33
 Nodes (5): code:block1 (open ui_kits/agency/index.html), Notes, Open, Verbaflow UI Kit — Agency surface (Studio White), What's in here
 
 ### Community 157 - "Community 157"
-Cohesion: 0.33
-Nodes (4): pricingMap, QuoteOverlayProps, QuoteResult, suggestionMap
+Cohesion: 0.14
+Nodes (14): Adding a Slash Command, Adding a Tool (3 files), Agent Loop (High Level), code:block40 (hermes-agent/), code:python (import json, os), code:block42 (run_conversation():), code:bash (python -m pytest tests/ -o 'addopts=' -q   # Full suite), code:block44 (type: concise subject line) (+6 more)
 
 ### Community 158 - "Community 158"
 Cohesion: 0.33
@@ -796,8 +801,8 @@ Cohesion: 0.33
 Nodes (6): 2.1 Take snapshot of old server, 2.2 Rebuild new server from snapshot, 2.3 Post-migration checklist, ⚠️ 2.4 CRITICAL — Stop cloudflared on old server, code:bash (# On the OLD server:), Phase 2 — Snapshot Migration (Hetzner)
 
 ### Community 160 - "Community 160"
-Cohesion: 0.53
-Nodes (4): industryContext, seed(), supabase, verbaflowServices
+Cohesion: 0.15
+Nodes (13): Auxiliary models not working, Changes not taking effect, CLI interaction bugs (silent cancellation, broken slash commands), code:bash (grep -i "failed to send\|error" ~/.hermes/logs/gateway.log |), code:bash (hermes config set auxiliary.vision.provider <your_provider>), Gateway issues, Model/provider issues, Platform-specific issues (+5 more)
 
 ### Community 161 - "Community 161"
 Cohesion: 0.33
@@ -847,6 +852,14 @@ Nodes (3): B.5 Hermes Provider Config, code:yaml (providers:), code:bash (GEMINI
 Cohesion: 0.67
 Nodes (3): code:block13 (Failed to add route: An A, AAAA, or CNAME record with that h), code:bash (cloudflared tunnel route dns <TUNNEL_NAME> <HOSTNAME>), Error: DNS record already exists (cloudflared tunnel route)
 
+### Community 192 - "Community 192"
+Cohesion: 0.12
+Nodes (16): 2. Hermes Agent Skill — Full Reference, code:bash (# Install), code:yaml (stt:), Cron (scheduled jobs), Curator (skill lifecycle), Delegation (`delegate_task`), Durable & Background Systems, Hermes Agent (+8 more)
+
+### Community 193 - "Community 193"
+Cohesion: 0.25
+Nodes (8): code:bash (terminal(command="hermes chat -q 'Research GRPO papers and w), code:bash (# Start), code:bash (# Agent A: backend), Interactive PTY Mode (via tmux), Multi-Agent Coordination, One-Shot Mode, Spawning Additional Hermes Instances, When to Use This Vs delegate_task
+
 ### Community 194 - "Community 194"
 Cohesion: 0.67
 Nodes (3): code:css (.vf-char-mask { display: inline-block; overflow: hidden; ver), code:tsx ("use client";), Primitive 02 — Letter-by-letter rise on H2s
@@ -871,20 +884,40 @@ Nodes (3): code:tsx (export default function Marquee({ children, speed = 22, var
 Cohesion: 0.67
 Nodes (3): code:tsx (const pillars = [), code:css (.vf-pillars { display: flex; gap: 16px; height: 520px; }), Primitive 07 — 3-pillar hover-expand (restructure ServicesSection)
 
+### Community 229 - "Community 229"
+Cohesion: 0.29
+Nodes (7): code:bash (hermes config set security.redact_secrets true       # enabl), code:bash (hermes config set privacy.redact_pii true    # enable), code:bash (hermes config set approvals.mode smart), Command approval prompts, PII redaction in gateway messages, Secret redaction in tool output, Security & Privacy Toggles
+
+### Community 230 - "Community 230"
+Cohesion: 0.33
+Nodes (6): Config / Files, `execute_code` / Sandbox, Input / Keybindings, Path / Filesystem, Testing / Contributing, Windows-Specific Quirks
+
+### Community 231 - "Community 231"
+Cohesion: 0.06
+Nodes (32): code:block1 (Stage 1: Context Detection), code:block2 (Is it a VerbaFlow internal product?), code:block3 (skill_view(name="popular-web-designs", file_path="templates/), code:block4 (Search terms:), code:block5 (project-root/), code:yaml (---), DESIGN.md Content, Example: Galaxy Landing Page (+24 more)
+
+### Community 232 - "Community 232"
+Cohesion: 0.13
+Nodes (12): STATUS_BG, STATUS_COLOR, STATUS_LABEL, AgencyPage(), ProtoFrameProps, ProtoNav(), ProtoNavProps, ProtoEntry (+4 more)
+
+### Community 233 - "Community 233"
+Cohesion: 0.15
+Nodes (7): AboutPage(), Footer(), NavigationService, useVapi(), GrowthPlanPage(), metadata, VirtualOfficePage()
+
 ## Knowledge Gaps
-- **1360 isolated node(s):** `blocks`, `people`, `projects`, `topics`, `name` (+1355 more)
+- **1504 isolated node(s):** `blocks`, `people`, `projects`, `topics`, `name` (+1499 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **34 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **32 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Customer` connect `Community 1` to `Community 0`, `Community 26`, `Community 43`, `Community 36`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `Customer` connect `Community 1` to `Community 0`, `Community 26`, `Community 2`, `Community 29`?**
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `AgencySplitLayout()` connect `Community 3` to `Community 13`?**
-  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `blocks`, `people`, `projects` to the rest of the system?**
-  _1360 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1504 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.02 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

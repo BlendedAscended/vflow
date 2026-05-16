@@ -1,3 +1,50 @@
+## 2026-05-16 02:15 (UTC) — Volumetric beam: frock-shaped bottom spread with ragged edges
+
+**Changes:**
+- `src/components/VolumetricBeam.tsx`
+  - Frock silhouette: narrow shaft (0.08→0.20), wider plume (0.20→0.32), dramatic mega flare (0.32→0.50). Was capped at 0.36.
+  - Asymmetric noise: two layered sin waves (`flareNoise` + `flareJitter`) kick in at t>0.5 and t>0.6, creating organic ragged hem that varies per-row over time. Prevents the bottom from reading as a smooth symmetric cone.
+
+## 2026-05-16 01:45 (UTC) — Business-First Prompt Architecture: complete two-axis spec
+
+**Changes:**
+- `verbaflow_lake/business-first-prompt-architecture.md` — 78,158 bytes, 19 sections
+  - Two-axis superset model: Competitor DNA (X-axis, validated patterns) + Adaptive Template (Y-axis, 54 popular-web-designs tokens)
+  - Stage 0-7 pipeline: competitor mining → template selection → enhanced questionnaire → profile extraction → architect → designer prompt → Stitch → human review → deploy
+  - Enhanced questionnaire: 10 industry-specific field sets (dental, legal, restaurant, salon, home services, healthcare, real estate, auto, fitness, fintech)
+  - Template-to-niche mapping: 20 primary niches mapped to best-fit popular-web-designs template
+  - Competitor curation seed table: 6 industries (dental, legal, restaurant, home services, real estate, auto) with 3-5 reference sites each, surgical element extraction
+  - Adaptive DESIGN.md 3-mode spec: `client-business-website`, `growth-plan-wireframe`, `agency-vertical-landing`
+  - Service sub-types: `web-design` → 10 industry-specific page structures, integrations, tone, and color overrides
+  - $400 package architecture: self-service → review → payment → deploy pipeline with 10-15 min human touch
+  - Superset rules: 3+ refs minimum, max 35% single-source influence, 70/20/10 composition split
+  - Perspective guardrails: Mode A (client website) vs Mode B (growth plan) vs Mode C (agency landing)
+
+**Design decisions:**
+- Competitor DNA uses static curated YAML table, not LLM — prevents hallucinated reference sites
+- Template selection is deterministic lookup, not generative — 54 templates mapped by niche
+- Client references get 50% weight; curated table fills remaining 50%
+- All industry-specific questionnaire fields are optional; GBP auto-fills gaps
+- VerbaFlow service slugs NEVER appear in Mode A designer prompts
+
+**No code execution in this pass.** Document is a specification awaiting implementation approval.
+
+## 2026-05-16 01:25 (UTC) — Volumetric beam: fat filament bundle, ground spread, soft edges
+
+**Changes:**
+- `src/components/VolumetricBeam.tsx`
+  - Fix 2: Replaced thin 1-3px laser core with three-element filament bundle: wide hot body (~28-50px), sharp central spine (~2.5-6px), and two off-axis ghost filaments drifting at ±18px. Body uses vertical fade + additive horizontal gradient for soft lateral falloff.
+  - Fix 3: Softened fog cone gradient from 5 stops (sharp 0.22/0.78 shoulders) to 7 stops (long 0.12/0.88 tails) for diffuse halo edges matching Ref B multi-strand fade.
+  - Fix 5: Widened landing pool radius from W*0.55 to W*0.85 for broad surface spread. Added (g) ground streak: thin horizontal smear at hero/Services boundary, 60-80px tall, synced to landingBoost pulse.
+  - Fix 6a: Updated MUTED mint palette to match --section-bg-2 (#2d2d4b → RGB 45,45,75) so beam residual blends into Services background.
+
+**Already applied in prior commit 79404d8:**
+- Fix 1: Landing pool fillRect full canvas (no seam)
+- Fix 4: Plume/mega cone width trimmed ~20% (0.096/0.064)
+- Fix 6b: LavaFade steepened to pow(1.0-fadeT, 2.4)
+- Fix 6c: Core fade stop at heroRatio+0.08
+
+**Verification:** `npm run build` passes clean.
 ## 2026-05-16 00:50 (UTC) — Volumetric beam: kill seam, color-grade overlap, slim plume
 
 **Changes:**

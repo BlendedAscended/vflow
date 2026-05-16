@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { useLocationValue } from "./LocationContext";
 import QuoteOverlay from "./QuoteOverlay";
-import VolumetricBeam from "./VolumetricBeam";
 import MagneticButton from "./ui/MagneticButton";
 
 const HeroSection = () => {
@@ -168,7 +167,7 @@ const HeroSection = () => {
       id="vf-hero-scene"
     >
       {/* ═══ LAYER 0 — WebGL beam canvas (bottom) ═══ */}
-      <VolumetricBeam hue="mint" intensity={1.4} bottomSpread={1.4} />
+      {/* Beam moved to page level for waterfall extension into Services */}
 
       {/* ═══ LAYER 1 — Starfield ═══ */}
       <div className="vf-stars" />

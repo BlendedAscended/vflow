@@ -733,7 +733,8 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
       <div className="absolute top-10 right-16 w-72 h-72 bg-[var(--accent)]/10 rounded-full blur-3xl animate-pulse-slow pointer-events-none" />
       <div className="absolute bottom-10 left-8 w-64 h-64 bg-[var(--accent)]/8 rounded-full blur-3xl animate-float pointer-events-none" />
 
-      <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
+      {/* Headings — above waterfall beam */}
+      <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-20">
 
         {/* Header */}
         <div className="text-center mb-14 animate-fade-in-up">
@@ -762,6 +763,10 @@ const ServicesSection = ({ services }: ServicesSectionProps) => {
             </a>
           </div>
         </div>
+      </div>
+
+      {/* Content — below waterfall beam */}
+      <div className="max-w-8xl mx-auto px-6 lg:px-12 relative z-10">
 
         {/* Two-column layout: services left, helix right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] xl:grid-cols-[1fr_500px] gap-6 lg:gap-10 items-start">

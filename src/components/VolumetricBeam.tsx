@@ -37,7 +37,7 @@ export default function VolumetricBeam({
   };
 
   const MUTED: Record<string, { glow: number[]; deep: number[] }> = {
-    mint: { glow: [34, 46, 60], deep: [24, 32, 42] },
+    mint: { glow: [45, 45, 75], deep: [32, 32, 53] },
     cyan: { glow: [160, 220, 255], deep: [60, 130, 180] },
     violet: { glow: [200, 180, 255], deep: [110, 80, 190] },
     amber: { glow: [255, 220, 130], deep: [200, 140, 60] },
@@ -130,19 +130,28 @@ export default function VolumetricBeam({
         }
         if (lavaFade < 0.005) continue;
 
-        // ── Piecewise Cascade → Plume → Mega Cone ──
+        // ── Piecewise Cascade → Plume → Mega Cone (frock silhouette) ──
         let widthFrac: number;
         if (t < SHAFT_END) {
           widthFrac = 0.08 + (t / SHAFT_END) * 0.12; // 0.08 → 0.20
         } else if (t < PLUME_END) {
           const plumeT = (t - SHAFT_END) / (PLUME_END - SHAFT_END);
-          widthFrac = 0.20 + Math.pow(plumeT, 2) * 0.096; // 0.20 → 0.296
+          widthFrac = 0.20 + Math.pow(plumeT, 2) * 0.12; // 0.20 → 0.32
         } else {
           const megaT = (t - PLUME_END) / (1.0 - PLUME_END);
-          widthFrac = 0.296 + Math.pow(megaT, 1.4) * 0.064; // 0.296 → 0.36
+          widthFrac = 0.32 + Math.pow(megaT, 1.2) * 0.18; // 0.32 → 0.50  (frock flare)
         }
 
-        const halfW = (ow * bottomSpread * widthFrac) / 2 + 1.2;
+        // Asymmetric noise — grows toward bottom, creates ragged frock hem
+        const flareNoise = t > 0.5
+          ? Math.sin(t * 8.0 + time * 0.3 + drift) * (t - 0.5) * 0.12
+          : 0;
+        const flareJitter = t > 0.6
+          ? Math.sin(t * 14.0 - time * 0.22) * (t - 0.6) * 0.06
+          : 0;
+        widthFrac += flareNoise + flareJitter;
+
+        const halfW = (ow * bottomSpread * Math.max(0.04, widthFrac)) / 2 + 1.2;
         const longProfile = Math.pow(t, 0.45) * (1 - 0.3 * Math.pow(t, 3));
 
         // ── Lava-lamp turbulence ──
@@ -169,9 +178,11 @@ export default function VolumetricBeam({
 
         const grad = offCtx.createLinearGradient(cx - halfW, 0, cx + halfW, 0);
         grad.addColorStop(0.0, `rgba(${haze[0]},${haze[1]},${haze[2]},${alpha * 0.0})`);
-        grad.addColorStop(0.22, `rgba(${dr | 0},${dg | 0},${db | 0},${alpha * 0.49})`);
+        grad.addColorStop(0.12, `rgba(${dr | 0},${dg | 0},${db | 0},${alpha * 0.18})`);
+        grad.addColorStop(0.32, `rgba(${dr | 0},${dg | 0},${db | 0},${alpha * 0.55})`);
         grad.addColorStop(0.5, `rgba(${r | 0},${g | 0},${b | 0},${alpha * 1.0})`);
-        grad.addColorStop(0.78, `rgba(${dr | 0},${dg | 0},${db | 0},${alpha * 0.49})`);
+        grad.addColorStop(0.68, `rgba(${dr | 0},${dg | 0},${db | 0},${alpha * 0.55})`);
+        grad.addColorStop(0.88, `rgba(${dr | 0},${dg | 0},${db | 0},${alpha * 0.18})`);
         grad.addColorStop(1.0, `rgba(${haze[0]},${haze[1]},${haze[2]},${alpha * 0.0})`);
         offCtx.fillStyle = grad;
         offCtx.fillRect(cx - halfW, y, halfW * 2, STRIDE);
@@ -218,19 +229,50 @@ export default function VolumetricBeam({
       ctx.fillRect(W / 2 - innerW, 0, innerW * 2, H);
       ctx.globalAlpha = 1.0;
 
-      // (d) Sharp bright core (diffuses naturally into overlap)
-      const coreW = 1.6 + pulseSlow * 1.0 + pulseFast * 0.5 + pulseGlow * 2.5;
+      // (d) Fat filament bundle — replaces the thin laser core
       const coreOp = (0.85 + pulseFast * 0.15) * intensity;
-      const coreG = ctx.createLinearGradient(0, 0, 0, H);
-      coreG.addColorStop(0.0, "rgba(255,255,255,0)");
-      coreG.addColorStop(Math.min(0.04, heroRatio * 0.5), `rgba(255,255,255,${coreOp})`);
-      coreG.addColorStop(heroRatio * 0.4, `rgba(${core[0]},${core[1]},${core[2]},${coreOp})`);
-      coreG.addColorStop(heroRatio * 0.8, `rgba(${core[0]},${core[1]},${core[2]},${coreOp * 0.85})`);
-      coreG.addColorStop(heroRatio, `rgba(${glow[0]},${glow[1]},${glow[2]},${coreOp * 0.35})`);
-      coreG.addColorStop(Math.min(heroRatio + 0.08, 0.98), `rgba(${glow[0]},${glow[1]},${glow[2]},${coreOp * 0.05})`);
-      coreG.addColorStop(1.0, "rgba(0,0,0,0)");
-      ctx.fillStyle = coreG;
-      ctx.fillRect(W / 2 - coreW / 2, 0, coreW, H);
+
+      // Vertical fade gradient shared by all filament elements
+      const makeCoreFade = (topAlpha: number, fadeStop: number) => {
+        const g = ctx.createLinearGradient(0, 0, 0, H);
+        g.addColorStop(0.0, "rgba(255,255,255,0)");
+        g.addColorStop(Math.min(0.04, heroRatio * 0.5), `rgba(255,255,255,${topAlpha})`);
+        g.addColorStop(heroRatio * 0.4, `rgba(${core[0]},${core[1]},${core[2]},${topAlpha})`);
+        g.addColorStop(heroRatio * 0.8, `rgba(${core[0]},${core[1]},${core[2]},${topAlpha * 0.85})`);
+        g.addColorStop(heroRatio, `rgba(${glow[0]},${glow[1]},${glow[2]},${topAlpha * 0.35})`);
+        g.addColorStop(Math.min(heroRatio + fadeStop, 0.98), `rgba(${glow[0]},${glow[1]},${glow[2]},${topAlpha * 0.05})`);
+        g.addColorStop(1.0, "rgba(0,0,0,0)");
+        return g;
+      };
+
+      // 1. Wide hot body — the "core mass"
+      const bodyW = 28 + pulseSlow * 8 + pulseGlow * 14;
+      ctx.globalAlpha = 0.9;
+      ctx.fillStyle = makeCoreFade(coreOp * 0.85, 0.08);
+      ctx.fillRect(W / 2 - bodyW, 0, bodyW * 2, H);
+      // Overlay horizontal gradient for soft lateral falloff (additive)
+      const bodyG = ctx.createLinearGradient(W / 2 - bodyW, 0, W / 2 + bodyW, 0);
+      bodyG.addColorStop(0.0, "rgba(0,0,0,0)");
+      bodyG.addColorStop(0.35, `rgba(${core[0]},${core[1]},${core[2]},${coreOp * 0.3})`);
+      bodyG.addColorStop(0.5, `rgba(${core[0]},${core[1]},${core[2]},${coreOp * 0.6})`);
+      bodyG.addColorStop(0.65, `rgba(${core[0]},${core[1]},${core[2]},${coreOp * 0.3})`);
+      bodyG.addColorStop(1.0, "rgba(0,0,0,0)");
+      ctx.fillStyle = bodyG;
+      ctx.fillRect(W / 2 - bodyW, 0, bodyW * 2, H);
+      ctx.globalAlpha = 1.0;
+
+      // 2. Sharp hot spine — bright filament at centre
+      const spineW = 2.5 + pulseFast * 1.5 + pulseGlow * 2.0;
+      ctx.fillStyle = makeCoreFade(coreOp, 0.08);
+      ctx.fillRect(W / 2 - spineW / 2, 0, spineW, H);
+
+      // 3. Off-axis secondary filaments — two soft strands ±18 px off centre
+      const filamentOffset = 18 + Math.sin(time * 0.4) * 4;
+      const filamentW = 3 + pulseSlow * 1.2;
+      const filamentOp = coreOp * 0.45;
+      ctx.fillStyle = makeCoreFade(filamentOp, 0.08);
+      ctx.fillRect(W / 2 - filamentOffset - filamentW / 2, 0, filamentW, H);
+      ctx.fillRect(W / 2 + filamentOffset - filamentW / 2, 0, filamentW, H);
 
       // (e) Origin halo (launch flare synced to pulse, fades naturally)
       const launchBoost = pulsePos < 0.15 ? 1.0 - pulsePos / 0.15 : 0;
@@ -247,7 +289,7 @@ export default function VolumetricBeam({
       // (f) Landing pool at hero bottom (intensifies on pulse landing)
       const landingBoost = pulsePos > 0.85 ? (pulsePos - 0.85) / 0.15 : 0;
       const poolIntensity = (0.4 + landingBoost * 0.35) * intensity;
-      const poolR = W * 0.55;
+      const poolR = W * 0.85;
       const poolY = H * heroRatio * 1.02;
       const poolG = ctx.createRadialGradient(W / 2, poolY, 0, W / 2, poolY, poolR);
       poolG.addColorStop(0.0, `rgba(${glow[0]},${glow[1]},${glow[2]},${poolIntensity})`);
@@ -256,6 +298,16 @@ export default function VolumetricBeam({
       poolG.addColorStop(1.0, "rgba(0,0,0,0)");
       ctx.fillStyle = poolG;
       ctx.fillRect(0, 0, W, H);
+
+      // (g) Ground streak — thin horizontal smear at the surface
+      const streakY = H * heroRatio;
+      const streakH = 60 + pulseSlow * 20;
+      const streakG = ctx.createLinearGradient(0, streakY - streakH / 2, 0, streakY + streakH / 2);
+      streakG.addColorStop(0.0, "rgba(0,0,0,0)");
+      streakG.addColorStop(0.5, `rgba(${glow[0]},${glow[1]},${glow[2]},${0.22 * intensity * (0.6 + landingBoost * 0.4)})`);
+      streakG.addColorStop(1.0, "rgba(0,0,0,0)");
+      ctx.fillStyle = streakG;
+      ctx.fillRect(0, streakY - streakH / 2, W, streakH);
 
       ctx.globalCompositeOperation = "source-over";
       raf = requestAnimationFrame(render);

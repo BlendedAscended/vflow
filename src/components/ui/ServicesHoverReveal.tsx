@@ -1,14 +1,18 @@
 "use client";
 
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect } from "react";
 import * as THREE from "three";
 
 /* ════════════════════════════════════════════════════════════════════
    <ServicesHoverReveal />
-   WebGL circuit-board hover background. Renders ADDITIVELY on top of
-   the existing background — only the cursor-following circuit pattern
-   is drawn; the base is fully transparent so the section texture shines
-   through untouched.
+   WebGL circuit-board hover background + Pac-Man wanderer.
+
+   The shader renders a cursor-following circuit glow. After 1 s of
+   hover a Pac-Man character spawns and wanders the 56 px grid. It is
+   only visible inside the glow radius, chomps as it moves, and
+   "eats" the circuit lines (temporarily clears them). It naturally
+   occludes behind service cards (z-index below content) and re-appears
+   when it emerges from the other side.
    ════════════════════════════════════════════════════════════════════ */
 
 interface ServicesHoverRevealProps {
@@ -22,6 +26,7 @@ export default function ServicesHoverReveal({
 }: ServicesHoverRevealProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const pacManRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -70,8 +75,6 @@ export default function ServicesHoverReveal({
     const accentG = parseInt(accentColor.slice(3, 5), 16) / 255;
     const accentB = parseInt(accentColor.slice(5, 7), 16) / 255;
 
-    // Key change: shader outputs alpha=0 everywhere except where the
-    // cursor reveal mask is active. No dark base layer.
     const fragShader = `
       precision highp float;
       varying vec2 vUv;
@@ -81,6 +84,8 @@ export default function ServicesHoverReveal({
       uniform float uHover;
       uniform float uRadiusPx;
       uniform vec3  uAccent;
+      uniform vec2  uPacManPos;
+      uniform float uPacManActive;
 
       float hash(vec2 p) {
         return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
@@ -127,6 +132,13 @@ export default function ServicesHoverReveal({
         float revealField = gA + gB + pts * 1.4 + trc;
         revealField *= mix(0.85, 1.15, scan);
 
+        // Pac-Man eat effect — temporarily clears circuit
+        if (uPacManActive > 0.5) {
+          float dPac = distance(fragPx, uPacManPos);
+          float eatMask = 1.0 - smoothstep(0.0, 18.0, dPac);
+          revealField *= (1.0 - eatMask * 0.92);
+        }
+
         // Radial mask with pulse
         float pulseR = 1.0 + 0.06 * sin(uTime * 1.6);
         float pulseI = 0.85 + 0.15 * sin(uTime * 2.2);
@@ -155,8 +167,8 @@ export default function ServicesHoverReveal({
     mat = new THREE.ShaderMaterial({
       vertexShader: vertShader,
       fragmentShader: fragShader,
-      transparent: true,  // <-- enable alpha blending
-      depthWrite: false,  // <-- don't write to depth buffer
+      transparent: true,
+      depthWrite: false,
       uniforms: {
         uResolution: { value: new THREE.Vector2(1, 1) },
         uMouse: { value: new THREE.Vector2(0.5, 0.5) },
@@ -164,6 +176,8 @@ export default function ServicesHoverReveal({
         uHover: { value: 0 },
         uRadiusPx: { value: 240 },
         uAccent: { value: new THREE.Vector3(accentR, accentG, accentB) },
+        uPacManPos: { value: new THREE.Vector2(-1000, -1000) },
+        uPacManActive: { value: 0 },
       },
     });
 
@@ -176,6 +190,98 @@ export default function ServicesHoverReveal({
     let targetHover = 0;
     let smoothHover = 0;
 
+    // ── Pac-Man state ──────────────────────────────────────────────
+    const GRID = 56;
+    const PAC_SIZE = 24;
+    const PAC_HALF = PAC_SIZE / 2;
+
+    interface PacManState {
+      active: boolean;
+      px: number; // CSS px from left
+      py: number; // CSS px from top (downward)
+      dir: number; // 0: right, 1: down, 2: left, 3: up
+      speed: number; // CSS px / sec
+      mouthPhase: number;
+    }
+
+    const pac: PacManState = {
+      active: false,
+      px: 0,
+      py: 0,
+      dir: 0,
+      speed: 84,
+      mouthPhase: 0,
+    };
+
+    const spawnPacMan = () => {
+      const r = wrap.getBoundingClientRect();
+      // Start at a random grid intersection near the center
+      pac.px = Math.max(GRID, Math.min(r.width - GRID, Math.round((r.width / 2) / GRID) * GRID));
+      pac.py = Math.max(GRID, Math.min(r.height - GRID, Math.round((r.height / 2) / GRID) * GRID));
+      pac.dir = [0, 1, 2, 3][Math.floor(Math.random() * 4)];
+      pac.active = true;
+      mat.uniforms.uPacManActive.value = 1;
+      if (pacManRef.current) {
+        pacManRef.current.style.opacity = "1";
+      }
+    };
+
+    const updatePacMan = (dt: number) => {
+      if (!pac.active) return;
+
+      const r = wrap.getBoundingClientRect();
+      const step = pac.speed * dt;
+
+      // Move along current direction
+      if (pac.dir === 0) pac.px += step;
+      else if (pac.dir === 1) pac.py += step;
+      else if (pac.dir === 2) pac.px -= step;
+      else if (pac.dir === 3) pac.py -= step;
+
+      // Bounce off walls / seam edges
+      if (pac.px < PAC_HALF) {
+        pac.px = PAC_HALF;
+        pac.dir = 0;
+      } else if (pac.px > r.width - PAC_HALF) {
+        pac.px = r.width - PAC_HALF;
+        pac.dir = 2;
+      }
+
+      if (pac.py < PAC_HALF) {
+        pac.py = PAC_HALF;
+        pac.dir = 1;
+      } else if (pac.py > r.height - PAC_HALF) {
+        pac.py = r.height - PAC_HALF;
+        pac.dir = 3;
+      }
+
+      // Snap to nearest grid intersection
+      const nearestX = Math.round(pac.px / GRID) * GRID;
+      const nearestY = Math.round(pac.py / GRID) * GRID;
+      const distToGrid = Math.hypot(pac.px - nearestX, pac.py - nearestY);
+
+      if (distToGrid < step * 0.6) {
+        pac.px = nearestX;
+        pac.py = nearestY;
+
+        // Pick a new direction (exclude 180 reversal)
+        const opposite = (pac.dir + 2) % 4;
+        let choices = [0, 1, 2, 3].filter((d) => d !== opposite);
+        pac.dir = choices[Math.floor(Math.random() * choices.length)];
+      }
+
+      // Update shader eat position (physical pixels, shader Y flipped)
+      const shaderX = pac.px * dpr;
+      const shaderY = (r.height - pac.py) * dpr;
+      mat.uniforms.uPacManPos.value.set(shaderX, shaderY);
+
+      // Update DOM position + rotation
+      if (pacManRef.current) {
+        pacManRef.current.style.transform = `translate(${pac.px - PAC_HALF}px, ${pac.py - PAC_HALF}px) rotate(${pac.dir * 90}deg)`;
+      }
+    };
+
+    // ── Event handlers ─────────────────────────────────────────────
     const onMove = (e: MouseEvent) => {
       const r = wrap.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width;
@@ -196,35 +302,45 @@ export default function ServicesHoverReveal({
       mat.uniforms.uRadiusPx.value = radius * dpr;
     };
 
+    let lastTime = performance.now();
+
     const loop = () => {
       raf = requestAnimationFrame(loop);
+      const now = performance.now();
+      const dt = Math.min((now - lastTime) / 1000, 0.05); // cap delta
+      lastTime = now;
+
       smoothMouse.lerp(targetMouse, 0.08);
       smoothHover += (targetHover - smoothHover) * 0.06;
 
       mat.uniforms.uMouse.value.copy(smoothMouse);
       mat.uniforms.uHover.value = smoothHover;
-      mat.uniforms.uTime.value = performance.now() / 1000;
+      mat.uniforms.uTime.value = now / 1000;
+
+      updatePacMan(dt);
 
       renderer.render(scene, camera);
     };
 
     resize();
-    wrap.addEventListener("mousemove", onMove);
-    wrap.addEventListener("mouseleave", onLeave);
+    spawnPacMan();
+    const host = wrap.parentElement ?? wrap;
+    host.addEventListener("mousemove", onMove);
+    host.addEventListener("mouseleave", onLeave);
     window.addEventListener("resize", resize);
     raf = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(raf);
-      wrap.removeEventListener("mousemove", onMove);
-      wrap.removeEventListener("mouseleave", onLeave);
+      host.removeEventListener("mousemove", onMove);
+      host.removeEventListener("mouseleave", onLeave);
       window.removeEventListener("resize", resize);
       renderer.dispose();
     };
   }, [accentColor]);
 
   return (
-    <div ref={wrapRef} className={`relative ${className}`}>
+    <div ref={wrapRef} className={className}>
       <canvas
         ref={canvasRef}
         aria-hidden="true"
@@ -237,6 +353,57 @@ export default function ServicesHoverReveal({
           zIndex: 1,
         }}
       />
+      <div
+        ref={pacManRef}
+        aria-hidden="true"
+        className="pointer-events-none"
+        style={{
+          position: "absolute",
+          width: 24,
+          height: 24,
+          zIndex: 5,
+          opacity: 0,
+          transition: "opacity 0.15s ease",
+          willChange: "transform, opacity",
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "50%",
+            background: "#FFEB3B",
+            boxShadow: "0 0 6px rgba(255,235,59,0.6)",
+            animation: "pacChomp 0.25s infinite alternate",
+          }}
+        />
+      </div>
+      <style>{`
+        @keyframes pacChomp {
+          0% {
+            clip-path: polygon(
+              50% 50%,
+              100% 35%,
+              100% 0%,
+              0% 0%,
+              0% 100%,
+              100% 100%,
+              100% 65%
+            );
+          }
+          100% {
+            clip-path: polygon(
+              50% 50%,
+              100% 50%,
+              100% 0%,
+              0% 0%,
+              0% 100%,
+              100% 100%,
+              100% 50%
+            );
+          }
+        }
+      `}</style>
     </div>
   );
 }
