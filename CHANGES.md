@@ -1,3 +1,16 @@
+## 2026-05-16 03:00 (UTC) — Volumetric beam: CSS mask + screen blend (guaranteed seam kill)
+
+**Changes:**
+- `src/app/page.tsx`
+  - Wrapped `<VolumetricBeam />` in a positioned div that carries the mask. `mask-image: linear-gradient(to bottom, #000 0% / #000 64% / transparent 100%)` (plus `-webkit-` prefix) forces canvas alpha to zero past `heroRatio`, so any residual fillRect math bug or future canvas artefact cannot reintroduce a horizontal seam at the hero/Services boundary.
+  - Moved `mix-blend-mode: screen` onto the canvas itself so the beam adds to the Services bg instead of replacing it. Combined with the dark-mode MUTED palette already matching `#2d2d4b` (`--section-bg-2`), the residual beam in the overlap zone reads as a brighter version of the section bg, not a separate colour.
+  - Wrapper div carries `aria-hidden`, `pointer-events-none`, `z-index: 12`, `height: 155vh` (matches canvas H = heroH × 1.55).
+- **Fix 7 of 7** from `~/.claude/plans/first-of-all-i-ve-parsed-trinket.md`. Fixes 1, 2, 3, 5, 6 were already in (prior agent pass at 02:15 UTC); Fix 4 (width trim) was intentionally inverted into the frock flare and left as-is per current design intent.
+
+**Follow-up plans queued** (not in this commit):
+- `docs/dna-plan.md` — DNA Triptych (three holographic 3D helices for Services section)
+- `docs/beam-shader-plan.md` — Three.js shader rewrite of VolumetricBeam (proper long-term answer if CSS mask + canvas fixes still don't get the look)
+
 ## 2026-05-16 02:15 (UTC) — Volumetric beam: frock-shaped bottom spread with ragged edges
 
 **Changes:**

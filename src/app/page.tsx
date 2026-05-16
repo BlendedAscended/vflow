@@ -73,15 +73,31 @@ export default async function Home() {
         {/* Hero */}
         <HeroSection />
 
-        {/* Waterfall beam — extends 25vh into Services, above circuit/cards, below headings */}
-        <VolumetricBeam
-          hue="mint"
-          intensity={1.4}
-          bottomSpread={1.4}
-          lavaOverlap={0.55}
+        {/* Waterfall beam — wrapped in a CSS-mask div so the canvas alpha
+            is forced to zero past the hero boundary (guaranteed seam kill,
+            independent of canvas internals). mix-blend-mode makes the beam
+            additive over the Services bg instead of replacing it. */}
+        <div
+          aria-hidden="true"
           className="absolute top-0 left-0 w-full pointer-events-none"
-          style={{ zIndex: 12 }}
-        />
+          style={{
+            zIndex: 12,
+            height: '155vh',
+            WebkitMaskImage:
+              'linear-gradient(to bottom, #000 0%, #000 64%, transparent 100%)',
+            maskImage:
+              'linear-gradient(to bottom, #000 0%, #000 64%, transparent 100%)',
+          }}
+        >
+          <VolumetricBeam
+            hue="mint"
+            intensity={1.4}
+            bottomSpread={1.4}
+            lavaOverlap={0.55}
+            className="absolute inset-0"
+            style={{ mixBlendMode: 'screen' }}
+          />
+        </div>
 
         {/* Services — 3-pillar layout */}
         <ServicesSection services={services} />

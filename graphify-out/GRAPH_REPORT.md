@@ -1,16 +1,16 @@
 # Graph Report - vflow2.0  (2026-05-16)
 
 ## Corpus Check
-- 259 files · ~2,887,731 words
+- 260 files · ~2,898,476 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2897 nodes · 3421 edges · 234 communities (202 shown, 32 thin omitted)
+- 3022 nodes · 3545 edges · 261 communities (221 shown, 40 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `45d92a7f`
+- Built from commit: `c7c91d75`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -213,6 +213,33 @@
 - [[_COMMUNITY_Community 231|Community 231]]
 - [[_COMMUNITY_Community 232|Community 232]]
 - [[_COMMUNITY_Community 233|Community 233]]
+- [[_COMMUNITY_Community 234|Community 234]]
+- [[_COMMUNITY_Community 235|Community 235]]
+- [[_COMMUNITY_Community 236|Community 236]]
+- [[_COMMUNITY_Community 237|Community 237]]
+- [[_COMMUNITY_Community 238|Community 238]]
+- [[_COMMUNITY_Community 239|Community 239]]
+- [[_COMMUNITY_Community 240|Community 240]]
+- [[_COMMUNITY_Community 241|Community 241]]
+- [[_COMMUNITY_Community 242|Community 242]]
+- [[_COMMUNITY_Community 243|Community 243]]
+- [[_COMMUNITY_Community 244|Community 244]]
+- [[_COMMUNITY_Community 245|Community 245]]
+- [[_COMMUNITY_Community 246|Community 246]]
+- [[_COMMUNITY_Community 247|Community 247]]
+- [[_COMMUNITY_Community 248|Community 248]]
+- [[_COMMUNITY_Community 249|Community 249]]
+- [[_COMMUNITY_Community 250|Community 250]]
+- [[_COMMUNITY_Community 251|Community 251]]
+- [[_COMMUNITY_Community 252|Community 252]]
+- [[_COMMUNITY_Community 253|Community 253]]
+- [[_COMMUNITY_Community 254|Community 254]]
+- [[_COMMUNITY_Community 255|Community 255]]
+- [[_COMMUNITY_Community 256|Community 256]]
+- [[_COMMUNITY_Community 257|Community 257]]
+- [[_COMMUNITY_Community 258|Community 258]]
+- [[_COMMUNITY_Community 259|Community 259]]
+- [[_COMMUNITY_Community 260|Community 260]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Customer` - 69 edges
@@ -220,11 +247,11 @@
 3. `settings` - 25 edges
 4. `client` - 24 edges
 5. `Cross-Tool Rules (Shared by ALL AI tools)` - 23 edges
-6. `ProjectFrame()` - 21 edges
-7. `1. Skills Catalog` - 20 edges
-8. `File Inventory` - 18 edges
+6. `Business-First Prompt Architecture — Complete Specification` - 23 edges
+7. `ProjectFrame()` - 21 edges
+8. `1. Skills Catalog` - 20 edges
 9. `File Inventory` - 18 edges
-10. `VerbaFlow 2.0 — Cyber Growth Funnel Implementation Plan` - 17 edges
+10. `File Inventory` - 18 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `POST()` --calls--> `sendWireframeReadyEmail()`  [INFERRED]
@@ -238,7 +265,7 @@
 - `generateMetadata()` --calls--> `getServices()`  [EXTRACTED]
   /Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/[slug]/page.tsx → src/app/page.tsx
 
-## Communities (234 total, 32 thin omitted)
+## Communities (261 total, 40 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.02
@@ -254,7 +281,7 @@ Nodes (71): AggregateUser, DateTimeFieldUpdateOperationsInput, GetUserAggregateT
 
 ### Community 3 - "Community 3"
 Cohesion: 0.06
-Nodes (45): AgencyLeftPanel(), AgencyLeftPanelProps, TICKER_ITEMS, _TICKER_TEXT, AgencyRightPanel(), AgencyRightPanelProps, AgencySplitLayout(), DomainToggle() (+37 more)
+Nodes (44): AgencyLeftPanel(), AgencyLeftPanelProps, TICKER_ITEMS, _TICKER_TEXT, AgencyRightPanel(), AgencyRightPanelProps, AgencySplitLayout(), DomainToggle() (+36 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.07
@@ -293,8 +320,8 @@ Cohesion: 0.06
 Nodes (31): 1. VerbaFlow Design System Skill (NEW), 2. Frontend Blueprint Skill (EXISTING - ALL REFERENCES), code:block1 (frontend-blueprint (Architecture)), code:block2 (/frontend-blueprint), code:block3 (Build me a Chrome extension), code:block4 (/verbaflow-design-system), code:block5 (Which design matrix should I use for Samurai?), Complete VerbaFlow Skills & Design System Package (+23 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.05
-Nodes (52): AgentsSection(), AnnoBar(), Cap(), CTASection(), HeroFloor(), HowSection(), LiveOpsSection(), Pawn() (+44 more)
+Cohesion: 0.13
+Nodes (21): AgentsSection(), AnnoBar(), Cap(), CTASection(), GoogleFonts(), HeroFloor(), HowSection(), LiveOpsSection() (+13 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.07
@@ -341,12 +368,12 @@ Cohesion: 0.1
 Nodes (19): BoolFilter, BoolWithAggregatesFilter, DateTimeFilter, DateTimeWithAggregatesFilter, NestedBoolFilter, NestedBoolWithAggregatesFilter, NestedDateTimeFilter, NestedDateTimeWithAggregatesFilter (+11 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.08
-Nodes (20): submitContact(), BusinessInfoSection(), HeroSection(), rotatingWords, sectors, useMagneticRef(), LocationContext, LocationContextValue (+12 more)
+Cohesion: 0.09
+Nodes (16): BusinessInfoSection(), HeroSection(), rotatingWords, sectors, useMagneticRef(), LocationContext, LocationContextValue, LocationProvider() (+8 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.17
-Nodes (10): Customer, User, PrismaClient, User, config, decodeBase64AsWasm(), getPrismaClientClass(), LogOptions (+2 more)
+Cohesion: 0.26
+Nodes (8): PrismaClient, User, config, decodeBase64AsWasm(), getPrismaClientClass(), LogOptions, PrismaClient, PrismaClientConstructor
 
 ### Community 27 - "Community 27"
 Cohesion: 0.11
@@ -357,8 +384,8 @@ Cohesion: 0.08
 Nodes (25): Chat, CLI Reference, code:block10 (hermes webhook subscribe N  Create route at /webhooks/<name>), code:block11 (hermes profile list         List all profiles), code:block12 (hermes auth add             Interactive credential wizard), code:block13 (hermes insights [--days N]  Usage analytics), code:block2 (hermes [flags] [command]), code:block3 (hermes chat [flags]) (+17 more)
 
 ### Community 29 - "Community 29"
-Cohesion: 0.16
-Nodes (11): BlogPage(), BlogPost, CategoryFilter, BlogDebugPage(), DebugBlog, client, { sanityFetch, SanityLive }, Service (+3 more)
+Cohesion: 0.13
+Nodes (13): submitContact(), BlogDebugPage(), DebugBlog, client, { sanityFetch, SanityLive }, ContactBlog, PortfolioPage(), ResumeCategory (+5 more)
 
 ### Community 30 - "Community 30"
 Cohesion: 0.04
@@ -389,8 +416,8 @@ Cohesion: 0.12
 Nodes (16): CustomerScalarFieldEnum, ModelName, NullsOrder, NullTypes, QueryMode, SortOrder, TransactionIsolationLevel, UserScalarFieldEnum (+8 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.19
-Nodes (13): POST(), normalizePlan(), POST(), getIndustryContext(), getServices(), IndustryContext, SanityService, Service (+5 more)
+Cohesion: 0.43
+Nodes (5): IndustryContext, industryContext, seed(), supabase, verbaflowServices
 
 ### Community 38 - "Community 38"
 Cohesion: 0.12
@@ -413,8 +440,8 @@ Cohesion: 0.12
 Nodes (14): code:block1 (Type  Name              Content                          Pri), code:block2 (Type  Name                         Content), code:bash (ssh senpai@<HETZNER_IP>), code:bash (# From local machine or Hetzner, test the contact form), code:block5 (TXT  verbaflowllc.com  "v=spf1 include:secureserver.net incl), Prompt 05 — Email Configuration (Resend + MX Records), Resend Sending Domain Options, Sanity MCP → Resend Mass Marketing (Future) (+6 more)
 
 ### Community 43 - "Community 43"
-Cohesion: 0.2
-Nodes (6): builder, dataset, projectId, structure(), schema, StudioPage()
+Cohesion: 0.13
+Nodes (14): POST(), normalizePlan(), POST(), builder, getIndustryContext(), getServices(), SanityService, Service (+6 more)
 
 ### Community 44 - "Community 44"
 Cohesion: 0.14
@@ -517,8 +544,8 @@ Cohesion: 0.73
 Nodes (4): label_color(), load_font(), luminance(), main()
 
 ### Community 70 - "Community 70"
-Cohesion: 0.14
-Nodes (13): 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-05-11 17:00 (UTC) — Cybergrowth funnel implementation plan published, 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-04-19 05:21 (UTC) - Unified all agent instruction files to the master Claude context (+5 more)
+Cohesion: 0.11
+Nodes (17): 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-05-11 17:00 (UTC) — Cybergrowth funnel implementation plan published, 2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix, 2026-04-17 - Hide glass card visual panel and "No credit card required" text, 2026-04-17 - Hide Request Quote button from home page hero, 2026-04-19 05:21 (UTC) - Unified all agent instruction files to the master Claude context (+9 more)
 
 ### Community 71 - "Community 71"
 Cohesion: 0.4
@@ -682,7 +709,7 @@ Nodes (12): code:block1 (Design a professional wireframe landing page for a {wiz
 
 ### Community 129 - "Community 129"
 Cohesion: 0.15
-Nodes (5): globalForPrisma, POST(), PlanPreviewPage(), GET(), POST()
+Nodes (5): globalForPrisma, PlanPreviewPage(), GET(), POST(), POST()
 
 ### Community 130 - "Community 130"
 Cohesion: 0.24
@@ -817,8 +844,8 @@ Cohesion: 0.33
 Nodes (6): code:block2 (Machine A (MacBook Pro)          Machine B (MacBook Air)), How It Works, Manual Steps After Clone on New Machine, Sync Strategy, What Does NOT Sync (excluded via .gitignore), What Syncs (committed to repo)
 
 ### Community 164 - "Community 164"
-Cohesion: 0.6
-Nodes (3): client, seedServices(), services
+Cohesion: 0.14
+Nodes (11): center(), ComputeStream(), ComputeStreamProps, FeedEntry, pathFor(), Phase, PHASES, Point (+3 more)
 
 ### Community 165 - "Community 165"
 Cohesion: 0.4
@@ -897,27 +924,103 @@ Cohesion: 0.06
 Nodes (32): code:block1 (Stage 1: Context Detection), code:block2 (Is it a VerbaFlow internal product?), code:block3 (skill_view(name="popular-web-designs", file_path="templates/), code:block4 (Search terms:), code:block5 (project-root/), code:yaml (---), DESIGN.md Content, Example: Galaxy Landing Page (+24 more)
 
 ### Community 232 - "Community 232"
-Cohesion: 0.13
-Nodes (12): STATUS_BG, STATUS_COLOR, STATUS_LABEL, AgencyPage(), ProtoFrameProps, ProtoNav(), ProtoNavProps, ProtoEntry (+4 more)
+Cohesion: 0.26
+Nodes (6): AgencyPage(), ProtoFrameProps, ProtoNav(), ProtoNavProps, ProtoEntry, registry
 
 ### Community 233 - "Community 233"
+Cohesion: 0.12
+Nodes (9): AboutPage(), Footer(), NavigationService, useVapi(), GrowthPlanPage(), Service, ServicesPage(), metadata (+1 more)
+
+### Community 234 - "Community 234"
+Cohesion: 0.12
+Nodes (16): 10.1 Full Prompt Template (Mode A: Client Business Website), 10. Stage 4: Designer Prompt Builder, 17.1 Skills Used Per Stage, 17.2 Creative Skills (Optional Enhancements), 17. Skills Integration Map, 1.1 The Original Problem, 1.2 The Deeper Opportunity, 1.3 The Adaptive Template Gap (+8 more)
+
+### Community 235 - "Community 235"
+Cohesion: 0.23
+Nodes (14): AgentsSection(), AnnoBar(), Cap(), CTASection(), HeroFloor(), HowSection(), LiveOpsSection(), Pawn() (+6 more)
+
+### Community 236 - "Community 236"
 Cohesion: 0.15
-Nodes (7): AboutPage(), Footer(), NavigationService, useVapi(), GrowthPlanPage(), metadata, VirtualOfficePage()
+Nodes (13): 14.1 Dental / Medical Practice, 14.2 Legal / Law Firm, 14.3 Restaurant / Food Service, 14.4 Home Services, 14.5 Real Estate, 14.6 Auto Services, 14. Competitor Curation Table (Seed), code:yaml (industry: dental) (+5 more)
+
+### Community 237 - "Community 237"
+Cohesion: 0.17
+Nodes (12): 7.1 Universal Fields (All Industries, Unchanged from Current), 7.2 Industry-Specific Fields (NEW), 7.3 Universal Optional Field (NEW), 7. Stage 1: Enhanced Questionnaire, Auto Services, Dental, Healthcare & Medical Practice, Home Services (HVAC, Plumbing, Electrical, Roofing, Landscaping) (+4 more)
+
+### Community 238 - "Community 238"
+Cohesion: 0.28
+Nodes (6): STATUS_BG, STATUS_COLOR, STATUS_LABEL, AgencyProject, agencyProjects, ProjectStatus
+
+### Community 239 - "Community 239"
+Cohesion: 0.22
+Nodes (9): 16.1 What the Client Gets, 16.2 What VerbaFlow Does, 16.3 Payment Flow, 16. $400 Package Architecture, 16.4 Stripe Integration, code:block26 ($400 = One professional business website, delivered as:), code:block27 (Per client:), code:block28 (1. Client fills questionnaire (self-service or guided)) (+1 more)
+
+### Community 240 - "Community 240"
+Cohesion: 0.25
+Nodes (8): 2. Perspective Anchor: WHO is the website for?, code:block1 (WHO:     The client's own customer (patient, client, buyer)), code:block2 (WHO:     The client (business owner considering VerbaFlow se), code:block3 (WHO:     Potential clients researching VerbaFlow), Mode A: Client Business Website ($400 Product), Mode B: Growth Plan Wireframe (Upsell/Lead Magnet), Mode C: Agency Vertical Landing Page (VerbaFlow Marketing), Perspective Guardrails
+
+### Community 241 - "Community 241"
+Cohesion: 0.25
+Nodes (8): 5.1 Source Discovery, 5.2 Extraction Method, 5.3 Competitor Inspiration Block Format, 5.4 Client Source Integration, 5. Stage 0: Competitor Design Mining, code:block6 (Reference: Zocdoc (zocdoc.com/dentist)), code:json ({), code:json ({)
+
+### Community 242 - "Community 242"
+Cohesion: 0.29
+Nodes (7): 6.1 Selection Algorithm, 6.2 Template Config Block Format, 6.3 Template Loading, 6. Stage 0.5: Adaptive Template Selection, code:json ({), code:block11 (skill_view(name="popular-web-designs", file_path="templates/), code:block9 (1. Map wizard_data.industry + wizard_data.subNiches[0] to be)
+
+### Community 243 - "Community 243"
+Cohesion: 0.29
+Nodes (7): 8.1 Normalization Logic, 8.2 Service Resolution, 8.3 Target Customer Inference, 8. Stage 2: Client Business Profile Extraction, code:python (def extract_client_business_profile(wizard_data: dict, gbp_d), code:python (DENTAL_SERVICE_LABELS = {), code:python (def _infer_target_customers(wizard_data: dict) -> str:)
+
+### Community 244 - "Community 244"
+Cohesion: 0.33
+Nodes (6): 11.1 Stitch Generation, 11.2 Human Review Checklist (10-15 minutes per site), 11.3 AI Studio Polish Pass (Optional), 11.4 Supabase Deploy + Stripe Payment, 11. Stage 5-7: Stitch → Human Review → Deploy, code:block17 (mcp__stitch__generate_screen_from_text)
+
+### Community 245 - "Community 245"
+Cohesion: 0.33
+Nodes (6): 18.1 Perspective Leak, 18.2 Competitor Mining, 18.3 Template Selection, 18.4 Questionnaire, 18.5 Pipeline, 18. Pitfalls
+
+### Community 246 - "Community 246"
+Cohesion: 0.33
+Nodes (6): 19.1 Multi-Page Website Package ($800), 19.2 Industry Verticals as Products, 19.3 Competitor Table Automation, 19.4 AI Studio Full Build, 19.5 Client Portal, 19. Future Extensions
+
+### Community 247 - "Community 247"
+Cohesion: 0.6
+Nodes (3): BlogPage(), BlogPost, CategoryFilter
+
+### Community 248 - "Community 248"
+Cohesion: 0.4
+Nodes (5): 12.1 Mode: `client-business-website`, 12.2 Mode: `growth-plan-wireframe`, 12.3 Mode: `agency-vertical-landing`, 12. Adaptive DESIGN.md Spec (3-Mode), code:yaml (---)
+
+### Community 249 - "Community 249"
+Cohesion: 0.4
+Nodes (5): 9.1 Role (Enhanced), 9.2 Outputs (Enhanced), 9.3 Updated Hard Constraints, 9. Stage 3: Architect Agent (AI Studio), code:json ({)
+
+### Community 252 - "Community 252"
+Cohesion: 0.5
+Nodes (4): 13.1 Primary Mappings, 13.2 Fallback Selection, 13.3 Variance Source Selection, 13. Template-to-Niche Mapping
+
+### Community 253 - "Community 253"
+Cohesion: 0.5
+Nodes (4): 15.1 `web-design` (The $400 Package), 15.2 Upsell Services (Post-$400), 15. Service Sub-Types by Industry, code:yaml (service: web-design)
+
+### Community 254 - "Community 254"
+Cohesion: 0.5
+Nodes (4): 3.1 Superset Composition Rules, 3.2 Depth Levels for Competitor Discovery, 3. The Two-Axis Superset Model, code:block4 (COMPETITOR DNA (X-axis))
 
 ## Knowledge Gaps
-- **1504 isolated node(s):** `blocks`, `people`, `projects`, `topics`, `name` (+1499 more)
+- **1580 isolated node(s):** `blocks`, `people`, `projects`, `topics`, `name` (+1575 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **32 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **40 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Customer` connect `Community 1` to `Community 0`, `Community 26`, `Community 2`, `Community 29`?**
+- **Why does `Customer` connect `Community 1` to `Community 0`, `Community 2`, `Community 250`, `Community 43`, `Community 26`?**
   _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `AgencySplitLayout()` connect `Community 3` to `Community 13`?**
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `blocks`, `people`, `projects` to the rest of the system?**
-  _1504 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1580 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.02 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

@@ -1764,7 +1764,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/seed-sanity-services.ts",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_scripts_seed_sanity_services_ts",
-      "community": 164,
+      "community": 29,
       "norm_label": "seed-sanity-services.ts"
     },
     {
@@ -1773,7 +1773,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/seed-sanity-services.ts",
       "source_location": "L17",
       "id": "scripts_seed_sanity_services_client",
-      "community": 164,
+      "community": 29,
       "norm_label": "client"
     },
     {
@@ -1782,7 +1782,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/seed-sanity-services.ts",
       "source_location": "L25",
       "id": "scripts_seed_sanity_services_services",
-      "community": 164,
+      "community": 29,
       "norm_label": "services"
     },
     {
@@ -1791,7 +1791,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/scripts/seed-sanity-services.ts",
       "source_location": "L56",
       "id": "scripts_seed_sanity_services_seedservices",
-      "community": 164,
+      "community": 29,
       "norm_label": "seedservices()"
     },
     {
@@ -2304,7 +2304,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/browser.ts",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_generated_client_browser_ts",
-      "community": 26,
+      "community": 250,
       "norm_label": "browser.ts"
     },
     {
@@ -2313,7 +2313,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/browser.ts",
       "source_location": "L24",
       "id": "client_browser_user",
-      "community": 26,
+      "community": 250,
       "norm_label": "user"
     },
     {
@@ -2322,7 +2322,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/generated/client/browser.ts",
       "source_location": "L29",
       "id": "client_browser_customer",
-      "community": 26,
+      "community": 250,
       "norm_label": "customer"
     },
     {
@@ -5283,7 +5283,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/page.tsx",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_app_blog_page_tsx",
-      "community": 29,
+      "community": 247,
       "norm_label": "page.tsx"
     },
     {
@@ -5292,7 +5292,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/page.tsx",
       "source_location": "L10",
       "id": "blog_page_blogpost",
-      "community": 29,
+      "community": 247,
       "norm_label": "blogpost"
     },
     {
@@ -5301,7 +5301,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/page.tsx",
       "source_location": "L35",
       "id": "blog_page_categoryfilter",
-      "community": 29,
+      "community": 247,
       "norm_label": "categoryfilter"
     },
     {
@@ -5310,7 +5310,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/page.tsx",
       "source_location": "L41",
       "id": "blog_page_blogpage",
-      "community": 29,
+      "community": 247,
       "norm_label": "blogpage()"
     },
     {
@@ -5382,7 +5382,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/portfolio/page.tsx",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_app_blog_portfolio_page_tsx",
-      "community": 25,
+      "community": 29,
       "norm_label": "page.tsx"
     },
     {
@@ -5391,7 +5391,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/portfolio/page.tsx",
       "source_location": "L11",
       "id": "portfolio_page_contactblog",
-      "community": 25,
+      "community": 29,
       "norm_label": "contactblog"
     },
     {
@@ -5400,7 +5400,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/portfolio/page.tsx",
       "source_location": "L30",
       "id": "portfolio_page_resumecategory",
-      "community": 25,
+      "community": 29,
       "norm_label": "resumecategory"
     },
     {
@@ -5409,7 +5409,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/blog/portfolio/page.tsx",
       "source_location": "L37",
       "id": "portfolio_page_portfoliopage",
-      "community": 25,
+      "community": 29,
       "norm_label": "portfoliopage()"
     },
     {
@@ -5589,7 +5589,7 @@
       "source_file": "src/app/actions/submitContact.ts",
       "source_location": "L6",
       "id": "actions_submitcontact_submitcontact",
-      "community": 25,
+      "community": 29,
       "norm_label": "submitcontact()"
     },
     {
@@ -5625,7 +5625,7 @@
       "source_file": "src/app/api/generate-strategy/route.ts",
       "source_location": "L1",
       "id": "src_app_api_generate_strategy_route_ts",
-      "community": 37,
+      "community": 43,
       "norm_label": "route.ts"
     },
     {
@@ -5634,7 +5634,7 @@
       "source_file": "src/app/api/generate-strategy/route.ts",
       "source_location": "L6",
       "id": "generate_strategy_route_normalizeplan",
-      "community": 37,
+      "community": 43,
       "norm_label": "normalizeplan()"
     },
     {
@@ -5643,7 +5643,7 @@
       "source_file": "src/app/api/generate-strategy/route.ts",
       "source_location": "L92",
       "id": "generate_strategy_route_post",
-      "community": 37,
+      "community": 43,
       "norm_label": "post()"
     },
     {
@@ -5697,7 +5697,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/chat/route.ts",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_app_api_chat_route_ts",
-      "community": 37,
+      "community": 43,
       "norm_label": "route.ts"
     },
     {
@@ -5706,7 +5706,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/chat/route.ts",
       "source_location": "L7",
       "id": "chat_route_post",
-      "community": 37,
+      "community": 43,
       "norm_label": "post()"
     },
     {
@@ -5715,7 +5715,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/status/route.ts",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_app_api_plan_id_status_route_ts",
-      "community": 129,
+      "community": 256,
       "norm_label": "route.ts"
     },
     {
@@ -5724,7 +5724,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/status/route.ts",
       "source_location": "L4",
       "id": "status_route_get",
-      "community": 129,
+      "community": 256,
       "norm_label": "get()"
     },
     {
@@ -5733,7 +5733,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/move-forward/route.ts",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_app_api_plan_id_move_forward_route_ts",
-      "community": 129,
+      "community": 135,
       "norm_label": "route.ts"
     },
     {
@@ -5742,7 +5742,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/move-forward/route.ts",
       "source_location": "L4",
       "id": "move_forward_route_post",
-      "community": 129,
+      "community": 135,
       "norm_label": "post()"
     },
     {
@@ -5751,7 +5751,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/preview/route.ts",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_app_api_plan_id_preview_route_ts",
-      "community": 135,
+      "community": 129,
       "norm_label": "route.ts"
     },
     {
@@ -5760,7 +5760,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/plan/[id]/preview/route.ts",
       "source_location": "L4",
       "id": "preview_route_get",
-      "community": 135,
+      "community": 129,
       "norm_label": "get()"
     },
     {
@@ -5958,7 +5958,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/growth-plan/start/route.ts",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_app_api_growth_plan_start_route_ts",
-      "community": 135,
+      "community": 129,
       "norm_label": "route.ts"
     },
     {
@@ -5967,7 +5967,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/api/growth-plan/start/route.ts",
       "source_location": "L4",
       "id": "start_route_post",
-      "community": 135,
+      "community": 129,
       "norm_label": "post()"
     },
     {
@@ -6120,7 +6120,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/page.tsx",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_app_services_page_tsx",
-      "community": 29,
+      "community": 233,
       "norm_label": "page.tsx"
     },
     {
@@ -6129,7 +6129,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/page.tsx",
       "source_location": "L11",
       "id": "services_page_service",
-      "community": 29,
+      "community": 233,
       "norm_label": "service"
     },
     {
@@ -6138,7 +6138,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/app/services/page.tsx",
       "source_location": "L27",
       "id": "services_page_servicespage",
-      "community": 29,
+      "community": 233,
       "norm_label": "servicespage()"
     },
     {
@@ -6264,7 +6264,7 @@
       "source_file": "src/sanity/schemaTypes/categoryType.ts",
       "source_location": "L1",
       "id": "src_sanity_schematypes_categorytype_ts",
-      "community": 13,
+      "community": 258,
       "norm_label": "categorytype.ts"
     },
     {
@@ -6273,7 +6273,7 @@
       "source_file": "src/sanity/schemaTypes/categoryType.ts",
       "source_location": "L4",
       "id": "schematypes_categorytype_categorytype",
-      "community": 13,
+      "community": 258,
       "norm_label": "categorytype"
     },
     {
@@ -6282,7 +6282,7 @@
       "source_file": "src/sanity/schemaTypes/faqType.ts",
       "source_location": "L1",
       "id": "src_sanity_schematypes_faqtype_ts",
-      "community": 13,
+      "community": 259,
       "norm_label": "faqtype.ts"
     },
     {
@@ -6291,7 +6291,7 @@
       "source_file": "src/sanity/schemaTypes/faqType.ts",
       "source_location": "L3",
       "id": "schematypes_faqtype_faqtype",
-      "community": 13,
+      "community": 259,
       "norm_label": "faqtype"
     },
     {
@@ -6336,7 +6336,7 @@
       "source_file": "src/sanity/schemaTypes/testimonialType.ts",
       "source_location": "L1",
       "id": "src_sanity_schematypes_testimonialtype_ts",
-      "community": 13,
+      "community": 260,
       "norm_label": "testimonialtype.ts"
     },
     {
@@ -6345,7 +6345,7 @@
       "source_file": "src/sanity/schemaTypes/testimonialType.ts",
       "source_location": "L3",
       "id": "schematypes_testimonialtype_testimonialtype",
-      "community": 13,
+      "community": 260,
       "norm_label": "testimonialtype"
     },
     {
@@ -6426,7 +6426,7 @@
       "source_file": "src/sanity/schemaTypes/blogType.ts",
       "source_location": "L1",
       "id": "src_sanity_schematypes_blogtype_ts",
-      "community": 13,
+      "community": 257,
       "norm_label": "blogtype.ts"
     },
     {
@@ -6435,7 +6435,7 @@
       "source_file": "src/sanity/schemaTypes/blogType.ts",
       "source_location": "L3",
       "id": "schematypes_blogtype_blogtype",
-      "community": 13,
+      "community": 257,
       "norm_label": "blogtype"
     },
     {
@@ -7767,7 +7767,7 @@
       "source_file": "src/components/agency/AgencyProjectsStrip.tsx",
       "source_location": "L1",
       "id": "src_components_agency_agencyprojectsstrip_tsx",
-      "community": 232,
+      "community": 238,
       "norm_label": "agencyprojectsstrip.tsx"
     },
     {
@@ -7776,7 +7776,7 @@
       "source_file": "src/components/agency/AgencyProjectsStrip.tsx",
       "source_location": "L6",
       "id": "agency_agencyprojectsstrip_status_label",
-      "community": 232,
+      "community": 238,
       "norm_label": "status_label"
     },
     {
@@ -7785,7 +7785,7 @@
       "source_file": "src/components/agency/AgencyProjectsStrip.tsx",
       "source_location": "L13",
       "id": "agency_agencyprojectsstrip_status_bg",
-      "community": 232,
+      "community": 238,
       "norm_label": "status_bg"
     },
     {
@@ -7794,7 +7794,7 @@
       "source_file": "src/components/agency/AgencyProjectsStrip.tsx",
       "source_location": "L19",
       "id": "agency_agencyprojectsstrip_status_color",
-      "community": 232,
+      "community": 238,
       "norm_label": "status_color"
     },
     {
@@ -7803,7 +7803,7 @@
       "source_file": "src/components/agency/AgencyProjectsStrip.tsx",
       "source_location": "L25",
       "id": "agency_agencyprojectsstrip_agencyprojectsstrip",
-      "community": 232,
+      "community": 238,
       "norm_label": "agencyprojectsstrip()"
     },
     {
@@ -8550,7 +8550,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-02-split-screen/index.tsx",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_components_agency_prototypes_proto_02_split_screen_index_tsx",
-      "community": 3,
+      "community": 255,
       "norm_label": "index.tsx"
     },
     {
@@ -8559,7 +8559,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-02-split-screen/index.tsx",
       "source_location": "L3",
       "id": "proto_02_split_screen_index_proto02splitscreen",
-      "community": 3,
+      "community": 255,
       "norm_label": "proto02splitscreen()"
     },
     {
@@ -8568,7 +8568,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_components_agency_prototypes_proto_01_wireframe_main_index_tsx",
-      "community": 13,
+      "community": 235,
       "norm_label": "index.tsx"
     },
     {
@@ -8577,7 +8577,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L7",
       "id": "proto_01_wireframe_main_index_tweaks",
-      "community": 13,
+      "community": 235,
       "norm_label": "tweaks"
     },
     {
@@ -8586,7 +8586,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L17",
       "id": "proto_01_wireframe_main_index_cap",
-      "community": 13,
+      "community": 235,
       "norm_label": "cap()"
     },
     {
@@ -8595,7 +8595,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L36",
       "id": "proto_01_wireframe_main_index_pawn",
-      "community": 13,
+      "community": 235,
       "norm_label": "pawn()"
     },
     {
@@ -8604,7 +8604,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L60",
       "id": "proto_01_wireframe_main_index_pill",
-      "community": 13,
+      "community": 235,
       "norm_label": "pill()"
     },
     {
@@ -8613,7 +8613,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L78",
       "id": "proto_01_wireframe_main_index_pixscene",
-      "community": 13,
+      "community": 235,
       "norm_label": "pixscene()"
     },
     {
@@ -8622,7 +8622,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L204",
       "id": "proto_01_wireframe_main_index_annobar",
-      "community": 13,
+      "community": 235,
       "norm_label": "annobar()"
     },
     {
@@ -8631,7 +8631,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L228",
       "id": "proto_01_wireframe_main_index_herofloor",
-      "community": 13,
+      "community": 235,
       "norm_label": "herofloor()"
     },
     {
@@ -8640,7 +8640,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L473",
       "id": "proto_01_wireframe_main_index_liveopssection",
-      "community": 13,
+      "community": 235,
       "norm_label": "liveopssection()"
     },
     {
@@ -8649,7 +8649,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L597",
       "id": "proto_01_wireframe_main_index_servicessection",
-      "community": 13,
+      "community": 235,
       "norm_label": "servicessection()"
     },
     {
@@ -8658,7 +8658,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L755",
       "id": "proto_01_wireframe_main_index_agentssection",
-      "community": 13,
+      "community": 235,
       "norm_label": "agentssection()"
     },
     {
@@ -8667,7 +8667,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L981",
       "id": "proto_01_wireframe_main_index_howsection",
-      "community": 13,
+      "community": 235,
       "norm_label": "howsection()"
     },
     {
@@ -8676,7 +8676,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L1029",
       "id": "proto_01_wireframe_main_index_pricingsection",
-      "community": 13,
+      "community": 235,
       "norm_label": "pricingsection()"
     },
     {
@@ -8685,7 +8685,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L1132",
       "id": "proto_01_wireframe_main_index_ctasection",
-      "community": 13,
+      "community": 235,
       "norm_label": "ctasection()"
     },
     {
@@ -8694,7 +8694,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L1186",
       "id": "proto_01_wireframe_main_index_proto01wireframemain",
-      "community": 13,
+      "community": 235,
       "norm_label": "proto01wireframemain()"
     },
     {
@@ -8703,7 +8703,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L1",
       "id": "src_components_agency_prototypes_proto_01_wireframe_main_verbafloor_tsx",
-      "community": 13,
+      "community": 164,
       "norm_label": "verbafloor.tsx"
     },
     {
@@ -8712,7 +8712,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L6",
       "id": "proto_01_wireframe_main_verbafloor_phase",
-      "community": 13,
+      "community": 164,
       "norm_label": "phase"
     },
     {
@@ -8721,7 +8721,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L15",
       "id": "proto_01_wireframe_main_verbafloor_phases",
-      "community": 13,
+      "community": 164,
       "norm_label": "phases"
     },
     {
@@ -8730,7 +8730,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L114",
       "id": "proto_01_wireframe_main_verbafloor_zonerect",
-      "community": 13,
+      "community": 164,
       "norm_label": "zonerect"
     },
     {
@@ -8739,7 +8739,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L124",
       "id": "proto_01_wireframe_main_verbafloor_zones",
-      "community": 13,
+      "community": 164,
       "norm_label": "zones"
     },
     {
@@ -8748,7 +8748,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L199",
       "id": "proto_01_wireframe_main_verbafloor_point",
-      "community": 13,
+      "community": 164,
       "norm_label": "point"
     },
     {
@@ -8757,7 +8757,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L204",
       "id": "proto_01_wireframe_main_verbafloor_center",
-      "community": 13,
+      "community": 164,
       "norm_label": "center()"
     },
     {
@@ -8766,7 +8766,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L207",
       "id": "proto_01_wireframe_main_verbafloor_pathfor",
-      "community": 13,
+      "community": 164,
       "norm_label": "pathfor()"
     },
     {
@@ -8775,7 +8775,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L247",
       "id": "proto_01_wireframe_main_verbafloor_receptionist",
-      "community": 13,
+      "community": 164,
       "norm_label": "receptionist()"
     },
     {
@@ -8784,7 +8784,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L308",
       "id": "proto_01_wireframe_main_verbafloor_contextcachenode",
-      "community": 13,
+      "community": 164,
       "norm_label": "contextcachenode()"
     },
     {
@@ -8793,7 +8793,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L389",
       "id": "proto_01_wireframe_main_verbafloor_zone",
-      "community": 13,
+      "community": 164,
       "norm_label": "zone()"
     },
     {
@@ -8802,7 +8802,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L508",
       "id": "proto_01_wireframe_main_verbafloor_computestreamprops",
-      "community": 13,
+      "community": 164,
       "norm_label": "computestreamprops"
     },
     {
@@ -8811,7 +8811,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L516",
       "id": "proto_01_wireframe_main_verbafloor_computestream",
-      "community": 13,
+      "community": 164,
       "norm_label": "computestream()"
     },
     {
@@ -8820,7 +8820,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L572",
       "id": "proto_01_wireframe_main_verbafloor_ticketdot",
-      "community": 13,
+      "community": 164,
       "norm_label": "ticketdot()"
     },
     {
@@ -8829,7 +8829,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L620",
       "id": "proto_01_wireframe_main_verbafloor_approvalgate",
-      "community": 13,
+      "community": 164,
       "norm_label": "approvalgate()"
     },
     {
@@ -8838,7 +8838,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L677",
       "id": "proto_01_wireframe_main_verbafloor_feedentry",
-      "community": 13,
+      "community": 164,
       "norm_label": "feedentry"
     },
     {
@@ -8847,7 +8847,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L685",
       "id": "proto_01_wireframe_main_verbafloor_dispatchfeed",
-      "community": 13,
+      "community": 164,
       "norm_label": "dispatchfeed()"
     },
     {
@@ -8856,7 +8856,7 @@
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/VerbaFloor.tsx",
       "source_location": "L715",
       "id": "proto_01_wireframe_main_verbafloor_verbaflowhologramfloor",
-      "community": 13,
+      "community": 164,
       "norm_label": "verbaflowhologramfloor()"
     },
     {
@@ -8865,7 +8865,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-03-wireframe-v1/index.tsx",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_components_agency_prototypes_proto_03_wireframe_v1_index_tsx",
-      "community": 13,
+      "community": 251,
       "norm_label": "index.tsx"
     },
     {
@@ -8874,7 +8874,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-03-wireframe-v1/index.tsx",
       "source_location": "L6",
       "id": "proto_03_wireframe_v1_index_cx",
-      "community": 13,
+      "community": 251,
       "norm_label": "cx()"
     },
     {
@@ -8883,7 +8883,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/components/agency-prototypes/proto-03-wireframe-v1/index.tsx",
       "source_location": "L9",
       "id": "proto_03_wireframe_v1_index_proto03wireframev1",
-      "community": 13,
+      "community": 251,
       "norm_label": "proto03wireframev1()"
     },
     {
@@ -9495,7 +9495,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/knowledge-base.ts",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_lib_knowledge_base_ts",
-      "community": 37,
+      "community": 43,
       "norm_label": "knowledge-base.ts"
     },
     {
@@ -9504,7 +9504,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/knowledge-base.ts",
       "source_location": "L4",
       "id": "lib_knowledge_base_service",
-      "community": 37,
+      "community": 43,
       "norm_label": "service"
     },
     {
@@ -9522,7 +9522,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/knowledge-base.ts",
       "source_location": "L26",
       "id": "lib_knowledge_base_sanityservice",
-      "community": 37,
+      "community": 43,
       "norm_label": "sanityservice"
     },
     {
@@ -9531,7 +9531,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/knowledge-base.ts",
       "source_location": "L33",
       "id": "lib_knowledge_base_getservices",
-      "community": 37,
+      "community": 43,
       "norm_label": "getservices()"
     },
     {
@@ -9540,7 +9540,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/knowledge-base.ts",
       "source_location": "L53",
       "id": "lib_knowledge_base_getindustrycontext",
-      "community": 37,
+      "community": 43,
       "norm_label": "getindustrycontext()"
     },
     {
@@ -9612,7 +9612,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/supabase.ts",
       "source_location": "L1",
       "id": "users_sandeep_desktop_project25_verbaflow_projects_vflow1_0_src_lib_supabase_ts",
-      "community": 37,
+      "community": 43,
       "norm_label": "supabase.ts"
     },
     {
@@ -9621,7 +9621,7 @@
       "source_file": "/Users/sandeep/Desktop/Project25/verbaflow_projects/vflow1.0/src/lib/supabase.ts",
       "source_location": "L11",
       "id": "lib_supabase_supabase",
-      "community": 37,
+      "community": 43,
       "norm_label": "supabase"
     },
     {
@@ -9747,7 +9747,7 @@
       "source_file": "src/data/agencyProjects.ts",
       "source_location": "L1",
       "id": "src_data_agencyprojects_ts",
-      "community": 232,
+      "community": 238,
       "norm_label": "agencyprojects.ts"
     },
     {
@@ -9756,7 +9756,7 @@
       "source_file": "src/data/agencyProjects.ts",
       "source_location": "L1",
       "id": "data_agencyprojects_projectstatus",
-      "community": 232,
+      "community": 238,
       "norm_label": "projectstatus"
     },
     {
@@ -9765,7 +9765,7 @@
       "source_file": "src/data/agencyProjects.ts",
       "source_location": "L3",
       "id": "data_agencyprojects_agencyproject",
-      "community": 232,
+      "community": 238,
       "norm_label": "agencyproject"
     },
     {
@@ -9774,7 +9774,7 @@
       "source_file": "src/data/agencyProjects.ts",
       "source_location": "L13",
       "id": "data_agencyprojects_agencyprojects",
-      "community": 232,
+      "community": 238,
       "norm_label": "agencyprojects"
     },
     {
@@ -10876,10 +10876,46 @@
       "norm_label": "changes.md"
     },
     {
-      "label": "2026-05-15 22:45 (UTC) \u2014 Pac-Man automated + wall bounce",
+      "label": "2026-05-16 02:15 (UTC) \u2014 Volumetric beam: frock-shaped bottom spread with ragged edges",
       "file_type": "document",
       "source_file": "CHANGES.md",
       "source_location": "L1",
+      "id": "vflow2_0_changes_2026_05_16_02_15_utc_volumetric_beam_frock_shaped_bottom_spread_with_ragged_edges",
+      "community": 70,
+      "norm_label": "2026-05-16 02:15 (utc) \u2014 volumetric beam: frock-shaped bottom spread with ragged edges"
+    },
+    {
+      "label": "2026-05-16 01:45 (UTC) \u2014 Business-First Prompt Architecture: complete two-axis spec",
+      "file_type": "document",
+      "source_file": "CHANGES.md",
+      "source_location": "L8",
+      "id": "vflow2_0_changes_2026_05_16_01_45_utc_business_first_prompt_architecture_complete_two_axis_spec",
+      "community": 70,
+      "norm_label": "2026-05-16 01:45 (utc) \u2014 business-first prompt architecture: complete two-axis spec"
+    },
+    {
+      "label": "2026-05-16 01:25 (UTC) \u2014 Volumetric beam: fat filament bundle, ground spread, soft edges",
+      "file_type": "document",
+      "source_file": "CHANGES.md",
+      "source_location": "L32",
+      "id": "vflow2_0_changes_2026_05_16_01_25_utc_volumetric_beam_fat_filament_bundle_ground_spread_soft_edges",
+      "community": 70,
+      "norm_label": "2026-05-16 01:25 (utc) \u2014 volumetric beam: fat filament bundle, ground spread, soft edges"
+    },
+    {
+      "label": "2026-05-16 00:50 (UTC) \u2014 Volumetric beam: kill seam, color-grade overlap, slim plume",
+      "file_type": "document",
+      "source_file": "CHANGES.md",
+      "source_location": "L48",
+      "id": "vflow2_0_changes_2026_05_16_00_50_utc_volumetric_beam_kill_seam_color_grade_overlap_slim_plume",
+      "community": 70,
+      "norm_label": "2026-05-16 00:50 (utc) \u2014 volumetric beam: kill seam, color-grade overlap, slim plume"
+    },
+    {
+      "label": "2026-05-15 22:45 (UTC) \u2014 Pac-Man automated + wall bounce",
+      "file_type": "document",
+      "source_file": "CHANGES.md",
+      "source_location": "L59",
       "id": "vflow2_0_changes_2026_05_15_22_45_utc_pac_man_automated_wall_bounce",
       "community": 70,
       "norm_label": "2026-05-15 22:45 (utc) \u2014 pac-man automated + wall bounce"
@@ -10888,7 +10924,7 @@
       "label": "2026-05-15 22:30 (UTC) \u2014 Services hover reveal fix + Pac-Man wanderer",
       "file_type": "document",
       "source_file": "CHANGES.md",
-      "source_location": "L14",
+      "source_location": "L72",
       "id": "vflow2_0_changes_2026_05_15_22_30_utc_services_hover_reveal_fix_pac_man_wanderer",
       "community": 70,
       "norm_label": "2026-05-15 22:30 (utc) \u2014 services hover reveal fix + pac-man wanderer"
@@ -10897,7 +10933,7 @@
       "label": "2026-05-14 - Fix VolumetricBeam horizontal seam line",
       "file_type": "document",
       "source_file": "CHANGES.md",
-      "source_location": "L30",
+      "source_location": "L88",
       "id": "vflow2_0_changes_2026_05_14_fix_volumetricbeam_horizontal_seam_line",
       "community": 70,
       "norm_label": "2026-05-14 - fix volumetricbeam horizontal seam line"
@@ -10906,7 +10942,7 @@
       "label": "2026-05-14 - Spatial Bento front-end refresh + Wireframe pipeline GBP integration",
       "file_type": "document",
       "source_file": "CHANGES.md",
-      "source_location": "L39",
+      "source_location": "L97",
       "id": "vflow2_0_changes_2026_05_14_spatial_bento_front_end_refresh_wireframe_pipeline_gbp_integration",
       "community": 70,
       "norm_label": "2026-05-14 - spatial bento front-end refresh + wireframe pipeline gbp integration"
@@ -10915,7 +10951,7 @@
       "label": "2026-04-19 20:38 (UTC) - Added AI customization portability guide for Claude, Copilot, and Antigravity",
       "file_type": "document",
       "source_file": "CHANGES.md",
-      "source_location": "L105",
+      "source_location": "L163",
       "id": "vflow2_0_changes_2026_04_19_20_38_utc_added_ai_customization_portability_guide_for_claude_copilot_and_antigravity",
       "community": 70,
       "norm_label": "2026-04-19 20:38 (utc) - added ai customization portability guide for claude, copilot, and antigravity"
@@ -10924,7 +10960,7 @@
       "label": "2026-04-19 05:21 (UTC) - Unified all agent instruction files to the master Claude context",
       "file_type": "document",
       "source_file": "CHANGES.md",
-      "source_location": "L112",
+      "source_location": "L170",
       "id": "vflow2_0_changes_2026_04_19_05_21_utc_unified_all_agent_instruction_files_to_the_master_claude_context",
       "community": 70,
       "norm_label": "2026-04-19 05:21 (utc) - unified all agent instruction files to the master claude context"
@@ -10933,7 +10969,7 @@
       "label": "2026-04-17 - Hide glass card visual panel and \"No credit card required\" text",
       "file_type": "document",
       "source_file": "CHANGES.md",
-      "source_location": "L119",
+      "source_location": "L177",
       "id": "vflow2_0_changes_2026_04_17_hide_glass_card_visual_panel_and_no_credit_card_required_text",
       "community": 70,
       "norm_label": "2026-04-17 - hide glass card visual panel and \"no credit card required\" text"
@@ -10942,7 +10978,7 @@
       "label": "2026-04-17 - Hide Request Quote button from home page hero",
       "file_type": "document",
       "source_file": "CHANGES.md",
-      "source_location": "L126",
+      "source_location": "L184",
       "id": "vflow2_0_changes_2026_04_17_hide_request_quote_button_from_home_page_hero",
       "community": 70,
       "norm_label": "2026-04-17 - hide request quote button from home page hero"
@@ -10951,7 +10987,7 @@
       "label": "2026-04-04 14:00 (UTC) - Added Framework D: Government Civic design matrix",
       "file_type": "document",
       "source_file": "CHANGES.md",
-      "source_location": "L132",
+      "source_location": "L190",
       "id": "vflow2_0_changes_2026_04_04_14_00_utc_added_framework_d_government_civic_design_matrix",
       "community": 70,
       "norm_label": "2026-04-04 14:00 (utc) - added framework d: government civic design matrix"
@@ -22684,6 +22720,1095 @@
       "norm_label": "key rules"
     },
     {
+      "label": "business-first-prompt-architecture.md",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1",
+      "id": "verbaflow_lake_business_first_prompt_architecture_md",
+      "community": 234,
+      "norm_label": "business-first-prompt-architecture.md"
+    },
+    {
+      "label": "Business-First Prompt Architecture \u2014 Complete Specification",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1",
+      "id": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "community": 234,
+      "norm_label": "business-first prompt architecture \u2014 complete specification"
+    },
+    {
+      "label": "Table of Contents",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L12",
+      "id": "verbaflow_lake_business_first_prompt_architecture_table_of_contents",
+      "community": 234,
+      "norm_label": "table of contents"
+    },
+    {
+      "label": "1. Problem Statement",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L36",
+      "id": "verbaflow_lake_business_first_prompt_architecture_1_problem_statement",
+      "community": 234,
+      "norm_label": "1. problem statement"
+    },
+    {
+      "label": "1.1 The Original Problem",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L38",
+      "id": "verbaflow_lake_business_first_prompt_architecture_1_1_the_original_problem",
+      "community": 234,
+      "norm_label": "1.1 the original problem"
+    },
+    {
+      "label": "1.2 The Deeper Opportunity",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L50",
+      "id": "verbaflow_lake_business_first_prompt_architecture_1_2_the_deeper_opportunity",
+      "community": 234,
+      "norm_label": "1.2 the deeper opportunity"
+    },
+    {
+      "label": "1.3 The Adaptive Template Gap",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L59",
+      "id": "verbaflow_lake_business_first_prompt_architecture_1_3_the_adaptive_template_gap",
+      "community": 234,
+      "norm_label": "1.3 the adaptive template gap"
+    },
+    {
+      "label": "2. Perspective Anchor: WHO is the website for?",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L71",
+      "id": "verbaflow_lake_business_first_prompt_architecture_2_perspective_anchor_who_is_the_website_for",
+      "community": 240,
+      "norm_label": "2. perspective anchor: who is the website for?"
+    },
+    {
+      "label": "Mode A: Client Business Website ($400 Product)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L75",
+      "id": "verbaflow_lake_business_first_prompt_architecture_mode_a_client_business_website_400_product",
+      "community": 240,
+      "norm_label": "mode a: client business website ($400 product)"
+    },
+    {
+      "label": "code:block1 (WHO:     The client's own customer (patient, client, buyer))",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L77",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_1",
+      "community": 240,
+      "norm_label": "code:block1 (who:     the client's own customer (patient, client, buyer))"
+    },
+    {
+      "label": "Mode B: Growth Plan Wireframe (Upsell/Lead Magnet)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L85",
+      "id": "verbaflow_lake_business_first_prompt_architecture_mode_b_growth_plan_wireframe_upsell_lead_magnet",
+      "community": 240,
+      "norm_label": "mode b: growth plan wireframe (upsell/lead magnet)"
+    },
+    {
+      "label": "code:block2 (WHO:     The client (business owner considering VerbaFlow se)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L87",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_2",
+      "community": 240,
+      "norm_label": "code:block2 (who:     the client (business owner considering verbaflow se)"
+    },
+    {
+      "label": "Mode C: Agency Vertical Landing Page (VerbaFlow Marketing)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L95",
+      "id": "verbaflow_lake_business_first_prompt_architecture_mode_c_agency_vertical_landing_page_verbaflow_marketing",
+      "community": 240,
+      "norm_label": "mode c: agency vertical landing page (verbaflow marketing)"
+    },
+    {
+      "label": "code:block3 (WHO:     Potential clients researching VerbaFlow)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L97",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_3",
+      "community": 240,
+      "norm_label": "code:block3 (who:     potential clients researching verbaflow)"
+    },
+    {
+      "label": "Perspective Guardrails",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L107",
+      "id": "verbaflow_lake_business_first_prompt_architecture_perspective_guardrails",
+      "community": 240,
+      "norm_label": "perspective guardrails"
+    },
+    {
+      "label": "3. The Two-Axis Superset Model",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L124",
+      "id": "verbaflow_lake_business_first_prompt_architecture_3_the_two_axis_superset_model",
+      "community": 254,
+      "norm_label": "3. the two-axis superset model"
+    },
+    {
+      "label": "code:block4 (COMPETITOR DNA (X-axis))",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L126",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_4",
+      "community": 254,
+      "norm_label": "code:block4 (competitor dna (x-axis))"
+    },
+    {
+      "label": "3.1 Superset Composition Rules",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L160",
+      "id": "verbaflow_lake_business_first_prompt_architecture_3_1_superset_composition_rules",
+      "community": 254,
+      "norm_label": "3.1 superset composition rules"
+    },
+    {
+      "label": "3.2 Depth Levels for Competitor Discovery",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L173",
+      "id": "verbaflow_lake_business_first_prompt_architecture_3_2_depth_levels_for_competitor_discovery",
+      "community": 254,
+      "norm_label": "3.2 depth levels for competitor discovery"
+    },
+    {
+      "label": "4. Pipeline Architecture (Stages 0-7)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L186",
+      "id": "verbaflow_lake_business_first_prompt_architecture_4_pipeline_architecture_stages_0_7",
+      "community": 234,
+      "norm_label": "4. pipeline architecture (stages 0-7)"
+    },
+    {
+      "label": "code:block5 (STAGE 0: COMPETITOR DESIGN MINING)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L188",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_5",
+      "community": 234,
+      "norm_label": "code:block5 (stage 0: competitor design mining)"
+    },
+    {
+      "label": "5. Stage 0: Competitor Design Mining",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L259",
+      "id": "verbaflow_lake_business_first_prompt_architecture_5_stage_0_competitor_design_mining",
+      "community": 241,
+      "norm_label": "5. stage 0: competitor design mining"
+    },
+    {
+      "label": "5.1 Source Discovery",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L261",
+      "id": "verbaflow_lake_business_first_prompt_architecture_5_1_source_discovery",
+      "community": 241,
+      "norm_label": "5.1 source discovery"
+    },
+    {
+      "label": "5.2 Extraction Method",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L271",
+      "id": "verbaflow_lake_business_first_prompt_architecture_5_2_extraction_method",
+      "community": 241,
+      "norm_label": "5.2 extraction method"
+    },
+    {
+      "label": "code:block6 (Reference: Zocdoc (zocdoc.com/dentist))",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L275",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_6",
+      "community": 241,
+      "norm_label": "code:block6 (reference: zocdoc (zocdoc.com/dentist))"
+    },
+    {
+      "label": "5.3 Competitor Inspiration Block Format",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L299",
+      "id": "verbaflow_lake_business_first_prompt_architecture_5_3_competitor_inspiration_block_format",
+      "community": 241,
+      "norm_label": "5.3 competitor inspiration block format"
+    },
+    {
+      "label": "code:json ({)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L303",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_7",
+      "community": 241,
+      "norm_label": "code:json ({)"
+    },
+    {
+      "label": "5.4 Client Source Integration",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L343",
+      "id": "verbaflow_lake_business_first_prompt_architecture_5_4_client_source_integration",
+      "community": 241,
+      "norm_label": "5.4 client source integration"
+    },
+    {
+      "label": "code:json ({)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L347",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_8",
+      "community": 241,
+      "norm_label": "code:json ({)"
+    },
+    {
+      "label": "6. Stage 0.5: Adaptive Template Selection",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L365",
+      "id": "verbaflow_lake_business_first_prompt_architecture_6_stage_0_5_adaptive_template_selection",
+      "community": 242,
+      "norm_label": "6. stage 0.5: adaptive template selection"
+    },
+    {
+      "label": "6.1 Selection Algorithm",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L367",
+      "id": "verbaflow_lake_business_first_prompt_architecture_6_1_selection_algorithm",
+      "community": 242,
+      "norm_label": "6.1 selection algorithm"
+    },
+    {
+      "label": "code:block9 (1. Map wizard_data.industry + wizard_data.subNiches[0] to be)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L369",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_9",
+      "community": 242,
+      "norm_label": "code:block9 (1. map wizard_data.industry + wizard_data.subniches[0] to be)"
+    },
+    {
+      "label": "6.2 Template Config Block Format",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L389",
+      "id": "verbaflow_lake_business_first_prompt_architecture_6_2_template_config_block_format",
+      "community": 242,
+      "norm_label": "6.2 template config block format"
+    },
+    {
+      "label": "code:json ({)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L393",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_10",
+      "community": 242,
+      "norm_label": "code:json ({)"
+    },
+    {
+      "label": "6.3 Template Loading",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L431",
+      "id": "verbaflow_lake_business_first_prompt_architecture_6_3_template_loading",
+      "community": 242,
+      "norm_label": "6.3 template loading"
+    },
+    {
+      "label": "code:block11 (skill_view(name=\"popular-web-designs\", file_path=\"templates/)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L435",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_11",
+      "community": 242,
+      "norm_label": "code:block11 (skill_view(name=\"popular-web-designs\", file_path=\"templates/)"
+    },
+    {
+      "label": "7. Stage 1: Enhanced Questionnaire",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L452",
+      "id": "verbaflow_lake_business_first_prompt_architecture_7_stage_1_enhanced_questionnaire",
+      "community": 237,
+      "norm_label": "7. stage 1: enhanced questionnaire"
+    },
+    {
+      "label": "7.1 Universal Fields (All Industries, Unchanged from Current)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L454",
+      "id": "verbaflow_lake_business_first_prompt_architecture_7_1_universal_fields_all_industries_unchanged_from_current",
+      "community": 237,
+      "norm_label": "7.1 universal fields (all industries, unchanged from current)"
+    },
+    {
+      "label": "7.2 Industry-Specific Fields (NEW)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L472",
+      "id": "verbaflow_lake_business_first_prompt_architecture_7_2_industry_specific_fields_new",
+      "community": 237,
+      "norm_label": "7.2 industry-specific fields (new)"
+    },
+    {
+      "label": "Dental",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L476",
+      "id": "verbaflow_lake_business_first_prompt_architecture_dental",
+      "community": 237,
+      "norm_label": "dental"
+    },
+    {
+      "label": "Legal",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L489",
+      "id": "verbaflow_lake_business_first_prompt_architecture_legal",
+      "community": 237,
+      "norm_label": "legal"
+    },
+    {
+      "label": "Restaurant",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L501",
+      "id": "verbaflow_lake_business_first_prompt_architecture_restaurant",
+      "community": 237,
+      "norm_label": "restaurant"
+    },
+    {
+      "label": "Salon & Beauty",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L515",
+      "id": "verbaflow_lake_business_first_prompt_architecture_salon_beauty",
+      "community": 237,
+      "norm_label": "salon & beauty"
+    },
+    {
+      "label": "Home Services (HVAC, Plumbing, Electrical, Roofing, Landscaping)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L526",
+      "id": "verbaflow_lake_business_first_prompt_architecture_home_services_hvac_plumbing_electrical_roofing_landscaping",
+      "community": 237,
+      "norm_label": "home services (hvac, plumbing, electrical, roofing, landscaping)"
+    },
+    {
+      "label": "Healthcare & Medical Practice",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L537",
+      "id": "verbaflow_lake_business_first_prompt_architecture_healthcare_medical_practice",
+      "community": 237,
+      "norm_label": "healthcare & medical practice"
+    },
+    {
+      "label": "Real Estate",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L548",
+      "id": "verbaflow_lake_business_first_prompt_architecture_real_estate",
+      "community": 237,
+      "norm_label": "real estate"
+    },
+    {
+      "label": "Auto Services",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L559",
+      "id": "verbaflow_lake_business_first_prompt_architecture_auto_services",
+      "community": 237,
+      "norm_label": "auto services"
+    },
+    {
+      "label": "7.3 Universal Optional Field (NEW)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L569",
+      "id": "verbaflow_lake_business_first_prompt_architecture_7_3_universal_optional_field_new",
+      "community": 237,
+      "norm_label": "7.3 universal optional field (new)"
+    },
+    {
+      "label": "8. Stage 2: Client Business Profile Extraction",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L581",
+      "id": "verbaflow_lake_business_first_prompt_architecture_8_stage_2_client_business_profile_extraction",
+      "community": 243,
+      "norm_label": "8. stage 2: client business profile extraction"
+    },
+    {
+      "label": "8.1 Normalization Logic",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L583",
+      "id": "verbaflow_lake_business_first_prompt_architecture_8_1_normalization_logic",
+      "community": 243,
+      "norm_label": "8.1 normalization logic"
+    },
+    {
+      "label": "code:python (def extract_client_business_profile(wizard_data: dict, gbp_d)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L587",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_12",
+      "community": 243,
+      "norm_label": "code:python (def extract_client_business_profile(wizard_data: dict, gbp_d)"
+    },
+    {
+      "label": "8.2 Service Resolution",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L609",
+      "id": "verbaflow_lake_business_first_prompt_architecture_8_2_service_resolution",
+      "community": 243,
+      "norm_label": "8.2 service resolution"
+    },
+    {
+      "label": "code:python (DENTAL_SERVICE_LABELS = {)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L613",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_13",
+      "community": 243,
+      "norm_label": "code:python (dental_service_labels = {)"
+    },
+    {
+      "label": "8.3 Target Customer Inference",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L630",
+      "id": "verbaflow_lake_business_first_prompt_architecture_8_3_target_customer_inference",
+      "community": 243,
+      "norm_label": "8.3 target customer inference"
+    },
+    {
+      "label": "code:python (def _infer_target_customers(wizard_data: dict) -> str:)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L632",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_14",
+      "community": 243,
+      "norm_label": "code:python (def _infer_target_customers(wizard_data: dict) -> str:)"
+    },
+    {
+      "label": "9. Stage 3: Architect Agent (AI Studio)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L652",
+      "id": "verbaflow_lake_business_first_prompt_architecture_9_stage_3_architect_agent_ai_studio",
+      "community": 249,
+      "norm_label": "9. stage 3: architect agent (ai studio)"
+    },
+    {
+      "label": "9.1 Role (Enhanced)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L654",
+      "id": "verbaflow_lake_business_first_prompt_architecture_9_1_role_enhanced",
+      "community": 249,
+      "norm_label": "9.1 role (enhanced)"
+    },
+    {
+      "label": "9.2 Outputs (Enhanced)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L669",
+      "id": "verbaflow_lake_business_first_prompt_architecture_9_2_outputs_enhanced",
+      "community": 249,
+      "norm_label": "9.2 outputs (enhanced)"
+    },
+    {
+      "label": "code:json ({)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L673",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_15",
+      "community": 249,
+      "norm_label": "code:json ({)"
+    },
+    {
+      "label": "9.3 Updated Hard Constraints",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L717",
+      "id": "verbaflow_lake_business_first_prompt_architecture_9_3_updated_hard_constraints",
+      "community": 249,
+      "norm_label": "9.3 updated hard constraints"
+    },
+    {
+      "label": "10. Stage 4: Designer Prompt Builder",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L734",
+      "id": "verbaflow_lake_business_first_prompt_architecture_10_stage_4_designer_prompt_builder",
+      "community": 234,
+      "norm_label": "10. stage 4: designer prompt builder"
+    },
+    {
+      "label": "10.1 Full Prompt Template (Mode A: Client Business Website)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L736",
+      "id": "verbaflow_lake_business_first_prompt_architecture_10_1_full_prompt_template_mode_a_client_business_website",
+      "community": 234,
+      "norm_label": "10.1 full prompt template (mode a: client business website)"
+    },
+    {
+      "label": "code:block16 (Build a professional business website for {client_business_p)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L740",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_16",
+      "community": 234,
+      "norm_label": "code:block16 (build a professional business website for {client_business_p)"
+    },
+    {
+      "label": "11. Stage 5-7: Stitch \u2192 Human Review \u2192 Deploy",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L892",
+      "id": "verbaflow_lake_business_first_prompt_architecture_11_stage_5_7_stitch_human_review_deploy",
+      "community": 244,
+      "norm_label": "11. stage 5-7: stitch \u2192 human review \u2192 deploy"
+    },
+    {
+      "label": "11.1 Stitch Generation",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L894",
+      "id": "verbaflow_lake_business_first_prompt_architecture_11_1_stitch_generation",
+      "community": 244,
+      "norm_label": "11.1 stitch generation"
+    },
+    {
+      "label": "code:block17 (mcp__stitch__generate_screen_from_text)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L898",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_17",
+      "community": 244,
+      "norm_label": "code:block17 (mcp__stitch__generate_screen_from_text)"
+    },
+    {
+      "label": "11.2 Human Review Checklist (10-15 minutes per site)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L909",
+      "id": "verbaflow_lake_business_first_prompt_architecture_11_2_human_review_checklist_10_15_minutes_per_site",
+      "community": 244,
+      "norm_label": "11.2 human review checklist (10-15 minutes per site)"
+    },
+    {
+      "label": "11.3 AI Studio Polish Pass (Optional)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L924",
+      "id": "verbaflow_lake_business_first_prompt_architecture_11_3_ai_studio_polish_pass_optional",
+      "community": 244,
+      "norm_label": "11.3 ai studio polish pass (optional)"
+    },
+    {
+      "label": "11.4 Supabase Deploy + Stripe Payment",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L933",
+      "id": "verbaflow_lake_business_first_prompt_architecture_11_4_supabase_deploy_stripe_payment",
+      "community": 244,
+      "norm_label": "11.4 supabase deploy + stripe payment"
+    },
+    {
+      "label": "12. Adaptive DESIGN.md Spec (3-Mode)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L945",
+      "id": "verbaflow_lake_business_first_prompt_architecture_12_adaptive_design_md_spec_3_mode",
+      "community": 248,
+      "norm_label": "12. adaptive design.md spec (3-mode)"
+    },
+    {
+      "label": "12.1 Mode: `client-business-website`",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L949",
+      "id": "verbaflow_lake_business_first_prompt_architecture_12_1_mode_client_business_website",
+      "community": 248,
+      "norm_label": "12.1 mode: `client-business-website`"
+    },
+    {
+      "label": "code:yaml (---)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L951",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_18",
+      "community": 248,
+      "norm_label": "code:yaml (---)"
+    },
+    {
+      "label": "12.2 Mode: `growth-plan-wireframe`",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1172",
+      "id": "verbaflow_lake_business_first_prompt_architecture_12_2_mode_growth_plan_wireframe",
+      "community": 248,
+      "norm_label": "12.2 mode: `growth-plan-wireframe`"
+    },
+    {
+      "label": "12.3 Mode: `agency-vertical-landing`",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1176",
+      "id": "verbaflow_lake_business_first_prompt_architecture_12_3_mode_agency_vertical_landing",
+      "community": 248,
+      "norm_label": "12.3 mode: `agency-vertical-landing`"
+    },
+    {
+      "label": "13. Template-to-Niche Mapping",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1182",
+      "id": "verbaflow_lake_business_first_prompt_architecture_13_template_to_niche_mapping",
+      "community": 252,
+      "norm_label": "13. template-to-niche mapping"
+    },
+    {
+      "label": "13.1 Primary Mappings",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1184",
+      "id": "verbaflow_lake_business_first_prompt_architecture_13_1_primary_mappings",
+      "community": 252,
+      "norm_label": "13.1 primary mappings"
+    },
+    {
+      "label": "13.2 Fallback Selection",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1209",
+      "id": "verbaflow_lake_business_first_prompt_architecture_13_2_fallback_selection",
+      "community": 252,
+      "norm_label": "13.2 fallback selection"
+    },
+    {
+      "label": "13.3 Variance Source Selection",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1221",
+      "id": "verbaflow_lake_business_first_prompt_architecture_13_3_variance_source_selection",
+      "community": 252,
+      "norm_label": "13.3 variance source selection"
+    },
+    {
+      "label": "14. Competitor Curation Table (Seed)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1233",
+      "id": "verbaflow_lake_business_first_prompt_architecture_14_competitor_curation_table_seed",
+      "community": 236,
+      "norm_label": "14. competitor curation table (seed)"
+    },
+    {
+      "label": "14.1 Dental / Medical Practice",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1235",
+      "id": "verbaflow_lake_business_first_prompt_architecture_14_1_dental_medical_practice",
+      "community": 236,
+      "norm_label": "14.1 dental / medical practice"
+    },
+    {
+      "label": "code:yaml (industry: dental)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1237",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_19",
+      "community": 236,
+      "norm_label": "code:yaml (industry: dental)"
+    },
+    {
+      "label": "14.2 Legal / Law Firm",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1323",
+      "id": "verbaflow_lake_business_first_prompt_architecture_14_2_legal_law_firm",
+      "community": 236,
+      "norm_label": "14.2 legal / law firm"
+    },
+    {
+      "label": "code:yaml (industry: legal)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1325",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_20",
+      "community": 236,
+      "norm_label": "code:yaml (industry: legal)"
+    },
+    {
+      "label": "14.3 Restaurant / Food Service",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1373",
+      "id": "verbaflow_lake_business_first_prompt_architecture_14_3_restaurant_food_service",
+      "community": 236,
+      "norm_label": "14.3 restaurant / food service"
+    },
+    {
+      "label": "code:yaml (industry: restaurant)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1375",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_21",
+      "community": 236,
+      "norm_label": "code:yaml (industry: restaurant)"
+    },
+    {
+      "label": "14.4 Home Services",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1429",
+      "id": "verbaflow_lake_business_first_prompt_architecture_14_4_home_services",
+      "community": 236,
+      "norm_label": "14.4 home services"
+    },
+    {
+      "label": "code:yaml (industry: home_services)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1431",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_22",
+      "community": 236,
+      "norm_label": "code:yaml (industry: home_services)"
+    },
+    {
+      "label": "14.5 Real Estate",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1467",
+      "id": "verbaflow_lake_business_first_prompt_architecture_14_5_real_estate",
+      "community": 236,
+      "norm_label": "14.5 real estate"
+    },
+    {
+      "label": "code:yaml (industry: real_estate)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1469",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_23",
+      "community": 236,
+      "norm_label": "code:yaml (industry: real_estate)"
+    },
+    {
+      "label": "14.6 Auto Services",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1505",
+      "id": "verbaflow_lake_business_first_prompt_architecture_14_6_auto_services",
+      "community": 236,
+      "norm_label": "14.6 auto services"
+    },
+    {
+      "label": "code:yaml (industry: auto_services)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1507",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_24",
+      "community": 236,
+      "norm_label": "code:yaml (industry: auto_services)"
+    },
+    {
+      "label": "15. Service Sub-Types by Industry",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1539",
+      "id": "verbaflow_lake_business_first_prompt_architecture_15_service_sub_types_by_industry",
+      "community": 253,
+      "norm_label": "15. service sub-types by industry"
+    },
+    {
+      "label": "15.1 `web-design` (The $400 Package)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1543",
+      "id": "verbaflow_lake_business_first_prompt_architecture_15_1_web_design_the_400_package",
+      "community": 253,
+      "norm_label": "15.1 `web-design` (the $400 package)"
+    },
+    {
+      "label": "code:yaml (service: web-design)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1545",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_25",
+      "community": 253,
+      "norm_label": "code:yaml (service: web-design)"
+    },
+    {
+      "label": "15.2 Upsell Services (Post-$400)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1686",
+      "id": "verbaflow_lake_business_first_prompt_architecture_15_2_upsell_services_post_400",
+      "community": 253,
+      "norm_label": "15.2 upsell services (post-$400)"
+    },
+    {
+      "label": "16. $400 Package Architecture",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1702",
+      "id": "verbaflow_lake_business_first_prompt_architecture_16_400_package_architecture",
+      "community": 239,
+      "norm_label": "16. $400 package architecture"
+    },
+    {
+      "label": "16.1 What the Client Gets",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1704",
+      "id": "verbaflow_lake_business_first_prompt_architecture_16_1_what_the_client_gets",
+      "community": 239,
+      "norm_label": "16.1 what the client gets"
+    },
+    {
+      "label": "code:block26 ($400 = One professional business website, delivered as:)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1706",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_26",
+      "community": 239,
+      "norm_label": "code:block26 ($400 = one professional business website, delivered as:)"
+    },
+    {
+      "label": "16.2 What VerbaFlow Does",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1719",
+      "id": "verbaflow_lake_business_first_prompt_architecture_16_2_what_verbaflow_does",
+      "community": 239,
+      "norm_label": "16.2 what verbaflow does"
+    },
+    {
+      "label": "code:block27 (Per client:)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1721",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_27",
+      "community": 239,
+      "norm_label": "code:block27 (per client:)"
+    },
+    {
+      "label": "16.3 Payment Flow",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1737",
+      "id": "verbaflow_lake_business_first_prompt_architecture_16_3_payment_flow",
+      "community": 239,
+      "norm_label": "16.3 payment flow"
+    },
+    {
+      "label": "code:block28 (1. Client fills questionnaire (self-service or guided))",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1739",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_28",
+      "community": 239,
+      "norm_label": "code:block28 (1. client fills questionnaire (self-service or guided))"
+    },
+    {
+      "label": "16.4 Stripe Integration",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1750",
+      "id": "verbaflow_lake_business_first_prompt_architecture_16_4_stripe_integration",
+      "community": 239,
+      "norm_label": "16.4 stripe integration"
+    },
+    {
+      "label": "code:yaml (stripe:)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1752",
+      "id": "verbaflow_lake_business_first_prompt_architecture_codeblock_29",
+      "community": 239,
+      "norm_label": "code:yaml (stripe:)"
+    },
+    {
+      "label": "17. Skills Integration Map",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1769",
+      "id": "verbaflow_lake_business_first_prompt_architecture_17_skills_integration_map",
+      "community": 234,
+      "norm_label": "17. skills integration map"
+    },
+    {
+      "label": "17.1 Skills Used Per Stage",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1771",
+      "id": "verbaflow_lake_business_first_prompt_architecture_17_1_skills_used_per_stage",
+      "community": 234,
+      "norm_label": "17.1 skills used per stage"
+    },
+    {
+      "label": "17.2 Creative Skills (Optional Enhancements)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1785",
+      "id": "verbaflow_lake_business_first_prompt_architecture_17_2_creative_skills_optional_enhancements",
+      "community": 234,
+      "norm_label": "17.2 creative skills (optional enhancements)"
+    },
+    {
+      "label": "18. Pitfalls",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1800",
+      "id": "verbaflow_lake_business_first_prompt_architecture_18_pitfalls",
+      "community": 245,
+      "norm_label": "18. pitfalls"
+    },
+    {
+      "label": "18.1 Perspective Leak",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1802",
+      "id": "verbaflow_lake_business_first_prompt_architecture_18_1_perspective_leak",
+      "community": 245,
+      "norm_label": "18.1 perspective leak"
+    },
+    {
+      "label": "18.2 Competitor Mining",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1811",
+      "id": "verbaflow_lake_business_first_prompt_architecture_18_2_competitor_mining",
+      "community": 245,
+      "norm_label": "18.2 competitor mining"
+    },
+    {
+      "label": "18.3 Template Selection",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1820",
+      "id": "verbaflow_lake_business_first_prompt_architecture_18_3_template_selection",
+      "community": 245,
+      "norm_label": "18.3 template selection"
+    },
+    {
+      "label": "18.4 Questionnaire",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1829",
+      "id": "verbaflow_lake_business_first_prompt_architecture_18_4_questionnaire",
+      "community": 245,
+      "norm_label": "18.4 questionnaire"
+    },
+    {
+      "label": "18.5 Pipeline",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1837",
+      "id": "verbaflow_lake_business_first_prompt_architecture_18_5_pipeline",
+      "community": 245,
+      "norm_label": "18.5 pipeline"
+    },
+    {
+      "label": "19. Future Extensions",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1847",
+      "id": "verbaflow_lake_business_first_prompt_architecture_19_future_extensions",
+      "community": 246,
+      "norm_label": "19. future extensions"
+    },
+    {
+      "label": "19.1 Multi-Page Website Package ($800)",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1849",
+      "id": "verbaflow_lake_business_first_prompt_architecture_19_1_multi_page_website_package_800",
+      "community": 246,
+      "norm_label": "19.1 multi-page website package ($800)"
+    },
+    {
+      "label": "19.2 Industry Verticals as Products",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1853",
+      "id": "verbaflow_lake_business_first_prompt_architecture_19_2_industry_verticals_as_products",
+      "community": 246,
+      "norm_label": "19.2 industry verticals as products"
+    },
+    {
+      "label": "19.3 Competitor Table Automation",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1862",
+      "id": "verbaflow_lake_business_first_prompt_architecture_19_3_competitor_table_automation",
+      "community": 246,
+      "norm_label": "19.3 competitor table automation"
+    },
+    {
+      "label": "19.4 AI Studio Full Build",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1870",
+      "id": "verbaflow_lake_business_first_prompt_architecture_19_4_ai_studio_full_build",
+      "community": 246,
+      "norm_label": "19.4 ai studio full build"
+    },
+    {
+      "label": "19.5 Client Portal",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1880",
+      "id": "verbaflow_lake_business_first_prompt_architecture_19_5_client_portal",
+      "community": 246,
+      "norm_label": "19.5 client portal"
+    },
+    {
+      "label": "Appendix A: File Locations",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1891",
+      "id": "verbaflow_lake_business_first_prompt_architecture_appendix_a_file_locations",
+      "community": 234,
+      "norm_label": "appendix a: file locations"
+    },
+    {
+      "label": "Appendix B: Glossary",
+      "file_type": "document",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1911",
+      "id": "verbaflow_lake_business_first_prompt_architecture_appendix_b_glossary",
+      "community": 234,
+      "norm_label": "appendix b: glossary"
+    },
+    {
       "label": "adaptive-design-engine.md",
       "file_type": "document",
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
@@ -24290,7 +25415,7 @@
       "file_type": "code",
       "source_file": "scripts/seed-sanity-services.ts",
       "source_location": "L1",
-      "community": 164,
+      "community": 29,
       "norm_label": "seed-sanity-services.ts",
       "id": "scripts_seed_sanity_services_ts"
     },
@@ -24326,7 +25451,7 @@
       "file_type": "code",
       "source_file": "src/generated/client/browser.ts",
       "source_location": "L1",
-      "community": 26,
+      "community": 250,
       "norm_label": "browser.ts",
       "id": "src_generated_client_browser_ts"
     },
@@ -24353,7 +25478,7 @@
       "file_type": "code",
       "source_file": "src/generated/client/enums.ts",
       "source_location": "L1",
-      "community": 26,
+      "community": 2,
       "norm_label": "enums.ts",
       "id": "src_generated_client_enums_ts"
     },
@@ -24434,7 +25559,7 @@
       "file_type": "code",
       "source_file": "src/app/blog/page.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 247,
       "norm_label": "page.tsx",
       "id": "src_app_blog_page_tsx"
     },
@@ -24461,7 +25586,7 @@
       "file_type": "code",
       "source_file": "src/app/blog/portfolio/page.tsx",
       "source_location": "L1",
-      "community": 25,
+      "community": 29,
       "norm_label": "page.tsx",
       "id": "src_app_blog_portfolio_page_tsx"
     },
@@ -24515,7 +25640,7 @@
       "file_type": "code",
       "source_file": "src/app/api/chat/route.ts",
       "source_location": "L1",
-      "community": 37,
+      "community": 43,
       "norm_label": "route.ts",
       "id": "src_app_api_chat_route_ts"
     },
@@ -24524,7 +25649,7 @@
       "file_type": "code",
       "source_file": "src/app/api/plan/[id]/status/route.ts",
       "source_location": "L1",
-      "community": 129,
+      "community": 256,
       "norm_label": "route.ts",
       "id": "src_app_api_plan_id_status_route_ts"
     },
@@ -24533,7 +25658,7 @@
       "file_type": "code",
       "source_file": "src/app/api/plan/[id]/move-forward/route.ts",
       "source_location": "L1",
-      "community": 129,
+      "community": 135,
       "norm_label": "route.ts",
       "id": "src_app_api_plan_id_move_forward_route_ts"
     },
@@ -24542,7 +25667,7 @@
       "file_type": "code",
       "source_file": "src/app/api/plan/[id]/preview/route.ts",
       "source_location": "L1",
-      "community": 135,
+      "community": 129,
       "norm_label": "route.ts",
       "id": "src_app_api_plan_id_preview_route_ts"
     },
@@ -24560,7 +25685,7 @@
       "file_type": "code",
       "source_file": "src/app/api/growth-plan/start/route.ts",
       "source_location": "L1",
-      "community": 135,
+      "community": 129,
       "norm_label": "route.ts",
       "id": "src_app_api_growth_plan_start_route_ts"
     },
@@ -24596,7 +25721,7 @@
       "file_type": "code",
       "source_file": "src/app/services/page.tsx",
       "source_location": "L1",
-      "community": 29,
+      "community": 233,
       "norm_label": "page.tsx",
       "id": "src_app_services_page_tsx"
     },
@@ -24659,7 +25784,7 @@
       "file_type": "code",
       "source_file": "src/sanity/lib/client.ts",
       "source_location": "L1",
-      "community": 29,
+      "community": 43,
       "norm_label": "client.ts",
       "id": "src_sanity_lib_client_ts"
     },
@@ -24758,7 +25883,7 @@
       "file_type": "code",
       "source_file": "src/components/agency-prototypes/proto-02-split-screen/index.tsx",
       "source_location": "L1",
-      "community": 3,
+      "community": 255,
       "norm_label": "index.tsx",
       "id": "src_components_agency_prototypes_proto_02_split_screen_index_tsx"
     },
@@ -24767,7 +25892,7 @@
       "file_type": "code",
       "source_file": "src/components/agency-prototypes/proto-01-wireframe-main/index.tsx",
       "source_location": "L1",
-      "community": 13,
+      "community": 235,
       "norm_label": "index.tsx",
       "id": "src_components_agency_prototypes_proto_01_wireframe_main_index_tsx"
     },
@@ -24776,7 +25901,7 @@
       "file_type": "code",
       "source_file": "src/components/agency-prototypes/proto-03-wireframe-v1/index.tsx",
       "source_location": "L1",
-      "community": 13,
+      "community": 251,
       "norm_label": "index.tsx",
       "id": "src_components_agency_prototypes_proto_03_wireframe_v1_index_tsx"
     },
@@ -24821,7 +25946,7 @@
       "file_type": "code",
       "source_file": "src/lib/knowledge-base.ts",
       "source_location": "L1",
-      "community": 37,
+      "community": 43,
       "norm_label": "knowledge-base.ts",
       "id": "src_lib_knowledge_base_ts"
     },
@@ -24830,7 +25955,7 @@
       "file_type": "code",
       "source_file": "src/lib/supabase.ts",
       "source_location": "L1",
-      "community": 37,
+      "community": 43,
       "norm_label": "supabase.ts",
       "id": "src_lib_supabase_ts"
     },
@@ -33363,9 +34488,9 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_page_tsx",
-      "target": "src_components_volumetricbeam_tsx",
-      "confidence_score": 1.0
+      "target": "src_components_volumetricbeam_tsx"
     },
     {
       "relation": "imports_from",
@@ -44636,6 +45761,46 @@
       "source_file": "CHANGES.md",
       "source_location": "L1",
       "weight": 1.0,
+      "source": "changes_md",
+      "target": "vflow2_0_changes_2026_05_16_02_15_utc_volumetric_beam_frock_shaped_bottom_spread_with_ragged_edges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CHANGES.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "changes_md",
+      "target": "vflow2_0_changes_2026_05_16_01_45_utc_business_first_prompt_architecture_complete_two_axis_spec",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CHANGES.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "changes_md",
+      "target": "vflow2_0_changes_2026_05_16_01_25_utc_volumetric_beam_fat_filament_bundle_ground_spread_soft_edges",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CHANGES.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "changes_md",
+      "target": "vflow2_0_changes_2026_05_16_00_50_utc_volumetric_beam_kill_seam_color_grade_overlap_slim_plume",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CHANGES.md",
+      "source_location": "L1",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "changes_md",
       "target": "vflow2_0_changes_2026_05_15_22_45_utc_pac_man_automated_wall_bounce"
@@ -53726,9 +54891,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "docs_plans_waterfall_beam_ideation_md",
-      "target": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_waterfall_beam_ideation"
     },
     {
       "relation": "contains",
@@ -53736,9 +54901,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_volumetricbeam_cascade_plume_lava_fade",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_volumetricbeam_cascade_plume_lava_fade"
     },
     {
       "relation": "contains",
@@ -53746,9 +54911,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_1_visual_vocabulary_reference_names",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_1_visual_vocabulary_reference_names"
     },
     {
       "relation": "contains",
@@ -53756,9 +54921,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_2_what_the_user_described_condensed",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_2_what_the_user_described_condensed"
     },
     {
       "relation": "contains",
@@ -53766,9 +54931,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_3_current_code_anatomy_what_exists_now",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_3_current_code_anatomy_what_exists_now"
     },
     {
       "relation": "contains",
@@ -53776,9 +54941,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_4_three_architectural_options",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_4_three_architectural_options"
     },
     {
       "relation": "contains",
@@ -53786,9 +54951,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L137",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_5_design_specification_option_a",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_5_design_specification_option_a"
     },
     {
       "relation": "contains",
@@ -53796,9 +54961,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L321",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_6_z_index_layering_plan",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_6_z_index_layering_plan"
     },
     {
       "relation": "contains",
@@ -53806,9 +54971,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L366",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_7_parameter_cheat_sheet_manual_tweak_guide",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_7_parameter_cheat_sheet_manual_tweak_guide"
     },
     {
       "relation": "contains",
@@ -53816,9 +54981,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L402",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_8_implementation_phases_if_approved",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_8_implementation_phases_if_approved"
     },
     {
       "relation": "contains",
@@ -53826,9 +54991,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L431",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_9_what_this_will_look_like_narrative",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_9_what_this_will_look_like_narrative"
     },
     {
       "relation": "contains",
@@ -53836,9 +55001,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L443",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_waterfall_beam_ideation",
-      "target": "plans_waterfall_beam_ideation_10_open_questions_answer_before_phase_1",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_10_open_questions_answer_before_phase_1"
     },
     {
       "relation": "contains",
@@ -53846,9 +55011,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_3_current_code_anatomy_what_exists_now",
-      "target": "plans_waterfall_beam_ideation_render_loop_structure_pass_1_offscreen_fog_cone",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_render_loop_structure_pass_1_offscreen_fog_cone"
     },
     {
       "relation": "contains",
@@ -53856,9 +55021,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_3_current_code_anatomy_what_exists_now",
-      "target": "plans_waterfall_beam_ideation_render_loop_structure_pass_2_main_canvas_composites",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_render_loop_structure_pass_2_main_canvas_composites"
     },
     {
       "relation": "contains",
@@ -53866,9 +55031,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_3_current_code_anatomy_what_exists_now",
-      "target": "plans_waterfall_beam_ideation_current_placement_in_herosection",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_current_placement_in_herosection"
     },
     {
       "relation": "contains",
@@ -53876,9 +55041,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_4_three_architectural_options",
-      "target": "plans_waterfall_beam_ideation_option_a_extended_canvas_recommended",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_option_a_extended_canvas_recommended"
     },
     {
       "relation": "contains",
@@ -53886,9 +55051,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_4_three_architectural_options",
-      "target": "plans_waterfall_beam_ideation_option_b_fixed_viewport_overlay_with_scroll_mask",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_option_b_fixed_viewport_overlay_with_scroll_mask"
     },
     {
       "relation": "contains",
@@ -53896,9 +55061,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_4_three_architectural_options",
-      "target": "plans_waterfall_beam_ideation_option_c_handoff_pair_hero_beam_ember_trail",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_option_c_handoff_pair_hero_beam_ember_trail"
     },
     {
       "relation": "contains",
@@ -53906,9 +55071,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L131",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_4_three_architectural_options",
-      "target": "plans_waterfall_beam_ideation_recommendation_option_a",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_recommendation_option_a"
     },
     {
       "relation": "contains",
@@ -53916,9 +55081,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_option_a_extended_canvas_recommended",
-      "target": "plans_waterfall_beam_ideation_codeblock_1",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_1"
     },
     {
       "relation": "contains",
@@ -53926,9 +55091,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L139",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_design_specification_option_a",
-      "target": "plans_waterfall_beam_ideation_5_1_geometry_from_cone_to_waterfall_profile",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_5_1_geometry_from_cone_to_waterfall_profile"
     },
     {
       "relation": "contains",
@@ -53936,9 +55101,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L175",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_design_specification_option_a",
-      "target": "plans_waterfall_beam_ideation_5_2_turbulence_more_noise_wider_at_bottom",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_5_2_turbulence_more_noise_wider_at_bottom"
     },
     {
       "relation": "contains",
@@ -53946,9 +55111,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L208",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_design_specification_option_a",
-      "target": "plans_waterfall_beam_ideation_5_3_surge_pulse_additive_traveling_energy_packet",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_5_3_surge_pulse_additive_traveling_energy_packet"
     },
     {
       "relation": "contains",
@@ -53956,9 +55121,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L240",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_design_specification_option_a",
-      "target": "plans_waterfall_beam_ideation_5_4_longitudinal_profile_keep_current",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_5_4_longitudinal_profile_keep_current"
     },
     {
       "relation": "contains",
@@ -53966,9 +55131,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L244",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_design_specification_option_a",
-      "target": "plans_waterfall_beam_ideation_5_5_lava_fade_alpha_decay_into_servicessection",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_5_5_lava_fade_alpha_decay_into_servicessection"
     },
     {
       "relation": "contains",
@@ -53976,9 +55141,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L282",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_design_specification_option_a",
-      "target": "plans_waterfall_beam_ideation_5_6_core_line_keep_but_widen_with_pulse",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_5_6_core_line_keep_but_widen_with_pulse"
     },
     {
       "relation": "contains",
@@ -53986,9 +55151,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L299",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_design_specification_option_a",
-      "target": "plans_waterfall_beam_ideation_5_7_apex_bloom_sync_with_pulse",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_5_7_apex_bloom_sync_with_pulse"
     },
     {
       "relation": "contains",
@@ -53996,9 +55161,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L310",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_design_specification_option_a",
-      "target": "plans_waterfall_beam_ideation_5_8_landing_pool_intensify_on_pulse_landing",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_5_8_landing_pool_intensify_on_pulse_landing"
     },
     {
       "relation": "contains",
@@ -54006,9 +55171,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_1_geometry_from_cone_to_waterfall_profile",
-      "target": "plans_waterfall_beam_ideation_codeblock_2",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_2"
     },
     {
       "relation": "contains",
@@ -54016,9 +55181,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L178",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_2_turbulence_more_noise_wider_at_bottom",
-      "target": "plans_waterfall_beam_ideation_codeblock_3",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_3"
     },
     {
       "relation": "contains",
@@ -54026,9 +55191,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L184",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_2_turbulence_more_noise_wider_at_bottom",
-      "target": "plans_waterfall_beam_ideation_codeblock_4",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_4"
     },
     {
       "relation": "contains",
@@ -54036,9 +55201,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L200",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_2_turbulence_more_noise_wider_at_bottom",
-      "target": "plans_waterfall_beam_ideation_codeblock_5",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_5"
     },
     {
       "relation": "contains",
@@ -54046,9 +55211,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L212",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_3_surge_pulse_additive_traveling_energy_packet",
-      "target": "plans_waterfall_beam_ideation_codeblock_6",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_6"
     },
     {
       "relation": "contains",
@@ -54056,9 +55221,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L227",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_3_surge_pulse_additive_traveling_energy_packet",
-      "target": "plans_waterfall_beam_ideation_codeblock_7",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_7"
     },
     {
       "relation": "contains",
@@ -54066,9 +55231,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L255",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_5_lava_fade_alpha_decay_into_servicessection",
-      "target": "plans_waterfall_beam_ideation_codeblock_8",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_8"
     },
     {
       "relation": "contains",
@@ -54076,9 +55241,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L272",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_5_lava_fade_alpha_decay_into_servicessection",
-      "target": "plans_waterfall_beam_ideation_codeblock_9",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_9"
     },
     {
       "relation": "contains",
@@ -54086,9 +55251,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L286",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_6_core_line_keep_but_widen_with_pulse",
-      "target": "plans_waterfall_beam_ideation_codeblock_10",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_10"
     },
     {
       "relation": "contains",
@@ -54096,9 +55261,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L293",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_6_core_line_keep_but_widen_with_pulse",
-      "target": "plans_waterfall_beam_ideation_codeblock_11",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_11"
     },
     {
       "relation": "contains",
@@ -54106,9 +55271,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L303",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_7_apex_bloom_sync_with_pulse",
-      "target": "plans_waterfall_beam_ideation_codeblock_12",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_12"
     },
     {
       "relation": "contains",
@@ -54116,9 +55281,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L314",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_5_8_landing_pool_intensify_on_pulse_landing",
-      "target": "plans_waterfall_beam_ideation_codeblock_13",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_13"
     },
     {
       "relation": "contains",
@@ -54126,9 +55291,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L325",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_6_z_index_layering_plan",
-      "target": "plans_waterfall_beam_ideation_current_problem",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_current_problem"
     },
     {
       "relation": "contains",
@@ -54136,9 +55301,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L329",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_6_z_index_layering_plan",
-      "target": "plans_waterfall_beam_ideation_solution_page_level_portal",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_solution_page_level_portal"
     },
     {
       "relation": "contains",
@@ -54146,9 +55311,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L333",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_solution_page_level_portal",
-      "target": "plans_waterfall_beam_ideation_codeblock_14",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_14"
     },
     {
       "relation": "contains",
@@ -54156,9 +55321,9 @@
       "source_file": "docs/plans/waterfall-beam-ideation.md",
       "source_location": "L350",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_waterfall_beam_ideation_solution_page_level_portal",
-      "target": "plans_waterfall_beam_ideation_codeblock_15",
-      "confidence_score": 1.0
+      "target": "plans_waterfall_beam_ideation_codeblock_15"
     },
     {
       "relation": "contains",
@@ -57563,12 +58728,1212 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_md",
+      "target": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_table_of_contents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_1_problem_statement",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_2_perspective_anchor_who_is_the_website_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_3_the_two_axis_superset_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_4_pipeline_architecture_stages_0_7",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L259",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_5_stage_0_competitor_design_mining",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L365",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_6_stage_0_5_adaptive_template_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L452",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_7_stage_1_enhanced_questionnaire",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L581",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_8_stage_2_client_business_profile_extraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L652",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_9_stage_3_architect_agent_ai_studio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L734",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_10_stage_4_designer_prompt_builder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L892",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_11_stage_5_7_stitch_human_review_deploy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L945",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_12_adaptive_design_md_spec_3_mode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1182",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_13_template_to_niche_mapping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1233",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_14_competitor_curation_table_seed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1539",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_15_service_sub_types_by_industry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1702",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_16_400_package_architecture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1769",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_17_skills_integration_map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1800",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_18_pitfalls",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1847",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_19_future_extensions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1891",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_appendix_a_file_locations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1911",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_business_first_prompt_architecture_complete_specification",
+      "target": "verbaflow_lake_business_first_prompt_architecture_appendix_b_glossary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_1_problem_statement",
+      "target": "verbaflow_lake_business_first_prompt_architecture_1_1_the_original_problem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_1_problem_statement",
+      "target": "verbaflow_lake_business_first_prompt_architecture_1_2_the_deeper_opportunity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_1_problem_statement",
+      "target": "verbaflow_lake_business_first_prompt_architecture_1_3_the_adaptive_template_gap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_2_perspective_anchor_who_is_the_website_for",
+      "target": "verbaflow_lake_business_first_prompt_architecture_mode_a_client_business_website_400_product",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_2_perspective_anchor_who_is_the_website_for",
+      "target": "verbaflow_lake_business_first_prompt_architecture_mode_b_growth_plan_wireframe_upsell_lead_magnet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_2_perspective_anchor_who_is_the_website_for",
+      "target": "verbaflow_lake_business_first_prompt_architecture_mode_c_agency_vertical_landing_page_verbaflow_marketing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_2_perspective_anchor_who_is_the_website_for",
+      "target": "verbaflow_lake_business_first_prompt_architecture_perspective_guardrails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_mode_a_client_business_website_400_product",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_mode_b_growth_plan_wireframe_upsell_lead_magnet",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_mode_c_agency_vertical_landing_page_verbaflow_marketing",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_3",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_3_the_two_axis_superset_model",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_4",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_3_the_two_axis_superset_model",
+      "target": "verbaflow_lake_business_first_prompt_architecture_3_1_superset_composition_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L173",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_3_the_two_axis_superset_model",
+      "target": "verbaflow_lake_business_first_prompt_architecture_3_2_depth_levels_for_competitor_discovery",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_4_pipeline_architecture_stages_0_7",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_5",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L261",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_5_stage_0_competitor_design_mining",
+      "target": "verbaflow_lake_business_first_prompt_architecture_5_1_source_discovery",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L271",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_5_stage_0_competitor_design_mining",
+      "target": "verbaflow_lake_business_first_prompt_architecture_5_2_extraction_method",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L299",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_5_stage_0_competitor_design_mining",
+      "target": "verbaflow_lake_business_first_prompt_architecture_5_3_competitor_inspiration_block_format",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L343",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_5_stage_0_competitor_design_mining",
+      "target": "verbaflow_lake_business_first_prompt_architecture_5_4_client_source_integration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L275",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_5_2_extraction_method",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_6",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L303",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_5_3_competitor_inspiration_block_format",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_7",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L347",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_5_4_client_source_integration",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_8",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L367",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_6_stage_0_5_adaptive_template_selection",
+      "target": "verbaflow_lake_business_first_prompt_architecture_6_1_selection_algorithm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L389",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_6_stage_0_5_adaptive_template_selection",
+      "target": "verbaflow_lake_business_first_prompt_architecture_6_2_template_config_block_format",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L431",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_6_stage_0_5_adaptive_template_selection",
+      "target": "verbaflow_lake_business_first_prompt_architecture_6_3_template_loading",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L369",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_6_1_selection_algorithm",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_9",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L393",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_6_2_template_config_block_format",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_10",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L435",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_6_3_template_loading",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_11",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L454",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_stage_1_enhanced_questionnaire",
+      "target": "verbaflow_lake_business_first_prompt_architecture_7_1_universal_fields_all_industries_unchanged_from_current",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L472",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_stage_1_enhanced_questionnaire",
+      "target": "verbaflow_lake_business_first_prompt_architecture_7_2_industry_specific_fields_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L569",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_stage_1_enhanced_questionnaire",
+      "target": "verbaflow_lake_business_first_prompt_architecture_7_3_universal_optional_field_new",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L476",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_2_industry_specific_fields_new",
+      "target": "verbaflow_lake_business_first_prompt_architecture_dental",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L489",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_2_industry_specific_fields_new",
+      "target": "verbaflow_lake_business_first_prompt_architecture_legal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L501",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_2_industry_specific_fields_new",
+      "target": "verbaflow_lake_business_first_prompt_architecture_restaurant",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L515",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_2_industry_specific_fields_new",
+      "target": "verbaflow_lake_business_first_prompt_architecture_salon_beauty",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L526",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_2_industry_specific_fields_new",
+      "target": "verbaflow_lake_business_first_prompt_architecture_home_services_hvac_plumbing_electrical_roofing_landscaping",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L537",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_2_industry_specific_fields_new",
+      "target": "verbaflow_lake_business_first_prompt_architecture_healthcare_medical_practice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L548",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_2_industry_specific_fields_new",
+      "target": "verbaflow_lake_business_first_prompt_architecture_real_estate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L559",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_7_2_industry_specific_fields_new",
+      "target": "verbaflow_lake_business_first_prompt_architecture_auto_services",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L583",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_8_stage_2_client_business_profile_extraction",
+      "target": "verbaflow_lake_business_first_prompt_architecture_8_1_normalization_logic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L609",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_8_stage_2_client_business_profile_extraction",
+      "target": "verbaflow_lake_business_first_prompt_architecture_8_2_service_resolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L630",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_8_stage_2_client_business_profile_extraction",
+      "target": "verbaflow_lake_business_first_prompt_architecture_8_3_target_customer_inference",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L587",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_8_1_normalization_logic",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_12",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L613",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_8_2_service_resolution",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_13",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L632",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_8_3_target_customer_inference",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_14",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L654",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_9_stage_3_architect_agent_ai_studio",
+      "target": "verbaflow_lake_business_first_prompt_architecture_9_1_role_enhanced",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L669",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_9_stage_3_architect_agent_ai_studio",
+      "target": "verbaflow_lake_business_first_prompt_architecture_9_2_outputs_enhanced",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L717",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_9_stage_3_architect_agent_ai_studio",
+      "target": "verbaflow_lake_business_first_prompt_architecture_9_3_updated_hard_constraints",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L673",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_9_2_outputs_enhanced",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_15",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L736",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_10_stage_4_designer_prompt_builder",
+      "target": "verbaflow_lake_business_first_prompt_architecture_10_1_full_prompt_template_mode_a_client_business_website",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L740",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_10_1_full_prompt_template_mode_a_client_business_website",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_16",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L894",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_11_stage_5_7_stitch_human_review_deploy",
+      "target": "verbaflow_lake_business_first_prompt_architecture_11_1_stitch_generation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L909",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_11_stage_5_7_stitch_human_review_deploy",
+      "target": "verbaflow_lake_business_first_prompt_architecture_11_2_human_review_checklist_10_15_minutes_per_site",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L924",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_11_stage_5_7_stitch_human_review_deploy",
+      "target": "verbaflow_lake_business_first_prompt_architecture_11_3_ai_studio_polish_pass_optional",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L933",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_11_stage_5_7_stitch_human_review_deploy",
+      "target": "verbaflow_lake_business_first_prompt_architecture_11_4_supabase_deploy_stripe_payment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L898",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_11_1_stitch_generation",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_17",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L949",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_12_adaptive_design_md_spec_3_mode",
+      "target": "verbaflow_lake_business_first_prompt_architecture_12_1_mode_client_business_website",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1172",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_12_adaptive_design_md_spec_3_mode",
+      "target": "verbaflow_lake_business_first_prompt_architecture_12_2_mode_growth_plan_wireframe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1176",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_12_adaptive_design_md_spec_3_mode",
+      "target": "verbaflow_lake_business_first_prompt_architecture_12_3_mode_agency_vertical_landing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L951",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_12_1_mode_client_business_website",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_18",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1184",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_13_template_to_niche_mapping",
+      "target": "verbaflow_lake_business_first_prompt_architecture_13_1_primary_mappings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1209",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_13_template_to_niche_mapping",
+      "target": "verbaflow_lake_business_first_prompt_architecture_13_2_fallback_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1221",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_13_template_to_niche_mapping",
+      "target": "verbaflow_lake_business_first_prompt_architecture_13_3_variance_source_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1235",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_competitor_curation_table_seed",
+      "target": "verbaflow_lake_business_first_prompt_architecture_14_1_dental_medical_practice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1323",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_competitor_curation_table_seed",
+      "target": "verbaflow_lake_business_first_prompt_architecture_14_2_legal_law_firm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1373",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_competitor_curation_table_seed",
+      "target": "verbaflow_lake_business_first_prompt_architecture_14_3_restaurant_food_service",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1429",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_competitor_curation_table_seed",
+      "target": "verbaflow_lake_business_first_prompt_architecture_14_4_home_services",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1467",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_competitor_curation_table_seed",
+      "target": "verbaflow_lake_business_first_prompt_architecture_14_5_real_estate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1505",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_competitor_curation_table_seed",
+      "target": "verbaflow_lake_business_first_prompt_architecture_14_6_auto_services",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1237",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_1_dental_medical_practice",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_19",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1325",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_2_legal_law_firm",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_20",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1375",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_3_restaurant_food_service",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_21",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1431",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_4_home_services",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_22",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1469",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_5_real_estate",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_23",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1507",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_14_6_auto_services",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_24",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1543",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_15_service_sub_types_by_industry",
+      "target": "verbaflow_lake_business_first_prompt_architecture_15_1_web_design_the_400_package",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1686",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_15_service_sub_types_by_industry",
+      "target": "verbaflow_lake_business_first_prompt_architecture_15_2_upsell_services_post_400",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1545",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_15_1_web_design_the_400_package",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_25",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1704",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_16_400_package_architecture",
+      "target": "verbaflow_lake_business_first_prompt_architecture_16_1_what_the_client_gets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1719",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_16_400_package_architecture",
+      "target": "verbaflow_lake_business_first_prompt_architecture_16_2_what_verbaflow_does",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1737",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_16_400_package_architecture",
+      "target": "verbaflow_lake_business_first_prompt_architecture_16_3_payment_flow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1750",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_16_400_package_architecture",
+      "target": "verbaflow_lake_business_first_prompt_architecture_16_4_stripe_integration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1706",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_16_1_what_the_client_gets",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_26",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1721",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_16_2_what_verbaflow_does",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_27",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1739",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_16_3_payment_flow",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_28",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1752",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_16_4_stripe_integration",
+      "target": "verbaflow_lake_business_first_prompt_architecture_codeblock_29",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1771",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_17_skills_integration_map",
+      "target": "verbaflow_lake_business_first_prompt_architecture_17_1_skills_used_per_stage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1785",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_17_skills_integration_map",
+      "target": "verbaflow_lake_business_first_prompt_architecture_17_2_creative_skills_optional_enhancements",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1802",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_18_pitfalls",
+      "target": "verbaflow_lake_business_first_prompt_architecture_18_1_perspective_leak",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1811",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_18_pitfalls",
+      "target": "verbaflow_lake_business_first_prompt_architecture_18_2_competitor_mining",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1820",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_18_pitfalls",
+      "target": "verbaflow_lake_business_first_prompt_architecture_18_3_template_selection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1829",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_18_pitfalls",
+      "target": "verbaflow_lake_business_first_prompt_architecture_18_4_questionnaire",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1837",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_18_pitfalls",
+      "target": "verbaflow_lake_business_first_prompt_architecture_18_5_pipeline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1849",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_19_future_extensions",
+      "target": "verbaflow_lake_business_first_prompt_architecture_19_1_multi_page_website_package_800",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1853",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_19_future_extensions",
+      "target": "verbaflow_lake_business_first_prompt_architecture_19_2_industry_verticals_as_products",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1862",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_19_future_extensions",
+      "target": "verbaflow_lake_business_first_prompt_architecture_19_3_competitor_table_automation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1870",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_19_future_extensions",
+      "target": "verbaflow_lake_business_first_prompt_architecture_19_4_ai_studio_full_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "verbaflow_lake/business-first-prompt-architecture.md",
+      "source_location": "L1880",
+      "weight": 1.0,
+      "source": "verbaflow_lake_business_first_prompt_architecture_19_future_extensions",
+      "target": "verbaflow_lake_business_first_prompt_architecture_19_5_client_portal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_md",
-      "target": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade"
     },
     {
       "relation": "contains",
@@ -57576,9 +59941,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_problem_statement",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_problem_statement"
     },
     {
       "relation": "contains",
@@ -57586,9 +59951,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_solution_adaptive_design_engine",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_solution_adaptive_design_engine"
     },
     {
       "relation": "contains",
@@ -57596,9 +59961,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_stage_1_context_detection",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_stage_1_context_detection"
     },
     {
       "relation": "contains",
@@ -57606,9 +59971,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_stage_2_template_selection",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_stage_2_template_selection"
     },
     {
       "relation": "contains",
@@ -57616,9 +59981,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_stage_3_creative_accent_generation",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_stage_3_creative_accent_generation"
     },
     {
       "relation": "contains",
@@ -57626,9 +59991,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L152",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_stage_4_animation_pipeline",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_stage_4_animation_pipeline"
     },
     {
       "relation": "contains",
@@ -57636,9 +60001,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L189",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_stage_5_spec_export_design_md",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_stage_5_spec_export_design_md"
     },
     {
       "relation": "contains",
@@ -57646,9 +60011,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L317",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_implementation_workflow",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_implementation_workflow"
     },
     {
       "relation": "contains",
@@ -57656,9 +60021,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L339",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_skills_required",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_skills_required"
     },
     {
       "relation": "contains",
@@ -57666,9 +60031,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L353",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_example_galaxy_landing_page",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_example_galaxy_landing_page"
     },
     {
       "relation": "contains",
@@ -57676,9 +60041,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L383",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_example_priorzap_marketing_site",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_example_priorzap_marketing_site"
     },
     {
       "relation": "contains",
@@ -57686,9 +60051,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L411",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_verbaflow_adaptive_design_engine_vade",
-      "target": "verbaflow_lake_adaptive_design_engine_file_locations",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_file_locations"
     },
     {
       "relation": "contains",
@@ -57696,9 +60061,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_solution_adaptive_design_engine",
-      "target": "verbaflow_lake_adaptive_design_engine_codeblock_1",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_codeblock_1"
     },
     {
       "relation": "contains",
@@ -57706,9 +60071,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_1_context_detection",
-      "target": "verbaflow_lake_adaptive_design_engine_codeblock_2",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_codeblock_2"
     },
     {
       "relation": "contains",
@@ -57716,9 +60081,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_2_template_selection",
-      "target": "verbaflow_lake_adaptive_design_engine_option_a_verbaflow_internal_matrix_5_frameworks",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_option_a_verbaflow_internal_matrix_5_frameworks"
     },
     {
       "relation": "contains",
@@ -57726,9 +60091,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_2_template_selection",
-      "target": "verbaflow_lake_adaptive_design_engine_option_b_popular_web_designs_54_real_systems",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_option_b_popular_web_designs_54_real_systems"
     },
     {
       "relation": "contains",
@@ -57736,9 +60101,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_2_template_selection",
-      "target": "verbaflow_lake_adaptive_design_engine_option_c_hybrid_mode_recommended_for_client_work",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_option_c_hybrid_mode_recommended_for_client_work"
     },
     {
       "relation": "contains",
@@ -57746,9 +60111,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_option_b_popular_web_designs_54_real_systems",
-      "target": "verbaflow_lake_adaptive_design_engine_codeblock_3",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_codeblock_3"
     },
     {
       "relation": "contains",
@@ -57756,9 +60121,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_3_creative_accent_generation",
-      "target": "verbaflow_lake_adaptive_design_engine_when_to_use_each_creative_skill",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_when_to_use_each_creative_skill"
     },
     {
       "relation": "contains",
@@ -57766,9 +60131,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L132",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_3_creative_accent_generation",
-      "target": "verbaflow_lake_adaptive_design_engine_pinterest_concept_bridge",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_pinterest_concept_bridge"
     },
     {
       "relation": "contains",
@@ -57776,9 +60141,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_pinterest_concept_bridge",
-      "target": "verbaflow_lake_adaptive_design_engine_codeblock_4",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_codeblock_4"
     },
     {
       "relation": "contains",
@@ -57786,9 +60151,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L156",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_4_animation_pipeline",
-      "target": "verbaflow_lake_adaptive_design_engine_track_a_code_based_animation_manim_video",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_track_a_code_based_animation_manim_video"
     },
     {
       "relation": "contains",
@@ -57796,9 +60161,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L167",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_4_animation_pipeline",
-      "target": "verbaflow_lake_adaptive_design_engine_track_b_ai_generated_animation_comfyui",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_track_b_ai_generated_animation_comfyui"
     },
     {
       "relation": "contains",
@@ -57806,9 +60171,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L178",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_4_animation_pipeline",
-      "target": "verbaflow_lake_adaptive_design_engine_track_c_real_time_p5js_three_js_spline",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_track_c_real_time_p5js_three_js_spline"
     },
     {
       "relation": "contains",
@@ -57816,9 +60181,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L193",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_5_spec_export_design_md",
-      "target": "verbaflow_lake_adaptive_design_engine_why_design_md",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_why_design_md"
     },
     {
       "relation": "contains",
@@ -57826,9 +60191,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L201",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_5_spec_export_design_md",
-      "target": "verbaflow_lake_adaptive_design_engine_file_structure",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_file_structure"
     },
     {
       "relation": "contains",
@@ -57836,9 +60201,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L219",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_stage_5_spec_export_design_md",
-      "target": "verbaflow_lake_adaptive_design_engine_design_md_content",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_design_md_content"
     },
     {
       "relation": "contains",
@@ -57846,9 +60211,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L203",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_file_structure",
-      "target": "verbaflow_lake_adaptive_design_engine_codeblock_5",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_codeblock_5"
     },
     {
       "relation": "contains",
@@ -57856,9 +60221,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L221",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_design_md_content",
-      "target": "verbaflow_lake_adaptive_design_engine_codeblock_6",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_codeblock_6"
     },
     {
       "relation": "contains",
@@ -57866,9 +60231,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L319",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_implementation_workflow",
-      "target": "verbaflow_lake_adaptive_design_engine_for_new_projects",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_for_new_projects"
     },
     {
       "relation": "contains",
@@ -57876,9 +60241,9 @@
       "source_file": "verbaflow_lake/adaptive-design-engine.md",
       "source_location": "L329",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "verbaflow_lake_adaptive_design_engine_implementation_workflow",
-      "target": "verbaflow_lake_adaptive_design_engine_for_existing_projects_re_skin",
-      "confidence_score": 1.0
+      "target": "verbaflow_lake_adaptive_design_engine_for_existing_projects_re_skin"
     },
     {
       "relation": "contains",
@@ -60754,5 +63119,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "45d92a7f269a8658c7c801a9a1bc77c3c0f81706"
+  "built_at_commit": "c7c91d75d05521665655b8bd37736368a3750123"
 }

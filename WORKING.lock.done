@@ -1,0 +1,6 @@
+WORKING.lock
+agent: Hermes (deepseek-v4-pro)
+started: 2026-05-16 01:25 UTC
+target_files:
+  - verbaflow_lake/business-first-prompt-architecture.md
+expiry: 2026-05-16 01:55 UTC

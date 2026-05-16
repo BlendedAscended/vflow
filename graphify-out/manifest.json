@@ -625,8 +625,8 @@
     "semantic_hash": ""
   },
   "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/VolumetricBeam.tsx": {
-    "mtime": 1778907302.863814,
-    "ast_hash": "ebf8646c4440e8675fb26fd255443240",
+    "mtime": 1778910147.9051094,
+    "ast_hash": "3d226e262def779c670472b177926d95",
     "semantic_hash": ""
   },
   "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/src/components/VirtualOffice.tsx": {
@@ -1025,13 +1025,13 @@
     "semantic_hash": ""
   },
   "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/AGENT_REGISTRY.md": {
-    "mtime": 1778736805.3693144,
-    "ast_hash": "09ea22097a71815d60639c5852a81a2c",
+    "mtime": 1778909890.13174,
+    "ast_hash": "3c19275bfc68182197974c10341c02f5",
     "semantic_hash": ""
   },
   "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/CHANGES.md": {
-    "mtime": 1778901977.5565336,
-    "ast_hash": "2309f55bb7c7da965004e463ff501f75",
+    "mtime": 1778910277.3303952,
+    "ast_hash": "2c1e1af9ec1995b846c40b1f046ab0fb",
     "semantic_hash": ""
   },
   "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/AGENTS.md": {
@@ -1462,6 +1462,11 @@
   "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/verbaflow_lake/tools-and-skills-reference.md": {
     "mtime": 1778899316.777393,
     "ast_hash": "cbe4121ee722559999d9625109f0383c",
+    "semantic_hash": ""
+  },
+  "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/verbaflow_lake/business-first-prompt-architecture.md": {
+    "mtime": 1778909860.760447,
+    "ast_hash": "03e548c8023d08522e3715767748c695",
     "semantic_hash": ""
   },
   "/Users/sandeepsingh/Desktop/Project26/Agents/vflow2.0/verbaflow_lake/adaptive-design-engine.md": {
